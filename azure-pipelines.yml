@@ -1,0 +1,139 @@
+trigger:
+  branches:
+    include:
+      - uat
+      - main
+
+variables:
+  azureServiceConnection: "lupinglobal-sc"
+  uatWebAppName: "lupin-uat"
+  uatWebAppNameProd: "lupin-prd"
+  nodeVersion: "22.x"
+
+stages:
+  ################################
+  #       BUILD STAGE
+  ################################
+  - stage: Build
+    displayName: "Build frontend"
+    jobs:
+      - job: BuildJob
+        pool:
+          vmImage: "ubuntu-latest"
+
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "$(nodeVersion)"
+            displayName: "Use Node $(nodeVersion)"
+
+          # If client doesn't want security scanning, comment these 3 tasks
+          - task: AdvancedSecurity-Codeql-Init@1
+            inputs:
+              languages: "javascript"
+              querysuite: "security-and-quality"
+            displayName: "Initialize CodeQL"
+
+          - task: AdvancedSecurity-Dependency-Scanning@1
+            displayName: "Dependency Scanning"
+
+          - script: |
+              rm -rf .next
+              rm -rf node_modules
+
+              npm ci
+              npm run build
+            displayName: "Install & Build Next.js"
+
+          - task: AdvancedSecurity-Codeql-Analyze@1
+            displayName: "Perform CodeQL Analysis"
+
+          # Assemble standalone bundle
+          - script: |
+              set -e
+
+              echo "Creating standalone bundle..."
+              mkdir -p .next/standalone/.next
+              mkdir -p .next/standalone/.next/cache
+
+              echo "Copying .next/static..."
+              cp -r .next/static .next/standalone/.next/static
+
+              echo "Copying public folder..."
+              cp -r public .next/standalone/public
+
+              echo "Standalone bundle content:"
+              ls -la .next/standalone
+            displayName: "Assemble standalone bundle"
+
+          - task: ArchiveFiles@2
+            displayName: "Archive standalone output"
+            inputs:
+              rootFolderOrFile: "$(System.DefaultWorkingDirectory)/.next/standalone"
+              includeRootFolder: false
+              archiveType: zip
+              archiveFile: "$(Build.ArtifactStagingDirectory)/frontend.zip"
+              replaceExistingArchive: true
+
+          - task: PublishBuildArtifacts@1
+            displayName: "Publish Artifact"
+            inputs:
+              PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+              ArtifactName: "drop"
+              publishLocation: "Container"
+
+  ################################
+  #       UAT DEPLOYMENT
+  ################################
+  - stage: Deploy_UAT
+    displayName: "Deploy to UAT"
+    dependsOn: Build
+    condition: eq(variables['Build.SourceBranch'], 'refs/heads/uat')
+
+    jobs:
+      - deployment: DeployUAT
+        displayName: "Deploy to UAT Web App"
+        environment: "uat"
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: current
+                  artifact: drop
+
+                - task: AzureWebApp@1
+                  displayName: "Deploy Next.js to UAT"
+                  inputs:
+                    azureSubscription: "$(azureServiceConnection)"
+                    appType: webAppLinux
+                    appName: "$(uatWebAppName)"
+                    package: "$(Pipeline.Workspace)/drop/frontend.zip"
+                    startUpCommand: "node server.js"
+
+  ################################
+  #       PROD DEPLOYMENT
+  ################################
+  - stage: Deploy_PROD
+    displayName: "Deploy to Production"
+    dependsOn: Build
+    condition: eq(variables['Build.SourceBranch'], 'refs/heads/main')
+
+    jobs:
+      - deployment: DeployProd
+        displayName: "Deploy to PROD Web App"
+        environment: "prod"
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - download: current
+                  artifact: drop
+
+                - task: AzureWebApp@1
+                  displayName: "Deploy Next.js to PROD"
+                  inputs:
+                    azureSubscription: "$(azureServiceConnection)"
+                    appType: webAppLinux
+                    appName: "$(uatWebAppNameProd)"
+                    package: "$(Pipeline.Workspace)/drop/frontend.zip"
+                    startUpCommand: "node server.js"

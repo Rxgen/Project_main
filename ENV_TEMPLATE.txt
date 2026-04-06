@@ -1,0 +1,62 @@
+# Strapi CMS Configuration
+# Copy this to .env.local and fill in your values
+
+# ============================================
+# REQUIRED: Strapi URL
+# ============================================
+# For development (local Strapi)
+NEXT_PUBLIC_STRAPI_URL=http://localhost:1380
+
+# For production (your Strapi server)
+# NEXT_PUBLIC_STRAPI_URL=http://65.2.155.211:1380
+
+# ============================================
+# REQUIRED: Strapi API Token
+# ============================================
+# Generate this in Strapi Admin Panel:
+# Settings > API Tokens > Create new API Token
+# Set permissions as needed (at least "find" and "findOne" for public content)
+STRAPI_API_TOKEN=your-api-token-here
+
+# ============================================
+# OPTIONAL: Revalidation Time
+# ============================================
+# How often Next.js should revalidate cached data (in seconds)
+# Default: 60 seconds
+STRAPI_REVALIDATE=60
+
+# ============================================
+# OPTIONAL: SEO Configuration
+# ============================================
+# Your production domain (used for canonical URLs, sitemap, etc.)
+NEXT_PUBLIC_SITE_URL=https://www.lupin.com
+
+# ============================================
+# OPTIONAL: Search Engine Verification Codes
+# ============================================
+# Google Search Console verification
+NEXT_PUBLIC_GOOGLE_VERIFICATION=
+
+# Bing Webmaster Tools verification
+NEXT_PUBLIC_BING_VERIFICATION=
+
+# Yandex Webmaster verification
+NEXT_PUBLIC_YANDEX_VERIFICATION=
+
+# ============================================
+# OPTIONAL: Analytics & Tracking
+# ============================================
+# Google Analytics 4 Measurement ID
+NEXT_PUBLIC_GA_MEASUREMENT_ID=
+
+# Google Tag Manager ID
+NEXT_PUBLIC_GTM_ID=
+
+# ============================================
+# NOTES:
+# ============================================
+# 1. Variables starting with NEXT_PUBLIC_ are exposed to the browser
+# 2. Variables without NEXT_PUBLIC_ are only available server-side
+# 3. Never commit .env.local to git (it's in .gitignore)
+# 4. For production, set these in your hosting platform's environment variables
+# 5. Restart your development server after changing these values
