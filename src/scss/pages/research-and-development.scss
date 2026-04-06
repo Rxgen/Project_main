@@ -1,0 +1,935 @@
+@import "../utils/variables";
+@import "../utils/functions";
+@import "../utils/mixins";
+
+// Shared body copy (matches .research-and-development-page__bottom-hero-text)
+@mixin research-development-page-body-text($color: #1e1e1e) {
+  color: $color;
+  font-family: Inter, $font-family-base;
+  font-size: vw(22);
+  font-style: normal;
+  font-weight: 600;
+  line-height: vw(36);
+
+  p {
+    margin-bottom: vw(40);
+  }
+
+  @include media-custom($max: 1440px) {
+    font-size: vw-mobile(18, 1440);
+    line-height: vw-mobile(24, 1440);
+  }
+
+  @include media("tablet") {
+    font-size: vw(18, 768);
+    line-height: vw(28, 768);
+  }
+
+  @include media("mobile") {
+    font-size: vw-mobile(16, 414);
+    line-height: vw-mobile(24, 414);
+  }
+}
+
+// Section headings — shared type scale; set `color` per section
+@mixin research-development-page-heading-typography {
+  font-family: Inter, $font-family-base;
+  font-size: vw(65);
+  font-style: normal;
+  font-weight: 700;
+  line-height: vw(80);
+
+  @include media-custom($max: 1440px) {
+    font-size: vw(65, 1440);
+    line-height: vw(80, 1440);
+  }
+
+  @include media-custom($min: 1024px, $max: 1440px) {
+    font-size: vw(65);
+    line-height: vw(80);
+  }
+
+  @include media("tablet") {
+    font-size: vw(40, 768);
+    line-height: vw(48, 768);
+  }
+
+  @include media("mobile") {
+    font-size: vw-mobile(28, 414);
+    line-height: vw-mobile(36, 414);
+  }
+}
+
+// Bottom Hero section
+.research-and-development-page__bottom-hero {
+  width: 100%;
+  background: #e9fff1;
+  position: relative;
+  overflow: hidden;
+}
+
+.research-and-development-page__bottom-hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vw(60);
+  margin: 0 auto;
+  padding: vw(80) vw(100);
+  position: relative;
+
+  @include media("tablet") {
+    flex-direction: column-reverse;
+    padding: vw(60, 768) vw(40, 768);
+    gap: vw(40, 768);
+  }
+
+  @include media("mobile") {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+    gap: vw-mobile(32, 414);
+  }
+}
+
+.research-and-development-page__bottom-hero-content {
+  flex: 1;
+  max-width: 60%;
+  position: relative;
+  z-index: 2;
+
+  @include media("tablet") {
+    max-width: 100%;
+  }
+}
+
+.research-and-development-page__bottom-hero-text {
+  @include research-development-page-body-text(#1e1e1e);
+}
+
+// Decorative ellipses beside text
+.research-and-development-page__bottom-hero-ellipse {
+  position: absolute;
+  width: vw(196);
+  height: vw(196);
+  background: #00ad4d;
+  opacity: 0.1;
+  border-radius: 50%;
+  top: 50%;
+  transform: translate(60%, -50%);
+  pointer-events: none;
+
+  @include media("tablet") {
+    width: vw(120, 768);
+    height: vw(120, 768);
+    right: vw(-30, 768);
+  }
+
+  @include media("mobile") {
+    width: vw-mobile(80, 414);
+    height: vw-mobile(80, 414);
+    right: vw-mobile(-20, 414);
+  }
+
+  &--small {
+    width: vw(196);
+    height: vw(196);
+    top: 90%;
+    right: 0;
+
+    @include media("tablet") {
+      width: vw(70, 768);
+      height: vw(70, 768);
+      right: vw(20, 768);
+    }
+
+    @include media("mobile") {
+      width: vw-mobile(50, 414);
+      height: vw-mobile(50, 414);
+      right: vw-mobile(15, 414);
+    }
+  }
+}
+
+.research-and-development-page__bottom-hero-media {
+  flex-shrink: 0;
+  width: vw(522);
+  height: vw(522);
+  z-index: 2;
+
+  @include media("tablet") {
+    width: vw(320, 768);
+    height: vw(320, 768);
+  }
+
+  @include media("mobile") {
+    width: vw-mobile(280, 414);
+    height: vw-mobile(280, 414);
+  }
+}
+
+.research-and-development-page__bottom-hero-petal {
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+  transform: translateY(50%);
+  left: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  pointer-events: none;
+  z-index: 1;
+
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    object-fit: contain;
+    object-position: right bottom;
+  }
+}
+
+.research-and-development-page__bottom-hero-image-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// Our R&D Strategy section — SVG can overflow vertically past this block
+.research-and-development-page__strategy {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  overflow: visible;
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("/assets/images/our-sci/research-and-dev/strategy-bg.png");
+
+  @include media-custom($min: 1900px, $max: 2560px) {
+    background-size: cover;
+  }
+}
+
+.research-and-development-page__strategy-inner {
+  display: flex;
+  flex-direction: column;
+  gap: vw(24);
+  position: relative;
+  overflow: visible;
+  padding: vw(80) vw(100);
+  z-index: 2;
+  width: 100%;
+  box-sizing: border-box;
+
+  @include media("tablet") {
+    gap: vw(28, 768);
+    padding: vw(60, 768) vw(40, 768);
+  }
+
+  @include media("mobile") {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+    gap: vw-mobile(24, 414);
+  }
+}
+
+// Text + SVG: SVG is always out of flow so it never sits between copy and closing paragraph
+.research-and-development-page__strategy-top {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.research-and-development-page__strategy-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 58%;
+  min-width: 0;
+
+  @include media("tablet") {
+    max-width: 100%;
+    padding-right: vw(8, 768);
+  }
+
+  @include media("mobile") {
+    max-width: 100%;
+    padding-right: vw-mobile(4, 414);
+  }
+}
+
+// Overlaps copy on smaller breakpoints — not in document flow (no gap before .strategy-closing)
+.research-and-development-page__strategy-visual {
+  position: absolute;
+  top: 70%;
+  right: vw(8);
+  transform: translateY(-50%);
+  width: vw(900);
+  max-width: 100%;
+  display: block;
+  pointer-events: none;
+  z-index: 1;
+
+  @include media("tablet") {
+    top: 55%;
+    right: 0;
+    width: vw(320, 768);
+    max-width: 42%;
+  }
+
+  @include media("mobile") {
+    top: 52%;
+    right: vw-mobile(-4, 414);
+    width: vw-mobile(200, 414);
+    max-width: 46%;
+  }
+}
+
+.research-and-development-page__strategy-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center right;
+}
+
+.research-and-development-page__strategy-heading {
+  color: #fff;
+  @include research-development-page-heading-typography;
+  margin-bottom: vw(50)
+}
+
+.research-and-development-page__strategy-intro,
+.research-and-development-page__strategy-subheading {
+  @include research-development-page-body-text(#fff);
+}
+
+.research-and-development-page__strategy-closing {
+  @include research-development-page-body-text(#fff);
+  margin: 0;
+  max-width: 90%;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+
+  @include media("tablet") {
+    max-width: 100%;
+  }
+
+  @include media("mobile") {
+    max-width: 100%;
+  }
+}
+
+.research-and-development-page__strategy-divider {
+  height: vw(1);
+  opacity: 0.5;
+  background: #fff;
+  margin: 0 0 vw(24);
+}
+
+.research-and-development-page__strategy-list {
+  @include research-development-page-body-text(#fff);
+  list-style: none;
+  margin: 0 0 vw(24);
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: vw(12);
+    margin-bottom: vw(20);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.research-and-development-page__strategy-petal {
+  flex-shrink: 0;
+  width: vw(32);
+  height: vw(32);
+  object-fit: contain;
+}
+
+// Building a Strong Product Portfolio section (below strategy SVG bleed)
+.research-and-development-page__portfolio {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  background: #e9fff1;
+  padding: vw(100) vw(80);
+
+  @include media("tablet") {
+    padding: vw(40, 768) vw(40, 768);
+  }
+
+  @include media("mobile") {
+    padding: vw-mobile(20, 414) vw-mobile(20, 414);
+  }
+}
+
+.research-and-development-page__portfolio-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vw(60);
+  padding: vw(70) vw(30);
+  border: vw(1) solid #08a03f;
+  border-radius: vw(80);
+  background: #e9fff1;
+  position: relative;
+  overflow: hidden;
+
+  @include media("tablet") {
+    flex-direction: column;
+    padding: vw(48, 768) vw(40, 768);
+    border-radius: vw(50, 768);
+  }
+
+  @include media("mobile") {
+    padding: vw-mobile(40, 414) vw-mobile(24, 414);
+    border-radius: vw(50, 414);
+  }
+}
+
+.research-and-development-page__portfolio-content {
+  flex: 1;
+  max-width: 60%;
+  position: relative;
+  z-index: 2;
+
+  @include media("tablet") {
+    max-width: 100%;
+  }
+}
+
+.research-and-development-page__portfolio-heading {
+  color: #08a03f;
+  @include research-development-page-heading-typography;
+  margin-bottom: vw(50)
+}
+
+.research-and-development-page__portfolio-text {
+  @include research-development-page-body-text(#1e1e1e);
+  margin-bottom: vw(40);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.research-and-development-page__portfolio-media {
+  flex-shrink: 0;
+  width: vw(480);
+  min-height: vw(360);
+  z-index: 1;
+  align-self: flex-end;
+}
+
+.research-and-development-page__portfolio-petal {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(20%, -50%);
+  width: vw(160);
+  pointer-events: none;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: right center;
+  }
+
+  @include media("tablet") {
+    width: 50%;
+    max-width: vw(220, 768);
+  }
+
+  @include media("mobile") {
+    max-width: vw-mobile(200, 414);
+  }
+}
+
+.research-and-development-page__portfolio-medicines {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: vw(756);
+  pointer-events: none;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: right bottom;
+  }
+
+  @include media("tablet") {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+
+  @include media("mobile") {
+    max-width: vw-mobile(220, 414);
+  }
+}
+
+// Intellectual Property and Patents
+.research-and-development-page__patents {
+  width: 100%;
+  background: rgb(7, 169, 66, 0.2);
+  position: relative;
+}
+
+.research-and-development-page__patents-inner {
+  margin: 0 auto;
+  padding: vw(80) vw(100);
+
+  @include media("tablet") {
+    padding: vw(60, 768) vw(40, 768);
+  }
+
+  @include media("mobile") {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+}
+
+.research-and-development-page__patents-heading {
+  color: #08a03f;
+  @include research-development-page-heading-typography;
+  margin-bottom: vw(50);
+
+  @include media("tablet") {
+    margin-bottom: vw(32, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(24, 414);
+  }
+}
+
+.research-and-development-page__patents-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include media("tablet") {
+    flex-direction: column;
+    align-items: stretch;
+    gap: vw(40, 768);
+  }
+
+  @include media("mobile") {
+    gap: vw-mobile(32, 414);
+  }
+}
+
+.research-and-development-page__patents-media {
+  flex-shrink: 0;
+  width: vw(700);
+  position: relative;
+  z-index: 1;
+
+  @include media-custom($max: 1440px) {
+    width: vw(400, 1440);
+  }
+
+  @include media-custom($min: 1024px, $max: 1440px) {
+    width: vw(520);
+  }
+
+  @include media("tablet") {
+    width: 100%;
+    max-width: vw(400, 768);
+    margin: 0 auto;
+  }
+
+  @include media("mobile") {
+    max-width: 100%;
+  }
+}
+
+.research-and-development-page__patents-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 vw(12) vw(32) rgba(0, 0, 0, 0.12));
+}
+
+.research-and-development-page__patents-content {
+  flex: 1;
+  min-width: 0;
+  max-width: 58%;
+
+  @include media-custom($min: 1024px, $max: 1440px) {
+    max-width: 52%;
+  }
+
+  @include media("tablet") {
+    max-width: 100%;
+  }
+}
+
+.research-and-development-page__patents-text {
+  @include research-development-page-body-text(#1e1e1e);
+  margin-bottom: vw(40);
+
+  @include media("tablet") {
+    margin-bottom: vw(20, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(16, 414);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// New Chemical Entities (NCE)
+.research-and-development-page__chemical-entities {
+  width: 100%;
+  background: linear-gradient(270deg, #08ae44 0%, #048131 100%);
+  position: relative;
+  overflow: visible;
+}
+
+.research-and-development-page__chemical-entities-inner {
+  margin: 0 auto;
+  padding: vw(80) vw(100) vw(70);
+  position: relative;
+
+  @include media("tablet") {
+    padding: vw(60, 768) vw(40, 768) vw(120, 768);
+  }
+
+  @include media("mobile") {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414) vw-mobile(100, 414);
+  }
+}
+
+.research-and-development-page__chemical-entities-row {
+  display: flex;
+  justify-content: space-between;
+  gap: vw(48);
+  position: relative;
+  z-index: 1;
+
+  @include media("tablet") {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: vw(36, 768);
+  }
+
+  @include media("mobile") {
+    gap: vw-mobile(28, 414);
+  }
+}
+
+.research-and-development-page__chemical-entities-heading {
+  color: #fff;
+  @include research-development-page-heading-typography;
+  margin: 0 0 vw(60);
+
+  @include media("tablet") {
+    margin-bottom: vw(24, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(20, 414);
+  }
+}
+
+.research-and-development-page__chemical-entities-text {
+  @include research-development-page-body-text(#fff);
+  margin-bottom: vw(40);
+
+  @include media("tablet") {
+    margin-bottom: vw(20, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(16, 414);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.research-and-development-page__chemical-entities-media {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+
+  @include media-custom($max: 1440px) {
+    width: vw(400, 1440);
+  }
+
+  @include media-custom($min: 1024px, $max: 1440px) {
+    width: vw(520);
+  }
+
+  @include media("tablet") {
+    width: 100%;
+    max-width: vw(400, 768);
+    margin: 0 auto;
+  }
+
+  @include media("mobile") {
+    max-width: 100%;
+  }
+}
+
+.research-and-development-page__chemical-entities-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+// Left + right insets (no calc): line stays under copy and stops before the image column on desktop
+.research-and-development-page__chemical-entities-decoration {
+  position: absolute;
+  z-index: 0;
+  left: vw(60);
+  bottom: 0;
+  width: auto;
+  pointer-events: none;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: left bottom;
+  }
+
+  @include media-custom($min: 1024px, $max: 1440px) {
+    width: vw(920);
+  }
+
+  @include media("tablet") {
+    left: vw(40, 768);
+  }
+
+  @include media("mobile") {
+    left: vw-mobile(20, 414);
+  }
+}
+
+// Leveraging Technology for Innovation
+.research-and-development-page__technology {
+  width: 100%;
+  background: #e9fff1;
+}
+
+.research-and-development-page__technology-inner {
+  margin: 0 auto;
+  padding: vw(90) vw(100);
+
+  @include media("tablet") {
+    padding: vw(60, 768) vw(40, 768);
+  }
+
+  @include media("mobile") {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+}
+
+.research-and-development-page__technology-heading {
+  color: #08a03f;
+  @include research-development-page-heading-typography;
+  margin-bottom: vw(50);
+
+  @include media("tablet") {
+    margin-bottom: vw(24, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(20, 414);
+  }
+}
+
+.research-and-development-page__technology-text {
+  @include research-development-page-body-text(#1e1e1e);
+  margin: 0;
+  max-width: 90%;
+
+  @include media("tablet") {
+    max-width: 100%;
+  }
+}
+
+.research-and-development-page__technology-link {
+  color: #08a03f;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+
+  &:hover {
+    text-decoration-thickness: vw(2);
+  }
+
+  &:focus-visible {
+    outline: vw(2) solid #08a03f;
+    outline-offset: vw(2);
+  }
+}
+
+// Way Forward — flex 60/40, full-bleed image right
+.research-and-development-page__way-forward {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  border-bottom: vw(1) solid #1e1e1e;
+
+  @include media("tablet") {
+    flex-direction: column;
+  }
+}
+
+.research-and-development-page__way-forward-left {
+  position: relative;
+  flex: 0 0 75%;
+  width: 100%;
+  background: rgb(7, 169, 66, 0.2);
+  padding: vw(80) vw(32) vw(80) vw(100);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+
+  @include media("tablet") {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    padding: vw(60, 768) vw(40, 768);
+  }
+
+  @include media("mobile") {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+}
+
+.research-and-development-page__way-forward-petal {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  width: vw(280);
+  pointer-events: none;
+  display: flex;
+  justify-content: flex-end;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: right center;
+  }
+
+  @include media("tablet") {
+    width: vw(200, 768);
+  }
+
+  @include media("mobile") {
+    width: vw-mobile(140, 414);
+  }
+}
+
+.research-and-development-page__way-forward-content {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  min-width: 0;
+
+  @include media("tablet") {
+    max-width: 100%;
+  }
+}
+
+.research-and-development-page__way-forward-heading {
+  color: #08a03f;
+  @include research-development-page-heading-typography;
+  margin-bottom: vw(50);
+
+  @include media("tablet") {
+    margin-bottom: vw(24, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(20, 414);
+  }
+}
+
+.research-and-development-page__way-forward-text {
+  @include research-development-page-body-text(#1e1e1e);
+  max-width: 90%;
+  margin-bottom: vw(40);
+
+  @include media("tablet") {
+    margin-bottom: vw(20, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(16, 414);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.research-and-development-page__way-forward-right {
+  position: relative;
+  flex: 0 0 25%;
+  width: 40%;
+  max-width: 40%;
+  align-self: stretch;
+
+  @include media("tablet") {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    order: -1;
+  }
+}
+
+.research-and-development-page__way-forward-image-wrap {
+  position: absolute;
+  inset: 0;
+
+  @include media("tablet") {
+    position: relative;
+    min-height: vw(420, 768);
+    aspect-ratio: #{710} / #{800};
+  }
+
+  @include media("mobile") {
+    min-height: vw-mobile(240, 414);
+  }
+}
+
+.research-and-development-page__way-forward-image {
+  object-fit: cover;
+  object-position: center;
+}

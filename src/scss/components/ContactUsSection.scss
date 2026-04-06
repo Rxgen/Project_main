@@ -1,0 +1,281 @@
+// Contact Us Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.contact-us-section {
+
+  position: relative;
+  width: 100%;
+  padding: vw(40) 0;
+  overflow: hidden;
+  
+  @include media('tablet') {
+    padding: vw(40, 768) 0;
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) 0;
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    min-height: vw(400);
+    
+    @include media('tablet') {
+      min-height: vw(350, 768);
+    }
+    
+    @include media('mobile') {
+      min-height: vw-mobile(300, 414);
+    }
+  }
+  
+  // Background SVG - Left
+  &__background-svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: vw(218);
+    height: vw(413);
+    z-index: 1;
+    pointer-events: none;
+    
+    @include media('tablet') {
+      width: vw(150, 768);
+      height: vw(280, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(100, 414);
+      height: vw-mobile(190, 414);
+    }
+    
+    &--left {
+      left: 0;
+    }
+    
+    &--right {
+      right: 0;
+    }
+  }
+  
+  &__svg-image {
+    object-fit: contain;
+    object-position: center;
+    
+    &--flipped {
+      transform: scaleX(-1);
+    }
+  }
+  
+  &__background-svg--right &__svg-image--flipped {
+    transform: scaleX(-1);
+  }
+  
+  // Content
+  &__content {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: vw(41);
+    padding-top: vw(45);
+    
+    @include media('tablet') {
+      gap: vw(35, 768);
+      padding-top: vw(45, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(30, 414);
+      padding-top: vw-mobile(45, 414);
+    }
+  }
+  
+  // Heading Wrapper
+  &__heading-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: vw(21);
+    width: vw(400);
+    text-align: center;
+    
+    @include media('tablet') {
+      width: 100%;
+      max-width: vw(500, 768);
+      gap: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(15, 414);
+    }
+  }
+  
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(65);
+    line-height: vw(80);
+    color: #08a03f;
+    text-align: center;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(50, 768);
+      line-height: vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(36, 414);
+      line-height: vw-mobile(44, 414);
+    }
+  }
+  
+  &__subheading {
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(30);
+    line-height: vw(37.456);
+    color: #08a03f;
+    text-align: center;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(26, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(20, 414);
+      line-height: vw-mobile(26, 414);
+    }
+  }
+  
+  // Contact Cards
+  &__cards {
+    display: flex;
+    gap: vw(30);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    @include media('mobile') {
+      padding-left: vw-mobile(20, 414) !important;
+      padding-right: vw-mobile(20, 414) !important;
+    }
+    
+    @include media('tablet') {
+      gap: vw(25, 768);
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      gap: vw-mobile(20, 414);
+      width: 100%;
+    }
+  }
+  
+  &__card {
+    border: vw(0.656) solid #08a03f;
+    border-radius: vw(16.392);
+    padding: vw(16.75) vw(27.917);
+    background: #ffffff;
+    min-width: vw(231);
+    flex: 0 0 auto;
+    
+    @include media('tablet') {
+      border-width: vw(0.656, 768);
+      border-radius: vw(14, 768);
+      padding: vw(15, 768) vw(25, 768);
+      min-width: vw(200, 768);
+    }
+    
+    @include media('mobile') {
+      border-width: vw-mobile(0.656, 414);
+      border-radius: vw-mobile(14, 414);
+      padding: vw-mobile(15, 414) vw-mobile(20, 414);
+      width: 100%;
+      min-width: auto;
+    }
+    
+    &:nth-child(2),
+    &:nth-child(3) {
+      border-width: vw(1.117);
+      
+      @include media('tablet') {
+        border-width: vw(1, 768);
+      }
+      
+      @include media('mobile') {
+        border-width: vw-mobile(1, 414);
+      }
+    }
+  }
+  
+  &__card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    text-align: center;
+  }
+  
+  &__card-title {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(20);
+    line-height: vw(37.456);
+    color: #08a03f;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+    }
+  }
+  
+  &__card-email {
+    font-family: $font-family-base;
+    font-weight: 400; // Regular
+    font-size: vw(17);
+    line-height: vw(37.456);
+    color: #08a03f;
+    text-transform: lowercase;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      line-height: vw-mobile(22, 414);
+    }
+  }
+  
+  &__email-link {
+    color: inherit;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+

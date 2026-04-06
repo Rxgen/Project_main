@@ -1,0 +1,98 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+// Our Story Vertical Slider
+.our-story-vertical-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: vw(295);
+  font-family: $font-family-base;
+  font-weight: 700;
+  line-height: vw(243);
+  color: #e1e1e1;
+  font-size: vw(280);
+  letter-spacing: vw(19.6);
+  position: relative;
+  height: vw(1319); // Fixed height for scrolling container
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE and Edge
+  // Add padding to allow first/last items to center
+  padding: vw(500) vw(83) vw(500) 0; // Top/bottom padding allows centering of first/last items
+  
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari, Opera
+  }
+  
+  @include media('tablet') {
+    height: vw(1000, 768);
+    gap: vw(200, 768);
+    font-size: vw(200, 768);
+    line-height: vw(180, 768);
+    letter-spacing: vw(14, 768);
+    padding: vw(400, 768) vw(50, 768) vw(400, 768) 0;
+  }
+  
+  @include media('mobile') {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: vw-mobile(30, 414);
+    font-size: vw-mobile(60, 414);
+    line-height: vw-mobile(50, 414);
+    letter-spacing: vw-mobile(5, 414);
+    width: 100%;
+    padding: vw-mobile(20, 414);
+    height: auto;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+  }
+
+  // Year Button
+  &__year {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(280);
+    line-height: vw(243);
+    color: #e1e1e1;
+    letter-spacing: vw(19.6);
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: opacity $transition-base;
+    position: relative;
+    flex-shrink: 0;
+    min-width: max-content;
+    
+    @include media('tablet') {
+      font-size: vw(200, 768);
+      line-height: vw(180, 768);
+      letter-spacing: vw(14, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(60, 414);
+      line-height: vw-mobile(50, 414);
+      letter-spacing: vw-mobile(5, 414);
+    }
+
+    &--active {
+      opacity: 1 !important;
+      color: #08A03F; // Green color for active year
+    }
+
+    &:hover:not(&--active) {
+      opacity: 0.5 !important;
+    }
+  }
+}
+

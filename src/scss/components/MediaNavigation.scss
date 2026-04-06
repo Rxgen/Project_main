@@ -1,0 +1,199 @@
+// Media Navigation Component Styles
+// Based on Figma design: node-id 2511:183
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.media-navigation {
+  position: relative;
+  width: 100%;
+  padding: vw(60) 0;
+  
+  @include media('tablet') {
+    padding: vw(50, 768) 0;
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+
+  // Decorative Petals
+  &__petals {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    
+    &--left {
+      top: vw(50);
+      left: 0;
+      
+      @include media('tablet') {
+        top: vw(40, 768);
+      }
+      
+      @include media('mobile') {
+        top: vw-mobile(30, 414);
+      }
+    }
+    
+    &--right {
+      top: vw(50);
+      right: 0;
+      
+      @include media('tablet') {
+        top: vw(40, 768);
+      }
+      
+      @include media('mobile') {
+        top: vw-mobile(30, 414);
+      }
+    }
+    
+    &-img {
+      width: vw(218);
+      height: auto;
+      
+      @include media('tablet') {
+        width: vw(150, 768);
+      }
+      
+      @include media('mobile') {
+        width: vw-mobile(100, 414);
+      }
+      
+      &--flipped {
+        transform: scaleX(-1);
+      }
+    }
+  }
+
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(80);
+    color: #08a03f;
+    text-align: center;
+    white-space: nowrap;
+    margin: 0 0 vw(50) 0;
+    position: relative;
+    z-index: 1;
+    
+    @include media('tablet') {
+      font-size: vw(48, 768);
+      line-height: vw(60, 768);
+      margin-bottom: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(40, 414);
+      margin-bottom: vw-mobile(30, 414);
+      white-space: normal;
+    }
+  }
+
+  &__tabs {
+    @include flex(row, center, center);
+    gap: vw(22.334);
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    margin-bottom: vw(40);
+    
+    @include media('tablet') {
+      margin-bottom: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(25, 414);
+    }
+  }
+
+  &__search {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: vw(1440);
+    margin: 0 auto;
+    padding: 50px vw(40) 0;
+    
+    @include media('tablet') {
+      padding: 50px vw(30, 768) 0;
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(40, 414) 0 0 0;
+      max-width: 100%;
+    }
+    
+    @include media('tablet') {
+      gap: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(12, 414);
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  &__tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: vw(0.656) solid #08a03f;
+    background: #ffffff;
+    color: #08a03f;
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(19.67);
+    line-height: vw(37.456);
+    padding: vw(16.75) vw(27.917);
+    border-radius: vw(16.392);
+    cursor: pointer;
+    transition: all $transition-base;
+    white-space: nowrap;
+    text-decoration: none;
+    min-width: vw(231);
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(28, 768);
+      padding: vw(14, 768) vw(24, 768);
+      border-radius: vw(14, 768);
+      border-width: vw(1, 768);
+      min-width: auto;
+      flex: 1 1 auto;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+      padding: vw-mobile(12, 414) vw-mobile(20, 414);
+      border-radius: vw-mobile(12, 414);
+      border-width: vw-mobile(1, 414);
+      white-space: normal;
+      width: 100%;
+      min-width: auto;
+    }
+    
+    &:hover {
+      background: rgba(8, 160, 63, 0.1);
+    }
+    
+    &--active {
+      background: #08a03f;
+      color: #ffffff;
+      border-color: #08a03f;
+      
+      &:hover {
+        background: #08a03f;
+        opacity: 0.9;
+      }
+    }
+  }
+}
+

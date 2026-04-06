@@ -1,0 +1,221 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.global-generics-portfolio {
+  position: relative;
+  width: 100%;
+  min-height: vw(557);
+  overflow: hidden;
+  
+  @include media('tablet') {
+    min-height: vw(500, 768);
+  }
+  
+  @include media('mobile') {
+    min-height: vw-mobile(400, 414);
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: vw(769) vw(1151);
+    gap: 0;
+    width: 100%;
+    min-height: vw(557);
+    
+    @include media('tablet') {
+      grid-template-columns: 1fr 1fr;
+      min-height: vw(500, 768);
+    }
+    
+    @include media('mobile') {
+      grid-template-columns: 1fr;
+      min-height: vw-mobile(400, 414);
+    }
+  }
+
+  &__left {
+    position: relative;
+    width: 100%;
+    min-height: vw(557);
+    overflow: hidden;
+    
+    @include media('tablet') {
+      min-height: vw(500, 768);
+    }
+    
+    @include media('mobile') {
+      min-height: vw-mobile(300, 414);
+      order: 1;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: vw(557);
+    
+    @include media('tablet') {
+      min-height: vw(500, 768);
+    }
+    
+    @include media('mobile') {
+      min-height: vw-mobile(300, 414);
+    }
+  }
+
+  &__image {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__right {
+    position: relative;
+    width: 100%;
+    background: #08a03f;
+    min-height: vw(557);
+    overflow: hidden;
+    
+    @include media('tablet') {
+      min-height: vw(500, 768);
+    }
+    
+    @include media('mobile') {
+      min-height: vw-mobile(400, 414);
+      order: 2;
+    }
+  }
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    background: #08a03f;
+    z-index: 0;
+  }
+
+  &__petals {
+    position: absolute;
+    bottom: vw(10);
+    right: vw(100);
+    z-index: 1;
+    opacity: 0.3;
+    
+    @include media('tablet') {
+      bottom: vw(10, 768);
+      right: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      bottom: vw-mobile(10, 414);
+      right: vw-mobile(20, 414);
+      opacity: 0.2;
+    }
+
+    img {
+      width: vw(447);
+      height: vw(214);
+      object-fit: contain;
+
+      @include media('tablet') {
+        width: vw(300, 768);
+        height: vw(144, 768);
+      }
+
+      @include media('mobile') {
+        width: vw-mobile(200, 414);
+        height: vw-mobile(96, 414);
+      }
+    }
+  }
+
+  &__right-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: vw(100) vw(100);
+    @include flex(column, flex-start, flex-start);
+    gap: vw(40);
+    
+    @include media('tablet') {
+      padding: vw(80, 768) vw(50, 768);
+      gap: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(40, 414) vw-mobile(20, 414);
+      gap: vw-mobile(25, 414);
+    }
+  }
+
+  &__description {
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(20);
+    line-height: vw(36);
+    color: #ffffff;
+    margin: 0;
+    text-align: left;
+    max-width: vw(945);
+
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(32, 768);
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(28, 414);
+    }
+  }
+
+  &__link {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(22);
+    line-height: vw(36);
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-thickness: vw(2);
+    text-underline-offset: vw(3);
+    display: inline-flex;
+    align-items: center;
+    gap: vw(10);
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: vw(32, 768);
+      gap: vw(8, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      line-height: vw-mobile(28, 414);
+      gap: vw-mobile(8, 414);
+    }
+  }
+
+  &__link-arrow {
+    width: vw(13);
+    height: vw(13);
+    flex-shrink: 0;
+
+    @include media('tablet') {
+      width: vw(12, 768);
+      height: vw(12, 768);
+    }
+
+    @include media('mobile') {
+      width: vw-mobile(12, 414);
+      height: vw-mobile(12, 414);
+    }
+  }
+}
+

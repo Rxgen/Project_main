@@ -1,0 +1,100 @@
+// Manufacturing Intro Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=3082-2
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.manufacturing-intro {
+  position: relative;
+  width: 100%;
+  background: #f0f7f2; // Light green background based on Figma
+  padding: vw(50) 0;
+  min-height: vw(136);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  @include media('tablet') {
+    padding: vw(40, 768) 0;
+    min-height: auto;
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(30, 414) 0;
+    min-height: auto;
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 vw(201);
+    @include flex(row, center, center);
+    
+    @include media('tablet') {
+      padding: 0 vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      padding: 0 vw-mobile(20, 414);
+    }
+  }
+  
+  &__text {
+    // ReactMarkdown styles
+    p {
+      margin: 0;
+      
+      &:not(:last-child) {
+        margin-bottom: vw(15);
+        
+        @include media('tablet') {
+          margin-bottom: vw(12, 768);
+        }
+        
+        @include media('mobile') {
+          margin-bottom: vw-mobile(10, 414);
+        }
+      }
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: underline;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    
+    strong, b {
+      font-weight: 700;
+    }
+    
+    em, i {
+      font-style: italic;
+    }
+    font-family: $font-family-base;
+    font-weight: 500; // Medium (Inter:Medium)
+    font-size: vw(22);
+    line-height: vw(36);
+    color: #333;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      line-height: vw-mobile(28, 414);
+      text-align: left;
+    }
+  }
+}
+

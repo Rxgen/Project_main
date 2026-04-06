@@ -1,0 +1,56 @@
+/**
+ * Static Pages Configuration
+ * List of static Next.js pages that should be searchable
+ */
+export const staticPages = [
+  { title: "Home", url: "/" },
+  { title: "About Us", url: "/about-us" },
+  { title: "Our Story", url: "/about-us/our-story" },
+  { title: "Our Purpose", url: "/about-us/our-purpose" },
+  { title: "Our Values", url: "/about-us/our-values" },
+  { title: "Leadership", url: "/about-us/leadership" },
+  { title: "Compliance, Ethics and Governance", url: "/about-us/compliance-ethics-governance" },
+  { title: "Global Presence", url: "/about-us/global-presence" },
+  { title: "Our Manufacturing Approach", url: "/about-us/global-technical-operations" },
+  { title: "Quality in Action", url: "/about-us/quality-in-action" },
+  { title: "Our Science", url: "/about-us/our-science" },
+  { title: "Awards and Recognition", url: "/about-us/awards-and-recognition" },
+  { title: "Our Business", url: "/our-business" },
+  { title: "Global Generics", url: "/our-business/global-generics" },
+  { title: "Emerging Markets", url: "/our-business/emerging-markets" },
+  { title: "Specialty and Innovation", url: "/our-business/specialty" },
+  { title: "Biosimilars", url: "/our-business/biosimilars" },
+  { title: "India", url: "/our-business/india" },
+  { title: "Our Adjacencies", url: "/our-business/our-adjacencies" },
+  { title: "Products", url: "/product-finder" },
+  { title: "Product Finder", url: "/product-finder" },
+  { title: "Investors", url: "/investors" },
+  { title: "Financials", url: "/investors/financials" },
+  { title: "Reports and Filings", url: "/investors/reports-filings" },
+  { title: "Share Price", url: "/investors/share-price" },
+  { title: "Analyst Coverage", url: "/investors/analyst-coverage" },
+  { title: "Shareholding Pattern", url: "/investors/shareholding-pattern" },
+  { title: "Dividend", url: "/investors/dividend" },
+  { title: "Unclaimed Dividend", url: "/investors/unclaimed-dividend" },
+  { title: "Subsidiaries", url: "/investors/subsidiaries" },
+  { title: "Investor FAQs", url: "/investors/investor-faqs" },
+  { title: "News and Events", url: "/investors/news-events" },
+  { title: "Media", url: "/media" },
+  { title: "Press Releases", url: "/media/press-releases" },
+  { title: "Media Coverage", url: "/media/media-coverage" },
+  { title: "Perspectives", url: "/media/perspectives" },
+  { title: "Media Kit", url: "/media/media-kit" },
+  {
+    title: "Sustainability",
+    url: "/sustainability",
+    searchableContent:
+      "ESG Framework ESG Governance Framework sustainability intro our planet our people our patients ESG report ESG ratings global frameworks looking ahead",
+  },
+  { title: "Community", url: "/community" },
+  { title: "Contact Us", url: "/contact-us" },
+  { title: "Privacy Policy", url: "/privacy-policy" },
+  { title: "Terms of Service", url: "/terms-of-service" },
+  { title: "Cookie Policy", url: "/cookie-policy" },
+  { title: "Safe Harbor Statement", url: "/safeharborstatement" }
+];
+

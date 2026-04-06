@@ -1,0 +1,178 @@
+// Exchange Filings Links Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.exchange-filings-links {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: vw(51);
+  align-items: stretch;
+  justify-content: flex-start;
+  
+  @include media('tablet') {
+    gap: vw(40, 768);
+    justify-content: center;
+  }
+  
+  @include media('mobile') {
+    flex-direction: column;
+    align-items: stretch;
+    gap: vw-mobile(30, 414);
+  }
+
+  &__card {
+    background: #ffffff;
+    border-radius: vw(55.535);
+    padding: vw(45) vw(95);
+    width: vw(816);
+    flex-shrink: 0;
+    @include flex(column, flex-start, flex-start);
+    
+    @include media('tablet') {
+      width: 100%;
+      padding: vw(40, 768) vw(60, 768);
+      border-radius: vw(45, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      padding: vw-mobile(30, 414) vw-mobile(25, 414);
+      border-radius: vw-mobile(35, 414);
+    }
+  }
+
+  &__links-container {
+    width: 100%;
+    @include flex(column, flex-start, flex-start);
+    gap: vw(16);
+    
+    @include media('tablet') {
+      gap: vw(14, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(12, 414);
+    }
+  }
+
+  &__link {
+    @include flex(row, flex-start, baseline);
+    gap: vw(10);
+    text-decoration: none;
+    transition: all $transition-base;
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(8, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(7, 414);
+      align-items: center;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    // First link styling (bold, darker green)
+    &--first {
+      gap: vw(10);
+      
+      @include media('tablet') {
+        gap: vw(8, 768);
+      }
+      
+      @include media('mobile') {
+        gap: vw-mobile(7, 414);
+      }
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__link-text {
+    font-family: $font-family-base;
+    line-height: 1.37;
+    color: #08a03f;
+    transition: all $transition-base;
+    
+    // Default styles for all links: same color and size
+    font-weight: 600;
+    font-size: vw(18);
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      white-space: normal;
+    }
+  }
+  
+  // First link text - bold by default, same color and size
+  &__link--first &__link-text {
+    font-weight: 700;
+  }
+  
+  // Hover effect for all links - apply darker color and larger font size
+  &__link:hover &__link-text {
+    color: #126430;
+    font-size: vw(21);
+    
+    @include media('tablet') {
+      font-size: vw(19, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+    }
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+    color: currentColor;
+    
+    // Large arrow for first link
+    &--large {
+      width: vw(14.001);
+      height: vw(14.193);
+      
+      @include media('tablet') {
+        width: vw(13, 768);
+        height: vw(13, 768);
+      }
+      
+      @include media('mobile') {
+        width: vw-mobile(12, 414);
+        height: vw-mobile(12, 414);
+      }
+    }
+
+    // Small arrow for other links
+    &:not(&--large) {
+      width: vw(12.822);
+      height: vw(13);
+      
+      @include media('tablet') {
+        width: vw(12, 768);
+        height: vw(12, 768);
+      }
+      
+      @include media('mobile') {
+        width: vw-mobile(11, 414);
+        height: vw-mobile(11, 414);
+      }
+    }
+  }
+}
+

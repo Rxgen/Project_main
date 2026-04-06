@@ -1,0 +1,33 @@
+// Employee Stock Option Schemes Component Styles
+// Overrides for Policies component styles
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.employee-stock-option-schemes {
+  @include media('mobile') {
+    padding-top: 0;
+  }
+  
+  .policy-card__content {
+    @include flex(column, center, center);
+    justify-content: center;
+  }
+  
+  .policy-card__title {
+    font-size: vw(70);
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(36, 414);
+    }
+  }
+}
+

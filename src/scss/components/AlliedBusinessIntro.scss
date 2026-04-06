@@ -1,0 +1,72 @@
+// Allied Business Intro Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=3168-2
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.allied-business-intro {
+  position: relative;
+  width: 100%;
+  padding: vw(63) vw(97);
+  background: #f0f7f2; // Light green background based on Figma
+  
+  @include media('tablet') {
+    padding: vw(50, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1723.488);
+    margin: 0 auto;
+    @include flex(column, center, center);
+  }
+  
+  // Text box container
+  &__box {
+    width: 100%;
+    @include flex(column, center, center);
+  }
+  
+  // Text container
+  &__text {
+    font-family: $font-family-base;
+    font-weight: 500; // Medium (Inter:Medium)
+    font-size: vw(20);
+    line-height: vw(36);
+    color: #1e1e1e;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+    }
+  }
+  
+  // Paragraph
+  &__paragraph {
+    margin: 0;
+    
+    &:not(:last-child) {
+      margin-bottom: vw(20);
+      
+      @include media('mobile') {
+        margin-bottom: vw-mobile(15, 414);
+      }
+    }
+  }
+}
+

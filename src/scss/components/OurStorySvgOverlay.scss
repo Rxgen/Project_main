@@ -1,0 +1,24 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+// Our Story SVG Overlay
+.our-story-svg-overlay {
+  position: absolute;
+  top: vw(1304);
+  left: vw(-57);
+  width: vw(2380);
+  height: vw(3904);
+  z-index: 10;
+  pointer-events: none;
+  
+  @include media('mobile') {
+    display: none;
+  }
+  
+  &__svg {
+    object-fit: contain;
+    object-position: center;
+  }
+}
+

@@ -1,0 +1,91 @@
+// Test comment
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+// ESG Governance Section Component
+.esg-governance {
+  position: relative;
+  width: 100%;
+  padding-top: vw(100);
+  padding-bottom: 0;
+  background-color: #e6fff2;
+
+  @include media('mobile') {
+    padding-top: vw-mobile(40, 414);
+    padding-bottom: 0;
+  }
+
+  // Container
+  &__container {
+    position: relative;
+    width: vw(1920);
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 vw(98);
+
+    @include media('mobile') {
+      padding: 0 vw-mobile(20, 414);
+    }
+  }
+
+  // Box with border
+  &__box {
+    position: relative;
+    width: vw(1730);
+    max-width: 100%;
+    margin: 0 auto;
+    border: 1px solid #08a03f;
+    border-radius: vw(35);
+    padding: vw(50) vw(60);
+    background: #ffffff;
+    min-height: vw(296);
+
+    @include media('mobile') {
+      border-radius: vw-mobile(20, 414);
+      padding: vw-mobile(30, 414) vw-mobile(20, 414);
+      min-height: auto;
+    }
+  }
+
+  // Title
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: 1.12;
+    color: #08a03f;
+    margin: 0 0 vw(40) 0;
+
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: 1.2;
+      margin: 0 0 vw-mobile(24, 414) 0;
+    }
+  }
+
+  // Content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &__text {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: vw(36);
+    color: #08a03f;
+    margin: 0;
+    max-width: vw(1370);
+
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+      max-width: 100%;
+    }
+  }
+}
+
+

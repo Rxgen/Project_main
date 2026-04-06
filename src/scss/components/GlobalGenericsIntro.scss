@@ -1,0 +1,109 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.global-generics-intro {
+  position: relative;
+  width: 100%;
+  background: #f0f7f2; // Light green background
+  
+  @include media('tablet') {
+    // Tablet styles
+  }
+  
+  @include media('mobile') {
+    // Mobile styles
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: vw(60) vw(100);
+    
+    @include media('tablet') {
+      padding: vw(50, 768) vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(40, 414) vw-mobile(20, 414);
+    }
+  }
+
+  &__content {
+    width: 100%;
+    position: relative;
+  }
+
+  &__line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: #08A03F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  &__line-pointer {
+    background-color: #f0f7f2;
+    padding: vw(8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: vw(48);
+      height: vw(48);
+      object-fit: contain;
+    }
+
+    @include media('tablet') {
+      padding: vw(6, 768);
+      
+      img {
+        width: vw(40, 768);
+        height: vw(40, 768);
+      }
+    }
+
+    @include media('mobile') {
+      padding: vw-mobile(6, 414);
+      
+      img {
+        width: vw-mobile(35, 414);
+        height: vw-mobile(35, 414);
+      }
+    }
+  }
+
+  &__paragraph {
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(20);
+    line-height: vw(36);
+    color: #1e1e1e;
+    margin: 0 0 vw(20) 0;
+    text-align: left;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(32, 768);
+      margin-bottom: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(28, 414);
+      margin-bottom: vw-mobile(15, 414);
+    }
+  }
+}
+

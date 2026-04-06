@@ -1,0 +1,84 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.wave-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 2rem;
+}
+
+.wave-container {
+  max-width: 1400px;
+  width: 100%;
+  text-align: center;
+}
+
+.wave-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #003024;
+  margin-bottom: 1rem;
+  
+  @include media('tablet') {
+    font-size: 2rem;
+  }
+  
+  @include media('mobile') {
+    font-size: 1.5rem;
+  }
+}
+
+.wave-description {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 3rem;
+  
+  @include media('tablet') {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  @include media('mobile') {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.wave-svg-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  
+  @include media('tablet') {
+    padding: 1.5rem;
+  }
+  
+  @include media('mobile') {
+    padding: 1rem;
+  }
+}
+
+.wave-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  
+  .cls-1 {
+    stroke-width: 1.5;
+    transition: stroke 0.3s ease;
+    
+    &:hover {
+      stroke: #006b52;
+    }
+  }
+}
+

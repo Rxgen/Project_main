@@ -1,0 +1,52 @@
+// Test comment
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+// ESG Infographic Section Component
+.esg-infographic {
+  position: relative;
+  width: 100%;
+  padding: 0;
+
+  @include media('mobile') {
+    padding: 0;
+  }
+
+  // Container
+  &__container {
+    position: relative;
+    width: vw(1920);
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+
+    @include media('mobile') {
+      padding: 0;
+    }
+  }
+
+  // Link wrapper
+  &__link {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  // Picture wrapper
+  &__picture {
+    display: block;
+    width: 100%;
+  }
+
+  // Image
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+}
+
+

@@ -1,0 +1,224 @@
+@import "../../utils/variables";
+@import "../../utils/functions";
+@import "../../utils/mixins";
+
+.catergory__container {
+  width: 100%;
+  padding: 0 vw(100);
+  padding-top: vw(66);
+
+  @include media("tablet") {
+    padding: 0 vw(40, 768);
+    padding-top: vw(50, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    padding: 0 vw-mobile(20, 414);
+    padding-top: vw-mobile(36, 414);
+  }
+
+  .category__text {
+    h1 {
+      color: #08a03f;
+      font-family: Inter;
+      font-size: vw(65);
+      font-style: normal;
+      font-weight: 700;
+      line-height: vw(80); /* 123.077% */
+
+      @include media("tablet") {
+        font-size: vw(36, 768);
+        line-height: vw(44, 768);
+      }
+
+      @include media-custom($max: 425px) {
+        font-size: vw-mobile(28, 414);
+        line-height: vw-mobile(34, 414);
+      }
+    }
+
+    p {
+      color: #1e1e1e;
+      font-family: Inter;
+      font-size: vw(22);
+      font-style: normal;
+      font-weight: 600;
+      line-height: vw(36); /* 163.636% */
+
+      @include media("tablet") {
+        font-size: vw(20, 768);
+        line-height: vw(30, 768);
+      }
+
+      @include media-custom($max: 425px) {
+        font-size: vw-mobile(18, 414);
+        line-height: vw-mobile(26, 414);
+      }
+    }
+  }
+}
+
+// Category cards: 2 per row with flex
+.card {
+  position: relative;
+  // background: white;
+  margin: vw(80) 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: vw(24);
+  z-index: 3;
+
+  @include media("tablet") {
+    margin: vw(48, 768) 0;
+    gap: vw(20, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    margin: vw-mobile(32, 414) 0;
+    gap: vw-mobile(18, 414);
+  }
+}
+
+.category-card {
+  min-height: vw(323);
+  z-index: 2;
+  position: relative;
+  flex: 0 0 48%;
+  padding: vw(40) vw(40) vw(100);
+  border-radius: vw(25.708);
+  background-color: #D9F0E1;
+  overflow: hidden;
+  transition: background-color 0.25s ease;
+
+  @include media("tablet") {
+    flex: 1 1 100%;
+    padding: vw(28, 768);
+    border-radius: vw(20, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    flex: 1 1 100%;
+    padding: vw-mobile(22, 414);
+    border-radius: vw-mobile(16, 414);
+  }
+
+  &--active {
+    background-color: #08a03f;
+
+    .card-content h3,
+    .card-content p {
+      color: #fff;
+    }
+
+    .card-content .divider {
+      background: #fff;
+    }
+  }
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+
+  h3,
+  p,
+  .divider {
+    transition:
+      color 0.25s ease,
+      background 0.25s ease;
+  }
+
+  h3 {
+    color: #08a03f;
+    font-family: Inter;
+    font-size: vw(32.907);
+    font-weight: 600;
+    line-height: 137%;
+
+    @include media("tablet") {
+      font-size: vw(26, 768);
+      line-height: vw(34, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      font-size: vw-mobile(22, 414);
+      line-height: vw-mobile(28, 414);
+    }
+  }
+
+  .divider {
+    display: block;
+    width: 80%;
+    height: vw(1);
+    background: #08a03f;
+    opacity: 0.5;
+    margin: vw(12) 0 vw(16);
+
+    @include media("tablet") {
+      height: vw(1.5, 768);
+      margin: vw(10, 768) 0 vw(12, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      height: vw-mobile(1.5, 414);
+      margin: vw-mobile(8, 414) 0 vw-mobile(10, 414);
+    }
+  }
+
+  p {
+    color: #08a03f;
+    font-family: Inter;
+    font-size: vw(22.623);
+    font-weight: 500;
+    line-height: 161%;
+    max-width: vw(612);
+
+    @include media("tablet") {
+      font-size: vw(20, 768);
+      line-height: vw(30, 768);
+      max-width: 100%;
+    }
+
+    @include media-custom($max: 425px) {
+      font-size: vw-mobile(18, 414);
+      line-height: vw-mobile(26, 414);
+      max-width: 100%;
+    }
+  }
+}
+
+// PNG is same size as card – fill container, no manual positioning or dimensions
+.card-svg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: right bottom;
+
+    @include media("tablet") {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 60%;
+      height: 60%;
+      max-width: 60%;
+      max-height: 60%;
+    }
+
+    @include media-custom($max: 425px) {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 60%;
+      height: 60%;
+      max-width: 60%;
+      max-height: 60%;
+    }
+  }
+}

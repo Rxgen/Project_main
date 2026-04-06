@@ -1,0 +1,199 @@
+// Product Finder Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.product-finder-section {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  
+  @include media('tablet') {
+    padding: 0;
+  }
+  
+  @include media('mobile') {
+    padding: 0;
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: visible;
+  }
+  
+  // Background SVG - Left Top
+  &__background-svg {
+    position: absolute;
+    top: 0;
+    width: vw(218);
+    height: vw(413);
+    z-index: 1;
+    pointer-events: none;
+    
+    @include media('tablet') {
+      width: vw(150, 768);
+      height: vw(280, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(100, 414);
+      height: vw-mobile(190, 414);
+    }
+    
+    &--left {
+      left: 0;
+    }
+    
+    &--right {
+      right: 0;
+    }
+  }
+  
+  &__svg-image {
+    object-fit: contain;
+    object-position: center;
+    
+    &--flipped {
+      transform: scaleX(-1);
+    }
+  }
+  
+  // Content Wrapper
+  &__content-wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: vw(60) 0;
+    
+    @include media('tablet') {
+      padding: vw(40, 768) 0;
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(30, 414) 0;
+    }
+  }
+  
+  // Heading Wrapper
+  &__heading-wrapper {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: vw(40);
+    
+    @include media('tablet') {
+      margin-bottom: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(25, 414);
+    }
+  }
+  
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(35);
+    line-height: vw(80);
+    color: #08a03f;
+    text-align: center;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(30, 768);
+      line-height: vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(24, 414);
+      line-height: vw-mobile(40, 414);
+    }
+  }
+  
+  // Button Wrapper
+  &__button-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    width: vw(579);
+    height: vw(106);
+    padding-right: vw(25);
+    border: vw(1) solid #08a03f;
+    border-radius: vw(19);
+    background: transparent;
+    color: #08a03f;
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(35);
+    line-height: 1;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    
+    @include media('tablet') {
+      width: vw(500, 768);
+      height: vw(90, 768);
+      font-size: vw(28, 768);
+      border-radius: vw(16, 768);
+      gap: 0;
+      padding-right: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      width: calc(100% - vw-mobile(40, 414));
+      max-width: vw-mobile(400, 414);
+      height: vw-mobile(80, 414);
+      font-size: vw-mobile(22, 414);
+      border-radius: vw-mobile(15, 414);
+      gap: 0;
+      padding-right: vw-mobile(18, 414);
+      border-width: vw-mobile(1, 414);
+    }
+    
+    &:hover {
+      background: rgba(8, 160, 63, 0.05);
+      opacity: 0.9;
+    }
+  }
+  
+  &__button-text {
+    flex: 1;
+    text-align: center;
+  }
+  
+  &__button-arrow {
+    width: vw(26);
+    height: vw(26);
+    flex-shrink: 0;
+    object-fit: contain;
+    
+    @include media('tablet') {
+      width: vw(22, 768);
+      height: vw(22, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(20, 414);
+      height: vw-mobile(20, 414);
+    }
+  }
+}
+

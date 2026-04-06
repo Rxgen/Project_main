@@ -1,0 +1,365 @@
+// Test comment
+// Our Purpose Section Component (from Figma design)
+// https://www.figma.com/design/ptVpg6J4z7DGly00881RVX/Final-Home-page-auto-layout?node-id=22-3151
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.our-purpose {
+  position: relative;
+  width: 100%;
+  height: vw(1080);
+  overflow: hidden;
+  
+  @include media('tablet') {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  @include media('mobile') {
+    height: 100vh;
+    min-height: auto;
+    padding: vw-mobile(0, 414) 0;
+  }
+  
+  // Background
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #A6CE39;
+    z-index: 0;
+  }
+  
+  // Container
+  &__container {
+    position: relative;
+    width: vw(1917);
+    height: vw(1080);
+    margin: 0 auto;
+    z-index: 1;
+    
+    @include media('tablet') {
+      width: 100%;
+      height: auto;
+      padding: vw(80, 768) vw(40, 768);
+    }
+
+    @include media('mobile') {
+      height: 100vh;
+    }
+  }
+  
+  
+  &__headline {
+    position: absolute;
+    left: vw(100);
+    top: vw(100);
+    width: vw(673);
+    @include flex(column, flex-start, flex-start);
+    gap: vw(10);
+    @include media('mobile') {
+      width: 75%;
+    }
+    
+  }
+  
+  &__eyebrow {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(30);
+    line-height: vw(26);
+    letter-spacing: vw(0.9);
+    color: #ffffff;
+    margin: 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(18, 414);
+    }
+  }
+  
+  &__text {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(18);
+    width: 100%;
+    
+    @include media('mobile') {
+      gap: vw-mobile(15, 414);
+    }
+  }
+  
+  &__heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: vw(70);
+    line-height: vw(75);
+    // text-transform: uppercase;
+    color: #ffffff;
+    margin: 0;
+    width: vw(660);
+    
+    @include media('mobile') {
+      font-size: vw-mobile(30, 414);
+      line-height: vw-mobile(32, 414);
+      width: 100%;
+      text-transform: uppercase;
+    }
+  }
+  
+  &__description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: vw(24);
+    line-height: vw(30);
+    color: #ffffff;
+    margin: 0;
+    width: vw(330);
+    
+    @include media('mobile') {
+      font-size: vw-mobile(12, 414);
+      line-height: vw-mobile(18, 414);
+      width: 100%;
+      font-weight: 400;
+    }
+  }
+  
+  // Cards Section
+  &__cards {
+    position: absolute;
+    left: vw(387);
+    top: vw(317);
+
+    height: vw(662);
+    @include flex(row, flex-end, flex-end);
+    
+    @include media('mobile') {
+      transform: rotate(270deg);
+      scale: 2;
+      right: 0;
+      top: vw-mobile(520, 414);
+      left: vw-mobile(132, 414);
+    }
+  }
+  
+  // Individual Card
+  &__card {
+    position: relative;
+    flex-shrink: 0;
+    
+    &--1 {
+      width: vw(679.319);
+      height: vw(477.286);
+      margin-right: vw(-204);
+      z-index: 1;
+    }
+    
+    &--2 {
+      width: vw(504.461);
+      height: vw(662.594);
+      margin-right: vw(-204);
+      z-index: 2;
+    }
+    
+    &--3 {
+      width: vw(681.327);
+      height: vw(477.308);
+      margin-right: vw(-204);
+      z-index: 1;
+    }
+  }
+  
+  &__card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+  }
+  
+  &__card-content {
+    position: absolute;
+    @include flex(column, flex-start, flex-start);
+    color: #08a240;
+    z-index: 1;
+    
+    @include media('mobile') {
+      transform: rotate(-270deg);
+      
+    }
+    
+    .our-purpose__card--1 & {
+      left: vw(132.74);
+      top: vw(168.28);
+      width: vw(270);
+      @include media('mobile') {
+        top: vw-mobile(28, 414);
+      }
+    }
+    
+    .our-purpose__card--2 & {
+      left: 27.8%;
+      top: 17.23%;
+      gap: 0;
+      @include media('mobile') {
+  
+          gap: 0;
+          top: 11.23%;
+          left: 14.8%;
+          width: 70%;
+      
+      }
+    }
+    
+    .our-purpose__card--3 & {
+      left: 41.19%;
+      top: 35.26%;
+      gap: 0;
+      width: vw(295);
+    }
+  }
+  
+  &__card-text {
+    @include flex(column, flex-start, flex-start);
+    
+    .our-purpose__card--1 & {
+      gap: 0;
+      margin-bottom: 0;
+    }
+    
+    .our-purpose__card--2 & {
+      gap: vw(12);
+      margin-bottom: vw(10);
+    }
+    
+    .our-purpose__card--3 & {
+      gap: vw(12);
+      margin-bottom: vw(10);
+    }
+  }
+  
+  &__card-title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(36);
+    line-height: vw(40);
+    text-transform: uppercase;
+    color: #08a240;
+    margin: 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(7, 414);
+      line-height: 1.2;
+    }
+    
+    .our-purpose__card--1 & {
+      margin-bottom: vw(8);
+    }
+  }
+  
+  &__card-description {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(15.624);
+    line-height: vw(19.53);
+    color: #08a240;
+    margin: 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(6, 414);
+      line-height: 1.2;
+      font-weight: 300;
+    }
+    
+    .our-purpose__card--1 & {
+      width: vw(213.454);
+      
+      @include media('mobile') {
+        width: 100%;
+      }
+    }
+  }
+  
+  // CTA Styles
+  &__card-cta {
+    text-decoration: none;
+    transition: all $transition-base;
+    
+    // Button style (All Cards)
+    &--button {
+      position: relative;
+      @include flex(column, flex-start, flex-start);
+      width: vw(180);
+      height: vw(49.967);
+      background: linear-gradient(to left, #3adb75, #08a240);
+      border-radius: vw(47.168);
+      margin-top: vw(36);
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      transition: opacity $transition-base, visibility $transition-base, transform $transition-base, box-shadow $transition-base;
+      
+      .our-purpose__card--2 & {
+        margin-top: vw(20);
+      }
+      
+      .our-purpose__card--3 & {
+        margin-top: vw(20);
+      }
+
+      @include media('mobile') {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        width: vw-mobile(47, 414);
+        height: vw-mobile(11.6, 414);
+      }
+    }
+  }
+  
+  &__card-cta-dot {
+    position: absolute;
+    left: vw(21.16);
+    top: vw(23);
+    width: vw(3.959);
+    height: vw(3.959);
+    background: #ffffff;
+    border-radius: 50%;
+    
+  }
+  
+  &__card-cta-text {
+    position: absolute;
+    left: vw(32.9);
+    top: vw(12.98);
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: vw(23.43);
+    color: #ffffff;
+    white-space: nowrap;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(6, 414);
+      line-height: 1;
+    }
+    
+    &::first-letter {
+    }
+  }
+  
+  &__card-cta-underline {
+    position: absolute;
+    left: vw(22.54);
+    bottom: vw(11.75);
+    width: vw(107.552);
+    height: vw(0.5);
+    background: #ffffff;
+    
+  }
+}
+

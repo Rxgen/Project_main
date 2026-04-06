@@ -1,0 +1,105 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+
+.news-events__container{
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background: #E9FFF1;
+}
+
+.news-events__content{
+    position: relative;
+    padding: vw(100);
+    overflow: hidden;
+
+    @include media('tablet') {
+        padding: vw(48, 768) vw(40, 768);
+    }
+
+    @include media('mobile') {
+        padding: vw-mobile(36, 414) vw-mobile(16, 414);
+    }
+}
+
+.news-events__tabs {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.news-events{
+    &__petals{
+        position: absolute;
+        z-index: 0;
+        pointer-events: none;
+        top: 0;
+        display: flex;
+        max-width: 38%;
+        overflow: hidden;
+
+        @include media('tablet') {
+            max-width: 36%;
+        }
+
+        @include media('mobile') {
+            max-width: 34%;
+        }
+
+        @include media-custom($max: 360px) {
+            max-width: 32%;
+        }
+
+        &--left {
+            left: vw(100);
+            justify-content: flex-start;
+
+            @include media('tablet') {
+                left: vw(40, 768);
+            }
+
+            @include media('mobile') {
+                left: vw-mobile(16, 414);
+            }
+        }
+
+        &--right {
+            right: vw(100);
+            justify-content: flex-end;
+
+            @include media('tablet') {
+                right: vw(40, 768);
+            }
+
+            @include media('mobile') {
+                right: vw-mobile(16, 414);
+            }
+        }
+    }
+
+    &__petals-img {
+        display: block;
+        flex-shrink: 0;
+        width: vw(400);
+        height: auto;
+        max-width: 100%;
+
+        @include media-between('tablet', 'ultra-wide') {
+            width: vw(280, 1024);
+        }
+
+        @include media('tablet') {
+            width: vw(200, 768);
+        }
+
+        @include media('mobile') {
+            width: vw-mobile(120, 414);
+        }
+
+        @include media-custom($max: 360px) {
+            width: vw-mobile(100, 360);
+        }
+    }
+}

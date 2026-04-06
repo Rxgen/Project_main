@@ -1,0 +1,272 @@
+@import "../../utils/variables";
+@import "../../utils/functions";
+@import "../../utils/mixins";
+
+.employee-stock-option {
+  &__container {
+    width: 100%;
+    background: #e9fff1;
+  }
+
+  &__banner {
+    margin-bottom: vw(75);
+
+    @include media("tablet") {
+      margin-bottom: vw(12, 768);
+    }
+  }
+
+  &__content {
+    padding: 0 vw(100);
+
+    @include media("tablet") {
+      padding: vw(28, 768) vw(40, 768);
+    }
+
+    @include media("mobile-sm") {
+      padding: vw(16, 414) vw(20, 414);
+    }
+  }
+
+  &__main.corporate-governance__main {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: vw(40);
+    padding-bottom: vw(100);
+
+    @include media("tablet") {
+      padding-top: vw(28, 768);
+      padding-bottom: vw(56, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      padding-top: vw(24, 425);
+      padding-bottom: vw(48, 425);
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: vw(24);
+    margin-top: vw(100);
+    width: 100%;
+
+    @include media("tablet") {
+      margin-top: vw(28, 768);
+      gap: vw(16, 768);
+    }
+
+    @include media("mobile-sm") {
+      padding: 0 vw(20, 414);
+      margin-top: vw(28, 414);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: vw(10, 414);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: #08a03f;
+    font-family: Inter, sans-serif;
+    font-size: vw(65);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 137%;
+
+    @include media("tablet") {
+      font-size: vw(42, 768);
+    }
+
+    @include media("mobile-sm") {
+      font-size: vw-mobile(32, 414);
+      line-height: 1.2;
+    }
+  }
+
+  &__filter {
+    flex-shrink: 0;
+  }
+
+  /* inline-block so width matches the pill; menu uses width 100% of this box */
+  &__year-dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
+  }
+
+  &__year-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: vw(16);
+    width: auto;
+    min-width: vw(280);
+    margin: 0;
+    padding: vw(14) vw(22) vw(14) vw(28);
+    border: none;
+    cursor: pointer;
+    background-color: #08a03f;
+    border-radius: 37.5px;
+    color: #e9fff1;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 137%;
+    text-align: left;
+
+    @include media("tablet") {
+      min-width: vw(240, 768);
+      padding: vw(12, 768) vw(18, 768) vw(12, 768) vw(22, 768);
+      font-size: vw(18, 768);
+    }
+
+    @include media("mobile-sm") {
+      width: auto;
+      min-width: vw-mobile(220, 414);
+      font-size: vw-mobile(16, 414);
+      padding: vw-mobile(12, 414) vw-mobile(20, 414) vw-mobile(12, 414)
+        vw-mobile(22, 414);
+    }
+
+    &:focus,
+    &:focus-visible,
+    &:active {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  &__year-trigger-label {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__year-trigger-chevron {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+
+    &--open {
+      transform: rotate(180deg);
+    }
+
+    svg {
+      display: block;
+      width: vw(14);
+      height: vw(9);
+
+      @include media("mobile-sm") {
+        width: vw(12, 414);
+        height: vw(8, 414);
+      }
+
+      @include media("tablet") {
+        width: vw(12, 768);
+        height: vw(8, 768);
+      }
+    }
+  }
+
+  &__year-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 30;
+    margin-top: vw(8);
+    padding: vw(8) 0;
+    background: #08a03f;
+    border-radius: vw(12);
+    box-shadow: 0 vw(6) vw(20) rgba(3, 58, 23, 0.18);
+
+    @include media("mobile-sm") {
+      max-height: vw-mobile(360, 414);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  &__year-option {
+    display: block;
+    width: 100%;
+    padding: vw(10) vw(28);
+    border: none;
+    background: transparent;
+    color: #e9fff1;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 137%;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+
+    @include media("tablet") {
+      padding: vw(10, 768) vw(22, 768);
+      font-size: vw(18, 768);
+    }
+
+    @include media("mobile-sm") {
+      font-size: vw-mobile(16, 414);
+      line-height: 137%;
+      padding: vw-mobile(12, 414) vw-mobile(22, 414);
+    }
+
+    &:hover,
+    &:focus-visible {
+      background-color: #056b2c;
+      outline: none;
+    }
+
+    &--selected {
+      font-weight: 600;
+    }
+  }
+}
+
+.employee-stock-option__container .media-navigation__tabs {
+  margin-bottom: 0;
+}
+
+/* Fewer rows than Presentations: keep cards under the header; petal still anchors to main. */
+.employee-stock-option__main .policies__section {
+  flex: 0 1 auto;
+  min-height: 0;
+  justify-content: flex-start;
+}
+
+/* Two equal columns (fixed vw(850) per card was wider than the row, so items wrapped). */
+.employee-stock-option__main {
+  .policies__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: vw(24);
+    margin: 0;
+    max-width: none;
+
+    @include media("tablet") {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .policies__grid--single {
+    grid-template-columns: 1fr;
+  }
+
+  .policies__card {
+    width: 100%;
+    max-width: none;
+  }
+}

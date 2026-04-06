@@ -1,0 +1,178 @@
+// Safe Harbor Statement Content Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.safe-harbor-statement-content {
+  position: relative;
+  width: 100%;
+  padding: vw(100) vw(100);
+  background: #ffffff;
+  
+  @include media('tablet') {
+    padding: vw(60, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    max-width: vw(1200);
+    
+    @include media('tablet') {
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      max-width: 100%;
+    }
+  }
+  
+  &__wrapper {
+    width: 100%;
+  }
+  
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(32);
+    line-height: vw(42);
+    color: #08a03f;
+    margin: 0 0 vw(40) 0;
+    
+    @include media('tablet') {
+      font-size: vw(28, 768);
+      line-height: vw(36, 768);
+      margin-bottom: vw(35, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(22, 414);
+      line-height: vw-mobile(30, 414);
+      margin-bottom: vw-mobile(25, 414);
+    }
+  }
+  
+  &__content {
+    margin-bottom: vw(50);
+    
+    @include media('tablet') {
+      margin-bottom: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(30, 414);
+    }
+    
+    p {
+      font-family: $font-family-base;
+      font-weight: 400;
+      font-size: vw(18);
+      line-height: vw(28);
+      color: #1e1e1e;
+      margin: 0 0 vw(20) 0;
+      
+      @include media('tablet') {
+        font-size: vw(16, 768);
+        line-height: vw(26, 768);
+        margin-bottom: vw(18, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(14, 414);
+        line-height: vw-mobile(22, 414);
+        margin-bottom: vw-mobile(15, 414);
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  &__section {
+    margin-bottom: vw(50);
+    
+    @include media('tablet') {
+      margin-bottom: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(30, 414);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__section-title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(28);
+    line-height: vw(36);
+    color: #08a03f;
+    margin: 0 0 vw(25) 0;
+    text-transform: uppercase;
+    
+    @include media('tablet') {
+      font-size: vw(24, 768);
+      line-height: vw(32, 768);
+      margin-bottom: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(20, 414);
+      line-height: vw-mobile(28, 414);
+      margin-bottom: vw-mobile(15, 414);
+    }
+  }
+  
+  &__section-content {
+    p {
+      font-family: $font-family-base;
+      font-weight: 400;
+      font-size: vw(18);
+      line-height: vw(28);
+      color: #1e1e1e;
+      margin: 0 0 vw(20) 0;
+      
+      @include media('tablet') {
+        font-size: vw(16, 768);
+        line-height: vw(26, 768);
+        margin-bottom: vw(18, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(14, 414);
+        line-height: vw-mobile(22, 414);
+        margin-bottom: vw-mobile(15, 414);
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      a {
+        color: #08a03f;
+        text-decoration: underline;
+        transition: color 0.3s ease;
+        
+        &:hover {
+          color: #06a03f;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+

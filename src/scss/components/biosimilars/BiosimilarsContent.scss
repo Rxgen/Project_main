@@ -1,0 +1,49 @@
+// Biosimilars Content Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Background: conic-gradient with linear-gradient overlay (same as SpecialtyContent)
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.biosimilars-content {
+  position: relative;
+  width: 100%;
+  background: 
+    conic-gradient(from 125deg at -20.1% 66.49%, rgba(19, 84, 81, 0.08) 248.27784061431885deg, rgba(45, 114, 82, 0.40) 360deg),
+    linear-gradient(197deg, #135451 6.18%, #2D7252 56.54%, #08A03F 85.17%);
+  background-size: cover, cover;
+  padding: 0;
+  overflow: hidden;
+  
+  // Additional gradient overlay for depth (as per Figma)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(182.321deg, rgba(5, 79, 5, 0.35) 0.69733%, rgba(74, 245, 74, 0.35) 52.954%, rgba(19, 84, 81, 0.35) 122.82%);
+    mix-blend-mode: multiply;
+    opacity: 0.35;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  &__placeholder {
+    // Placeholder for future content
+    min-height: vw(200);
+    
+    @include media('mobile') {
+      min-height: vw-mobile(150, 414);
+    }
+  }
+}
+

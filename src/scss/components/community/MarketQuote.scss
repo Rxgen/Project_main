@@ -1,0 +1,280 @@
+// Market Quote Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: node-id 2782-119
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.market-quote {
+  position: relative;
+  width: calc(100% + #{vw(200)});
+  height: vw(481);
+  background: #bbe7ca;
+  margin-left: vw(-100);
+  margin-right: vw(-100);
+  
+  @include media('tablet') {
+    width: calc(100% + #{vw(120, 768)});
+    height: auto;
+    min-height: vw(400, 768);
+    margin-left: vw(-60, 768);
+    margin-right: vw(-60, 768);
+  }
+  
+  @include media('mobile') {
+    width: calc(100% + #{vw-mobile(40, 414)});
+    height: auto;
+    min-height: vw-mobile(300, 414);
+    margin-left: vw-mobile(-20, 414);
+    margin-right: vw-mobile(-20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    height: 100%;
+    padding: vw(50) vw(100);
+    
+    @include media('tablet') {
+      padding: vw(40, 768) vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(30, 414) vw-mobile(20, 414);
+    }
+  }
+  
+  &__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: vw(45);
+    
+    @include media('tablet') {
+      flex-direction: column;
+      gap: vw(30, 768);
+      align-items: center;
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      gap: vw-mobile(20, 414);
+      align-items: center;
+    }
+  }
+  
+  &__image-wrapper {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: vw(10);
+    
+    @include media('tablet') {
+      align-items: center;
+      gap: vw(10, 768);
+    }
+    
+    @include media('mobile') {
+      align-items: center;
+      gap: vw-mobile(10, 414);
+    }
+  }
+  
+  &__image-circle {
+    position: relative;
+    width: vw(332);
+    height: vw(330);
+    border-radius: 50%;
+    border: vw(10) solid #DDF3E4;
+    overflow: hidden;
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: vw(250, 768);
+      height: vw(250, 768);
+      border-width: vw(8, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(200, 414);
+      height: vw-mobile(200, 414);
+      border-width: vw-mobile(6, 414);
+    }
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  &__author-info {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    display: flex;
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: 0;
+    }
+    
+    @include media('mobile') {
+      gap: 0;
+    }
+  }
+  
+  &__author-name {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(22);
+    line-height: 1;
+    color: #126430;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: 1;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      line-height: 1;
+    }
+  }
+  
+  &__author-designation {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(21);
+    line-height: vw(32);
+    color: #126430;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(28, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+    }
+  }
+  
+  &__text-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: vw(396);
+    
+    @include media('tablet') {
+      min-height: auto;
+    }
+    
+    @include media('mobile') {
+      min-height: auto;
+    }
+  }
+  
+  &__text-container {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    max-width: 99%;
+    
+    .market-quote__quote-mark--close {
+      position: absolute;
+      bottom: vw(-50);
+      right: 0;
+      
+      @include media('tablet') {
+        bottom: vw(-40, 768);
+        right: 0;
+      }
+      
+      @include media('mobile') {
+        bottom: vw-mobile(-30, 414);
+        right: 0;
+      }
+    }
+  }
+  
+  &__quote-mark {
+    position: absolute;
+    width: vw(135);
+    height: vw(100);
+    z-index: 1;
+    
+    @include media('tablet') {
+      width: vw(100, 768);
+      height: vw(75, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(80, 414);
+      height: vw-mobile(60, 414);
+    }
+    
+    &--open {
+      top: vw(50);
+      left: 0;
+      
+      @include media('tablet') {
+        top: vw(30, 768);
+        left: vw(-20, 768);
+      }
+      
+      @include media('mobile') {
+        top: vw-mobile(20, 414);
+        left: vw-mobile(-15, 414);
+      }
+    }
+  }
+  
+  &__quote-mark-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  &__text {
+    position: relative;
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(35);
+    line-height: vw(66);
+    color: #126430;
+    margin: 0;
+    padding: vw(50) vw(135) vw(50) vw(135);
+    z-index: 2;
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(28, 768);
+      line-height: vw(48, 768);
+      padding: vw(40, 768) vw(80, 768) vw(40, 768) vw(80, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(20, 414);
+      line-height: vw-mobile(32, 414);
+      padding: vw-mobile(30, 414) vw-mobile(60, 414) vw-mobile(30, 414) vw-mobile(60, 414);
+    }
+  }
+}
+

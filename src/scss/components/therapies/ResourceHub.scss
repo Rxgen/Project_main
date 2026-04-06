@@ -1,0 +1,187 @@
+@import "../../utils/variables";
+@import "../../utils/functions";
+@import "../../utils/mixins";
+
+.resource__container {
+  width: 100%;
+  padding: 0 vw(100);
+
+  @include media("tablet") {
+    padding: 0 vw(24, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    padding: 0 vw-mobile(16, 414);
+  }
+
+  .resource-text {
+    padding-top: vw(60);
+    padding-bottom: vw(37);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    @include media("tablet") {
+      padding-top: vw(40, 768);
+      padding-bottom: vw(24, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      padding-top: vw-mobile(32, 414);
+      padding-bottom: vw-mobile(20, 414);
+    }
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: vw(24);
+      margin-bottom: vw(16);
+
+      @include media("tablet") {
+        gap: vw(16, 768);
+        margin-bottom: vw(12, 768);
+      }
+
+      @include media-custom($max: 425px) {
+        gap: vw-mobile(12, 414);
+        margin-bottom: vw-mobile(12, 414);
+      }
+    }
+
+    h1 {
+      color: #08a03f;
+      font-family: Inter;
+      font-size: vw(65);
+      font-style: normal;
+      font-weight: 700;
+      line-height: vw(80);
+
+      @include media("tablet") {
+        font-size: vw(42, 768);
+        line-height: 1.2;
+      }
+
+      @include media-custom($max: 425px) {
+        font-size: vw-mobile(28, 414);
+        line-height: vw-mobile(34, 414);
+      }
+    }
+
+    p {
+      color: #1e1e1e;
+      font-family: Inter;
+      font-size: vw(22);
+      font-style: normal;
+      font-weight: 600;
+      line-height: vw(36);
+      margin-bottom: 0;
+      max-width: 80%;
+      width: 100%;
+
+      @include media("tablet") {
+        font-size: vw(20, 768);
+        line-height: vw(28, 768);
+        max-width: 92%;
+      }
+
+      @include media-custom($max: 425px) {
+        font-size: vw-mobile(14, 414);
+        line-height: vw-mobile(24, 414);
+        max-width: 100%;
+      }
+    }
+
+    .resource__description {
+      max-width: 80%;
+      width: 100%;
+      margin: 0 auto;
+
+      @include media("tablet") {
+        max-width: 92%;
+      }
+
+      @include media-custom($max: 425px) {
+        max-width: 100%;
+      }
+    }
+
+    .resource__description p {
+      color: #1e1e1e;
+      font-family: Inter;
+      font-size: vw(22);
+      font-style: normal;
+      font-weight: 600;
+      line-height: vw(36);
+      margin-bottom: 0;
+      max-width: 100%;
+
+      @include media("tablet") {
+        font-size: vw(20, 768);
+        line-height: vw(28, 768);
+      }
+
+      @include media-custom($max: 425px) {
+        font-size: vw-mobile(14, 414);
+        line-height: vw-mobile(24, 414);
+      }
+    }
+  }
+
+  .resource-video-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: vw(80);
+
+    @include media("tablet") {
+      margin-bottom: vw(50, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      margin-bottom: vw-mobile(40, 414);
+    }
+  }
+
+  .resource-video {
+    width: vw(1279);
+    max-width: 100%;
+    border-radius: vw(50.4);
+    display: block;
+
+    @include media("tablet") {
+      width: 100%;
+      border-radius: vw(24, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      width: 100%;
+      border-radius: vw-mobile(16, 414);
+    }
+  }
+
+  .resource-poster-only {
+    width: vw(1279);
+    max-width: 100%;
+    border-radius: vw(50.4);
+    overflow: hidden;
+    line-height: 0;
+
+    @include media("tablet") {
+      width: 100%;
+      border-radius: vw(24, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      width: 100%;
+      border-radius: vw-mobile(16, 414);
+    }
+
+    &__img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.science-architecture {
+  position: relative;
+  width: 100%;
+  background: #f0f7f2; // Light green background
+  
+  @include media('tablet') {
+    // Tablet styles
+  }
+  
+  @include media('mobile') {
+    // Mobile styles
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: vw(60) vw(100);
+    
+    @include media('tablet') {
+      padding: vw(50, 768) vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(40, 414) vw-mobile(20, 414);
+    }
+  }
+
+  &__content {
+    width: 100%;
+  }
+
+  &__paragraph {
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(25);
+    line-height: 1.37;
+    color: #333;
+    margin: 0 0 vw(20) 0;
+    text-align: left;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      font-weight: 700; // Bold
+    }
+
+    @include media('tablet') {
+      font-size: vw(22, 768);
+      margin-bottom: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      line-height: 1.4;
+      margin-bottom: vw-mobile(15, 414);
+    }
+  }
+}
+

@@ -1,0 +1,247 @@
+// Notice Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.notice {
+  position: relative;
+  width: 100%;
+  min-height: vw(1118);
+  padding: vw(90) 0;
+  background: #ffffff;
+  
+  @include media('mobile') {
+    min-height: auto;
+    padding: vw-mobile(50, 414) 0;
+  }
+  
+  // Heading
+  &__heading {
+    font-family: var(--font-inter), sans-serif;
+    color: #08a03f;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto vw(50);
+    
+    @include media('mobile') {
+      font-family: var(--font-inter), sans-serif;
+      color: #08a03f;
+      text-align: center;
+      margin-bottom: vw-mobile(30, 414);
+    }
+  }
+  
+  // Container
+  &__container {
+    position: relative;
+    width: vw(1723);
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 vw(99);
+    z-index: 1;
+    
+    @include media('mobile') {
+      width: 100%;
+      padding: 0 vw-mobile(20, 414);
+    }
+  }
+  
+  // Content
+  &__content {
+    position: relative;
+    width: 100%;
+    @include flex(column, flex-start, center);
+  }
+  
+  // Notice Cards Grid
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, vw(415));
+    gap: vw(46) vw(19);
+    margin-bottom: vw(50);
+    width: vw(1283);
+    justify-content: center;
+    
+    @include media('tablet') {
+      grid-template-columns: repeat(3, 1fr);
+      gap: vw(30, 768) vw(15, 768);
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      grid-template-columns: repeat(1, 1fr);
+      gap: vw-mobile(30, 414);
+      margin-bottom: vw-mobile(30, 414);
+      width: 100%;
+    }
+  }
+  
+  // Decorative Group Image
+  &__decorative {
+    position: absolute;
+    right: vw(-50);
+    top: vw(553);
+    width: vw(319);
+    height: vw(313);
+    z-index: 1;
+    pointer-events: none;
+    
+    @include media('mobile') {
+      display: none;
+    }
+  }
+  
+  &__decorative-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+// Notice Card (same structure as Policy Card)
+.notice-card {
+  position: relative;
+  width: 100%;
+  @include flex(column, flex-start, center);
+  padding-bottom: 50px;
+  
+  @include media('mobile') {
+    padding-bottom: 25px;
+  }
+  
+  &--active,
+  &:hover {
+    .notice-card__content {
+      background: #08a03f;
+    }
+    
+    .notice-card__link {
+      color: #ffffff;
+    }
+    
+    .notice-card__download-link {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  }
+  
+  &__content {
+    position: relative;
+    width: 100%;
+    background: #d9f0e1;
+    border-radius: vw(52);
+    padding: vw(66) vw(58);
+    min-height: vw(393);
+    @include flex(column, center, center);
+    transition: background $transition-base;
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(20, 414);
+      padding: vw-mobile(40, 414) vw-mobile(30, 414);
+      min-height: vw-mobile(200, 414);
+    }
+  }
+  
+  &__links {
+    @include flex(column, center, center);
+    gap: vw(15);
+    width: 100%;
+    margin-bottom: vw(20);
+    
+    @include media('mobile') {
+      gap: vw-mobile(12, 414);
+      margin-bottom: vw-mobile(15, 414);
+    }
+  }
+  
+  &__link {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(20);
+    line-height: 1.5;
+    color: #08a03f;
+    text-decoration: none;
+    text-align: center;
+    transition: color $transition-base, text-decoration $transition-base;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(22, 414);
+    }
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  &__download {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    @include flex(column, center, center);
+    gap: 0;
+    width: vw(191);
+    align-items: center;
+    z-index: 2;
+    
+    @include media('mobile') {
+      bottom: -25px;
+      width: 100%;
+    }
+  }
+  
+  &__download-link {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(16);
+    line-height: 1.37;
+    color: #08a03f;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 0;
+    height: vw(50);
+    @include flex(column, center, center);
+    width: 100%;
+    transition: color $transition-base;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      height: auto;
+      margin-bottom: 0;
+    }
+  }
+  
+  &__download-button {
+    position: relative;
+    width: vw(104);
+    height: vw(104);
+    flex-shrink: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform $transition-base;
+    
+    @include media('mobile') {
+      width: vw-mobile(60, 414);
+      height: vw-mobile(60, 414);
+    }
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  &__download-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+}
+

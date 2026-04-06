@@ -1,0 +1,412 @@
+// CSR Section Component (from Figma design)
+// https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=22-3315
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.csr {
+  position: relative;
+  width: 100%;
+  height: vw(1080);
+  overflow: hidden;
+  
+  @include media('tablet') {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  @include media('mobile') {
+    height: auto;
+    min-height: auto;
+    padding-bottom: vw-mobile(40, 414);
+  }
+  
+  // Background
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: #8EB621;
+  }
+  
+  &__bg-base {
+    position: absolute;
+    width: vw(1920);
+    height: vw(1080);
+    left: 0;
+    top: 0;
+    background: #08a240;
+    z-index: 0;
+  }
+  
+  &__bg-union {
+    position: absolute;
+    width: vw(229.133);
+    height: vw(234.761);
+    left: vw(1604.54);
+    top: vw(58.03);
+    mix-blend-mode: screen;
+    z-index: 1;
+    
+    @include media('mobile') {
+      display: none;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  
+  &__bg-texture-1 {
+    position: absolute;
+    width: vw(1920);
+    height: vw(1080);
+    left: 0;
+    top: 0;
+    mix-blend-mode: multiply;
+    z-index: 2;
+    
+    @include media('mobile') {
+      width: 100%;
+      height: 100%;
+    }
+    
+    img {
+      width: vw(75.32);
+      height: vw(270.06);
+      position: absolute;
+      left: vw(-8.84);
+      top: vw(-25.59);
+      opacity: 0.34;
+      object-fit: cover;
+      
+      @include media('mobile') {
+        width: 80%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+  
+  &__bg-texture-2 {
+    position: absolute;
+    width: vw(1920);
+    height: vw(1080);
+    left: 0;
+    top: 0;
+    z-index: 3;
+    
+    @include media('mobile') {
+      width: 100%;
+      height: 100%;
+    }
+    
+    img {
+      width: vw(45.2);
+      height: vw(126.88);
+      position: absolute;
+      left: vw(55.08);
+      top: vw(23.2);
+      opacity: 0.42;
+      object-fit: cover;
+      
+      @include media('mobile') {
+        width: 60%;
+        height: 100%;
+        left: 40%;
+        top: 0;
+        opacity: 0.5;
+      }
+    }
+  }
+  
+  &__bg-texture-3 {
+    position: absolute;
+    width: vw(1920);
+    height: vw(1080);
+    left: 0;
+    top: 0;
+    opacity: 0.79;
+    z-index: 4;
+    
+    @include media('mobile') {
+      width: 100%;
+      height: 100%;
+    }
+    
+    img {
+      width: 100%;
+      height: vw(125.04);
+      position: absolute;
+      left: vw(-30.59);
+      top: vw(-9.31);
+      mix-blend-mode: overlay;
+      opacity: 0.61;
+      object-fit: cover;
+      
+      @include media('mobile') {
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+  
+  // Content Container
+  &__container {
+    position: relative;
+    width: vw(1920);
+    height: vw(1080);
+    margin: 0 auto;
+    z-index: 10;
+    
+    @include media('tablet') {
+      width: 100%;
+      height: auto;
+      padding: vw(80, 768) vw(40, 768);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(20, 414) vw-mobile(20, 414) 0;
+      gap: vw-mobile(40, 414);
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  // Circular Image
+  &__image-wrapper {
+    position: absolute;
+    left: vw(225);
+    top: vw(154.9);
+    width: vw(770.208);
+    height: vw(770.208);
+    z-index: 1;
+    
+    @include media('tablet') {
+      position: relative;
+      left: auto;
+      top: auto;
+    }
+    
+    @include media('mobile') {
+      position: relative;
+      left: auto;
+      top: auto;
+      width: vw-mobile(350, 414);
+      height: vw-mobile(350, 414);
+      margin: 0 auto;
+    }
+  }
+  
+  &__image-circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: vw(770.208);
+    height: vw(770.208);
+    border-radius: 50%;
+    overflow: hidden;
+    
+    @include media('tablet') {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    
+    @include media('mobile') {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  // Text Content
+  &__content {
+    position: absolute;
+    left: vw(1064.21);
+    top: vw(269.52);
+    width: vw(630.507);
+    @include flex(column, flex-start, flex-start);
+    gap: vw(30);
+    z-index: 2;
+    
+    @include media('tablet') {
+      position: relative;
+      left: auto;
+      top: auto;
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      position: relative;
+      left: auto;
+      top: auto;
+      max-width: 100%;
+      gap: vw-mobile(10, 414);
+      text-align: left;
+      align-items: flex-start;
+      order: -1;
+    }
+  }
+  
+  &__text {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(30);
+    width: 100%;
+    color: #FFFFFF;
+    
+    @include media('mobile') {
+      gap: vw-mobile(16, 414);
+    }
+  }
+  
+  &__header {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(30);
+    width: 100%;
+    
+    @include media('mobile') {
+      gap: vw-mobile(16, 414);
+    }
+  }
+  
+  &__title-group {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(20);
+    width: vw(508);
+    
+    @include media('mobile') {
+      gap: vw-mobile(10, 414);
+      width: 100%;
+    }
+  }
+  
+  &__eyebrow {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(30);
+    line-height: vw(26);
+    letter-spacing: vw(0.9);
+    margin: 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(18, 414);
+    }
+  }
+  
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(100);
+    line-height: vw(86);
+   
+    width: 100%;
+    
+    p {
+      margin: 0;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(30, 414);
+      line-height: vw-mobile(30, 414);
+    }
+  }
+  
+  &__subheading {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(40);
+    line-height: vw(41);
+
+    margin: 0;
+    width: 93%;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      line-height: vw-mobile(22, 414);
+      width: 100%;
+      font-weight: 700;
+    }
+  }
+  
+  &__description {
+    font-family: $font-family-base;
+    font-weight: 300;
+    font-size: vw(20);
+    line-height: vw(30);
+    margin: 0;
+    width: 100%;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(12, 414);
+      line-height: vw-mobile(18, 414);
+    }
+  }
+  
+  // CTA Button
+  &__cta {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(1);
+    padding: vw(16) vw(35);
+    background: #FFFFFF;
+    border-radius: vw(47.168);
+    text-decoration: none;
+    transition: transform $transition-base, box-shadow $transition-base;
+    
+    @include media('mobile') {
+      padding: vw-mobile(16, 414) vw-mobile(35, 414);
+      border-radius: vw-mobile(34, 414);
+      margin-top: vw-mobile(10, 414);
+    }
+    
+    &:hover {
+      transform: translateY(vw(-4));
+      box-shadow: 0 vw(4) vw(12) rgba(0, 0, 0, 0.15);
+      
+      @include media('mobile') {
+        transform: translateY(vw-mobile(-2, 414));
+      }
+    }
+  }
+  
+  &__cta-inner {
+    @include flex(row, flex-start, center);
+    gap: vw(7);
+    
+    @include media('mobile') {
+      gap: vw-mobile(5, 414);
+    }
+  }
+  
+  &__cta-text {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: vw(23.43);
+    color: #363732;
+    white-space: nowrap;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(15, 414);
+      line-height: vw-mobile(18, 414);
+    }
+  }
+  
+}

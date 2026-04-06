@@ -1,0 +1,174 @@
+// Patient Support Programs Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.patient-support-programs-section {
+  position: relative;
+  width: 100%;
+  background-color: #e6fff2;
+  padding: vw(100) vw(100);
+  
+  @include media('tablet') {
+    padding: vw(40, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(30, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1720);
+    margin: 0 auto;
+    border-radius: vw(19);
+    background: linear-gradient(90deg, #0F7660 0%, #08A03F 100%);
+    overflow: hidden;
+    min-height: vw(500);
+    
+    @include media('tablet') {
+      max-width: 100%;
+      border-radius: vw(15, 768);
+      min-height: vw(400, 768);
+    }
+    
+    @include media('mobile') {
+      max-width: 100%;
+      border-radius: vw(10, 414);
+      min-height: vw-mobile(300, 414);
+    }
+  }
+  
+  // SVG (Left)
+  &__background-svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: vw(666);
+    height: vw(643);
+    z-index: 1;
+    mix-blend-mode: screen;
+    opacity: 0.22;
+    
+    @include media('tablet') {
+      width: vw(400, 768);
+      height: vw(400, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(200, 414);
+      height: vw-mobile(300, 414);
+      order: 2; // Show SVG last on mobile (behind content)
+    }
+  }
+  
+  &__svg-image {
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  // Content Wrapper
+  &__content-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 0 vw(80);
+    z-index: 2;
+    gap: vw(60);
+    
+    @include media('tablet') {
+      flex-direction: column;
+      padding: 0 0 0 vw(50, 768);
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      padding: 0 0 vw-mobile(40, 414) vw-mobile(20, 414);
+      gap: vw-mobile(30, 414);
+    }
+  }
+  
+  // Content Section (Left/Middle)
+  &__content {
+    position: relative;
+    width: vw(514);
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(22);
+    line-height: 1.37;
+    color: #ffffff;
+    
+    @include media('tablet') {
+      width: 100%;
+      font-size: vw(20, 768);
+      line-height: 1.4;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      font-size: vw-mobile(18, 414);
+      line-height: 1.5;
+      order: 1; // Show content after image on mobile
+    }
+  }
+  
+  &__paragraph {
+    margin: 0;
+    
+    &:not(:last-child) {
+      margin-bottom: vw(20);
+      
+      @include media('tablet') {
+        margin-bottom: vw(18, 768);
+      }
+      
+      @include media('mobile') {
+        margin-bottom: vw-mobile(15, 414);
+      }
+    }
+  }
+  
+  // Image Section (Right)
+  &__image-wrapper {
+    position: relative;
+    width: vw(980);
+    height: vw(643);
+    flex-shrink: 0;
+    overflow: hidden;
+    
+    @include media('tablet') {
+      width: 100%;
+      height: vw(400, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      height: vw-mobile(225, 414);
+      order: -1; // Show image first on mobile
+    }
+  }
+  
+  &__image {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  &__placeholder {
+    min-height: vw(200);
+    
+    @include media('tablet') {
+      min-height: vw(150, 768);
+    }
+    
+    @include media('mobile') {
+      min-height: vw-mobile(100, 414);
+    }
+  }
+}
+

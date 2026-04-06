@@ -1,0 +1,352 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+// Awards and Recognition Years
+.awards-and-recognition-years {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  overflow: visible;
+  min-height: vw(900);
+  
+  @include media('tablet') {
+    min-height: vw(940, 768);
+  }
+  
+  @include media('mobile') {
+    min-height: auto;
+    padding: vw-mobile(30, 414) 0;
+  }
+
+  // Main Container
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: auto;
+    
+    @include media('tablet') {
+      height: auto;
+    }
+    
+    @include media('mobile') {
+      height: auto;
+    }
+  }
+
+  // Content Box - Dark Green Rounded
+  &__content-box {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: auto;
+    min-height: vw(781);
+    background-color: #056026;
+    border-radius: vw(73);
+    padding: vw(63) vw(83);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    
+    @include media('tablet') {
+      min-height: vw(600, 768);
+      border-radius: vw(60, 768);
+      padding: vw(50, 768) vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(40, 414);
+      padding: vw-mobile(40, 414) vw-mobile(30, 414);
+      margin-bottom: vw-mobile(30, 414);
+    }
+  }
+
+  // Content Inner
+  &__content-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: vw(100);
+    width: 100%;
+    max-width: vw(1751.167);
+    margin: 0 auto;
+    position: relative;
+    
+    @include media('tablet') {
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: vw-mobile(30, 414);
+    }
+  }
+
+  // Year Prefix "20"
+  &__year-prefix {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(280);
+    line-height: vw(242.959);
+    color: #e1e1e1;
+    letter-spacing: vw(19.6);
+    margin: 0;
+    flex-shrink: 0;
+    opacity: 1;
+    position: relative;
+    
+    @include media('tablet') {
+      font-size: vw(200, 768);
+      line-height: vw(180, 768);
+      letter-spacing: vw(14, 768);
+    }
+    
+    @include media('mobile') {
+      display: none;
+    }
+  }
+
+  // Awards List
+  &__awards-list {
+    position: relative;
+    width: vw(777.768);
+    max-width: vw(777.768);
+    height: auto;
+    min-height: vw(654.113);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      min-height: auto;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      min-height: auto;
+    }
+  }
+
+  // Award Item
+  &__award-item {
+    display: flex;
+    align-items: flex-start;
+    gap: vw(23);
+    position: relative;
+    width: 100%;
+    min-height: vw(33);
+    margin-bottom: vw(23);
+    
+    @include media('tablet') {
+      gap: vw(18, 768);
+      margin-bottom: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(15, 414);
+      margin-bottom: vw-mobile(18, 414);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Award Icon
+  &__award-icon {
+    flex-shrink: 0;
+    width: vw(19.177);
+    height: vw(18.832);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: vw(7);
+    
+    @include media('tablet') {
+      width: vw(16, 768);
+      height: vw(16, 768);
+      margin-top: vw(6, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(14, 414);
+      height: vw-mobile(14, 414);
+      margin-top: vw-mobile(5, 414);
+    }
+  }
+
+  // Award Text
+  &__award-text {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(17.82);
+    line-height: vw(32.075);
+    color: #e1e1e1;
+    margin: 0;
+    flex: 1;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(28, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(15, 414);
+      line-height: vw-mobile(26, 414);
+    }
+  }
+
+  // No Awards Message
+  &__no-awards {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(17.82);
+    line-height: vw(32.075);
+    color: #e1e1e1;
+    margin: 0;
+    opacity: 0.7;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(28, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(15, 414);
+      line-height: vw-mobile(26, 414);
+    }
+  }
+
+  // Vertical Year Slider Wrapper - Static HTML
+  &__year-slider-wrapper {
+    position: absolute;
+    left: vw(390);
+    top: vw(-56);
+    width: vw(418.463);
+    height: vw(781);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: vw(295);
+    justify-content: center;
+    transition: transform 0.5s ease-in-out;
+    
+    
+    @include media('tablet') {
+      left: vw(50, 768);
+      top: vw(-56, 768);
+      width: vw(300, 768);
+      height: auto;
+      min-height: vw(600, 768);
+      gap: vw(295, 768);
+  
+    }
+    
+    @include media('mobile') {
+      display: none;
+    }
+  }
+
+  // Year Number
+  &__year {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(280);
+    line-height: vw(242.959);
+    color: #e1e1e1;
+    letter-spacing: vw(19.6);
+    margin: 0;
+    padding: 0;
+    position: relative;
+    flex-shrink: 0;
+    white-space: nowrap;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    
+    @include media('tablet') {
+      font-size: vw(200, 768);
+      line-height: vw(180, 768);
+      letter-spacing: vw(14, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(60, 414);
+      line-height: vw-mobile(50, 414);
+      letter-spacing: vw-mobile(5, 414);
+    }
+
+    // Active state - full opacity
+    &--active {
+      opacity: 1;
+      transform: scale(1);
+      background-color: #126430;
+      padding-top: vw(58);
+      padding-bottom: vw(58);
+      padding-left: vw(20);
+      padding-right: vw(20);
+      border-radius: vw(48);
+      
+      @include media('tablet') {
+        padding-top: vw(58, 768);
+        padding-bottom: vw(58, 768);
+        padding-left: vw(20, 768);
+        padding-right: vw(20, 768);
+        border-radius: vw(48, 768);
+      }
+      
+      @include media('mobile') {
+        padding-top: vw-mobile(58, 414);
+        padding-bottom: vw-mobile(58, 414);
+        padding-left: vw-mobile(20, 414);
+        padding-right: vw-mobile(20, 414);
+        border-radius: vw-mobile(48, 414);
+      }
+    }
+    
+    // Inactive years
+    &--inactive {
+      opacity: 0.5;
+      min-width: 100%;
+      width: min-content;
+      transform: scale(0.9);
+    }
+
+  }
+
+  // When first year (e.g. 2025) is active: "25" matches prefix "20" – no box (on first load or after navigating back)
+  &__year-slider-wrapper--first-year &__year--active {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  // When first year: hide prev slot but keep its space so "25" stays aligned
+  &__year-slider-wrapper--first-year &__year--inactive:first-of-type {
+    opacity: 0;
+    min-height: vw(242.959);
+    pointer-events: none;
+
+    @include media('tablet') {
+      min-height: vw(180, 768);
+    }
+
+    @include media('mobile') {
+      min-height: vw-mobile(50, 414);
+    }
+  }
+}
+

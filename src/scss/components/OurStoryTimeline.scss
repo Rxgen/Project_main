@@ -1,0 +1,401 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+// Our Story Timeline
+.our-story-timeline {
+  position: relative;
+  width: 100%;
+  background-color: #08A03F;
+  padding: 0;
+  overflow: visible;
+  min-height: vw(1319);
+  
+  @include media('tablet') {
+    min-height: vw(940, 768);
+  }
+  
+  @include media('mobile') {
+    min-height: auto;
+    padding: vw-mobile(30, 414) 0;
+  }
+
+  // Main Container
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    height: vw(1319);
+    
+    @include media('tablet') {
+      height: vw(940, 768);
+    }
+    
+    @include media('mobile') {
+      height: auto;
+    }
+  }
+
+  // Content Box - Dark Green Rounded
+  &__content-box {
+    position: absolute;
+    left: 0;
+    top: vw(270);
+    width: 100%;
+    max-width: 1920px;
+    height: vw(781);
+    background-color: #056026;
+    border-radius: vw(73);
+    padding: vw(63) vw(83);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    
+    @include media('tablet') {
+      top: vw(200, 768);
+      height: auto;
+      min-height: vw(600, 768);
+      border-radius: vw(60, 768);
+      padding: vw(50, 768) vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      position: relative;
+      top: 0;
+      height: auto;
+      border-radius: vw-mobile(40, 414);
+      padding: vw-mobile(40, 414) vw-mobile(30, 414);
+      margin-bottom: vw-mobile(30, 414);
+    }
+  }
+
+  // Content Inner
+  &__content-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: vw(100);
+    width: 100%;
+    max-width: vw(1751.167);
+    margin: 0 auto;
+    position: relative;
+    
+    @include media('tablet') {
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: vw-mobile(30, 414);
+    }
+  }
+
+  // Year Prefix "20" - Hidden
+  &__year-prefix {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(280);
+    line-height: vw(242.959);
+    color: #e1e1e1;
+    letter-spacing: vw(19.6);
+    margin: 0;
+    flex-shrink: 0;
+    opacity: 0; // Hidden as per Figma
+    position: relative;
+    
+    @include media('tablet') {
+      font-size: vw(200, 768);
+      line-height: vw(180, 768);
+      letter-spacing: vw(14, 768);
+    }
+    
+    @include media('mobile') {
+      display: none;
+    }
+  }
+
+
+  // Milestones List
+  &__milestones-list {
+    flex: 1;
+    position: relative;
+    width: vw(777.768);
+    height: vw(654.113);
+    
+    @include media('tablet') {
+      width: 100%;
+      height: auto;
+      min-height: auto;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      height: auto;
+      min-height: auto;
+    }
+  }
+
+  // Milestone Item - Absolute positioning as per Figma
+  &__milestone-item {
+    display: flex;
+    align-items: flex-start;
+    gap: vw(23);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    
+    // Calculate top positions based on index (matching Figma structure)
+    // Item 1: top: 0
+    // Item 2: top: 51.2px
+    // Item 3: top: 134.48px
+    // Item 4: top: 217.75px
+    // Item 5: top: 268.96px
+    // Item 6: top: 320.16px
+    // Item 7: top: 454.64px
+    // Item 8: top: 537.91px
+    // Item 9: top: 589.11px
+    // Item 10: top: 61.71% (calculated)
+    
+    @include media('tablet') {
+      position: relative;
+      gap: vw(18, 768);
+      margin-bottom: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      position: relative;
+      gap: vw-mobile(15, 414);
+      margin-bottom: vw-mobile(18, 414);
+    }
+    
+    // Specific positioning for each milestone (matching Figma)
+    &:nth-child(1) {
+      top: 0;
+    }
+    
+    &:nth-child(2) {
+      top: vw(51.2);
+    }
+    
+    &:nth-child(3) {
+      top: vw(134.48);
+    }
+    
+    &:nth-child(4) {
+      top: vw(217.75);
+    }
+    
+    &:nth-child(5) {
+      top: vw(268.96);
+    }
+    
+    &:nth-child(6) {
+      top: vw(320.16);
+    }
+    
+    &:nth-child(7) {
+      top: vw(454.64);
+    }
+    
+    &:nth-child(8) {
+      top: vw(537.91);
+    }
+    
+    &:nth-child(9) {
+      top: vw(589.11);
+    }
+    
+    &:nth-child(10) {
+      top: 61.71%;
+      bottom: 33.25%;
+    }
+    
+    // Reset positioning for tablet and mobile
+    @include media('tablet') {
+      position: relative;
+      top: auto !important;
+      bottom: auto !important;
+      margin-bottom: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      position: relative;
+      top: auto !important;
+      bottom: auto !important;
+      margin-bottom: vw-mobile(18, 414);
+    }
+  }
+
+  // Milestone Icon
+  &__milestone-icon {
+    flex-shrink: 0;
+    width: vw(19.177);
+    height: vw(18.832);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: vw(7);
+    
+    @include media('tablet') {
+      width: vw(16, 768);
+      height: vw(16, 768);
+      margin-top: vw(6, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(14, 414);
+      height: vw-mobile(14, 414);
+      margin-top: vw-mobile(5, 414);
+    }
+  }
+
+  // Milestone Text
+  &__milestone-text {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(17.82);
+    line-height: vw(32.075);
+    color: #e1e1e1;
+    margin: 0;
+    flex: 1;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(28, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(15, 414);
+      line-height: vw-mobile(26, 414);
+    }
+  }
+
+  // Vertical Year Slider Wrapper
+  &__year-slider-wrapper {
+    position: absolute;
+    left: vw(467);
+    top: 0;
+    width: vw(418.463);
+    height: 100%;
+    z-index: 3;
+    overflow: visible;
+    pointer-events: none; // Allow clicks to pass through to content box
+    
+    @include media('tablet') {
+      left: vw(50, 768);
+      width: vw(300, 768);
+    }
+    
+    @include media('mobile') {
+      position: relative;
+      left: 0;
+      width: 100%;
+      height: auto;
+      margin-bottom: vw-mobile(30, 414);
+      pointer-events: auto;
+    }
+  }
+
+  // Swiper Container
+  &__year-slider {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    overflow: visible;
+    
+    @include media('mobile') {
+      padding: vw-mobile(20, 414) 0;
+      height: auto;
+    }
+    
+    .swiper-wrapper {
+      align-items: flex-start;
+      overflow: visible;
+    }
+    
+    .swiper-slide {
+      height: auto;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+  }
+
+  // Swiper Slide
+  &__year-slide {
+    height: auto;
+    width: 100%;
+    margin-bottom: vw(295);
+    height: vw(242.959); // Match year line-height for proper spacing
+    
+    @include media('tablet') {
+      margin-bottom: vw(200, 768);
+      height: vw(180, 768);
+    }
+    
+    @include media('mobile') {
+      margin-bottom: 0;
+      margin-right: vw-mobile(30, 414);
+      width: auto;
+      height: auto;
+      
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Year Number
+  &__year {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(280);
+    line-height: vw(242.959);
+    color: #e1e1e1;
+    letter-spacing: vw(19.6);
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: opacity $transition-base;
+    position: relative;
+    flex-shrink: 0;
+    white-space: nowrap;
+    
+    @include media('tablet') {
+      font-size: vw(200, 768);
+      line-height: vw(180, 768);
+      letter-spacing: vw(14, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(60, 414);
+      line-height: vw-mobile(50, 414);
+      letter-spacing: vw-mobile(5, 414);
+    }
+
+    // Active state - full opacity
+    &--active {
+      opacity: 1 !important;
+    }
+    
+    // Non-active years with min-width full (matching Figma)
+    &:not(&--active) {
+      min-width: 100%;
+      width: min-content;
+    }
+  }
+}
+

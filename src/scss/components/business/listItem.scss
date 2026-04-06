@@ -1,0 +1,232 @@
+// List Item Component Styles
+// Business section list item component
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=2421-500
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.list-item {
+  position: relative;
+  width: vw(498);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  @include media('tablet') {
+    width: vw(450, 768);
+  }
+  
+  @include media('mobile') {
+    width: 100%;
+  }
+  
+  // Image Section
+  &__image-section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: vw(10);
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(8, 414);
+    }
+  }
+  
+  &__image-wrapper {
+    position: relative;
+    width: vw(308);
+    height: vw(310.92);
+    margin-bottom: vw(20);
+    
+    @include media('tablet') {
+      width: vw(280, 768);
+      height: vw(282, 768);
+      margin-bottom: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(250, 414);
+      height: vw-mobile(252, 414);
+      margin-bottom: vw-mobile(15, 414);
+    }
+  }
+  
+  &__image-circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    
+    .list-item__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+  
+  // Navigation Indicator Button
+  &__indicator {
+    position: absolute;
+    bottom: vw(5);
+    left: 50%;
+    transform: translateX(-50%);
+    width: vw(73);
+    height: vw(39);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: vw(20);
+    @include flex(row, center, center);
+    text-decoration: none;
+    transition: all $transition-base;
+    z-index: 2;
+    
+    @include media('tablet') {
+      width: vw(65, 768);
+      height: vw(35, 768);
+      border-radius: vw(20, 768);
+      bottom: vw(5, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(60, 414);
+      height: vw-mobile(32, 414);
+      border-radius: vw-mobile(20, 414);
+      bottom: vw-mobile(5, 414);
+    }
+    
+    &:hover {
+      transform: translateX(-50%) scale(1.05);
+      background: rgba(255, 255, 255, 1);
+    }
+    
+    &--active {
+      background: rgba(255, 255, 255, 1);
+    }
+  }
+  
+  &__indicator-content {
+    @include flex(row, center, center);
+    gap: vw(12);
+    
+    @include media('tablet') {
+      gap: vw(10, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(8, 414);
+    }
+  }
+  
+  &__indicator-dot {
+    width: vw(6);
+    height: vw(6);
+    background: #08a03f;
+    border-radius: 50%;
+    
+    @include media('tablet') {
+      width: vw(5, 768);
+      height: vw(5, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(5, 414);
+      height: vw-mobile(5, 414);
+    }
+  }
+  
+  &__indicator-arrow {
+    width: vw(23);
+    height: vw(6);
+    
+    @include media('tablet') {
+      width: vw(20, 768);
+      height: vw(5, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(18, 414);
+      height: vw-mobile(5, 414);
+    }
+  }
+  
+  // Content Section
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 vw(20);
+    
+    @include media('tablet') {
+      padding: 0 vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      padding: 0 vw-mobile(10, 414);
+    }
+  }
+  
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(30);
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0 0 vw(15) 0;
+    text-align: center;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(30, 768);
+      margin-bottom: vw(12, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(30, 414);
+      margin-bottom: vw-mobile(10, 414);
+    }
+  }
+  
+  &__separator {
+    width: 100%;
+    height: vw(1);
+    background: rgba(255, 255, 255, 0.5);
+    margin: 0 auto vw(20) auto;
+    
+    @include media('tablet') {
+      height: vw(1, 768);
+      margin-bottom: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      height: vw-mobile(1, 414);
+      margin-bottom: vw-mobile(15, 414);
+    }
+  }
+  
+  &__description {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(20);
+    line-height: 1.6;
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+    opacity: 0.9;
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: 1.5;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(20, 414);
+      line-height: 1.5;
+    }
+  }
+}
+

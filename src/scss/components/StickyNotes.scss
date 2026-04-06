@@ -1,0 +1,157 @@
+// Sticky Notes - global (used in layout on every page)
+// Uses hero__* class names for consistency with existing styles
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.hero__sticky-notes {
+  position: fixed;
+  right: vw(80);
+  top: auto;
+  bottom: vw(50);
+  z-index: 999999;
+  @include flex(column, flex-start, flex-end);
+  gap: vw(22);
+
+  @include media('mobile') {
+    position: fixed;
+    right: vw-mobile(40, 414);
+    top: auto;
+    bottom: vw-mobile(50, 414);
+    z-index: 99999999999;
+    flex-direction: column;
+    gap: vw-mobile(10, 414);
+  }
+}
+
+.hero__note {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform $transition-base;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.hero__note-circle {
+  position: relative;
+  width: vw(118);
+  height: vw(118);
+
+  @include media('mobile') {
+    width: vw-mobile(70, 414);
+    height: vw-mobile(70, 414);
+    background: #00000057;
+    border-radius: vw-mobile(50, 414);
+  }
+
+  img {
+  }
+
+}
+
+.hero__note-dot {
+  display: none;
+  position: absolute;
+  width: vw(5.627);
+  height: vw(5.627);
+  background: #ffffff;
+  border-radius: 50%;
+
+  @include media('mobile') {
+    width: vw-mobile(3.5, 414);
+    height: vw-mobile(3.5, 414);
+  }
+}
+
+.hero__note-text {
+  display: none;
+  position: absolute;
+  font-family: $font-family-base;
+  font-weight: 700;
+  font-size: vw(16.746);
+  line-height: normal;
+  text-transform: uppercase;
+  color: #ffffff;
+  white-space: nowrap;
+
+  @include media('mobile') {
+    font-size: vw-mobile(10, 414);
+  }
+}
+
+.hero__note--product {
+  position: relative;
+
+  .hero__note-circle {
+    position: relative;
+    left: vw(46.99);
+
+    @include media('mobile') {
+      left: vw-mobile(28, 414);
+    }
+  }
+
+  .hero__note-dot {
+    position: absolute;
+    left: vw(46.56);
+    top: vw(38.02);
+    z-index: 2;
+
+    @include media('mobile') {
+      left: vw-mobile(28, 414);
+      top: vw-mobile(23, 414);
+    }
+  }
+
+  .hero__note-text {
+    position: absolute;
+    left: 0;
+    top: vw(48.04);
+    z-index: 2;
+
+    @include media('mobile') {
+      top: vw-mobile(29, 414);
+    }
+  }
+}
+
+.hero__note--chat {
+  position: relative;
+  left: vw(44);
+  top: vw(-23);
+  margin-top: vw(22);
+
+  @include media('mobile') {
+    left: vw-mobile(26, 414);
+    top: 0;
+    margin-top: 0;
+  }
+
+  .hero__note-circle {
+    width: vw(113.515);
+    height: vw(118.91);
+
+    @include media('mobile') {
+      width: vw-mobile(67, 414);
+      height: vw-mobile(70, 414);
+    }
+  }
+
+  .hero__note-text {
+    position: absolute;
+    left: vw(24);
+    top: vw(45);
+    z-index: 2;
+
+    @include media('mobile') {
+      left: vw-mobile(22, 414);
+      top: vw-mobile(30, 414);
+    }
+  }
+}

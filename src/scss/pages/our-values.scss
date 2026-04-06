@@ -1,0 +1,466 @@
+// Our Values Page Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.our-values-content {
+  position: relative;
+  width: 100%;
+  background-color: #e6fff2;
+  padding: vw(80) vw(120);
+  
+  @include media('tablet') {
+    padding: vw(60, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+  
+  &__logo {
+    position: absolute;
+    bottom: vw(165);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    
+    @include media('tablet') {
+      bottom: vw(110, 768);
+    }
+    
+    @include media('mobile') {
+      bottom: vw-mobile(80, 414);
+    }
+    
+    &-img {
+      width: auto;
+      height: auto;
+      max-width: vw(500);
+      object-fit: contain;
+      
+      @include media('tablet') {
+        max-width: vw(400, 768);
+      }
+      
+      @include media('mobile') {
+        max-width: vw-mobile(80, 414);
+      }
+    }
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1724);
+    margin: 0 auto;
+    
+    @include media('tablet') {
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      max-width: 100%;
+    }
+  }
+  
+  &__frame {
+    position: relative;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #08a03f;
+    border-radius: vw(60);
+    padding: vw(48) vw(150);
+    @include flex(column, flex-start, center);
+    gap: vw(20);
+    
+    @include media('tablet') {
+      border-radius: vw(40, 768);
+      padding: vw(40, 768) vw(60, 768);
+      gap: vw(16, 768);
+    }
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(30, 414);
+      padding: vw-mobile(30, 414) vw-mobile(20, 414);
+      gap: vw-mobile(16, 414);
+    }
+  }
+  
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(80);
+    color: #08a03f;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    max-width: vw(1421);
+    
+    @include media('tablet') {
+      font-size: vw(48, 768);
+      line-height: vw(60, 768);
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(40, 414);
+      max-width: 100%;
+    }
+  }
+  
+  &__decoration {
+    position: relative;
+    width: 100%;
+    @include flex(row, center, center);
+    margin: vw(20) 0;
+    
+    @include media('tablet') {
+      margin: vw(16, 768) 0;
+    }
+    
+    @include media('mobile') {
+      margin: vw-mobile(16, 414) 0;
+    }
+    
+    &-img {
+      width: 100%;
+      max-width: vw(1228);
+      height: auto;
+      object-fit: contain;
+      
+      @include media('tablet') {
+        max-width: vw(900, 768);
+      }
+      
+      @include media('mobile') {
+        max-width: 100%;
+      }
+    }
+  }
+  
+  &__description {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: vw(36);
+    color: #126430;
+    opacity: 0.8;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    max-width: vw(1421);
+    white-space: pre-wrap;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(28, 768);
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+      max-width: 100%;
+    }
+  }
+}
+
+.our-values-listing {
+  position: relative;
+  width: 100%;
+  background-color: #EEF6F1;
+  padding: vw(80) vw(100);
+  
+  @include media('tablet') {
+    padding: vw(60, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1724);
+    margin: 0 auto;
+    
+    @include media('tablet') {
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      max-width: 100%;
+    }
+  }
+  
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: vw(90);
+    justify-content: space-between;
+    
+    @include media('tablet') {
+      gap: vw(60, 768);
+      justify-content: space-between;
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(40, 414);
+      justify-content: stretch;
+    }
+  }
+  
+  &__card {
+    position: relative;
+    width: calc((100% - 9.375vw) / 3); // 2 * gap (90px on 1920 base)
+    @include flex(column, flex-start, flex-start);
+    gap: vw(25);
+    
+    @include media('tablet') {
+      width: calc((100% - 15.625vw) / 3); // 2 * gap (60px on 768 base)
+      gap: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(20, 414);
+    }
+  }
+  
+  &__card-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: vw(322);
+    overflow: hidden;
+    border-radius: vw(359);
+    
+    @include media('tablet') {
+      height: vw(350, 768);
+      border-radius: vw(250, 768);
+    }
+    
+    @include media('mobile') {
+      height: vw-mobile(300, 414);
+      border-radius: vw-mobile(150, 414);
+    }
+  }
+  
+  &__card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+  
+  &__card-content {
+    @include flex(column, center, center);
+    gap: 0;
+    width: 100%;
+    text-align: center;
+    color: #0f6a31;
+    min-height: vw(249);
+    
+    @include media('tablet') {
+      min-height: vw(200, 768);
+    }
+    
+    @include media('mobile') {
+      min-height: auto;
+    }
+  }
+  
+  &__card-title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(30);
+    line-height: vw(80);
+    color: #0f6a31;
+    margin: 0 0 vw(20) 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(42, 768);
+      line-height: vw(60, 768);
+      margin-bottom: vw(16, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(44, 414);
+      margin-bottom: vw-mobile(12, 414);
+    }
+  }
+  
+  &__card-description {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(25);
+    line-height: 1.37;
+    color: #0f6a31;
+    margin: 0;
+    max-width: vw(607);
+    width: 100%;
+    
+    // ReactMarkdown styles
+    p {
+      margin: 0;
+      font-family: $font-family-base;
+      font-weight: 600;
+      font-size: vw(22);
+      line-height: 1.37;
+      color: #0f6a31;
+      
+      @include media('tablet') {
+        font-size: vw(20, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(16, 414);
+      }
+    }
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      max-width: 100%;
+    }
+  }
+}
+
+.our-values-video {
+  position: relative;
+  width: 100%;
+  background-color: #e6fff2;
+  padding: vw(80) vw(100);
+  
+  @include media('tablet') {
+    padding: vw(60, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1740);
+    margin: 0 auto;
+    @include flex(column, flex-start, center);
+    gap: vw(99);
+    
+    @include media('tablet') {
+      max-width: 100%;
+      gap: vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      max-width: 100%;
+      gap: vw-mobile(40, 414);
+    }
+  }
+  
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(80);
+    color: #08a03f;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(48, 768);
+      line-height: vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(40, 414);
+    }
+  }
+  
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    height: vw(760);
+    border-radius: vw(53);
+    overflow: hidden;
+    cursor: pointer;
+    
+    @include media('tablet') {
+      height: vw(500, 768);
+      border-radius: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      height: vw-mobile(300, 414);
+      border-radius: vw-mobile(30, 414);
+    }
+  }
+  
+  &__poster-image {
+    object-fit: cover;
+    object-position: center;
+    border-radius: vw(53);
+    
+    @include media('tablet') {
+      border-radius: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(30, 414);
+    }
+  }
+  
+  &__play-button-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
+  }
+  
+  &__play-button {
+    width: vw(152);
+    height: vw(152);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease;
+    
+    @include media('tablet') {
+      width: vw(120, 768);
+      height: vw(120, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(80, 414);
+      height: vw-mobile(80, 414);
+    }
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+    
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+}
+

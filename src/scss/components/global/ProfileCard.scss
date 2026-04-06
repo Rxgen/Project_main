@@ -1,0 +1,293 @@
+// Profile Card Component Styles
+// Reusable card component for media coverage and other pages
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.profile-card {
+  position: relative;
+  width: vw(519.295);
+  height: vw(598.772);
+  background: #d9f0e1;
+  border-radius: vw(44.79);
+  padding: vw(47) vw(27.2) vw(47) vw(47);
+  z-index: -1;
+  @include flex(column, flex-start, flex-start);
+  transition: all $transition-base;
+  cursor: pointer;
+
+  @include media('mobile') {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: vw-mobile(400, 414);
+    border-radius: vw-mobile(30, 414);
+    padding: vw-mobile(30, 414);
+  }
+
+  &:hover {
+    transform: translateY(vw(-5));
+    box-shadow: 0 vw(10) vw(30) rgba(0, 0, 0, 0.1);
+
+    @include media('mobile') {
+      transform: translateY(vw-mobile(-3, 414));
+      box-shadow: 0 vw-mobile(5, 414) vw-mobile(15, 414) rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+
+    @include media('mobile') {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    @include flex(column, flex-start, flex-start);
+    z-index: 2;
+  }
+
+  // Image at bottom
+  &__image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 0 0 vw(44.79) vw(44.79);
+
+    @include media('mobile') {
+      border-radius: 0 0 vw-mobile(30, 414) vw-mobile(30, 414);
+      max-height: vw-mobile(210, 414);
+    }
+
+    // Bottom-right positioning
+    &--bottom-right {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &__image-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    object-position: center top;
+    max-height: vw(350);
+    // border-top-left-radius: vw(500);
+    // border-top-right-radius: vw(500);
+
+    @include media('mobile') {
+      max-height: vw-mobile(210, 414);
+      height: auto;
+      min-height: 0;
+      object-fit: cover;
+    }
+  }
+
+  &__text {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(15);
+    width: 100%;
+
+    @include media('mobile') {
+      gap: vw-mobile(12, 414);
+    }
+  }
+
+  &__date {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(16);
+    line-height: 1.37;
+    color: #08a03f;
+    margin: 0;
+    opacity: 0.8;
+
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+    }
+  }
+
+  &__name {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(44.79);
+    line-height: 1.37;
+    color: #08a03f;
+    margin: 0;
+
+    @include media('mobile') {
+      font-size: vw-mobile(28, 414);
+    }
+  }
+
+  // Video card name styling
+  &--has-video {
+    .profile-card__name {
+      font-size: vw(35);
+
+      @include media('mobile') {
+        font-size: vw-mobile(24, 414);
+      }
+    }
+  }
+
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(20);
+    line-height: 1.37;
+    color: #08a03f;
+    margin: 0;
+    max-width: vw(329);
+
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      max-width: 100%;
+    }
+  }
+
+  // Arrow Icon (top-right corner)
+  &__arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: vw(100);
+    height: vw(100);
+    z-index: 2;
+    transition: all $transition-base;
+
+    @include media('mobile') {
+      width: vw-mobile(70, 414);
+      height: vw-mobile(70, 414);
+    }
+
+    .profile-card:hover & {
+      transform: scale(1.1);
+    }
+  }
+
+  &__arrow-icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+// Explore Button Wrapper (for items without images)
+.profile-card__explore-button-wrapper {
+  position: absolute;
+  bottom: vw(47);
+  left: vw(47);
+  z-index: 3;
+
+  @include media('mobile') {
+    bottom: vw-mobile(30, 414);
+    left: vw-mobile(30, 414);
+  }
+}
+
+.profile-card__explore-button {
+  display: inline-flex;
+  align-items: center;
+  gap: vw(15);
+  padding: vw(13) vw(20);
+  background: #08A03F;
+  border-radius: vw(63);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-base;
+  flex-shrink: 0;
+
+  @include media('tablet') {
+    padding: vw(12, 768) vw(18, 768);
+    gap: vw(12, 768);
+    border-radius: vw(50, 768);
+  }
+
+  @include media('mobile') {
+    padding: vw-mobile(10, 414) vw-mobile(15, 414);
+    gap: vw-mobile(10, 414);
+    border-radius: vw-mobile(40, 414);
+  }
+
+  &:hover {
+    background: #0a8a35;
+    transform: translateY(vw(-2));
+
+    @include media('mobile') {
+      transform: translateY(vw-mobile(-1, 414));
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.profile-card__explore-text {
+  font-family: $font-family-base;
+  font-weight: 500;
+  font-size: vw(20);
+  line-height: 1.2;
+  color: #ffffff;
+
+  @include media('tablet') {
+    font-size: vw(18, 768);
+  }
+
+  @include media('mobile') {
+    font-size: vw-mobile(16, 414);
+  }
+}
+
+.profile-card__explore-icon {
+  width: vw(18);
+  height: vw(18);
+  flex-shrink: 0;
+
+  @include media('tablet') {
+    width: vw(16, 768);
+    height: vw(16, 768);
+  }
+
+  @include media('mobile') {
+    width: vw-mobile(14, 414);
+    height: vw-mobile(14, 414);
+  }
+}
+
+// Grid layout helper for multiple cards
+.profile-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(vw(519.295), 1fr));
+  row-gap: vw(65);
+  column-gap: vw(70);
+  width: 100%;
+  justify-items: center;
+
+  @include media('tablet') {
+    grid-template-columns: repeat(auto-fill, minmax(vw(400, 768), 1fr));
+    row-gap: vw(50, 768);
+    column-gap: vw(20, 768);
+  }
+
+  @include media('mobile') {
+    grid-template-columns: 1fr;
+    row-gap: vw-mobile(30, 414);
+    column-gap: vw-mobile(15, 414);
+    justify-items: stretch;
+  }
+}

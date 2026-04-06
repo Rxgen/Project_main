@@ -1,0 +1,320 @@
+// Lives Program Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.lives-program {
+  position: relative;
+  width: 100%;
+  background: #00AD4D;
+  padding: vw(100) vw(130);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(from 125deg at -35.1% 57.67%, rgba(19, 84, 81, 0.08) 248.27784061431885deg, rgba(45, 114, 82, 0.40) 360deg), linear-gradient(197deg, #135451 -0.58%, #2D7252 49.78%, #08A03F 78.41%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  @include media('tablet') {
+    padding: vw(80, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(60, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1725);
+    margin: 0 auto;
+    z-index: 1;
+  }
+  
+  &__content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: vw(60);
+    
+    @include media('tablet') {
+      flex-direction: column;
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      gap: vw-mobile(30, 414);
+    }
+  }
+  
+  &__left {
+    flex: 1;
+    min-width: 0;
+    max-width: vw(764);
+    
+    @include media('tablet') {
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      max-width: 100%;
+    }
+  }
+  
+  &__right {
+    flex-shrink: 0;
+  }
+  
+  &__image {
+    width: vw(872);
+    height: auto;
+    object-fit: contain;
+    
+    @include media('tablet') {
+      width: 100%;
+      max-width: vw(600, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  &__title-section {
+    display: flex;
+    flex-direction: column;
+    gap: vw(17);
+    margin-bottom: vw(20);
+    
+    @include media('tablet') {
+      gap: vw(15, 768);
+      margin-bottom: vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(12, 414);
+      margin-bottom: vw-mobile(15, 414);
+    }
+  }
+  
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(80);
+    color: #ffffff;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(50, 768);
+      line-height: vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(40, 414);
+    }
+  }
+  
+  &__subtitle {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(24);
+    line-height: vw(36);
+    color: #ffffff;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: vw(28, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      line-height: vw-mobile(24, 414);
+    }
+  }
+  
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: vw(20);
+    
+    @include media('tablet') {
+      gap: vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(15, 414);
+    }
+    
+    // ReactMarkdown styles
+    p {
+      margin: 0;
+      margin-bottom: vw(20);
+      font-family: $font-family-base;
+      font-weight: 500;
+      font-size: vw(20);
+      line-height: vw(36);
+      color: #ffffff;
+      
+      @include media('tablet') {
+        font-size: vw(18, 768);
+        line-height: vw(28, 768);
+        margin-bottom: vw(18, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(16, 414);
+        line-height: vw-mobile(24, 414);
+        margin-bottom: vw-mobile(15, 414);
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: $font-family-base;
+      font-weight: 700;
+      color: #ffffff;
+      margin: vw(20) 0 vw(10) 0;
+      
+      @include media('tablet') {
+        margin: vw(18, 768) 0 vw(8, 768) 0;
+      }
+      
+      @include media('mobile') {
+        margin: vw-mobile(15, 414) 0 vw-mobile(8, 414) 0;
+      }
+    }
+    
+    a {
+      color: #ffffff;
+      text-decoration: underline;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    
+    strong, b {
+      font-weight: 700;
+    }
+    
+    em, i {
+      font-style: italic;
+    }
+    
+    ul, ol {
+      margin: vw(15) 0;
+      padding-left: vw(30);
+      
+      @include media('tablet') {
+        margin: vw(12, 768) 0;
+        padding-left: vw(25, 768);
+      }
+      
+      @include media('mobile') {
+        margin: vw-mobile(10, 414) 0;
+        padding-left: vw-mobile(20, 414);
+      }
+    }
+  }
+  
+  &__item {
+    width: 100%;
+  }
+  
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(30);
+    line-height: vw(40);
+    color: #ffffff;
+    margin: 0 0 vw(15) 0;
+    
+    @include media('tablet') {
+      font-size: vw(26, 768);
+      line-height: vw(36, 768);
+      margin-bottom: vw(12, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(20, 414);
+      line-height: vw-mobile(28, 414);
+      margin-bottom: vw-mobile(10, 414);
+    }
+  }
+  
+  &__paragraph {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: vw(36);
+    color: #ffffff;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(28, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+    }
+  }
+  
+  &__highlights {
+    margin-top: vw(60);
+    
+    @include media('tablet') {
+      margin-top: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      margin-top: vw-mobile(30, 414);
+    }
+    
+    .key-highlights {
+      background: transparent;
+      padding: 0;
+      
+      @include media('tablet') {
+        padding: 0;
+      }
+      
+      @include media('mobile') {
+        padding: 0;
+      }
+      
+      &__title {
+        color: #ffffff;
+      }
+      
+      &__number {
+        color: #ffffff;
+      }
+      
+      &__description {
+        color: #ffffff;
+      }
+    }
+  }
+}
+

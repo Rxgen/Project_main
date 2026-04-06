@@ -1,0 +1,154 @@
+// Patient Support Programs HuMrahi Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=2955-56
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.patient-support-programs-humrahi {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  
+  @include media('tablet') {
+    padding: 0;
+  }
+  
+  @include media('mobile') {
+    padding: 0;
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1720);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: vw(60);
+    border-radius: vw(29);
+    
+    @include media('tablet') {
+      flex-direction: column;
+      gap: vw(40, 768);
+      border-radius: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      gap: vw-mobile(30, 414);
+      border-radius: vw-mobile(15, 414);
+    }
+  }
+  
+  // Image Section (Left)
+  &__image-wrapper {
+    position: relative;
+    width: vw(800);
+    height: vw(533);
+    flex-shrink: 0;
+    overflow: hidden;
+    
+    @include media('tablet') {
+      width: 100%;
+      height: vw(400, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      height: vw-mobile(250, 414);
+    }
+  }
+  
+  &__image-mask {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: vw(29);
+    
+    @include media('tablet') {
+      border-radius: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(15, 414);
+    }
+  }
+  
+  &__image {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  // Content Section (Right)
+  &__content {
+    position: relative;
+    width: vw(737);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: vw(40);
+    
+    @include media('tablet') {
+      width: 100%;
+      gap: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(25, 414);
+    }
+  }
+  
+  // Logo
+  &__logo-wrapper {
+    position: relative;
+    width: vw(208);
+    height: vw(64);
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: vw(180, 768);
+      height: vw(55, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(150, 414);
+      height: vw-mobile(45, 414);
+    }
+  }
+  
+  &__logo {
+    object-fit: contain;
+    object-position: left center;
+  }
+  
+  // Text Content
+  &__text {
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(22);
+    line-height: 1.8;
+    color: #000000;
+    margin: 0;
+    
+    strong {
+      font-weight: 700; // Bold
+    }
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: 1.7;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      line-height: 1.6;
+    }
+  }
+}
+

@@ -1,0 +1,805 @@
+// Test comment
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.purpose-hero {
+	background: linear-gradient(90deg, #0d4a4a 0%, #00a859 100%);
+	padding: 4.17vw 3.5vw;
+	position: relative;
+	overflow: hidden;
+
+	.container-para {
+		background: transparent;
+		position: relative;
+		z-index: 1;
+	}
+
+	&__content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		gap: 4.17vw;
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+        margin-top: 16.08vw;
+		// gap: 1.04vw;
+	}
+
+	&__title {
+		color: #fff;
+		font-size: 4.17vw;
+		font-weight: 700;
+		line-height: 1.1;
+		margin: 0;
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 25%;
+			left: 14%;
+			transform: translateX(-50%);
+			width: 27%;
+			height: 2px;
+			background: #fff;
+			border-radius: 2px;
+			// opacity: 0.2;
+		}
+	}
+
+	&__subtitle {
+		color: #fff;
+		font-size: 2.6vw;
+		font-weight: 400;
+		line-height: 1.2;
+		margin: 0;
+	}
+
+	&__media {
+		position: relative;
+		left: -22vw;
+		top: 5vw;
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+	}
+
+	&__flower {
+		position: absolute;
+		width: 33vw;              // BIG like reference
+		max-width: none;
+		top: 79%;
+		right: 17vw;             // push outside girl
+		transform: translateY(-50%);
+		// opacity: 0.35;            // subtle like sample
+		// z-index: 1;
+		pointer-events: none;
+	}
+
+	.purpose-hero__petal {
+		position: absolute;
+		top: 5vw; 
+		left: 14%;
+		transform: translateX(-50%);
+		// width: 638px; 
+		height: auto;
+		opacity: 0.6;
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	@include media('mobile') {
+		padding: vw-mobile(30) vw-mobile(18);
+
+		&__content {
+			grid-template-columns: 1fr;
+			gap: vw-mobile(25);
+		}
+
+		&__text {
+			gap: vw-mobile(12);
+		}
+
+		&__title {
+			font-size: vw-mobile(32);
+			&::after {
+				bottom: 76%;
+				left: 28%;
+				transform: translateX(-50%);
+				width: 46%;
+				height: 1.5px;
+				opacity: 0.3;
+			}
+		}
+
+		&__subtitle {
+			font-size: vw-mobile(20);
+		}
+		&__media {
+			position: relative;
+			left: vw-mobile(-24);
+			top: vw-mobile(31);
+		}
+		&__flower {
+			width: vw-mobile(150);
+			top: vw-mobile(53);
+			right: vw-mobile(35);
+		}
+		.purpose-hero__petal {
+			top: -25px; // smaller offset for mobile
+			width: 50px; // smaller size for mobile
+		}
+
+	}
+}
+
+/* Section 2: Catalyzing Hope Into Healing */
+.purpose-story {
+	background: #00a859 url('/assets/images/purpose/bg.webp') no-repeat center center;
+	background-size: cover;
+	position: relative;
+	padding: 4.17vw 0;
+
+	.container-para {
+		background: transparent;
+		padding-left: 5.5vw;
+		position: relative;
+		z-index: 1;
+	}
+
+	&__content {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		gap: 4.17vw;
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		gap: 1.56vw;
+		// margin-left: 5vw;
+	}
+
+	&__title {
+		color: #fff;
+		font-size: 3.65vw;
+		font-weight: 700;
+		line-height: 1.1;
+		margin: 0;
+	}
+
+	&__paragraph {
+		color: #fff;
+		font-size: 1.04vw;
+		line-height: 1.7;
+		margin: 0;
+		opacity: 0.95;
+	}
+
+	&__media {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__video {
+		position: relative;
+		width: 20.83vw;
+		height: 20.83vw;
+		border-radius: 50%;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+	}
+
+	&__play {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		z-index: 2;
+
+		svg {
+			width: 3.13vw;
+			height: 3.13vw;
+			display: block;
+		}
+	}
+
+	@include media('mobile') {
+		padding: vw-mobile(30) 0;
+
+		&__content {
+			grid-template-columns: 1fr;
+			gap: vw-mobile(25);
+		}
+
+		&__text {
+			gap: vw-mobile(15);
+		}
+
+		&__title {
+			font-size: vw-mobile(28);
+		}
+
+		&__paragraph {
+			font-size: vw-mobile(12);
+			width: 90%;
+		}
+
+		&__video {
+			width: vw-mobile(350);
+			height: vw-mobile(350);
+			margin-right: vw-mobile(32);
+		}
+
+		&__play {
+			svg {
+				width: vw-mobile(50);
+				height: vw-mobile(50);
+			}
+		}
+	}
+}
+
+/* Section 3: We Catalyze Treatments */
+.purpose-mountain {
+	// background: linear-gradient(135deg, #2d5016 0%, #4a7c2a 100%);
+	padding: 4.17vw 0 1vw 0;
+	position: relative;
+	// overflow: hidden;
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: auto;
+		object-fit: fill;
+		z-index: 0;
+		pointer-events: none;
+	}
+
+	.container-mountain {
+		background: transparent;
+		position: relative;
+		z-index: 1;
+	}
+
+	&__content {
+		// Grid layout commented out - using absolute positioning instead
+		position: relative;
+	}
+
+	&__text {
+		// display: flex;
+		// flex-direction: column;
+		// 
+		margin-left: 5vw;
+		margin-top: 9vw;
+	}
+
+	&__title {
+		color: #fff;
+		font-size: 3.65vw;
+		font-weight: 700;
+		line-height: 1.1;
+		margin: 0;
+	}
+
+	&__paragraph {
+		color: #fff;
+		font-size: 1.04vw;
+		line-height: 1.7;
+		margin: 0;
+		margin-top: 1.56vw;
+		opacity: 0.95;
+	}
+
+	&__media {
+		position: absolute;
+		width: 40vw;
+		top: -23vw;
+		left: 61%;
+
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+	}
+
+	@include media('mobile') {
+		padding: vw-mobile(30) 0;
+
+		&__content {
+			grid-template-columns: 1fr;
+			gap: vw-mobile(25);
+		}
+
+		&__text {
+			gap: vw-mobile(8);
+			// text-align: center;
+		}
+
+		&__title {
+			font-size: vw-mobile(28);
+		}
+
+		&__paragraph {
+			font-size: vw-mobile(12);
+			margin-top: vw-mobile(15);
+		}
+
+		/* KEY FIX */
+		&__media {
+			position: absolute;
+			top: 48%;
+			left: auto;
+			width: 100%;
+			margin-top: vw-mobile(20);
+			display: flex;
+			justify-content: center;
+	
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+		}
+	}
+}
+
+/* Section 4: Our Purpose Is Rooted In 3 Core Commitments */
+.purpose-commitments {
+	background-color: #e6fff2;
+	padding: 4.17vw 0;
+	padding-top: 16.17vw;
+
+	.container-commitments {
+		padding: 0 3.5vw;
+	}
+
+	&__header {
+		// display: flex;
+		// align-items: flex-start;
+		// justify-content: space-between;
+		margin-bottom: 3.13vw;
+	}
+
+	&__title {
+		color: #00a859;
+		font-size: 2.6vw;
+		font-weight: 700;
+		line-height: 1.2;
+		max-width: 45vw;
+		margin: 0;
+	}
+
+	&__icon img {
+		width: 4vw;
+	}
+
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.56vw;
+	}
+
+	&__card {
+		position: relative;
+		height: 30vw;
+		border-radius: 2.25vw;
+		overflow: hidden;
+		display: flex;
+		// cursor: pointer;
+		background: #00a859;
+	}
+
+	/* IMAGE (ALWAYS VISIBLE - NO HOVER EFFECT) */
+	&__card-media {
+		position: absolute;
+		inset: 0;
+		opacity: 1;
+		transform: scale(1);
+		z-index: 1;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	/* CARD CONTENT */
+	&__card-content {
+		position: relative;
+		z-index: 3;
+		padding: 2vw;
+		margin-right: 10vw;
+		margin-top: 8vw;
+	}
+
+	&__card-title {
+		color: #fff;
+		font-size: 1.55vw;
+		font-weight: 700;
+		line-height: 1.2;
+		margin-bottom: 0.6vw;
+		width: 131%;
+	}
+
+	&__card-title-word {
+		display: inline-block;
+		padding-bottom: 0.6vw;
+		border-bottom: 0.1vw solid #fff;
+	}
+
+	&__card-text {
+		color: #fff;
+		font-size: 0.95vw;
+		line-height: 1.6;
+		opacity: 0.95;
+		max-width: 18vw;
+		margin: 0;
+	}
+
+	/* ---------------- MOBILE ---------------- */
+	@include media('mobile') {
+		padding: vw-mobile(332) 0;
+		padding-bottom: vw-mobile(45);
+
+		&__header {
+			flex-direction: column;
+			gap: vw-mobile(15);
+		}
+
+		&__title {
+			font-size: vw-mobile(24);
+			max-width: 100%;
+		}
+
+		&__icon img {
+			width: vw-mobile(40);
+		}
+
+		&__grid {
+			grid-template-columns: 1fr;
+			gap: vw-mobile(15);
+		}
+
+		&__card {
+			min-height: vw-mobile(220);
+			border-radius: vw-mobile(16);
+		}
+
+		/* IMAGE ALWAYS VISIBLE ON MOBILE */
+		&__card-media {
+			opacity: 1;
+			transform: scale(1);
+		}
+
+		/* STRONGER OVERLAY FOR READABILITY */
+		&__card::after {
+			background: rgba(0, 168, 89, 0.85);
+		}
+
+		&__card-content {
+			padding: vw-mobile(20);
+			margin-right: 0;
+		}
+
+		&__card-title {
+			font-size: vw-mobile(20);
+		}
+
+		&__card-title-word {
+			padding-bottom: vw-mobile(8);
+			border-bottom: vw-mobile(1) solid #fff;
+		}
+
+		&__card-text {
+			font-size: vw-mobile(13);
+			max-width: 100%;
+		}
+	}
+}
+
+
+
+/* Section 5: Our Guiding Framework */
+.purpose-framework {
+	background: #a0dab5;
+	padding: 4.17vw 0;
+
+	.container-framework {
+		background: transparent;
+		padding: 0 3.5vw;
+	}
+
+	&__title {
+		color: #1FA44F;
+		font-size: 3.13vw;
+		font-weight: 700;
+		line-height: 1.2;
+		margin: 0 0 3.13vw 0;
+	}
+
+	&__line {
+		position: absolute;
+		margin-top: -10.5vw;
+		left: 48%;
+	}
+
+	&__circles {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 2.08vw;
+		position: relative;
+		align-items: center;
+	}
+
+	&__circle {
+		border-radius: 100%;
+		padding: 2.6vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		aspect-ratio: 1;
+		overflow: hidden;
+		// transition: background-color 0.3s ease, color 0.3s ease, transform 0.8s ease;
+		// cursor: pointer;
+
+		&--white {
+			background: #fff;
+			min-height: 25vw;
+		}
+
+		&--green {
+			background: #1FA44F;
+			min-height: 18.75vw;
+		}
+
+		// Hover state: circle grows, title/text move up so icon fits inside, turns white, icon appears
+		&--green:hover {
+			background: #fff;
+			transform: scale(1.06);
+			z-index: 1;
+			position: relative;
+
+			.purpose-framework__circle-title {
+				color: #0A963C;
+				transform: translateY(-3.5vw);
+			}
+
+			.purpose-framework__circle-title-word {
+				border-bottom-color: #0A963C;
+			}
+
+			.purpose-framework__circle-text {
+				color: #0A963C;
+				opacity: 0.8;
+				transform: translateY(-3.5vw);
+			}
+
+			.purpose-framework__circle-icon {
+				opacity: 1;
+				visibility: visible;
+				margin-top: 0.5vw;
+			}
+
+			.purpose-framework__circle-icon img {
+				width: 10.5vw;
+				min-width: 9vw;
+				filter: brightness(0) saturate(100%) invert(28%) sepia(95%) saturate(1200%) hue-rotate(120deg) brightness(0.6);
+			}
+		}
+	}
+
+	&__circle-title {
+		font-size: 1.46vw;
+		font-weight: 700;
+		line-height: 1.2;
+		margin: 0 0 0.52vw 0;
+		margin-top: 6vw;
+		transition: color 0.3s ease, transform 0.3s ease;
+	}
+
+	&__circle-title-word {
+		display: inline-block;
+		padding-bottom: -0.48vw;
+		border-bottom: 0.1vw solid;
+	}
+
+	&__circle--white &__circle-title {
+		color: #0A963C;
+	}
+
+	&__circle--white &__circle-title-word {
+		border-bottom-color: #0A963C;
+	}
+
+	&__circle--green &__circle-title {
+		color: #fff;
+	}
+
+	&__circle--green &__circle-title-word {
+		border-bottom-color: #fff;
+	}
+
+	&__circle-text {
+		font-size: 0.94vw;
+		line-height: 1.6;
+		margin: 0 0 1.04vw 0;
+		transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+	}
+
+	&__circle--white &__circle-text {
+		color: #0A963C;
+		opacity: 0.8;
+	}
+
+	&__circle--green &__circle-text {
+		color: #fff;
+		opacity: 0.95;
+	}
+
+	&__circle-icon {
+		// margin-top: 1.04vw;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.3s ease, visibility 0.3s ease;
+
+		img {
+			height: auto;
+			display: block;
+			transition: filter 0.3s ease;
+		}
+	}
+
+	// Icon size (same as hover so no flicker: small then big when moving pointer)
+	&__circle--green &__circle-icon img {
+		width: 13.5vw;
+		min-width: 9vw;
+		margin-top: -8vw;
+	}
+
+	&__circle--green:hover &__circle-icon img {
+		width: 22.5vw;
+		min-width: 9vw;
+		filter: brightness(0) saturate(100%) invert(28%) sepia(95%) saturate(1200%) hue-rotate(120deg) brightness(0.6); // Dark green icon
+	}
+
+	@include media('mobile') {
+		padding: vw-mobile(30) 0;
+
+		&__title {
+			font-size: vw-mobile(24);
+			margin-bottom: vw-mobile(25);
+		}
+
+		&__line {
+			height: vw-mobile(1);
+			margin-bottom: vw-mobile(25);
+
+			&::before,
+			&::after {
+				width: vw-mobile(8);
+				height: vw-mobile(8);
+			}
+		}
+
+		&__circles {
+			grid-template-columns: repeat(2, 1fr);
+			gap: vw-mobile(15);
+		}
+
+		&__circle {
+			padding: vw-mobile(20);
+			min-height: auto;
+			align-items: center;
+		}
+
+		&__circle--green &__circle-icon img {
+			width: vw-mobile(150);
+		}
+
+		// On mobile: always show desktop hover effect (white bg, icon, dark green text, title up)
+		&__circle--green {
+			background: #fff;
+			transform: scale(1.04);
+			z-index: 0;
+			position: relative;
+
+			.purpose-framework__circle-title {
+				color: #0A963C;
+				transform: translateY(vw-mobile(-25));
+			}
+
+			.purpose-framework__circle-title-word {
+				border-bottom-color: #0A963C;
+			}
+
+			.purpose-framework__circle-text {
+				color: #0A963C;
+				opacity: 0.8;
+				transform: translateY(vw-mobile(-25));
+			}
+
+			.purpose-framework__circle-icon {
+				opacity: 1;
+				visibility: visible;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-40%, -12%);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				// No width/max-width so img can use full size (vw-mobile(150))
+				> span {
+					display: flex !important;
+					justify-content: center;
+				}
+				img {
+					display: block;
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
+
+			.purpose-framework__circle-icon img {
+				width: vw-mobile(150) !important;
+				min-width: vw-mobile(150);
+				filter: brightness(0) saturate(100%) invert(28%) sepia(95%) saturate(1200%) hue-rotate(120deg) brightness(0.6);
+			}
+		}
+
+		&__circle-title {
+			font-size: vw-mobile(16);
+		}
+
+		&__circle-title-word {
+			// padding-bottom: vw-mobile(6);
+			border-bottom: vw-mobile(1) solid;
+		}
+
+		&__circle--white &__circle-title-word {
+			border-bottom-color: #0A963C;
+		}
+
+		// Green circles on mobile use hover look (dark green), so no white underline override
+
+		&__circle-text {
+			font-size: vw-mobile(11);
+			margin-bottom: vw-mobile(10);
+		}
+
+		// White circles only – green circle icon size is set in &__circle--green above
+		&__circle--white &__circle-icon {
+			img {
+				width: vw-mobile(36);
+			}
+		}
+	}
+}

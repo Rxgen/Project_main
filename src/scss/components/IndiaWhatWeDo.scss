@@ -1,0 +1,89 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.india-what-we-do {
+  position: relative;
+  width: 100%;
+  background: #f0f7f2; // Light green background
+  
+  @include media('tablet') {
+    // Tablet styles
+  }
+  
+  @include media('mobile') {
+    // Mobile styles
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: vw(50) vw(98);
+    
+    @include media('tablet') {
+      padding: vw(50, 768) vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(40, 414) vw-mobile(20, 414);
+    }
+  }
+
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(65);
+    line-height: vw(84.5);
+    color: #08a03f;
+    margin: 0 0 vw(41) 0;
+    text-align: left;
+
+    @include media('tablet') {
+      font-size: vw(50, 768);
+      line-height: vw(65, 768);
+      margin-bottom: vw(30, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(42, 414);
+      margin-bottom: vw-mobile(25, 414);
+    }
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: vw(20);
+  }
+
+  &__paragraph {
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(20);
+    line-height: vw(36);
+    color: #1e1e1e;
+    margin: 0;
+    text-align: left;
+
+    strong {
+      font-weight: 700; // Bold
+      text-decoration: underline;
+      text-decoration-thickness: 8%;
+      text-underline-offset: 2px;
+    }
+
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(32, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(28, 414);
+    }
+  }
+}
+

@@ -1,0 +1,199 @@
+// Corporate Governance Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=2216-856
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.corporate-governance {
+  position: relative;
+  width: 100%;
+  height: vw(1080);
+  overflow: hidden;
+  
+  @include media('tablet') {
+    height: vw(800, 768);
+  }
+  
+  @include media('mobile') {
+    height: vw-mobile(600, 414);
+  }
+  
+  // Background Image
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  &__background-img {
+    object-fit: cover;
+    object-position: center;
+    filter: blur(vw(2));
+    
+    @include media('tablet') {
+      filter: blur(vw(2, 768));
+    }
+    
+    @include media('mobile') {
+      filter: blur(vw-mobile(2, 414));
+    }
+  }
+  
+  // Container
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    @include flex(row, flex-start, flex-start);
+    padding: vw(278) vw(98) vw(0) vw(98);
+    
+    @include media('tablet') {
+      padding: vw(200, 768) vw(60, 768) vw(0, 768) vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(150, 414) vw-mobile(20, 414) vw-mobile(0, 414) vw-mobile(20, 414);
+    }
+  }
+  
+  // Content
+  &__content {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(71);
+    width: vw(418);
+    
+    @include media('tablet') {
+      width: 100%;
+      max-width: vw(400, 768);
+      gap: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(40, 414);
+    }
+  }
+  
+  // Title
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(72);
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
+    @include flex(column, flex-start, flex-start);
+    gap: 0;
+    
+    @include media('tablet') {
+      font-size: vw(56, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(40, 414);
+    }
+  }
+  
+  &__title-word {
+    display: block;
+  }
+  
+  // Buttons Container
+  &__buttons {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(15);
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(12, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(12, 414);
+    }
+  }
+  
+  // Button
+  &__button {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(18);
+    line-height: 1.5;
+    padding: vw(21) vw(37);
+    border-radius: vw(50);
+    text-decoration: none;
+    transition: all $transition-base;
+    width: 100%;
+    max-width: vw(292);
+    text-align: center;
+    @include flex(row, center, center);
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      padding: vw(18, 768) vw(30, 768);
+      max-width: vw(280, 768);
+      border-radius: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      padding: vw-mobile(15, 414) vw-mobile(25, 414);
+      max-width: 100%;
+      border-radius: vw-mobile(15, 414);
+    }
+    
+    // Active Button (Solid Green)
+    &--active {
+      background: #08a03f;
+      border: vw(2) solid #08a03f;
+      color: #ffffff;
+      height: vw(83);
+      
+      @include media('tablet') {
+        height: vw(70, 768);
+        border-width: vw(1.5, 768);
+      }
+      
+      @include media('mobile') {
+        height: vw-mobile(60, 414);
+        border-width: vw-mobile(1.5, 414);
+      }
+      
+      &:hover {
+        background: #126430;
+        border-color: #126430;
+      }
+    }
+    
+    // Inactive Button (White with Green Border)
+    &--inactive {
+      background: #ffffff;
+  
+      color: #08a03f;
+      height: vw(83);
+      
+      @include media('tablet') {
+        height: vw(70, 768);
+        border-width: vw(1.5, 768);
+      }
+      
+      @include media('mobile') {
+        height: vw-mobile(60, 414);
+        border-width: vw-mobile(1.5, 414);
+      }
+      
+      &:hover {
+        background: #08a03f;
+        color: #ffffff;
+      }
+    }
+  }
+}
+

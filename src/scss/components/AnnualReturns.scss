@@ -1,0 +1,86 @@
+// Annual Returns Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.annual-returns {
+  position: relative;
+  width: 100%;
+  padding: vw(63) vw(97);
+  
+  @include media('tablet') {
+    padding: vw(50, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1723);
+    margin: 0 auto;
+    @include flex(column, flex-start, flex-start);
+    gap: vw(49);
+    
+    @include media('tablet') {
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(30, 414);
+    }
+  }
+
+  // Title
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(80);
+    color: #08a03f;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(50, 768);
+      line-height: vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(36, 414);
+      line-height: vw-mobile(44, 414);
+    }
+  }
+
+  // Cards Grid - centered on desktop
+  &__cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, vw(288));
+    gap: vw(70);
+    align-items: flex-start;
+    width: max-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    @include media('tablet') {
+      grid-template-columns: repeat(3, 1fr);
+      gap: vw(40, 768);
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: vw-mobile(15, 414);
+    }
+  }
+}
+
+
+
+

@@ -1,0 +1,200 @@
+// Patient Support Programs Intro Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=2955-235
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.patient-support-programs-intro {
+  position: relative;
+  width: 100%;
+  padding: vw(122) vw(66);
+  
+  @include media('tablet') {
+    padding: vw(80, 768) vw(40, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(60, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1720);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: vw(643);
+    
+    @include media('tablet') {
+      flex-direction: column;
+      min-height: auto;
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      min-height: auto;
+      gap: vw-mobile(30, 414);
+    }
+  }
+  
+  // Banner Section with Gradient Background
+  &__banner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: vw(1720);
+    height: vw(643);
+    border-radius: vw(19);
+    overflow: visible;
+    
+    @include media('tablet') {
+      position: relative;
+      width: 100%;
+      height: vw(500, 768);
+      border-radius: vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      position: relative;
+      width: 100%;
+      height: vw-mobile(300, 414);
+      border-radius: vw(10, 414);
+    }
+  }
+  
+  // Gradient Background
+  &__gradient {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: vw(1720);
+    height: vw(643);
+    background: linear-gradient(90deg, #016c55 0%, #009335 100%);
+    border-radius: vw(19);
+    z-index: 1;
+    
+    @include media('tablet') {
+      width: 100%;
+      height: 100%;
+      border-radius: vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      height: 100%;
+      border-radius: vw(10, 414);
+    }
+  }
+  
+  // Background Decorative SVG (Left Top)
+  &__background-svg {
+    position: absolute;
+    left: vw(-38);
+    top: vw(-429);
+    width: vw(704);
+    height: vw(1502);
+    z-index: 2;
+    mix-blend-mode: screen;
+    
+    @include media('tablet') {
+      left: vw(-20, 768);
+      top: vw(-200, 768);
+      width: vw(400, 768);
+      height: vw(800, 768);
+    }
+    
+    @include media('mobile') {
+      left: vw-mobile(-15, 414);
+      top: vw-mobile(-100, 414);
+      width: vw-mobile(200, 414);
+      height: vw-mobile(400, 414);
+    }
+  }
+  
+  &__svg-image {
+    object-fit: contain;
+    object-position: center;
+    transform: rotate(90deg) scaleY(-1);
+  }
+  
+  // Image Section (Right)
+  &__image-wrapper {
+    position: absolute;
+    left: vw(758);
+    top: vw(-225);
+    width: vw(1174);
+    height: vw(783);
+    z-index: 3;
+    overflow: hidden;
+    
+    @include media('tablet') {
+      position: relative;
+      left: auto;
+      top: auto;
+      width: 100%;
+      height: vw(400, 768);
+      margin-top: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      position: relative;
+      left: auto;
+      top: auto;
+      width: 100%;
+      height: vw-mobile(250, 414);
+      margin-top: vw-mobile(15, 414);
+    }
+  }
+  
+  &__image {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  // Text Content (Left)
+  &__content {
+    position: relative;
+    width: vw(514);
+    z-index: 4;
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(22);
+    line-height: 1.37;
+    color: #ffffff;
+    
+    @include media('tablet') {
+      width: 100%;
+      font-size: vw(20, 768);
+      line-height: 1.4;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      font-size: vw-mobile(18, 414);
+      line-height: 1.5;
+    }
+  }
+  
+  &__paragraph {
+    margin: 0;
+    
+    &:not(:last-child) {
+      margin-bottom: vw(20);
+      
+      @include media('tablet') {
+        margin-bottom: vw(18, 768);
+      }
+      
+      @include media('mobile') {
+        margin-bottom: vw-mobile(15, 414);
+      }
+    }
+  }
+}
+

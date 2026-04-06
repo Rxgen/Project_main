@@ -1,0 +1,569 @@
+// What's New Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=2216-743
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.whats-new {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  padding: vw(40) vw(0) vw(70) vw(100);
+  
+  @include media('tablet') {
+    padding: vw(40, 768) vw(0, 768) vw(70, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414) vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+
+  // Light gray background variant for press releases
+  &--light-bg {
+    background: #F6F6F6;
+  }
+  
+  &__container {
+    position: relative;
+    width: vw(1920);
+    max-width: 100%;
+    margin: 0 auto;
+    @include flex(column, flex-start, flex-start);
+    gap: vw(40);
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(30, 414);
+    }
+  }
+  
+  // Header (contains title wrapper and description)
+  &__header {
+    width: 100%;
+    @include flex(column, flex-start, flex-start);
+    gap: vw(20);
+    
+    @include media('mobile') {
+      gap: vw-mobile(15, 414);
+    }
+  }
+
+  // Title Wrapper
+  &__title-wrapper {
+    width: 100%;
+    @include flex(row, flex-start, center);
+    align-items: center;
+    gap: vw(50);
+    
+    @include media('mobile') {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: vw-mobile(30, 414);
+    }
+  }
+
+  // Title
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(48);
+    line-height: 1.2;
+    color: #08A03F;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(36, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(28, 414);
+    }
+  }
+
+  // Description
+  &__description {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(25);
+    line-height: 1.5;
+    color: #08A03F;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(22, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+    }
+  }
+
+  // Explore Button
+  &__explore-button {
+    display: inline-flex;
+    align-items: center;
+    gap: vw(15);
+    padding: vw(13) vw(20);
+    background: #08A03F;
+    border-radius: vw(63);
+    text-decoration: none;
+    transition: all $transition-base;
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      padding: vw(12, 768) vw(18, 768);
+      gap: vw(12, 768);
+      border-radius: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(10, 414) vw-mobile(15, 414);
+      gap: vw-mobile(10, 414);
+      border-radius: vw-mobile(40, 414);
+    }
+
+    &:hover {
+      background: #0a8a35;
+      transform: translateY(vw(-2));
+      
+      @include media('mobile') {
+        transform: translateY(vw-mobile(-1, 414));
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__explore-text {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: 1.2;
+    color: #ffffff;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+    }
+  }
+
+  &__explore-icon {
+    width: vw(18);
+    height: vw(18);
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: vw(16, 768);
+      height: vw(16, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(14, 414);
+      height: vw-mobile(14, 414);
+    }
+  }
+  
+  // Cards Container Wrapper
+  &__cards-wrapper {
+    width: 100%;
+    @include flex(row, flex-start, stretch);
+    gap: vw(40);
+    align-items: stretch;
+    position: relative;
+    
+    @include media('tablet') {
+      gap: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      gap: vw-mobile(20, 414);
+    }
+  }
+  
+  // Swiper Container
+  &__swiper {
+    flex: 1;
+    overflow: hidden;
+    min-width: 0; // Allow flex shrinking
+    width: 100%;
+    
+    @include media('mobile') {
+      width: 100%;
+    }
+    
+    .swiper-wrapper {
+      align-items: stretch;
+      display: flex;
+    }
+    
+    .swiper-slide {
+      height: auto;
+      width: auto;
+      flex-shrink: 0;
+      box-sizing: border-box;
+    }
+  }
+  
+  // Swiper Slide
+  &__slide {
+    height: auto;
+    width: auto;
+    @include flex(column, stretch, stretch);
+    box-sizing: border-box;
+    
+    .swiper-slide {
+      width: auto;
+      height: auto;
+    }
+    
+    // ProfileCard in slider - custom width
+    .profile-card--slider {
+      width: vw(495) !important;
+      
+      @include media('mobile') {
+        width: 100% !important;
+      }
+    }
+  }
+  
+  // Cards Container (for fallback)
+  &__cards {
+    width: 100%;
+    @include flex(row, flex-start, stretch);
+    gap: vw(40);
+    align-items: stretch;
+    
+    @include media('tablet') {
+      gap: vw(30, 768);
+      flex-wrap: wrap;
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      gap: vw-mobile(20, 414);
+    }
+  }
+  
+  // News Card
+  &__card {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    background: #d9f0e1;
+    border-radius: vw(50);
+    padding: vw(40) vw(30);
+    @include flex(column, center, flex-start);
+    height: vw(486);
+    transition: all $transition-base;
+    overflow: hidden;
+    box-sizing: border-box;
+    
+    @include media('tablet') {
+      min-width: vw(300, 768);
+      max-width: vw(400, 768);
+      border-radius: vw(15, 768);
+      padding: vw(30, 768) vw(25, 768);
+      height: vw(350, 768);
+    }
+    
+    @include media('mobile') {
+      min-width: 100%;
+      max-width: 100%;
+      border-radius: vw-mobile(15, 414);
+      padding: vw-mobile(30, 414) vw-mobile(20, 414);
+      height: auto;
+      min-height: vw-mobile(250, 414);
+    }
+    
+    // Hover state (active styling)
+    &:hover {
+      background: #08a03f;
+      
+      .whats-new__date {
+        color: #ffffff;
+      }
+      
+      .whats-new__headline {
+        color: #ffffff;
+      }
+      
+      .whats-new__category-btn {
+        background: #126430;
+        border-color: #ffffff;
+        
+        .whats-new__category-text {
+          color: #ffffff;
+        }
+        
+        .whats-new__category-arrow {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  
+  // Date
+  &__date {
+    position: absolute;
+    top: vw(40);
+    left: vw(30);
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(16);
+    line-height: 1.5;
+    color: #126430;
+    white-space: nowrap;
+    z-index: 1;
+    max-width: calc(100% - #{vw(60)});
+    
+    @include media('tablet') {
+      top: vw(30, 768);
+      left: vw(25, 768);
+      font-size: vw(14, 768);
+      max-width: calc(100% - #{vw(50, 768)});
+    }
+    
+    @include media('mobile') {
+      top: vw-mobile(30, 414);
+      left: vw-mobile(20, 414);
+      font-size: vw-mobile(14, 414);
+      max-width: calc(100% - #{vw-mobile(40, 414)});
+    }
+  }
+  
+  // Category Button
+  &__category-btn {
+    position: absolute;
+    top: vw(-2);
+    right: vw(-2);
+    @include flex(column, center, center);
+    gap: vw(2);
+    background: #08a03f;
+    border: vw(6) solid #ffffff;
+    border-radius: 50%;
+    width: vw(100);
+    height: vw(100);
+    text-decoration: none;
+    transition: all $transition-base;
+    z-index: 2;
+    padding: vw(10);
+    
+    @include media('tablet') {
+      top: vw(15, 768);
+      right: vw(15, 768);
+      width: vw(90, 768);
+      height: vw(90, 768);
+      gap: vw(2, 768);
+      border-width: vw(1.5, 768);
+      padding: vw(8, 768);
+    }
+    
+    @include media('mobile') {
+      top: vw-mobile(15, 414);
+      right: vw-mobile(15, 414);
+      width: vw-mobile(70, 414);
+      height: vw-mobile(70, 414);
+      gap: vw-mobile(2, 414);
+      border-width: vw-mobile(1.5, 414);
+      padding: vw-mobile(6, 414);
+    }
+    
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 vw(4) vw(12) rgba(8, 160, 63, 0.3);
+    }
+    
+  }
+  
+  &__category-line {
+    @include flex(row, center, center);
+    gap: vw(4);
+    align-items: center;
+    
+    @include media('tablet') {
+      gap: vw(3, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(2, 414);
+    }
+  }
+  
+  &__category-text {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(10);
+    color: #ffffff;
+    text-align: center;
+    line-height: 1.2;
+    white-space: nowrap;
+    
+    @include media('tablet') {
+      font-size: vw(9, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(8, 414);
+    }
+    
+  }
+  
+  &__category-arrow {
+    width: vw(10);
+    height: vw(10);
+    color: #ffffff;
+    flex-shrink: 0;
+    display: block;
+    
+    @include media('tablet') {
+      width: vw(8, 768);
+      height: vw(8, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(8, 414);
+      height: vw-mobile(8, 414);
+    }
+    
+  }
+  
+  // Headline
+  &__headline {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(24);
+    line-height: 1.4;
+    color: #126430;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+    text-decoration: none; // Remove default link underline
+    display: block; // Make anchor tag behave like block element
+    cursor: pointer; // Show pointer cursor for clickable element
+    transition: color $transition-base; // Smooth color transition
+    
+    // When headline is an anchor tag (Link component)
+    &,
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      color: #126430; // Default color
+      text-decoration: none; // No underline
+    }
+    
+    // Style the h3 inside the anchor
+    h3 {
+      font-family: inherit;
+      font-weight: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      color: inherit;
+      margin: 0;
+      text-align: inherit;
+    }
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+    }
+  }
+  
+  &__headline-line {
+    display: block;
+  }
+  
+  // Navigation Card
+  &__nav-card {
+    flex-shrink: 0;
+    width: vw(200);
+    background: #f0f0f0;
+    border-radius: vw(20);
+    padding: vw(40) vw(30);
+    @include flex(column, center, center);
+    gap: vw(20);
+    height: vw(486);
+    align-self: stretch;
+    
+    @include media('tablet') {
+      width: vw(150, 768);
+      border-radius: vw(15, 768);
+      padding: vw(30, 768) vw(20, 768);
+      height: vw(350, 768);
+      gap: vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      flex-direction: row;
+      border-radius: vw-mobile(15, 414);
+      padding: vw-mobile(20, 414);
+      height: auto;
+      min-height: vw-mobile(100, 414);
+      gap: vw-mobile(15, 414);
+    }
+    
+    // When ProfileCard is used in slider, match its height
+    &--profile-slider {
+      height: vw(598.77);
+      
+      @include media('tablet') {
+        height: vw(450, 768);
+      }
+      
+      @include media('mobile') {
+        height: auto;
+        min-height: vw-mobile(100, 414);
+      }
+    }
+  }
+  
+  // Navigation Button
+  &__nav-btn {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(18);
+    line-height: 1.5;
+    color: #666666;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+    transition: all $transition-base;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+    }
+    
+    &:not(&--disabled) {
+      color: #1a1a1a;
+      text-decoration: underline;
+      
+      &:hover {
+        color: #08a03f;
+      }
+    }
+    
+    &--disabled {
+      color: #cccccc;
+      cursor: not-allowed;
+    }
+  }
+}
+

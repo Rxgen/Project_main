@@ -1,0 +1,445 @@
+// Footer Component (from Figma design)
+// https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=2018-2
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #033f4b;
+  padding: vw(90) vw(102);
+  
+  @include media('tablet') {
+    padding: vw(60, 768) vw(40, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+  
+  // Container
+  &__container {
+    position: relative;
+    width: vw(1635);
+    height: vw(649.8);
+    max-width: 100%;
+    
+    @include media('tablet') {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: vw-mobile(30, 414);
+      position: relative;
+    }
+  }
+  
+  // Left Section
+  &__left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: vw(366);
+    @include flex(column, flex-start, flex-start);
+    gap: vw(106);
+    
+    @include media('tablet') {
+      position: relative;
+      width: 100%;
+      gap: vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      position: static;
+      width: 100%;
+      gap: vw-mobile(20, 414);
+      display: contents;
+    }
+  }
+  
+  // Logo
+  &__logo {
+    width: vw(142);
+    height: vw(173);
+    
+    @include media('tablet') {
+      width: vw(120, 768);
+      height: vw(145, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(80, 414);
+      height: vw-mobile(97, 414);
+      order: 1;
+    }
+  }
+  
+  &__logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: left;
+  }
+  
+  // Contact Information
+  &__contact {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(30);
+    width: vw(183);
+    margin-top: vw(-27);
+    
+    @include media('mobile') {
+      order: 3;
+      gap: vw-mobile(15, 414);
+      width: 100%;
+      margin-top: vw-mobile(10, 414);
+    }
+  }
+  
+  &__contact-item {
+    @include flex(row, flex-start, center);
+    gap: vw(22);
+    
+    @include media('mobile') {
+      gap: vw-mobile(10, 414);
+    }
+
+    &--title-style {
+      gap: 0;
+
+      .footer__column-title {
+        height: auto;
+      }
+    }
+  }
+  
+  &__contact-icon {
+    flex-shrink: 0;
+    width: vw(22);
+    height: vw(19.474);
+    @include flex(row, center, center);
+    
+    @include media('mobile') {
+      width: vw-mobile(14, 414);
+      height: vw-mobile(14, 414);
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+     
+    }
+  }
+  
+  &__contact-text {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(15);
+    line-height: 1.86;
+    color: #FFFFFF;
+    opacity: 0.8;
+    margin: 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(11, 414);
+      line-height: 1.5;
+    }
+  }
+  
+  // Legal Section
+  &__legal {
+    width: 100%;
+    
+    @include media('mobile') {
+      order: 4;
+    }
+  }
+  
+  &__legal-content {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(27);
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(15);
+    line-height: 1.86;
+    color: #FFFFFF;
+    
+    @include media('mobile') {
+      gap: vw-mobile(10, 414);
+      font-size: vw-mobile(10, 414);
+    }
+  }
+  
+  &__copyright {
+    opacity: 0.8;
+    margin: 0;
+    width: vw(306);
+    white-space: pre-wrap;
+    
+    @include media('mobile') {
+      width: 100%;
+      opacity: 0.6;
+      line-height: 1.5;
+    }
+  }
+  
+  &__legal-links {
+    opacity: 0.8;
+    margin: 0;
+    width: vw(272);
+    white-space: pre-wrap;
+    
+    @include media('mobile') {
+      width: 100%;
+      opacity: 0.6;
+      line-height: 1.5;
+    }
+  }
+  
+  &__legal-link {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: opacity $transition-base;
+
+    // When used as button (e.g. Cookie settings)
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+  
+  // Right Section - Navigation Columns
+  &__right {
+    position: absolute;
+    left: vw(478);
+    top: 0;
+    width: vw(1157);
+    height: vw(501);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    gap: vw(131) vw(37);
+    
+    @include media('mobile') {
+      position: static;
+      width: 100%;
+      height: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: vw-mobile(25, 414) vw-mobile(20, 414);
+      order: 2;
+    }
+  }
+  
+  // Footer Column
+  &__column {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(14);
+    width: vw(191);
+    flex-shrink: 0;
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(10, 414);
+    }
+  }
+  
+  &__column-title {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: 1.37;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin: 0;
+    height: vw(32);
+    white-space: pre-wrap;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(13, 414);
+      line-height: 1.3;
+      height: auto;
+      font-weight: 600;
+    }
+  }
+
+  &__column-title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity $transition-base;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    &--square {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: vw(32);
+      min-height: vw(32);
+      padding: vw(8) vw(12);
+      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: vw(4);
+
+      @include media('mobile') {
+        min-width: vw-mobile(32, 414);
+        min-height: vw-mobile(32, 414);
+        padding: vw-mobile(6, 414) vw-mobile(10, 414);
+        border-radius: vw-mobile(4, 414);
+      }
+    }
+  }
+  
+  &__column-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(14);
+    line-height: 1.2;
+    color: #FFFFFF;
+    white-space: pre-wrap;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(12, 414);
+      line-height: 1.2;
+      font-weight: 300;
+    }
+    
+    li {
+      margin: 0 0 vw(10) 0;
+      
+      @include media('tablet') {
+        margin-bottom: vw(10, 768);
+      }
+      
+      @include media('mobile') {
+        margin-bottom: vw-mobile(10, 414);
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  &__link {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: opacity $transition-base;
+    
+    @include media('mobile') {
+      opacity: 0.8;
+    }
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  // Social Media Section
+  &__social {
+    position: absolute;
+    left: vw(470);
+    top: vw(586);
+    width: vw(366);
+    @include flex(column, center, center);
+    gap: vw(30);
+    
+    @include media('mobile') {
+      position: static;
+      width: 100%;
+      order: 5;
+      gap: vw-mobile(20, 414);
+      margin-top: vw-mobile(15, 414);
+    }
+  }
+  
+  &__social-divider {
+    width: vw(364.5);
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+
+    @include media('mobile') {
+      width: 100%;
+    }
+  }
+  
+  &__social-icons {
+    @include flex(row, center, center);
+    gap: vw(58);
+    opacity: 0.5;
+    width: 100%;
+    
+    @include media('mobile') {
+      gap: vw-mobile(30, 414);
+      flex-wrap: wrap;
+    }
+  }
+  
+  &__social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity $transition-base;
+    flex-shrink: 0;
+    
+    &:hover {
+      opacity: 1 !important;
+    }
+    
+    img {
+      display: block;
+      max-width: none;
+
+      @include media('mobile') {
+        width: vw-mobile(20, 414) !important;
+        height: auto !important;
+        max-width: vw-mobile(20, 414);
+      }
+    }
+  }
+}
+
+.bottomLinks {
+  width: 100%;
+  display: flex;
+  gap: vw(135);
+  margin-top: -5vw;
+  
+  @include media('mobile') {
+    display: contents;
+  }
+}
+
+.footer__column-stack {
+  display: flex;
+  flex-direction: column;
+  gap: vw(20);
+  align-items: flex-start;
+  margin-left: vw(-10);
+
+  @include media('mobile') {
+    gap: vw-mobile(12, 414);
+  }
+}

@@ -1,0 +1,139 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+// Our Story Year Selector Component
+.our-story-year-selector {
+  @include flex(row, center, center);
+  gap: vw(63);
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 vw(100);
+  
+  @include media('tablet') {
+    gap: vw(40, 768);
+    padding: 0 vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    gap: vw-mobile(20, 414);
+    padding: 0 vw-mobile(20, 414);
+  }
+  
+  &__arrow {
+    width: vw(104.141);
+    height: vw(104.141);
+    border-radius: 50%;
+    background: #f5f5f5;
+    border: none;
+    cursor: pointer;
+    @include flex(row, center, center);
+    flex-shrink: 0;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    
+    &:hover:not(&--disabled) {
+      background: #e8e8e8;
+    }
+    
+    &--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    svg {
+      width: vw(16);
+      height: vw(30);
+    }
+    
+    @include media('tablet') {
+      width: vw(80, 768);
+      height: vw(80, 768);
+      
+      svg {
+        width: vw(14, 768);
+        height: vw(26, 768);
+      }
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(60, 414);
+      height: vw-mobile(60, 414);
+      
+      svg {
+        width: vw-mobile(12, 414);
+        height: vw-mobile(24, 414);
+      }
+    }
+  }
+  
+  &__container {
+    @include flex(row, flex-start, center);
+    gap: vw(47);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none; // IE and Edge
+    width: 100%;
+    flex: 1;
+    
+    &::-webkit-scrollbar {
+      display: none; // Chrome, Safari, Opera
+    }
+    
+    @include media('tablet') {
+      gap: vw(35, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(25, 414);
+      scroll-snap-type: x mandatory;
+      scroll-padding: 0 50%;
+      padding-left: 50%;
+      padding-right: 50%;
+    }
+  }
+  
+  &__year {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: vw(40);
+    line-height: vw(56);
+    color: #e1e1e1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+    
+    &:hover {
+      color: #056026;
+    }
+    
+    &--active {
+      color: #056026;
+    }
+    
+    @include media('tablet') {
+      font-size: vw(32, 768);
+      line-height: vw(44, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(28, 414);
+      line-height: vw-mobile(36, 414);
+      scroll-snap-align: center;
+    }
+    
+    &--active {
+      @include media('mobile') {
+        scroll-snap-align: center;
+        position: relative;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,506 @@
+// Committees Board Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.committees-board {
+  position: relative;
+  width: 100%;
+  padding: vw(90) 0 0;
+  background: #ffffff;
+  
+  @include media('mobile') {
+    padding: vw-mobile(50, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+
+    margin: 0 auto;
+
+    
+    @include media('tablet') {
+
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+    
+    }
+  }
+  
+  &__committees {
+    @include flex(column, flex-start, center);
+    gap: 0;
+    margin-top: vw(0);
+    
+    @include media('tablet') {
+      margin-top: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      margin-top: vw-mobile(40, 414);
+    }
+  }
+  
+  &__committee {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    @include flex(column, center, center);
+    padding: vw(72) 0;
+    margin-bottom: vw(96);
+    
+    @include media('tablet') {
+      padding: vw(50, 768) 0;
+      margin-bottom: vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(40, 414) 0;
+      margin-bottom: vw-mobile(50, 414);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__committee-inner {
+    width: 100%;
+   
+    margin: 0 auto;
+    padding: 0 vw(130);
+    @include flex(column, flex-start, flex-start);
+    gap: vw(96);
+    
+    @include media('tablet') {
+      max-width: 100%;
+      padding: 0 vw(60, 768);
+      gap: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      padding: 0 vw-mobile(20, 414);
+      gap: vw-mobile(40, 414);
+    }
+  }
+  
+  // Committee Title
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: 1.23;
+    color: #08a03f;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    @include media('tablet') {
+      font-size: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(36, 414);
+    }
+  }
+
+  // Charter Link Wrapper
+  &__charter-link-wrapper {
+    width: 100%;
+    text-align: center;
+    margin-top: vw(20);
+    
+    @include media('tablet') {
+      margin-top: vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      margin-top: vw-mobile(15, 414);
+    }
+  }
+
+  // Charter Link
+  &__charter-link {
+    font-family: $font-family-base;
+    font-size: vw(24);
+    font-weight: 500;
+    color: #08a03f;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: opacity $transition-base;
+    
+    @include media('tablet') {
+      font-size: vw(22, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+    }
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  // Members Grid
+  &__members {
+    width: 100%;
+
+    @include flex(row, flex-start, flex-start);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: vw(100);
+    
+    @include media('tablet') {
+      gap: vw(60, 768);
+      justify-content: center;
+    }
+    
+    @include media('mobile') {
+      flex-direction: row;
+      gap: vw-mobile(20, 414);
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+  
+  // Member Card
+  &__member {
+    @include flex(column, flex-start, center);
+    position: relative;
+    transition: transform $transition-base;
+    will-change: transform;
+    
+    &--large {
+      width: vw(500);
+      
+      @include media('tablet') {
+        width: vw(400, 768);
+      }
+      
+      @include media('mobile') {
+        width: calc(50% - #{vw-mobile(10, 414)});
+        max-width: none;
+      }
+    }
+    
+    &:not(&--large) {
+      width: vw(400);
+      
+      @include media('tablet') {
+        width: vw(350, 768);
+      }
+      
+      @include media('mobile') {
+        width: calc(50% - #{vw-mobile(10, 414)});
+        max-width: none;
+      }
+    }
+    
+    // Hover state - apply special styling
+    &:hover {
+      transform: scale(1.1);
+      z-index: 10;
+      
+      .committees-board__member-circle:not(.committees-board__member-circle--special) {
+        background: #08a03f;
+      }
+      
+      .committees-board__member-info:not(.committees-board__member-info--special) {
+        color: #08a03f;
+        transform: translateY(0);
+        
+        @include media('tablet') {
+          transform: translateY(0);
+        }
+        
+        @include media('mobile') {
+          transform: translateY(0);
+        }
+        
+        .committees-board__member-name {
+          color: #08a03f;
+          font-weight: 700;
+          font-size: vw(37.062);
+          
+          @include media('tablet') {
+            font-size: vw(32, 768);
+          }
+          
+          @include media('mobile') {
+            font-size: vw-mobile(24, 414);
+          }
+        }
+        
+        .committees-board__member-title {
+          color: #08a03f;
+          opacity: 0.8;
+          font-size: vw(24.708);
+          letter-spacing: vw(0.7412);
+          
+          @include media('tablet') {
+            font-size: vw(22, 768);
+          }
+          
+          @include media('mobile') {
+            font-size: vw-mobile(16, 414);
+          }
+        }
+      }
+    }
+  }
+  
+  // Member Image Wrapper
+  &__member-image-wrapper {
+    position: relative;
+    @include flex(column, center, center);
+    margin-bottom: vw(-20);
+    padding-bottom: vw(20);
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(-15, 414);
+      padding-bottom: vw-mobile(15, 414);
+    }
+  }
+  
+  // Member Circle
+  &__member-circle {
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #d9f0e1;
+    transition: background $transition-base;
+    
+    .committees-board__member--large & {
+      width: vw(500);
+      height: vw(500);
+      
+      @include media('tablet') {
+        width: vw(400, 768);
+        height: vw(400, 768);
+      }
+      
+      @include media('mobile') {
+        width: vw-mobile(350, 414);
+        height: vw-mobile(350, 414);
+      }
+    }
+    
+    &:not(.committees-board__member-circle--special) {
+      width: vw(400);
+      height: vw(400);
+      
+      @include media('tablet') {
+        width: vw(350, 768);
+        height: vw(350, 768);
+      }
+      
+      @include media('mobile') {
+        width: vw-mobile(300, 414);
+        height: vw-mobile(300, 414);
+      }
+    }
+    
+    &--special {
+      background: #08a03f;
+      width: vw(500);
+      height: vw(500);
+      
+      @include media('tablet') {
+        width: vw(400, 768);
+        height: vw(400, 768);
+      }
+      
+      @include media('mobile') {
+        width: vw-mobile(350, 414);
+        height: vw-mobile(350, 414);
+      }
+    }
+  }
+  
+  &__member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  // Special Indicator (Arrow Icon)
+  &__member-indicator {
+    position: absolute;
+    bottom: vw(-20);
+    left: 50%;
+    transform: translateX(-50%);
+    width: vw(84.652);
+    height: vw(84.652);
+    background: #08a03f;
+    border: vw(5.977) solid white;
+    border-radius: vw(42.326);
+    @include flex(row, center, center);
+    z-index: 2;
+    text-decoration: none;
+    transition: transform $transition-base, opacity $transition-base, visibility $transition-base;
+    
+    @include media('tablet') {
+      width: vw(70, 768);
+      height: vw(70, 768);
+      border-width: vw(4, 768);
+      border-radius: vw(35, 768);
+      bottom: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(60, 414);
+      height: vw-mobile(60, 414);
+      border-width: vw-mobile(4, 414);
+      border-radius: vw-mobile(30, 414);
+      bottom: vw-mobile(25, 414);
+    }
+    
+    &:hover {
+      transform: translateX(-50%) scale(1.05);
+    }
+    
+    svg {
+      width: vw(13.355);
+      height: vw(13.538);
+      
+      @include media('tablet') {
+        width: vw(12, 768);
+        height: vw(12, 768);
+      }
+      
+      @include media('mobile') {
+        width: vw-mobile(10, 414);
+        height: vw-mobile(10, 414);
+      }
+    }
+  }
+  
+  // Hide indicator for non-special members by default (shown on hover)
+  &__member:not(.committees-board__member--special) &__member-indicator {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  &__member:not(.committees-board__member--special):hover &__member-indicator {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  // Member Info
+  &__member-info {
+    @include flex(column, center, center);
+    text-align: center;
+    padding-top: vw(45);
+    width: vw(347.261);
+    transform: translateY(vw(-25));
+    transition: transform $transition-base, color $transition-base;
+    
+    @include media('tablet') {
+      width: vw(300, 768);
+      padding-top: vw(35, 768);
+      transform: translateY(vw(-20, 768));
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      padding-top: vw-mobile(30, 414);
+      transform: translateY(vw-mobile(-15, 414));
+    }
+    
+    &--special {
+      color: #08a03f;
+      width: vw(347.261);
+      
+      @include media('tablet') {
+        width: vw(300, 768);
+      }
+      
+      @include media('mobile') {
+        width: 100%;
+      }
+    }
+  }
+  
+  &__member-name {
+    font-family: $font-family-base;
+    margin: 0 0 vw(0) 0;
+    transition: color $transition-base, font-weight $transition-base, font-size $transition-base;
+    
+    .committees-board__member-info--special & {
+      font-weight: 700;
+      font-size: vw(37.062);
+     
+      color: #08a03f;
+      
+      @include media('tablet') {
+        font-size: vw(32, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(24, 414);
+      }
+    }
+    
+    .committees-board__member-info:not(.committees-board__member-info--special) & {
+      font-weight: 600;
+      font-size: vw(28.949);
+   
+      color: #1e1e1e;
+      opacity: 0.8;
+      
+      @include media('tablet') {
+        font-size: vw(26, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(20, 414);
+      }
+    }
+  }
+  
+  &__member-title {
+    font-family: $font-family-base;
+    font-weight: 500;
+    margin: 0;
+    transition: color $transition-base, opacity $transition-base, font-size $transition-base, letter-spacing $transition-base;
+    
+    .committees-board__member-info--special & {
+      font-size: vw(24.708);
+      line-height: 1.75;
+      color: #08a03f;
+      opacity: 0.8;
+      letter-spacing: vw(0.7412);
+      
+      @include media('tablet') {
+        font-size: vw(22, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(16, 414);
+      }
+    }
+    
+    .committees-board__member-info:not(.committees-board__member-info--special) & {
+      font-size: vw(19.299);
+      line-height: 1.75;
+      color: #1e1e1e;
+      opacity: 0.7;
+      letter-spacing: vw(0.579);
+      
+      @include media('tablet') {
+        font-size: vw(18, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(14, 414);
+      }
+    }
+  }
+}
+

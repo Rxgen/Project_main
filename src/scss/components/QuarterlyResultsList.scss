@@ -1,0 +1,148 @@
+// Quarterly Results List Component Styles
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=2300-601
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.quarterly-results-list {
+  position: relative;
+  width: 100%;
+  background: #f6f6f6;
+  padding: vw(63) vw(97);
+  
+  @include media('tablet') {
+    padding: vw(50, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1723);
+    margin: 0 auto;
+    @include flex(column, flex-start, flex-start);
+    gap: 0;
+  }
+
+  &__item {
+    @include flex(row, space-between, center);
+    width: 100%;
+    min-height: vw(80);
+    height: vw(80);
+    padding: 0;
+    align-items: center;
+    gap: vw(20);
+    
+    @include media('tablet') {
+      min-height: vw(70, 768);
+      height: vw(70, 768);
+      gap: vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      min-height: vw-mobile(60, 414);
+      height: auto;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: vw-mobile(8, 414);
+      padding: vw-mobile(12, 414) 0;
+    }
+  }
+
+  &__period {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(35);
+    line-height: vw(80);
+    color: #1e1e1e;
+    opacity: 0.8;
+    margin: 0;
+    text-transform: none;
+    white-space: nowrap;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    @include media('tablet') {
+      font-size: vw(28, 768);
+      line-height: vw(70, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(24, 414);
+      line-height: normal;
+      white-space: normal;
+    }
+  }
+
+  &__status {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(35);
+    line-height: vw(80);
+    color: #08a03f;
+    margin: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    
+    @include media('tablet') {
+      font-size: vw(28, 768);
+      line-height: vw(70, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(24, 414);
+      line-height: normal;
+    }
+  }
+}
+
+// Quarterly Results Cards Section
+.quarterly-results-cards {
+  position: relative;
+  width: 100%;
+  background: #f6f6f6;
+  padding: vw(50) vw(100);
+  
+  @include media('tablet') {
+    padding: vw(40, 768) vw(50, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(30, 414) vw-mobile(20, 414);
+  }
+
+  &__container {
+    max-width: vw(1820);
+    margin: 0 auto;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(5, vw(288));
+    gap: vw(70);
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    @include media('tablet') {
+      grid-template-columns: repeat(3, 1fr);
+      gap: vw(40, 768);
+      justify-content: center;
+    }
+    
+    @include media('mobile') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: vw-mobile(15, 414);
+    }
+  }
+}
+

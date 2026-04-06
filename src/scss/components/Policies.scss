@@ -1,0 +1,897 @@
+// Policies Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.policies {
+  position: relative;
+  width: 100%;
+
+  padding: vw(90) 0;
+  background: #ffffff;
+  
+  @include media('mobile') {
+    min-height: auto;
+    padding: vw-mobile(50, 414) 0;
+  }
+
+  // Light background variant
+  &--light-bg {
+    background: #F6F6F6;
+  }
+  
+  // Container
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 vw(99);
+    z-index: 1;
+    @include flex(column, flex-start, center);
+    gap: vw(48);
+    
+    @include media('mobile') {
+      width: 100%;
+      padding: 0 vw-mobile(20, 414);
+      gap: 0;
+    }
+  }
+
+  // Section Title (for Presentations, etc.)
+  &__section-title {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(48);
+    line-height: 1.2;
+    color: #08A03F;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    
+    @include media('tablet') {
+      font-size: vw(36, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(28, 414);
+    }
+  }
+  
+  // Tabs Navigation
+  &__tabs {
+    @include flex(row, center, center);
+    gap: vw(22);
+    margin-bottom: vw(116);
+    
+    @include media('mobile') {
+      gap: vw-mobile(10, 414);
+      margin-bottom: vw-mobile(40, 414);
+      flex-wrap: wrap;
+    }
+  }
+  
+  &__tab {
+    border: vw(1) solid #08a03f;
+    background: #ffffff;
+    color: #08a03f;
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(20);
+    line-height: vw(37);
+    padding: vw(17) vw(28);
+    border-radius: vw(16);
+    cursor: pointer;
+    transition: all $transition-base;
+    white-space: nowrap;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      line-height: vw-mobile(20, 414);
+      padding: vw-mobile(12, 414) vw-mobile(20, 414);
+      border-radius: vw-mobile(10, 414);
+      flex: 1 1 auto;
+      min-width: vw-mobile(100, 414);
+    }
+    
+    &:hover {
+      background: rgba(8, 160, 63, 0.1);
+    }
+    
+    &--active {
+      background: #08a03f;
+      color: #ffffff;
+      border-color: #08a03f;
+      
+      &:hover {
+        background: #08a03f;
+        opacity: 0.9;
+      }
+    }
+  }
+  
+  // Content
+  &__content {
+    position: relative;
+    width: 100%;
+    align-self: stretch;
+    @include flex(column, flex-start, center);
+    margin-top: vw(70);
+    @include media('mobile') {
+      margin-top: vw-mobile(40, 414);
+    }
+
+    // Modifier: Remove top margin (for VotingResults component)
+    &--no-top-margin {
+      margin-top: 0;
+      
+      @include media('mobile') {
+        margin-top: 0;
+      }
+    }
+  }
+
+  // Paragraph
+  &__paragraph {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(20);
+    line-height: 1.5;
+    color: #08A03F;
+    margin: 0 auto vw(100) 0;
+    max-width: vw(1200);
+    text-align: left;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      margin: 0 auto vw(80, 768) 0;
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: 1.6;
+      margin: 0 auto vw-mobile(60, 414) 0;
+    }
+  }
+
+  // Table Paragraph (for VotingTable component)
+  &__table-paragraph {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(25.77);
+    line-height: 1.37;
+    color: #08a03f;
+    margin: 0 0 vw(77) 0;
+    text-align: left;
+    
+    @include media('tablet') {
+      font-size: vw(22, 768);
+      margin: 0 0 vw(60, 768) 0;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      margin: 0 0 vw-mobile(40, 414) 0;
+      line-height: 1.4;
+    }
+  }
+
+  // Voting Table Wrapper
+  &__voting-table-wrapper {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(65);
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    
+    @include media('tablet') {
+      gap: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(30, 414);
+      overflow-x: auto;
+    }
+  }
+
+  // Voting Table Header
+  &__voting-table-header {
+    @include flex(row, center, center);
+    width: 100%;
+    min-width: max-content;
+    
+    @include media('mobile') {
+      flex-direction: row;
+      width: max-content;
+    }
+  }
+
+  // Voting Table Header Cell
+  &__voting-table-header-cell {
+    @include flex(row, center, center);
+    // justify-content: left !important;
+    height: vw(142);
+    width: vw(575.667);
+    padding: vw(17) vw(35);
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(18);
+    line-height: 1.39; // 25px / 18px
+    text-align: center;
+    
+    &:nth-child(2) {
+      width: vw(575.667);
+    }
+    
+    &:nth-child(3) {
+      width: vw(576);
+    }
+    
+    &--large-padding {
+      padding: vw(58) vw(35);
+    }
+    
+    p {
+      margin: 0;
+      line-height: vw(25);
+    }
+    
+    @include media('tablet') {
+      height: vw(120, 768);
+      width: vw(200, 768);
+      padding: vw(15, 768) vw(20, 768);
+      font-size: vw(16, 768);
+      
+      &:nth-child(2) {
+        width: vw(200, 768);
+      }
+      
+      &:nth-child(3) {
+        width: vw(200, 768);
+      }
+      
+      &--large-padding {
+        padding: vw(40, 768) vw(20, 768);
+      }
+      
+      p {
+        line-height: vw(22, 768);
+      }
+    }
+    
+    @include media('mobile') {
+      height: vw-mobile(60, 414);
+      width: vw-mobile(120, 414);
+      min-width: vw-mobile(120, 414);
+      padding: vw-mobile(10, 414) vw-mobile(8, 414);
+      font-size: vw-mobile(9, 414);
+      line-height: 1.3;
+      white-space: normal;
+      word-wrap: break-word;
+      
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(6) {
+        width: vw-mobile(120, 414);
+        min-width: vw-mobile(120, 414);
+      }
+      
+      &--large-padding {
+        padding: vw-mobile(10, 414) vw-mobile(8, 414);
+      }
+      
+      p {
+        line-height: 1.3;
+        margin: 0;
+      }
+    }
+  }
+
+  // Voting Table Rows
+  &__voting-table-rows {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(9);
+    width: 100%;
+    
+    @include media('tablet') {
+      width: 100%;
+      gap: vw(8, 768);
+    }
+    
+    @include media('mobile') {
+      width: max-content;
+      min-width: max-content;
+      gap: vw-mobile(6, 414);
+    }
+  }
+
+  // Voting Table Row
+  &__voting-table-row {
+    @include flex(row, flex-start, center);
+    width: 100%;
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(18);
+    line-height: vw(45);
+    color: #000000;
+    // Match header column widths
+    p {
+      &:nth-child(1) {
+        width: vw(575.667);
+        text-align: center;
+      }
+      
+      &:nth-child(2) {
+        width: vw(575.667);
+        text-align: center;
+      }
+      
+      &:nth-child(3) {
+        width: vw(576);
+        text-align: center;
+      }
+    }
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(40, 768);
+      
+      p {
+        &:nth-child(1) {
+          width: vw(200, 768);
+        }
+        
+        &:nth-child(2) {
+          width: vw(200, 768);
+        }
+        
+        &:nth-child(3) {
+          width: vw(200, 768);
+        }
+      }
+    }
+    
+    @include media('mobile') {
+      flex-direction: row;
+      align-items: center;
+      font-size: vw-mobile(9, 414);
+      line-height: 1.4;
+      width: max-content;
+      min-width: max-content;
+      
+      p {
+        width: vw-mobile(120, 414) !important;
+        min-width: vw-mobile(120, 414);
+        padding: vw-mobile(8, 414) vw-mobile(8, 414) !important;
+        margin-bottom: 0 !important;
+        white-space: normal;
+        word-wrap: break-word;
+        
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5),
+        &:nth-child(6) {
+          width: vw-mobile(120, 414) !important;
+          min-width: vw-mobile(120, 414);
+        }
+        
+        &:last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+    }
+  }
+
+  // Voting Table Cell
+  &__voting-table-cell {
+    margin: 0;
+    opacity: 0.8;
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(18);
+    line-height: vw(45);
+    color: #000000;
+    text-align: left;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(9, 414);
+      line-height: 1.4;
+      padding: vw-mobile(8, 414) vw-mobile(8, 414);
+      white-space: normal;
+      word-wrap: break-word;
+    }
+  }
+
+
+  // Notice Box - matching Figma design exactly
+  &__notice-box {
+    width: 100%;
+    background: #ffffff;
+    border: vw(1) solid #08a03f;
+    border-radius: vw(60);
+    padding: vw(61) vw(70);
+    position: relative;
+    
+    @include media('tablet') {
+      border-radius: vw(40, 768);
+      padding: vw(40, 768) vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(30, 414);
+      padding: vw-mobile(30, 414) vw-mobile(20, 414);
+    }
+  }
+
+  &__notice-content {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(43);
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(25, 414);
+    }
+  }
+
+  &__notice-title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(80);
+    color: #08a03f;
+    margin: 0;
+    white-space: nowrap;
+    
+    @include media('tablet') {
+      font-size: vw(48, 768);
+      line-height: vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(36, 414);
+      line-height: vw-mobile(44, 414);
+    }
+  }
+
+  &__notice-main {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(81);
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(35, 414);
+    }
+  }
+
+  &__notice-paragraph {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: vw(36);
+    color: #126430;
+    opacity: 0.8;
+    margin: 0;
+    width: vw(1311);
+    max-width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(32, 768);
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(28, 414);
+    }
+  }
+
+  &__notice-columns {
+    @include flex(row, flex-start, flex-start);
+    gap: vw(212);
+    width: 100%;
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: vw(36);
+    color: #126430;
+    opacity: 0.8;
+    @include media('tablet') {
+      flex-direction: column;
+      gap: vw(30, 768);
+      font-size: vw(18, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      gap: vw-mobile(25, 414);
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(28, 414);
+    }
+  }
+
+  &__notice-address-column {
+    width: vw(409);
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+    }
+  }
+
+  &__notice-address-text {
+    margin: 0;
+  }
+
+  &__notice-contact-column {
+    width: vw(766);
+    flex: 1;
+    
+    @include media('tablet') {
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+    }
+  }
+
+  &__notice-contact-text {
+    margin: 0 0 vw(10) 0;
+    
+    @include media('tablet') {
+      margin: 0 0 vw(10, 768) 0;
+    }
+    
+    @include media('mobile') {
+      margin: 0 0 vw-mobile(10, 414) 0;
+    }
+  }
+
+  &__notice-email-link {
+    color: #126430;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    cursor: pointer;
+    
+    &:hover {
+      opacity: 1;
+    }
+    
+    span {
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+    }
+  }
+
+  &__notice-phone-text {
+    margin: 0;
+  }
+
+  // Table Wrapper (kept for backward compatibility)
+  &__table-wrapper {
+    width: 100%;
+    max-width: vw(1200);
+    margin: 0 auto;
+    overflow-x: auto;
+    
+    @include media('tablet') {
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      max-width: 100%;
+    }
+  }
+
+  // Table (kept for backward compatibility)
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: $font-family-base;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+    }
+  }
+
+  // Table Header (kept for backward compatibility)
+  &__table-header {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(18);
+    line-height: 1.5;
+    color: #000000;
+    padding: vw(20) vw(30);
+    text-align: left;
+    border-bottom: vw(2) solid #08A03F;
+    background: #F6F6F6;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      padding: vw(15, 768) vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      padding: vw-mobile(12, 414) vw-mobile(15, 414);
+    }
+  }
+
+  // Table Row (kept for backward compatibility)
+  &__table-row {
+    border-bottom: vw(1) solid #E0E0E0;
+    
+    @include media('mobile') {
+      border-bottom: vw-mobile(1, 414) solid #E0E0E0;
+    }
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  // Table Cell (kept for backward compatibility)
+  &__table-cell {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(16);
+    line-height: 1.5;
+    color: #000000;
+    padding: vw(20) vw(30);
+    text-align: left;
+    
+    @include media('tablet') {
+      font-size: vw(14, 768);
+      padding: vw(15, 768) vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(12, 414);
+      padding: vw-mobile(12, 414) vw-mobile(15, 414);
+    }
+  }
+  
+  // Policy Cards Grid
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: vw(46) vw(19);
+    margin-bottom: vw(50);
+    width: 100%;
+    max-width: vw(1283);
+
+    .policy-card {
+      width: vw(415);
+      flex: 0 0 vw(415);
+    }
+    
+    @include media('tablet') {
+      gap: vw(30, 768) vw(15, 768);
+
+      .policy-card {
+        width: calc((100% - 2 * vw(15, 768)) / 3);
+        flex: 0 0 calc((100% - 2 * vw(15, 768)) / 3);
+      }
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(15, 414);
+      margin-bottom: vw-mobile(30, 414);
+
+      .policy-card {
+        width: calc((100% - vw-mobile(15, 414)) / 2);
+        flex: 0 0 calc((100% - vw-mobile(15, 414)) / 2);
+      }
+    }
+  }
+  
+  // Decorative Group Image
+  &__decorative {
+    position: absolute;
+    right: vw(-50);
+    top: 0;
+    width: vw(726.203);
+    height: vw(406);
+    z-index: 1;
+    pointer-events: none;
+    
+    @include media('mobile') {
+      display: none;
+    }
+  }
+  
+  &__decorative-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  // Placeholder
+  &__placeholder {
+    width: 100%;
+    text-align: center;
+    padding: vw(100) 0;
+    font-family: $font-family-base;
+    font-size: vw(24);
+    color: #666;
+    
+    @include media('mobile') {
+      padding: vw-mobile(50, 414) 0;
+      font-size: vw-mobile(16, 414);
+    }
+  }
+}
+
+// Policy Card
+.policy-card {
+  position: relative;
+  width: 100%;
+  @include flex(column, flex-start, center);
+  padding-bottom: 50px;
+  
+  @include media('mobile') {
+    padding-bottom: vw-mobile(25, 414);
+  }
+  
+  &--active,
+  &:hover {
+    .policy-card__content {
+      background: #08a03f;
+    }
+    
+    .policy-card__title {
+      color: #ffffff;
+    }
+    
+    .policy-card__download-link {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+  }
+  
+  &__content {
+    position: relative;
+    width: 100%;
+    background: #d9f0e1;
+    border-radius: vw(52);
+    padding: vw(66) vw(58);
+    min-height: vw(393);
+    @include flex(column, flex-start, center);
+    transition: background $transition-base;
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(20, 414);
+      padding: vw-mobile(15, 414);
+      min-height: vw-mobile(224, 414);
+    }
+  }
+  
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(26);
+    line-height: 1.37;
+    color: #08a03f;
+    margin: 0 0 vw(20) 0;
+    text-align: center;
+    white-space: pre-wrap;
+    width: vw(320);
+    transition: color $transition-base;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(12, 414);
+      line-height: 1.7;
+      width: 100%;
+      margin-bottom: vw-mobile(15, 414);
+    }
+  }
+
+  &__title-link {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  &__download {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    @include flex(column, center, center);
+    gap: 0;
+    width: vw(191);
+    align-items: center;
+    z-index: 2;
+    
+    @include media('mobile') {
+      bottom: vw-mobile(-25, 414);
+      width: 100%;
+    }
+  }
+  
+  &__download-link {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(16);
+    line-height: 1.37;
+    color: #08a03f;
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 0;
+    height: vw(50);
+    @include flex(column, center, center);
+    width: 100%;
+    transition: color $transition-base;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(12, 414);
+      height: auto;
+      margin-bottom: 0;
+    }
+  }
+  
+  &__download-button {
+    position: relative;
+    width: vw(104);
+    height: vw(104);
+    flex-shrink: 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform $transition-base;
+    
+    @include media('mobile') {
+      width: vw-mobile(60, 414);
+      height: vw-mobile(60, 414);
+    }
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  &__download-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+// Table Policies specific styles
+.tablePolicies .policies__content {
+  align-items: baseline;
+}
+

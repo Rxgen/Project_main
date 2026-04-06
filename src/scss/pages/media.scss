@@ -1,0 +1,177 @@
+// Media Page Styles
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.sectionMediaSearch {
+  padding: vw(30) vw(40) vw(30);
+  width: 100%;
+  max-width: vw(1440);
+  margin: 0 auto;
+
+  @include media('tablet') {
+    padding: vw(25, 768) vw(30, 768) vw(25, 768);
+  }
+
+  @include media('mobile') {
+    padding: vw-mobile(25, 414) vw-mobile(20, 414) vw-mobile(20, 414);
+  }
+}
+
+.sectionPressReleases {
+  padding: vw(100);
+
+  @include media('tablet') {
+    padding: vw(50, 768);
+  }
+
+  @include media('mobile') {
+    padding: vw-mobile(0, 414) vw-mobile(20, 414) vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+
+  .whats-new__container {
+    padding: 0;
+  }
+
+  .whats-new__cards-wrapper {
+    width: 100%;
+  }
+
+  .whats-new__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: vw(50);
+    justify-content: space-between;
+    width: 100%;
+
+    @include media('tablet') {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: vw(40, 768);
+    }
+
+    @include media('mobile') {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: vw-mobile(30, 414);
+    }
+  }
+
+  .whats-new__card {
+    width: vw(495);
+    height: vw(489.879);
+
+    @include media('tablet') {
+      width: 100%;
+      height: auto;
+      min-height: vw(350, 768);
+    }
+
+    @include media('mobile') {
+      width: 100%;
+      height: auto;
+      min-height: vw-mobile(250, 414);
+    }
+  }
+}
+
+// Profile Cards Section
+.sectionProfileCards {
+  padding: vw(100);
+  width: 100%;
+
+  margin: 0 auto;
+
+  @include media('tablet') {
+    padding: vw(50, 768);
+  }
+
+  @include media('mobile') {
+    padding: vw-mobile(20, 414);
+  }
+}
+
+.profile-cards-container {
+  width: 100%;
+}
+
+.pagination-container {
+  width: 100%;
+  @include flex(row, center, center);
+  margin-top: vw(60);
+
+  @include media('tablet') {
+    margin-top: vw(50, 768);
+  }
+
+  @include media('mobile') {
+    margin-top: vw-mobile(40, 414);
+  }
+}
+
+// PDF Download Section
+.sectionPdfDownload {
+  padding: 0 vw(100) vw(100);
+  width: 100%;
+  margin: 0 auto;
+
+  @include media('tablet') {
+    padding: vw(50, 768) vw(30, 768);
+  }
+
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+}
+
+.pdf-download-container {
+  width: 100%;
+  @include flex(row, space-between, center);
+  gap: vw(30);
+
+
+  @include media('tablet') {
+    gap: vw(20, 768);
+    @include flex(column, center, center);
+  }
+
+  @include media('mobile') {
+    gap: vw-mobile(20, 414);
+    @include flex(column, center, center);
+  }
+}
+
+// Media Coverage page specific styles
+.sectionProfileCards--media-coverage {
+  .profile-card__name {
+    font-size: vw(35) !important;
+
+    @include media('tablet') {
+      font-size: vw(28, 768) !important;
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(24, 414) !important;
+    }
+  }
+}
+
+// Media page specific styles for WhatsNew
+.whats-new.whats-new--media-page {
+  .whats-new__title {
+    font-size: vw(65) !important;
+
+    @include media('tablet') {
+      font-size: vw(48, 768) !important;
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414) !important;
+    }
+  }
+}
+
+// Perspectives section padding
+#perspectives {
+  padding: 0 !important;
+}

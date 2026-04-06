@@ -1,0 +1,544 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+// Lupin for Suppliers Page Styles
+
+.lupin-for-suppliers {
+  position: relative;
+}
+
+// Intro section
+.suppliers-intro {
+  padding: vw(80) vw(130);
+  background: linear-gradient(197deg, #135451 -0.58%, #2D7252 49.78%, #08A03F 78.41%);
+
+  @include media('tablet') {
+    padding: vw(60, 768) vw(60, 768);
+  }
+
+  @include media('mobile') {
+    padding: vw-mobile(60, 414) vw-mobile(20, 414);
+  }
+
+  &__container {
+    max-width: vw(1200);
+    margin: 0 auto;
+  }
+
+  &__tagline {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(28);
+    line-height: 1.5;
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+
+    @include media('tablet') {
+      font-size: vw(22, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+    }
+  }
+}
+
+// Ariba section
+.suppliers-ariba {
+  padding: vw(80) vw(130);
+  background: #ffffff;
+
+  @include media('tablet') {
+    padding: vw(60, 768) vw(60, 768);
+  }
+
+  @include media('mobile') {
+    padding: vw-mobile(60, 414) vw-mobile(20, 414);
+  }
+
+  &__container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(36);
+    line-height: 1.3;
+    color: #033943;
+    margin: 0 0 vw(30) 0;
+
+    @include media('tablet') {
+      font-size: vw(28, 768);
+      margin-bottom: vw(24, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(22, 414);
+      margin-bottom: vw-mobile(20, 414);
+    }
+  }
+
+  &__content {
+    p {
+      font-family: $font-family-base;
+      font-weight: 400;
+      font-size: vw(18);
+      line-height: 1.6;
+      color: #333333;
+      margin: 0 0 vw(20) 0;
+
+      @include media('tablet') {
+        font-size: vw(16, 768);
+        margin-bottom: vw(16, 768);
+      }
+
+      @include media('mobile') {
+        font-size: vw-mobile(15, 414);
+        margin-bottom: vw-mobile(14, 414);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Benefits section
+.suppliers-benefits {
+  padding: vw(80) vw(130);
+  background: #f8f9fa;
+
+  @include media('tablet') {
+    padding: vw(60, 768) vw(60, 768);
+  }
+
+  @include media('mobile') {
+    padding: vw-mobile(60, 414) vw-mobile(20, 414);
+  }
+
+  &__container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(36);
+    line-height: 1.3;
+    color: #033943;
+    margin: 0 0 vw(20) 0;
+
+    @include media('tablet') {
+      font-size: vw(28, 768);
+      margin-bottom: vw(16, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(22, 414);
+      margin-bottom: vw-mobile(14, 414);
+    }
+  }
+
+  &__subtext {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(18);
+    line-height: 1.6;
+    color: #333333;
+    margin: 0 0 vw(40) 0;
+
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      margin-bottom: vw(30, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(15, 414);
+      margin-bottom: vw-mobile(24, 414);
+    }
+  }
+
+  &__subheading {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(24);
+    line-height: 1.4;
+    color: #135451;
+    margin: 0 0 vw(40) 0;
+
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      margin-bottom: vw(30, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      margin-bottom: vw-mobile(24, 414);
+    }
+  }
+
+  &__grid {
+    @include flex(row, space-between, stretch, wrap);
+    gap: vw(30);
+
+    @include media('tablet') {
+      gap: vw(24, 768);
+    }
+
+    @include media('mobile') {
+      flex-direction: column;
+      gap: vw-mobile(20, 414);
+    }
+  }
+
+  &__card {
+    flex: 1 1 calc(50% - vw(15));
+    min-width: 280px;
+    padding: vw(30);
+    background-color: #e8f5e9;
+    background-image: url('/assets/our-values/decoration.svg');
+    background-repeat: no-repeat;
+    background-position: right vw(20) top vw(20);
+    background-size: vw(120) auto;
+    border-radius: vw(12);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.3s ease;
+
+    @include media('tablet') {
+      flex: 1 1 calc(50% - vw(12, 768));
+      padding: vw(24, 768);
+      min-width: 240px;
+      background-position: right vw(16, 768) top vw(16, 768);
+      background-size: vw(100, 768) auto;
+    }
+
+    @include media('mobile') {
+      flex: 1 1 100%;
+      padding: vw-mobile(24, 414);
+      min-width: auto;
+      background-position: right vw-mobile(16, 414) top vw-mobile(16, 414);
+      background-size: vw-mobile(70, 414) auto;
+    }
+
+    &:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  &__card-title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(20);
+    line-height: 1.3;
+    color: #135451;
+    margin: 0 0 vw(12) 0;
+    display: block;
+
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      margin-bottom: vw(10, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(17, 414);
+      margin-bottom: vw-mobile(10, 414);
+    }
+  }
+
+  &__card-text {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(16);
+    line-height: 1.6;
+    color: #555555;
+    margin: 0;
+
+    @include media('tablet') {
+      font-size: vw(15, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+    }
+  }
+}
+
+// Onboarding section
+.suppliers-onboarding {
+  padding: vw(80) vw(130);
+  background: #ffffff;
+
+  @include media('tablet') {
+    padding: vw(60, 768) vw(60, 768);
+  }
+
+  @include media('mobile') {
+    padding: vw-mobile(60, 414) vw-mobile(20, 414);
+  }
+
+  &__container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(36);
+    line-height: 1.3;
+    color: #033943;
+    margin: 0 0 vw(30) 0;
+
+    @include media('tablet') {
+      font-size: vw(28, 768);
+      margin-bottom: vw(24, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(22, 414);
+      margin-bottom: vw-mobile(20, 414);
+    }
+  }
+
+  &__text {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(18);
+    line-height: 1.6;
+    color: #333333;
+    margin: 0;
+
+    @include media('tablet') {
+      font-size: vw(16, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(15, 414);
+    }
+  }
+}
+
+// Video section
+.suppliers-video {
+  padding: vw(80) vw(130);
+  background: #f8f9fa;
+
+  @include media('tablet') {
+    padding: vw(60, 768) vw(60, 768);
+  }
+
+  @include media('mobile') {
+    padding: vw-mobile(60, 414) vw-mobile(20, 414);
+  }
+
+  &__container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(24);
+    line-height: 1.5;
+    color: #033943;
+    margin: 0 0 vw(40) 0;
+
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      margin-bottom: vw(30, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      margin-bottom: vw-mobile(24, 414);
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    max-width: vw(800);
+    margin: 0 auto;
+    border-radius: vw(12);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    @include media('tablet') {
+      max-width: 100%;
+      border-radius: vw(10, 768);
+    }
+
+    @include media('mobile') {
+      border-radius: vw-mobile(8, 414);
+    }
+  }
+
+  &__player {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+// Training section
+.suppliers-training {
+  padding: vw(80) vw(130);
+  background: linear-gradient(197deg, #135451 -0.58%, #2D7252 49.78%, #08A03F 78.41%);
+
+  @include media('tablet') {
+    padding: vw(60, 768) vw(60, 768);
+  }
+
+  @include media('mobile') {
+    padding: vw-mobile(60, 414) vw-mobile(20, 414);
+  }
+
+  &__container {
+    max-width: vw(1200);
+    margin: 0 auto;
+  }
+
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(36);
+    line-height: 1.3;
+    color: #ffffff;
+    margin: 0 0 vw(40) 0;
+
+    @include media('tablet') {
+      font-size: vw(28, 768);
+      margin-bottom: vw(30, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(22, 414);
+      margin-bottom: vw-mobile(24, 414);
+    }
+  }
+
+  &__grid {
+    @include flex(row, flex-start, stretch, wrap);
+    gap: vw(30);
+    margin-bottom: vw(40);
+
+    @include media('tablet') {
+      gap: vw(24, 768);
+      margin-bottom: vw(30, 768);
+    }
+
+    @include media('mobile') {
+      flex-direction: column;
+      gap: vw-mobile(20, 414);
+      margin-bottom: vw-mobile(24, 414);
+    }
+  }
+
+  &__card {
+    flex: 1 1 calc(50% - vw(15));
+    min-width: 280px;
+    padding: vw(30);
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: vw(12);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: vw(12);
+    transition: background 0.3s ease, border-color 0.3s ease;
+
+    @include media('tablet') {
+      flex: 1 1 calc(50% - vw(12, 768));
+      padding: vw(24, 768);
+      min-width: 240px;
+    }
+
+    @include media('mobile') {
+      flex: 1 1 100%;
+      padding: vw-mobile(24, 414);
+      min-width: auto;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  &__card-label {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(14);
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    @include media('mobile') {
+      font-size: vw-mobile(12, 414);
+    }
+  }
+
+  &__card-title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(20);
+    line-height: 1.3;
+    color: #ffffff;
+
+    @include media('tablet') {
+      font-size: vw(18, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(17, 414);
+    }
+  }
+
+  &__card-cta {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(16);
+    color: #ffffff;
+    text-decoration: underline;
+    margin-top: auto;
+
+    @include media('mobile') {
+      font-size: vw-mobile(15, 414);
+    }
+  }
+
+  &__link {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(18);
+    line-height: 1.6;
+    color: #ffffff;
+    margin: 0;
+
+    @include media('tablet') {
+      font-size: vw(16, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(15, 414);
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: underline;
+      font-weight: 600;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}

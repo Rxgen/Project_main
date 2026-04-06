@@ -1,0 +1,54 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+@import '../utils/functions';
+
+body,html{
+  overflow-x: hidden;
+}
+
+.golden-line {
+  position: absolute;
+  left: vw(5);
+  top: vw(-100);
+  width: 100%;
+ overflow: hidden;
+  pointer-events: none;
+  z-index: 9999;
+  
+  @include media('tablet') {
+    left: vw(0, 768);
+    top: vw(0, 768);
+  }
+  
+  &__svg {
+   
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    
+    path, line {
+      stroke: #D4AF37 !important;
+      stroke-width: 3px !important;
+      fill: none !important;
+    }
+    
+    @include media('tablet') {
+      width: 100vw;
+      height: 100vh;
+      
+      path, line {
+        stroke-width: vw(2.5, 768) !important;
+      }
+    }
+    
+    @include media('mobile') {
+      width: 100vw;
+      height: 100vh;
+      
+      path, line {
+        stroke-width: 2px !important;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,211 @@
+// Product Finder Letter Filter Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.product-finder-letter-filter {
+  position: relative;
+  width: 100%;
+  max-width: vw(792);
+  z-index: 2;
+  
+  @include media('tablet') {
+    max-width: 100%;
+  }
+  
+  @include media('mobile') {
+    max-width: 100%;
+  }
+  
+  // Background Circle
+  &__background-circle {
+    position: relative;
+    width: vw(792);
+    height: vw(792);
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: vw(145);
+    overflow: hidden;
+    
+    @include media('tablet') {
+      width: vw(600, 768);
+      height: vw(600, 768);
+      padding: vw(100, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      max-width: vw-mobile(350, 414);
+      height: vw-mobile(350, 414);
+      padding: vw-mobile(50, 414);
+      margin: 0 auto;
+    }
+  }
+  
+  // Flower SVG
+  &__flower {
+    position: absolute;
+    bottom: vw(25);
+    right: vw(25);
+    width: vw(534);
+    height: vw(256);
+    transform: rotate(-8.45deg);
+    opacity: 0.5;
+    z-index: 1;
+    pointer-events: none;
+    
+    @include media('tablet') {
+      bottom: vw(20, 768);
+      right: vw(20, 768);
+      width: vw(400, 768);
+      height: vw(192, 768);
+    }
+    
+    @include media('mobile') {
+      bottom: vw-mobile(15, 414);
+      right: vw-mobile(15, 414);
+      width: vw-mobile(200, 414);
+      height: vw-mobile(96, 414);
+    }
+  }
+  
+  &__flower-img {
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  // Heading
+  &__heading {
+    position: relative;
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(35);
+    line-height: vw(36);
+    color: #08a03f;
+    text-decoration: underline;
+    text-decoration-thickness: vw(1);
+    text-underline-offset: vw(5);
+    margin: 0 0 vw(50) 0;
+    z-index: 2;
+    
+    @include media('tablet') {
+      font-size: vw(28, 768);
+      line-height: vw(30, 768);
+      margin-bottom: vw(40, 768);
+      text-decoration-thickness: vw(1, 768);
+      text-underline-offset: vw(4, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(24, 414);
+      line-height: vw-mobile(26, 414);
+      margin-bottom: vw-mobile(30, 414);
+      text-decoration-thickness: vw-mobile(1, 414);
+      text-underline-offset: vw-mobile(3, 414);
+    }
+  }
+  
+  // Alphabet Grid
+  &__alphabet {
+    position: relative;
+    width: vw(541.92);
+    z-index: 2;
+    
+    @include media('tablet') {
+      width: 100%;
+      max-width: vw(450, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      max-width: vw-mobile(280, 414);
+    }
+  }
+  
+  // Row
+  &__row {
+    display: flex;
+    gap: 0;
+    margin-bottom: vw(47);
+    width: 100%;
+    
+    @include media('tablet') {
+      margin-bottom: vw(35, 768);
+    }
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(20, 414);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  // Letter Button
+  &__letter {
+    width: vw(76.08);
+    height: vw(42.136);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(23.409);
+    line-height: vw(42.136);
+    color: #08a03f;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    position: relative;
+    
+    @include media('tablet') {
+      width: vw(60, 768);
+      height: vw(38, 768);
+      font-size: vw(20, 768);
+      line-height: vw(38, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(35, 414);
+      height: vw-mobile(32, 414);
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(32, 414);
+    }
+    
+    &:hover {
+      opacity: 0.7;
+    }
+    
+    // Selected State
+    &--selected {
+      background: #08a03f;
+      color: #ffffff;
+      width: vw(40);
+      height: vw(40);
+      
+      @include media('tablet') {
+        width: vw(35, 768);
+        height: vw(35, 768);
+      }
+      
+      @include media('mobile') {
+        width: vw-mobile(28, 414);
+        height: vw-mobile(28, 414);
+      }
+      
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+

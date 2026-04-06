@@ -1,0 +1,330 @@
+@import "../utils/variables";
+@import "../utils/functions";
+@import "../utils/mixins";
+
+.presentation__container {
+  padding: vw(40) vw(100);
+  background: #E9FFF1;
+}
+
+.presentation__header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: vw(70);
+
+  h1 {
+    margin: 0;
+    color: #08A03F;
+    font-family: $font-family-base;
+    font-size: vw(65);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.23;
+
+    @include media("tablet") {
+      font-size: vw(48, 768);
+    }
+
+    @include media("mobile") {
+      font-size: vw-mobile(32, 414);
+    }
+  }
+}
+
+.presentation__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: vw(13);
+  margin: 0;
+  padding: vw(16) vw(32);
+  border: none;
+  border-radius: vw(16.39);
+  background: #08A03F;
+  cursor: pointer;
+  font-family: $font-family-base;
+  color: #fff;
+  font-size: vw(27.897);
+  font-weight: 600;
+  line-height: 1.37;
+  transition: opacity 0.2s ease, background-color 0.2s ease, scale 0.2s ease;
+
+  @include media("tablet") {
+    padding: vw(14, 768) vw(28, 768);
+    font-size: vw(22, 768);
+    gap: vw(10, 768);
+    border-radius: vw(40, 768);
+  }
+
+  @include media("mobile") {
+    padding: vw-mobile(12, 414) vw-mobile(22, 414);
+    font-size: vw-mobile(18, 414);
+    gap: vw-mobile(8, 414);
+    border-radius: vw-mobile(32, 414);
+  }
+
+  &:hover {
+    background: #08a040f3;
+    scale: 1.05;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+  }
+
+  &-label {
+    display: inline-block;
+  }
+
+  &-arrow {
+    flex-shrink: 0;
+    width: vw(20);
+    height: vw(20);
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+
+    @include media("tablet") {
+      width: vw(18, 768);
+      height: vw(18, 768);
+    }
+
+    @include media("mobile") {
+      width: vw-mobile(16, 414);
+      height: vw-mobile(16, 414);
+    }
+  }
+}
+
+// Whole card is a button for video rows — reset native button chrome, keep policies__card look
+button.policies__card.policies__card--video-trigger {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+  font: inherit;
+  font-family: Inter, $font-family-base;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+
+  &:focus-visible {
+    outline: 2px solid #033a17;
+    outline-offset: 3px;
+  }
+}
+
+// Same row as policies cards: title left, circular video thumb + play on the right (replaces download icon)
+.presentation__video-thumb {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: inherit;
+  border-radius: 50%;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.presentation__video-thumb-ring {
+  position: relative;
+  display: block;
+  width: vw(72.92);
+  height: vw(72.92);
+  border-radius: 50%;
+  overflow: hidden;
+  border: vw(1) solid #126430;
+  box-sizing: border-box;
+
+  @include media-custom($min: 769px, $max: 1024px) {
+    width: vw(62, 1024);
+    height: vw(62, 1024);
+  }
+
+  @include media("tablet") {
+    width: vw(68, 768);
+    height: vw(68, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    width: vw(66, 425);
+    height: vw(66, 425);
+  }
+
+  @include media-custom($min: 1440px) {
+    width: vw(100);
+    height: vw(100);
+  }
+
+  @include media-custom($min: 1920px) {
+    width: vw(120);
+    height: vw(120);
+  }
+
+  @include media-custom($min: 2560px) {
+    width: vw(140);
+    height: vw(140);
+  }
+}
+
+.presentation__video-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.presentation__video-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+
+  img {
+    width: 55%;
+    height: auto;
+    max-width: vw(40);
+    object-fit: contain;
+    filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.2));
+
+    @include media("tablet") {
+      max-width: vw(32, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      max-width: vw(28, 425);
+    }
+  }
+}
+
+.policies__card--active .presentation__video-thumb-ring,
+.policies__card:hover .presentation__video-thumb-ring {
+  border-color: #e9fff1;
+}
+
+// Video popup — same layout/behavior as MediaCoverage video modal (not shared VideoModal)
+.presentation-video-popup__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: vw(40);
+  background: rgb(0 0 0 / 0.9);
+  animation: presentation-video-popup-fade 0.3s ease-in-out;
+
+  @include media("mobile") {
+    padding: vw-mobile(20, 414);
+  }
+}
+
+.presentation-video-popup {
+  position: relative;
+  width: 100%;
+  max-width: vw(1200);
+  overflow: hidden;
+  border-radius: vw(20);
+  background: #000;
+  animation: presentation-video-popup-slide 0.3s ease-out;
+
+  @include media("tablet") {
+    max-width: 90%;
+    border-radius: vw(15, 768);
+  }
+
+  @include media("mobile") {
+    max-width: 100%;
+    border-radius: vw-mobile(15, 414);
+  }
+}
+
+.presentation-video-popup__close {
+  position: absolute;
+  top: vw(20);
+  right: vw(20);
+  z-index: 10001;
+  display: flex;
+  width: vw(40);
+  height: vw(40);
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 0.6);
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  @include media("tablet") {
+    top: vw(15, 768);
+    right: vw(15, 768);
+    width: vw(35, 768);
+    height: vw(35, 768);
+  }
+
+  @include media("mobile") {
+    top: vw-mobile(10, 414);
+    right: vw-mobile(10, 414);
+    width: vw-mobile(35, 414);
+    height: vw-mobile(35, 414);
+  }
+
+  &:hover {
+    background: rgb(0 0 0 / 0.8);
+  }
+
+  svg {
+    width: vw(24);
+    height: vw(24);
+
+    @include media("tablet") {
+      width: vw(20, 768);
+      height: vw(20, 768);
+    }
+
+    @include media("mobile") {
+      width: vw-mobile(20, 414);
+      height: vw-mobile(20, 414);
+    }
+  }
+}
+
+.presentation-video-popup__video-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: #000;
+}
+
+.presentation-video-popup__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@keyframes presentation-video-popup-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes presentation-video-popup-slide {
+  from {
+    opacity: 0;
+    transform: translateY(vw(30));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

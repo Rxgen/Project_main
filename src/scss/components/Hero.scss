@@ -1,0 +1,550 @@
+// Hero Section Component (from Figma design)
+// Exact design match - no modifications
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  padding-top: 0; // Header overlaps, no padding needed
+  z-index: 9999;
+  @include media('mobile') { 
+    height: 100vh;
+  }
+
+  // Background
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  // Swiper container
+  &__swiper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  // Swiper slide
+  &__slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  // Base green color from Figma
+  &__bg-base {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #08a240;
+    z-index: 0;
+  }
+  
+  // Gradient texture with color-dodge blend mode
+  &__bg-texture {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 99.69%;
+    height: 100%;
+    mix-blend-mode: color-dodge;
+    z-index: 1;
+    overflow: hidden;
+    
+    img {
+      position: absolute;
+      top: -0.1%;
+      left: 0;
+      width: 100.11%;
+      height: 191.85%;
+      object-fit: cover;
+    }
+  }
+  
+  // Diagonal gradient overlay from Figma
+  &__bg-gradient-diagonal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(88.9751deg, rgba(11, 84, 89, 0.7) 5.5424%, rgba(8, 162, 64, 0) 66.8%);
+    z-index: 2;
+  }
+  
+  // Top gradient with multiply blend mode
+  &__bg-gradient-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(6, 51, 54, 0.77) 0%, rgba(8, 162, 64, 0) 37.537%);
+    mix-blend-mode: multiply;
+    z-index: 3;
+  }
+  
+  // Petals decoration
+  &__bg-petals {
+    position: absolute;
+    left: vw(806.09);
+    top: vw(142.54);
+    width: vw(708.686);
+    height: vw(726.081);
+    z-index: 4;
+    animation: rotate-petals 60s linear infinite;
+    
+    @include media('mobile') {
+      left: vw-mobile(250, 414);
+      top: vw-mobile(80, 414);
+      width: vw-mobile(300, 414);
+      height: vw-mobile(308, 414);
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+     
+    }
+  }
+  
+  // Hero Image
+  &__image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 5;
+    pointer-events: none;
+
+    // Fullscreen image wrapper as link
+    &--link {
+      pointer-events: auto;
+      cursor: pointer;
+      display: block;
+    }
+  }
+
+  // Desktop/mobile image slots for responsive banner images
+  &__image-slot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    &--desktop {
+      @include media('mobile') {
+        display: none !important;
+      }
+    }
+
+    &--mobile {
+      display: none !important;
+
+      @include media('mobile') {
+        display: block !important;
+      }
+    }
+  }
+  
+  &__image {
+    position: absolute !important;
+    left: 30.92% !important;
+    top: auto !important;
+    width: 49.12% !important;
+    height: auto !important;
+    bottom: -60px;
+    object-fit: contain;
+    object-position: center;
+    
+    @include media('mobile') {
+      
+        width: 100% !important;
+        height: auto !important;
+        top: auto !important;
+        left: 24% !important;
+        bottom: 0;
+        scale: 1.3;
+    
+    }
+
+    // Fullscreen image for slides without content
+    &--fullscreen {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      bottom: auto !important;
+      scale: 1 !important;
+
+      @include media('mobile') {
+        width: 100% !important;
+        height: 100% !important;
+        top: 0 !important;
+        left: 0 !important;
+        scale: 1 !important;
+      }
+    }
+  }
+  
+  // Content
+  &__content {
+    position: absolute;
+    bottom: vw(145);
+    left: vw(100);
+    right: vw(100);
+    @include flex(row, space-between, flex-end);
+    z-index: 10;
+    
+    @include media('mobile') {
+      top: vw-mobile(150, 414);
+      bottom: auto;
+      left: vw-mobile(20, 414);
+      right: auto;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: vw-mobile(20, 414);
+      width: 70%;
+      height: 72%;
+    }
+  }
+  
+  // Main Content
+  &__main {
+    @include flex(column, flex-end, flex-start);
+    gap: vw(18);
+    max-width: vw(661.678);
+    
+    @include media('mobile') {
+      max-width: 100%;
+      gap: vw-mobile(15, 414);
+      align-items: flex-start;
+    }
+  }
+  
+  &__text {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(18);
+    text-align: right;
+    
+    @include media('mobile') {
+      text-align: left;
+      align-items: flex-start;
+    }
+  }
+
+  // Quote (above heading when present)
+  &__quote {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: vw(24);
+    line-height: 1.4;
+    color: #ffffff;
+    margin: 0;
+    font-style: italic;
+
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+    }
+  }
+  
+  // Heading
+  &__heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: vw(75);
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(35, 414);
+      line-height: vw-mobile(42, 414);
+    }
+  }
+  
+  &__heading-line {
+    display: block;
+    text-align: left;
+  }
+  
+  // Subheading
+  &__subheading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: vw(20);
+    line-height: vw(30);
+    letter-spacing: vw(0.6);
+
+    color: #ffffff;
+    text-shadow: 0px vw(4) vw(9.2) rgba(0, 0, 0, 0.42);
+    margin: 0;
+    max-width: vw(470);
+    text-align: left;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(12, 414);
+      line-height: vw-mobile(16, 414);
+      max-width: 100%;
+    }
+  }
+  
+  &__subheading-line {
+    display: block;
+  }
+
+  // Sustainability slide (Figma: text left, banner full cover, typography hierarchy)
+  &__slide--sustainability {
+    .hero__image {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      bottom: auto !important;
+    }
+    // Text block left-aligned (Figma)
+    .hero__text {
+      text-align: left;
+    }
+    // Pre-headline: smaller, regular weight
+    .hero__heading-line:first-child {
+      font-size: vw(24);
+      font-weight: 400;
+      line-height: 1.4;
+      @include media('mobile') {
+        font-size: vw-mobile(14, 414);
+      }
+    }
+    // Main headline "World No. 1" stays large bold
+    .hero__heading-line:last-child {
+      font-size: vw(75);
+      font-weight: 700;
+      @include media('mobile') {
+        font-size: vw-mobile(35, 414);
+      }
+    }
+    // Lime-green subheading line, medium size
+    .hero__subheading-line:first-child {
+      color: #b8e986;
+      font-weight: 500;
+      font-size: vw(24);
+      line-height: 1.35;
+      @include media('mobile') {
+        font-size: vw-mobile(14, 414);
+      }
+    }
+    // Disclaimer: smaller, with background (Figma) — only when there is a separate second line
+    .hero__subheading-line:last-child:not(:first-child) {
+      font-size: vw(16);
+      font-weight: 400;
+      opacity: 0.95;
+      display: inline-block;
+      padding: vw(6) vw(12);
+      background: rgba(6, 51, 54, 0.6);
+      border-radius: vw(6);
+      margin-top: vw(4);
+      @include media('mobile') {
+        font-size: vw-mobile(11, 414);
+        padding: vw-mobile(4, 414) vw-mobile(8, 414);
+        border-radius: vw-mobile(4, 414);
+        margin-top: vw-mobile(2, 414);
+      }
+    }
+    // CTA: vertical gradient (lighter top → darker bottom) per Figma
+    .hero__cta {
+      background: linear-gradient(180deg, #38d973 0%, #09a341 100%);
+    }
+  }
+
+  // Story slide (Figma: MADE IN INDIA / Dr. Desh Bandhu Gupta, banner full cover)
+  &__slide--story {
+    .hero__quote {
+      color: #9FFF00;
+      font-style: italic;
+      font-size: vw(22);
+      line-height: 1.45;
+      margin-bottom: vw(4);
+      @include media('mobile') {
+        font-size: vw-mobile(13, 414);
+        margin-bottom: vw-mobile(4, 414);
+      }
+    }
+    .hero__image {
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center !important;
+      bottom: auto !important;
+    }
+    .hero__text {
+      text-align: left;
+    }
+    // Pre-headline: first two lines smaller, regular
+    .hero__heading-line:not(:last-child) {
+      font-size: vw(24);
+      font-weight: 400;
+      line-height: 1.4;
+      @include media('mobile') {
+        font-size: vw-mobile(14, 414);
+      }
+    }
+    // Main headline "Dr. Desh Bandhu Gupta,"
+    .hero__heading-line:last-child {
+      font-size: vw(75);
+      font-weight: 700;
+      @include media('mobile') {
+        font-size: vw-mobile(35, 414);
+      }
+    }
+    // Sub-title: font-size 20 (vw), color #9FFF00
+    .hero__subheading-line {
+      color: #9FFF00;
+      font-weight: 500;
+      font-size: vw(20);
+      line-height: 1.35;
+      @include media('mobile') {
+        font-size: vw-mobile(14, 414);
+      }
+    }
+    // CTA: lime-green (Figma)
+    .hero__cta {
+      background: linear-gradient(180deg, #38d973 0%, #09a341 100%);
+    }
+  }
+  
+  // CTA Button
+  &__cta {
+    background: linear-gradient(to right, #09a341, #38d973);
+    border-radius: 1.5625vw;
+    flex-flow: column;
+    flex-shrink: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: .0520833vw;
+    padding: vw(12) vw(40);
+    text-decoration: none;
+    transition: transform .3s, box-shadow .3s;
+    display: flex;
+    // position: relative;
+    // display: inline-flex;
+    // align-items: center;
+    // justify-content: center;
+    // padding: vw(16) vw(50);
+    // border-radius: vw(30.844);
+    // text-decoration: none;
+    // transition: transform $transition-base, box-shadow $transition-base;
+    
+    @include media('mobile') {
+      padding: vw-mobile(16, 414) vw-mobile(35, 414);
+      border-radius: vw-mobile(21, 414);
+    }
+    
+    &:hover {
+      transform: translateY(vw(-2));
+      box-shadow: 0 vw(8) vw(20) rgba(0, 0, 0, 0.2);
+    }
+  }
+  
+  &__cta-text {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: vw(31.888);
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(20, 414);
+    }
+  }
+
+}
+
+// Keyframe animation for petals rotation
+@keyframes rotate-petals {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Pagination - Center Bottom (targeting Swiper classes)
+.hero {
+  .swiper-pagination {
+    position: absolute !important;
+    bottom: vw(40) !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    z-index: 20;
+    display: flex;
+    gap: vw(12);
+    justify-content: center;
+    
+    @include media('mobile') {
+      bottom: vw-mobile(20, 414) !important;
+      gap: vw-mobile(8, 414);
+    }
+  }
+
+  .swiper-pagination-bullet {
+    width: vw(12) !important;
+    height: vw(12) !important;
+    background: rgba(255, 255, 255, 0.5) !important;
+    opacity: 1 !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 0 !important;
+    
+    @include media('mobile') {
+      width: vw-mobile(8, 414) !important;
+      height: vw-mobile(8, 414) !important;
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.8) !important;
+      transform: scale(1.2);
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #ffffff !important;
+    transform: scale(1.3);
+    
+    @include media('mobile') {
+      transform: scale(1.2);
+    }
+  }
+}

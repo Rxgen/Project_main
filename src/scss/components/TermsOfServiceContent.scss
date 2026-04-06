@@ -1,0 +1,176 @@
+// Terms of Service Content Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.terms-of-service-content {
+  position: relative;
+  width: 100%;
+  padding: vw(100) vw(100);
+  background: #ffffff;
+  
+  @include media('tablet') {
+    padding: vw(60, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  &__wrapper {
+    width: 100%;
+  }
+  
+  &__disclaimer {
+    margin-bottom: vw(50);
+    padding: vw(30);
+    background: #f5f5f5;
+    border-left: vw(4) solid #08a03f;
+    border-radius: vw(8);
+    
+    @include media('tablet') {
+      margin-bottom: vw(40, 768);
+      padding: vw(25, 768);
+      border-left-width: vw(4, 768);
+      border-radius: vw(8, 768);
+    }
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(30, 414);
+      padding: vw-mobile(20, 414);
+      border-left-width: vw-mobile(3, 414);
+      border-radius: vw-mobile(6, 414);
+    }
+    
+    p {
+      font-family: $font-family-base;
+      font-weight: 400;
+      font-size: vw(18);
+      line-height: vw(28);
+      color: #1e1e1e;
+      margin: 0;
+      
+      @include media('tablet') {
+        font-size: vw(16, 768);
+        line-height: vw(26, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(14, 414);
+        line-height: vw-mobile(22, 414);
+      }
+    }
+  }
+  
+  &__section {
+    margin-bottom: vw(50);
+    
+    @include media('tablet') {
+      margin-bottom: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(30, 414);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__section-title {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(28);
+    line-height: vw(36);
+    color: #08a03f;
+    margin: 0 0 vw(30) 0;
+    text-transform: uppercase;
+    
+    @include media('tablet') {
+      font-size: vw(24, 768);
+      line-height: vw(32, 768);
+      margin-bottom: vw(25, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(20, 414);
+      line-height: vw-mobile(28, 414);
+      margin-bottom: vw-mobile(20, 414);
+    }
+  }
+  
+  &__subsection {
+    margin-bottom: vw(30);
+    
+    @include media('tablet') {
+      margin-bottom: vw(25, 768);
+    }
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(20, 414);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__subsection-title {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(22);
+    line-height: vw(30);
+    color: #08a03f;
+    margin: 0 0 vw(15) 0;
+    display: flex;
+    align-items: flex-start;
+    gap: vw(10);
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: vw(28, 768);
+      margin-bottom: vw(12, 768);
+      gap: vw(8, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      line-height: vw-mobile(26, 414);
+      margin-bottom: vw-mobile(10, 414);
+      gap: vw-mobile(6, 414);
+    }
+  }
+  
+  &__subsection-number {
+    flex-shrink: 0;
+  }
+  
+  &__subsection-content {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(18);
+    line-height: vw(28);
+    color: #1e1e1e;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(26, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      line-height: vw-mobile(22, 414);
+    }
+  }
+}
+

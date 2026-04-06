@@ -1,0 +1,553 @@
+// News & Insights Section Component (from Figma design)
+// https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=22-3369
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.news-insights {
+  position: relative;
+  width: 100%;
+  height: vw(1080);
+  overflow: visible; // allow nav arrows (positioned in padding) to show
+  
+  @include media('tablet') {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  @include media('mobile') {
+    height: auto;
+    min-height:auto;
+  }
+  
+  // Container
+  &__container {
+    background: #a5cd39;
+    @include flex(column, center, center);
+    gap: vw(75);
+    height: vw(1080);
+    padding: vw(100);
+    
+    @include media('tablet') {
+      height: auto;
+      padding: vw(60, 768) vw(40, 768);
+      gap: vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(50, 414);
+      padding: vw-mobile(60, 414) vw-mobile(30, 414);
+    }
+  }
+  
+  // Title
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(46);
+    line-height: vw(41);
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(36, 768);
+      line-height: vw(34, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(28, 414);
+      line-height: vw-mobile(26, 414);
+    }
+  }
+  
+  // News Items Container
+  &__items {
+    @include flex(row, center, center);
+    gap: vw(82);
+    width: 100%;
+    max-width: vw(1400);
+    
+    @include media('tablet') {
+      flex-direction: column;
+      gap: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      gap: vw-mobile(50, 414);
+      align-items: center;
+    }
+    
+    // Slider mode – symmetric padding so both arrows sit in green area, outside images
+    &--slider {
+      max-width: 100%;
+      padding: 0 vw(70);
+      overflow: visible;
+      position: relative;
+      
+      @include media('tablet') {
+        padding: 0 vw(55, 768);
+      }
+      
+      @include media('mobile') {
+        padding: 0 vw-mobile(10, 414);
+      }
+    }
+  }
+  
+  // Swiper Container – overflow hidden so only 2 slides visible (no peek of 3rd)
+  &__swiper {
+    width: 100%;
+    padding-bottom: vw(60);
+    overflow: hidden;
+    margin-left: vw(103);
+    
+    @include media('tablet') {
+      padding-bottom: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      padding-bottom: vw-mobile(40, 414);
+    }
+  }
+  
+  // Custom nav arrows outside Swiper (in green padding) – larger visible arrow
+  &__items--slider {
+    .news-insights__nav-prev,
+    .news-insights__nav-next {
+      position: absolute;
+      top: 50%;
+      z-index: 20;
+      width: vw(70);
+      height: vw(70);
+      margin: 0;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateY(-50%);
+      transition: opacity 0.2s;
+      opacity: 1;
+
+      &:hover {
+        opacity: 0.9;
+      }
+
+      &::after {
+        display: block;
+        font-family: inherit;
+        font-size: vw(100) !important;
+        font-weight: 300;
+        line-height: 1;
+      }
+
+      @include media('tablet') {
+        width: vw(56, 768);
+        height: vw(56, 768);
+
+        &::after {
+          font-size: vw(44, 768) !important;
+        }
+      }
+
+      @include media('mobile') {
+        display: none;
+      }
+    }
+
+    .news-insights__nav-prev {
+      left: vw(15);
+      &::after {
+        content: '‹';
+      }
+    }
+
+    .news-insights__nav-next {
+      right: vw(15);
+      &::after {
+        content: '›';
+      }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none !important;
+    }
+
+    .swiper-pagination {
+      bottom: 0;
+      
+      .swiper-pagination-bullet {
+        background: #FFFFFF;
+        opacity: 0.5;
+        width: vw(12);
+        height: vw(12);
+        
+        @include media('tablet') {
+          width: vw(10, 768);
+          height: vw(10, 768);
+        }
+        
+        @include media('mobile') {
+          width: vw-mobile(8, 414);
+          height: vw-mobile(8, 414);
+        }
+        
+        &-active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  
+  // Swiper Slide
+  &__slide {
+    height: auto;
+    display: flex;
+    align-items: stretch;
+    
+    .news-insights__item {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  
+  // News Item
+  &__item {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(10);
+    width: vw(626.508);
+    
+    @include media('tablet') {
+      width: 100%;
+      max-width: vw(450, 768);
+      gap: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      max-width: vw-mobile(320, 414);
+      gap: vw-mobile(15, 414);
+      align-items: center;
+    }
+    
+    // Show button and overlay on hover
+    &:hover {
+      .news-insights__circle-overlay {
+        opacity: 1;
+      }
+      
+      .news-insights__button {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        
+        &:hover {
+          transform: translateY(vw(-2));
+          box-shadow: 0 vw(8) vw(20) rgba(0, 0, 0, 0.15);
+          
+          @include media('tablet') {
+            transform: translateY(vw(-1.5, 768));
+            box-shadow: 0 vw(6, 768) vw(15, 768) rgba(0, 0, 0, 0.15);
+          }
+          
+          @include media('mobile') {
+            transform: translateY(vw-mobile(-1.5, 414));
+            box-shadow: 0 vw-mobile(6, 414) vw-mobile(15, 414) rgba(0, 0, 0, 0.15);
+          }
+        }
+      }
+    }
+  }
+  
+  // Item in slider mode
+  &__items--slider &__item {
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  // Circular Image Container
+  &__circle {
+    position: relative;
+    width: vw(626.508);
+    height: vw(626.508);
+    @include flex(column, center, center);
+    padding: vw(279) vw(176);
+    
+    @include media('tablet') {
+      width: vw(450, 768);
+      height: vw(450, 768);
+      padding: vw(200, 768) vw(125, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(320, 414);
+      height: vw-mobile(320, 414);
+      padding: vw-mobile(143, 414) vw-mobile(80, 414);
+    }
+  }
+  
+  // Outer Circle Image
+  &__circle-outer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: vw(626.508);
+    height: vw(626.508);
+    z-index: 1;
+    
+    @include media('tablet') {
+      width: vw(450, 768);
+      height: vw(450, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(320, 414);
+      height: vw-mobile(320, 414);
+    }
+  }
+  
+  // Inner Circle Image
+  &__circle-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: vw(626.508);
+    height: vw(626.508);
+    z-index: 2;
+    
+    @include media('tablet') {
+      width: vw(450, 768);
+      height: vw(450, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(320, 414);
+      height: vw-mobile(320, 414);
+    }
+  }
+  
+  // Hover Overlay
+  &__circle-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: vw(626.508);
+    height: vw(626.508);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    opacity: 0;
+    transition: opacity $transition-base;
+    
+    @include media('tablet') {
+      width: vw(450, 768);
+      height: vw(450, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(320, 414);
+      height: vw-mobile(320, 414);
+    }
+  }
+  
+  &__circle-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+  }
+  
+  // Know More Button
+  &__button {
+    position: relative;
+    background: #FFFFFF;
+    border-radius: vw(64.947);
+    padding: vw(12) vw(29);
+    // height: vw(68.801);
+    // width: vw(274.611);
+    text-decoration: none;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(vw(10));
+    transition: opacity $transition-base, visibility $transition-base, transform $transition-base, box-shadow $transition-base;
+    
+    @include media('tablet') {
+      border-radius: vw(50, 768);
+      padding: vw(14, 768) vw(24, 768);
+      height: vw(56, 768);
+      width: vw(220, 768);
+      transform: translateY(vw(8, 768));
+    }
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(45, 414);
+      padding: vw-mobile(12, 414) vw-mobile(20, 414);
+      height: vw-mobile(50, 414);
+      width: vw-mobile(200, 414);
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  &__button-inner {
+    // @include flex(column, flex-start, flex-start);
+    // gap: vw(1);
+    // width: 100%;
+    // height: 100%;
+    background: #fff;
+    border-radius: 1.5625vw;
+    flex-flow: column;
+    flex-shrink: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+    // gap: .0520833vw;
+    // padding: .833333vw 1.82292vw;
+    text-decoration: none;
+    transition: transform .3s, box-shadow .3s;
+    display: flex;
+  }
+  
+  &__button-content {
+    @include flex(row, flex-start, center);
+    gap: vw(11);
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(9, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(8, 414);
+    }
+  }
+  
+  &__button-dot {
+    width: vw(5.451);
+    height: vw(5.451);
+    background: #363732;
+    border-radius: 50%;
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: vw(4.5, 768);
+      height: vw(4.5, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(4, 414);
+      height: vw-mobile(4, 414);
+    }
+  }
+  
+  &__button-text {
+    font-family: 'D-DIN', 'DIN-Bold', $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: vw(32.261);
+    color: #363732;
+    margin: 0;
+    height: vw(33);
+    
+    @include media('tablet') {
+      font-size: vw(22, 768);
+      line-height: vw(26, 768);
+      height: auto;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(20, 414);
+      height: auto;
+    }
+  }
+  
+  &__button-underline {
+    display: block;
+    width: 100%;
+    height: vw(0.69);
+    background: #363732;
+    
+    @include media('tablet') {
+      height: vw(0.6, 768);
+    }
+    
+    @include media('mobile') {
+      height: vw-mobile(0.5, 414);
+    }
+  }
+  
+  // Text Content
+  &__text {
+    @include flex(column, center, center);
+    gap: vw(25);
+    width: vw(518.952);
+    padding-left: vw(103);
+    margin-top: vw(32);
+    @include media('tablet') {
+      width: 100%;
+      max-width: vw(450, 768);
+      gap: vw(20, 768);
+      padding-left: vw(0, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(18, 414);
+      align-items: center;
+      text-align: center;
+      padding-left: vw-mobile(0, 414);
+    }
+  }
+  
+  // Date
+  &__date {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(20);
+    line-height: vw(22);
+    color: #FFFFFF;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(12, 414);
+      line-height: vw-mobile(14, 414);
+    }
+  }
+  
+  // Headline
+  &__headline {
+    font-family: $font-family-base;
+    font-weight: 300;
+    font-size: vw(24);
+    line-height: vw(31);
+    color: #FFFFFF;
+    margin: 0;
+    text-transform: none;
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: vw(26, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      line-height: vw-mobile(20, 414);
+    }
+  }
+}
+

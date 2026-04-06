@@ -1,0 +1,272 @@
+// Saksham Niveshak Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.saksham-niveshak {
+  position: relative;
+  width: 100%;
+  padding: vw(90) 0;
+  background: #ffffff;
+  
+  @include media('mobile') {
+    padding: vw-mobile(50, 414) 0;
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+
+    margin: 0 auto;
+    padding: 0 vw(99);
+    @include flex(row, flex-start, flex-start);
+    gap: vw(67);
+    
+    @include media('tablet') {
+      padding: 0 vw(60, 768);
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      padding: 0 vw-mobile(20, 414);
+      gap: vw-mobile(40, 414);
+    }
+  }
+  
+  &__content {
+    position: relative;
+    flex: 1;
+    max-width: vw(998);
+    @include flex(column, flex-start, flex-start);
+    gap: vw(67);
+    z-index: 1;
+    
+    @include media('tablet') {
+      max-width: 100%;
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(30, 414);
+      width: 100%;
+    }
+  }
+
+  // Description (markdown content) - show list numbers
+  &__description {
+    width: 100%;
+
+    ol {
+      list-style-type: decimal;
+      padding-left: vw(30);
+      margin: 0 0 vw(20) 0;
+
+      @include media('mobile') {
+        padding-left: vw-mobile(24, 414);
+        margin-bottom: vw-mobile(16, 414);
+      }
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: vw(30);
+      margin: 0 0 vw(20) 0;
+
+      @include media('mobile') {
+        padding-left: vw-mobile(24, 414);
+        margin-bottom: vw-mobile(16, 414);
+      }
+    }
+
+    li {
+      font-family: $font-family-base;
+      // font-weight: 500;
+      // font-size: vw(25);
+      line-height: 1.6;
+      // color: #434343;
+      margin-bottom: vw(8);
+
+      @include media('tablet') {
+        font-size: vw(22, 768);
+      }
+
+      @include media('mobile') {
+        font-size: vw-mobile(16, 414);
+        margin-bottom: vw-mobile(6, 414);
+      }
+    }
+  }
+  
+  // Paragraph Section
+  &__paragraph-section {
+    width: 100%;
+    @include flex(column, flex-start, flex-start);
+  }
+  
+  &__paragraph {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(25);
+    line-height: 1.92;
+    color: #434343;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(22, 768);
+      line-height: 1.8;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: 1.6;
+    }
+  }
+  
+  &__line-break {
+    display: block;
+    height: vw(24);
+    
+    @include media('mobile') {
+      height: vw-mobile(16, 414);
+    }
+  }
+  
+  &__email-link {
+    color: #08a03f;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color $transition-base;
+    
+    &:hover {
+      color: #126430;
+      text-decoration: underline;
+    }
+  }
+  
+  // List
+  &__list {
+    width: 100%;
+    @include flex(column, flex-start, flex-start);
+    gap: vw(20);
+    
+    @include media('tablet') {
+      gap: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(15, 414);
+    }
+  }
+  
+  &__list-item {
+    @include flex(row, flex-start, center);
+    gap: vw(30);
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(25, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(20, 414);
+    }
+  }
+  
+  &__number-badge {
+    position: relative;
+    width: vw(36);
+    height: vw(36);
+    flex-shrink: 0;
+    background: #08a03f;
+    border-radius: 50%;
+    @include flex(row, center, center);
+    
+    @include media('tablet') {
+      width: vw(32, 768);
+      height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(28, 414);
+      height: vw-mobile(28, 414);
+    }
+  }
+  
+  &__number {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: 1;
+    color: #ffffff;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+    }
+  }
+  
+  &__list-text {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(25);
+    line-height: 2.24;
+    color: #434343;
+    margin: 0;
+    flex: 1;
+    
+    @include media('tablet') {
+      font-size: vw(22, 768);
+      line-height: 2.0;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: 1.6;
+    }
+  }
+  
+  // Decorative Image
+  &__decorative {
+    position: absolute;
+    right: vw(100);
+    top: vw(100);
+    width: vw(600);
+    height: vw(600);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.3;
+    
+    @include media('tablet') {
+      position: relative;
+      right: auto;
+      top: auto;
+      width: vw(400, 768);
+      height: vw(400, 768);
+      align-self: center;
+      opacity: 0.2;
+    }
+    
+    @include media('mobile') {
+      position: relative;
+      right: auto;
+      top: auto;
+      width: vw-mobile(250, 414);
+      height: vw-mobile(250, 414);
+      align-self: center;
+      opacity: 0.15;
+    }
+  }
+  
+  &__decorative-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+

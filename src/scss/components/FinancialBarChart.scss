@@ -1,0 +1,107 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.financial-bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: vw(12);
+  width: 100%;
+
+  &__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: vw(35);
+    line-height: vw(80);
+    color: color('text');
+    margin: 0;
+  }
+
+  &__bars {
+    display: flex;
+    flex-direction: column;
+    gap: vw(15);
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    width: 100%;
+  }
+
+  &__label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: vw(18);
+    line-height: vw(45);
+    color: #08a03f;
+    margin: 0;
+    min-height: vw(44);
+  }
+
+  &__bar-wrapper {
+    position: relative;
+    width: 100%;
+    height: vw(24);
+    background-color: #d9f0e1;
+    overflow: hidden;
+  }
+
+  &__bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #08a03f;
+    transition: width 0.3s ease;
+  }
+
+  @include media('tablet') {
+    gap: vw-tablet(12);
+
+    &__title {
+      font-size: vw-tablet(35);
+      line-height: vw-tablet(80);
+    }
+
+    &__bars {
+      gap: vw-tablet(15);
+    }
+
+    &__label {
+      font-size: vw-tablet(18);
+      line-height: vw-tablet(45);
+      min-height: vw-tablet(44);
+    }
+
+    &__bar-wrapper {
+      height: vw-tablet(24);
+    }
+  }
+
+  @include media('mobile') {
+    gap: vw-mobile(12, 414);
+
+    &__title {
+      font-size: vw-mobile(35, 414);
+      line-height: vw-mobile(60, 414);
+    }
+
+    &__bars {
+      gap: vw-mobile(15, 414);
+    }
+
+    &__label {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(40, 414);
+      min-height: vw-mobile(40, 414);
+    }
+
+    &__bar-wrapper {
+      height: vw-mobile(10, 414);
+    }
+  }
+}
+

@@ -1,0 +1,64 @@
+// Science Capability Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=3098-522
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.science-capability {
+  position: relative;
+  width: 100%;
+  background: #f0f7f2; // Light green background
+  
+  @include media('tablet') {
+    // Tablet styles
+  }
+  
+  @include media('mobile') {
+    // Mobile styles
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: vw(60) 0;
+    max-width: vw(1723);
+    
+    @include media('tablet') {
+      padding: vw(50, 768) 0;
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(40, 414) vw-mobile(20, 414);
+      max-width: 100%;
+    }
+  }
+
+  &__text {
+    font-family: $font-family-base;
+    font-weight: 400; // Regular
+    font-size: vw(35);
+    line-height: vw(50);
+    color: #08a03f; // Dark green text color
+    margin: 0;
+    text-align: left;
+    
+    @include media('tablet') {
+      font-size: vw(30, 768);
+      line-height: vw(44, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(24, 414);
+      line-height: vw-mobile(34, 414);
+    }
+
+    strong {
+      font-weight: 700; // Bold for Core-Common-Distinct
+    }
+  }
+}
+

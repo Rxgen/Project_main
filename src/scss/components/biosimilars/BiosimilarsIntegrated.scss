@@ -1,0 +1,53 @@
+// Biosimilars Integrated Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=3279-116
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.biosimilars-integrated {
+  position: relative;
+  width: 100%;
+  background: #126430; // Dark green background
+  padding: vw(43) vw(100);
+  
+  @include media('tablet') {
+    padding: vw(35, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(30, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1720);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  &__text {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(35);
+    line-height: vw(50);
+    color: #ffffff;
+    text-align: left;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(30, 768);
+      line-height: vw(42, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(22, 414);
+      line-height: vw-mobile(32, 414);
+    }
+  }
+}
+

@@ -1,0 +1,59 @@
+// Our Business Page Styles
+// Grid layout for business list items
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.our-business-list {
+  position: relative;
+  width: 100%;
+  background: 
+    url('/assets/our-business/petal.svg') no-repeat center center,
+    conic-gradient(from 125deg at -100.1% 57.67%, rgba(19, 84, 81, 0.08) 248.27784061431885deg, rgba(45, 114, 82, 0.40) 360deg),
+    linear-gradient(197deg, #135451 -0.58%, #2D7252 49.78%, #08A03F 78.41%);
+  background-size: contain, cover, cover;
+  padding: vw(100) vw(130);
+  
+  @include media('tablet') {
+    padding: vw(80, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(60, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1725);
+    margin: 0 auto;
+    
+    @include media('tablet') {
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      max-width: 100%;
+    }
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: vw(60) vw(50);
+    width: 100%;
+    
+    @include media('tablet') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: vw(50, 768) vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      grid-template-columns: 1fr;
+      gap: vw-mobile(50, 414);
+    }
+  }
+}
+

@@ -1,0 +1,111 @@
+// Tips for Shareholders Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.tips-for-shareholders {
+  position: relative;
+  width: 100%;
+  padding: vw(90) 0;
+  background: #ffffff;
+  
+  @include media('mobile') {
+    padding: vw-mobile(50, 414) 0;
+  }
+  
+  // Container
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 vw(100);
+    z-index: 1;
+    
+    @include media('mobile') {
+      padding: 0 vw-mobile(20, 414);
+    }
+  }
+  
+  // Section
+  &__section {
+    margin-bottom: vw(100);
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(60, 414);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    // ECS section with background
+    &--ecs {
+      background: #ECECEC;
+      margin-left: vw(-100);
+      margin-right: vw(-100);
+      padding: vw(60) vw(100);
+      
+      @include media('mobile') {
+        margin-left: vw-mobile(-20, 414);
+        margin-right: vw-mobile(-20, 414);
+        padding: vw-mobile(40, 414) vw-mobile(20, 414);
+      }
+    }
+  }
+  
+  // Title
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(40);
+    line-height: vw(44);
+    color: #08a03f;
+    margin: 0 0 vw(40) 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(24, 414);
+      line-height: vw-mobile(28, 414);
+      margin-bottom: vw-mobile(25, 414);
+    }
+  }
+  
+  // Content
+  &__content {
+    width: 100%;
+  }
+  
+  // Paragraph
+  &__paragraph {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(20);
+    line-height: vw(30);
+    color: #000000;
+    margin: 0 0 vw(25) 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      line-height: vw-mobile(22, 414);
+      margin-bottom: vw-mobile(18, 414);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  // Link
+  &__link {
+    color: #08a03f;
+    text-decoration: underline;
+    transition: opacity $transition-base;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+

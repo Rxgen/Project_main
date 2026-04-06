@@ -1,0 +1,406 @@
+@import "../utils/variables";
+@import "../utils/functions";
+@import "../utils/mixins";
+
+// Financial Info page: no section-wide green bg (unlike other quarterly-report pages)
+.quarterly-results--financial-info .quarterly-results__bg {
+  background-image: none;
+  background-color: transparent;
+  padding-bottom: 0;
+}
+
+// Financial Info page only: white background with grid pattern on content section
+.quarterly-results--financial-info .quarterly-results__content {
+  background-color: white;
+}
+
+.quarterly-results--financial-info .quarterly-results__header {
+  color: #08a03f;
+}
+
+// Top row: 2 charts with white/card background (flex layout)
+.financial-info-chart {
+  position: relative; // 👈 REQUIRED
+}
+
+.financial-info-charts--top {
+  background: #fff;
+  background-image:
+    linear-gradient(rgba(0 0 0 / 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0 0 0 / 0.03) 1px, transparent 1px);
+  background-size: vw(20) vw(20);
+  display: flex;
+  gap: vw(120);
+  padding: 0 vw(90) vw(100);
+  margin: 0 auto;
+
+  @include media("tablet") {
+    flex-direction: column;
+    gap: vw(32, 768);
+    padding: 0 vw(48, 768) vw(80, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    gap: vw(24, 425);
+    padding: 0 vw(24, 425) vw(60, 425);
+  }
+}
+
+// Bottom row: main container has the dark bg; 2 charts inside (flex layout), sticks to bottom
+.financial-info-charts--bottom {
+  display: flex;
+  gap: vw(120);
+  padding: vw(72) vw(90) 0;
+  margin: 0 auto;
+  background-image: url("/assets/images/investors/financial-info-content-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: vw(90);
+
+  @include media("tablet") {
+    flex-direction: column;
+    gap: vw(32, 768);
+    padding: vw(32, 768) vw(48, 768) vw(80, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    gap: vw(24, 425);
+    padding: vw(40, 425) vw(24, 425) vw(60, 452);
+  }
+}
+
+.financial-info-charts--bottom .financial-info-chart {
+  flex: 1;
+}
+
+.financial-info-chart {
+  display: flex;
+  flex-direction: column;
+  width: vw(753.5);
+  max-width: 100%;
+  padding: 0;
+  border-radius: vw(8);
+  overflow: visible;
+
+  &--dark {
+    background: transparent;
+
+    // Extra gap under title/unit so pills on max-height bars are not covered by header text
+    .financial-info-chart__header {
+      margin-bottom: vw(32);
+
+      @include media("tablet") {
+        margin-bottom: vw(26, 768);
+      }
+
+      @include media-custom($max: 425px) {
+        margin-bottom: vw(22, 425);
+      }
+    }
+  }
+
+  @include media("tablet") {
+    width: 100%;
+    height: auto;
+    min-height: vw(500, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    min-height: vw(420, 425);
+  }
+
+  // Header (title + unit) inside the graph, top-left
+  &__header {
+    position: relative;
+    top: auto;
+    left: vw(80);
+    z-index: 1;
+    pointer-events: none;
+    margin-bottom: vw(16);
+    flex-shrink: 0;
+
+    @include media("tablet") {
+      margin-bottom: vw(12, 768);
+      left: vw(32, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      margin-bottom: vw(10, 425);
+      left: vw(16, 425);
+    }
+  }
+
+  // Chart.js canvas wrapper (replaces custom bar markup on financial-info page)
+  &__plot {
+    position: relative;
+    z-index: 2;
+    isolation: isolate;
+    width: 100%;
+    height: vw(450);
+    min-height: 220px;
+    flex-shrink: 0;
+
+    @include media("tablet") {
+      height: vw(260, 768);
+      min-height: 200px;
+    }
+
+    @include media-custom($max: 425px) {
+      height: vw(220, 425);
+      min-height: 180px;
+    }
+  }
+
+  &__title {
+    color: #08a03f;
+    font-family: Inter, sans-serif;
+    font-size: vw(55);
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 vw(4);
+
+    .financial-info-chart--dark & {
+      color: #fff;
+    }
+
+    @include media("tablet") {
+      font-size: vw(36, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      font-size: vw(28, 425);
+    }
+  }
+
+  &__unit {
+    color: #2a2a2a;
+    font-family: Inter, sans-serif;
+    font-size: vw(40);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+
+    .financial-info-chart--dark & {
+      color: #fff;
+    }
+
+    @include media("tablet") {
+      font-size: vw(28, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      font-size: vw(22, 425);
+    }
+  }
+
+  // Graph area: axis bg; fill container so y-axis spans full height and bars don't overflow
+  &__axis {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: url("/assets/images/investors/shapes/graph-axis.png") no-repeat
+      left bottom;
+    background-size: 100% 100%;
+    background-origin: content-box;
+    background-position: left bottom;
+    overflow: visible;
+
+    // Bottom 2 charts: invert axis so it appears white on dark background
+    .financial-info-chart--dark & {
+      background: none;
+    }
+
+    .financial-info-chart--dark &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("/assets/images/investors/shapes/graph-axis.png")
+        no-repeat left bottom;
+      background-size: 100% 100%;
+      background-origin: content-box;
+      background-position: left bottom;
+      filter: brightness(0) invert(1);
+      pointer-events: none;
+      z-index: 0;
+    }
+  }
+
+  &__chart-body {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+  }
+
+  &__bars {
+    position: relative;
+    top: 5%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+    gap: vw(60);
+    min-height: vw(200);
+    padding: 0 vw(46);
+
+    @include media-custom($max: 1440px) {
+      top: vw(24, 1440);
+    }
+
+    @include media("tablet") {
+      top: vw(22, 768);
+      gap: vw(40, 768);
+      padding: 0 vw(24, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      top: vw(22, 768);
+      gap: vw(12, 425);
+      padding: 0 vw(16, 425);
+    }
+  }
+
+  &__bar-group {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__value-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #f6f6f6;
+    font-family: Inter, sans-serif;
+    font-size: vw(18.964);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+    border-radius: vw(7.112);
+    background: linear-gradient(270deg, #15a449 0%, #00802f 100%);
+    padding: vw(6) vw(10);
+    white-space: nowrap;
+    pointer-events: none;
+
+    .financial-info-chart--dark & {
+      color: #08a03f;
+      background: #fff;
+    }
+
+    @include media("tablet") {
+      font-size: vw(14, 768);
+      padding: vw(4, 768) vw(6, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      font-size: vw(12, 425);
+      padding: vw(3, 425) vw(5, 425);
+    }
+  }
+
+  &__bar-wrap {
+    position: relative;
+    width: vw(62);
+    flex-shrink: 0;
+    height: vw(300);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    @include media("tablet") {
+      width: vw(52, 768);
+      height: vw(240, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      width: vw(52, 425);
+      height: vw(200, 425);
+    }
+  }
+
+  &__bar {
+    width: 100%;
+    min-height: vw(8);
+    background-color: #1dbd69;
+    border-radius: vw(4) vw(4) 0 0;
+    transition: height 0.3s ease;
+
+    .financial-info-chart--dark & {
+      background-color: #fff;
+    }
+  }
+
+  // Years row: same width per column and gap as bars so labels align under each bar
+  &__years {
+    top: 5%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: vw(60);
+    margin-top: vw(10);
+    flex-shrink: 0;
+    padding: vw(4) vw(46) 0;
+
+    @include media("tablet") {
+      top: vw(20, 768);
+      gap: vw(40, 768);
+      padding: vw(4, 768) vw(24, 768) 0;
+    }
+
+    @include media-custom($max: 425px) {
+      top: vw(16, 425);
+      gap: vw(12, 425);
+      padding: vw(4, 425) vw(16, 425) 0;
+    }
+  }
+
+  &__year {
+    flex: 0 0 auto;
+    width: vw(65);
+    color: #08a03f;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    font-size: vw(20);
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+    white-space: nowrap;
+
+    .financial-info-chart--dark & {
+      color: #fff;
+    }
+
+    @include media("tablet") {
+      width: vw(52, 768);
+      font-size: vw(16, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      width: vw(52, 425);
+      font-size: vw(14, 425);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

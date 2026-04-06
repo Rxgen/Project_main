@@ -1,0 +1,254 @@
+@import "../../utils/variables";
+@import "../../utils/functions";
+@import "../../utils/mixins";
+
+.corporate-governance__main .policies__section {
+  flex: 1;
+  min-height: 0;
+}
+
+.policies__section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: #e9fff1;
+  overflow: hidden;
+
+  @include media("tablet") {
+    padding: vw(40, 768) vw(48, 768) vw(80, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    padding: vw(32, 425) vw(24, 425) vw(60, 425);
+  }
+}
+
+// Petal at bottom center of main content (positioned relative to .corporate-governance__main)
+.policies__petal {
+  position: absolute;
+  left: 75%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: vw(400);
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+
+  @include media("tablet") {
+    width: vw(240, 768);
+    left: 50%;
+  }
+
+  @include media-custom($max: 425px) {
+    width: vw(180, 425);
+    left: 50%;
+  }
+}
+
+.policies__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: vw(24);
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
+  max-width: vw(1724); /* 850*2 + gap */
+
+  @include media-custom($min: 1025px) {
+    max-width: 100%;
+  }
+
+  @include media-custom($min: 769px, $max: 1024px) {
+    gap: vw(20, 1024);
+    max-width: 100%;
+  }
+
+  @include media("tablet") {
+    gap: vw(20, 768);
+    max-width: 100%;
+  }
+
+  @include media-custom($max: 425px) {
+    gap: vw(16, 425);
+  }
+
+  @include media-custom($min: 2560px) {
+    gap: vw(32);
+    max-width: vw(2400);
+  }
+}
+
+.policies__card {
+  width: vw(850);
+  height: vw(159);
+  flex-shrink: 0;
+  border-radius: vw(15);
+  border: vw(1) solid #126430;
+  background: #e9fff1;
+  padding: vw(20) vw(24);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vw(16);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    border-width 0.3s ease;
+  color: 0.3 ease;
+  box-sizing: border-box;
+
+  &--active,
+  &:hover {
+    border-radius: vw(15);
+    border: vw(0.5) solid #033a17;
+    background: #08a03f;
+
+    .policies__card-title,
+    .policies__card-lang {
+      color: #e9fff1;
+    }
+  }
+
+  @include media-custom($min: 1025px) {
+    width: calc(50% - vw(12));
+    max-width: vw(850);
+  }
+
+  @include media-custom($min: 1440px) {
+    max-width: vw(960);
+    height: vw(175);
+    padding: vw(22) vw(28);
+  }
+
+  @include media-custom($min: 1920px) {
+    max-width: vw(1050);
+    height: vw(185);
+    padding: vw(24) vw(30);
+  }
+
+  @include media-custom($min: 769px, $max: 1024px) {
+    width: calc(50% - vw(10, 1024));
+    height: auto;
+    min-height: vw(100, 1024);
+    padding: vw(16, 1024) vw(20, 1024);
+  }
+
+  @include media("tablet") {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: vw(100, 768);
+    padding: vw(18, 768) vw(20, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    max-width: 100%;
+    min-height: vw(90, 425);
+    padding: vw(14, 425) vw(16, 425);
+  }
+
+  @include media-custom($min: 2560px) {
+    width: calc(50% - vw(16));
+    max-width: none;
+    height: vw(200);
+    padding: vw(28) vw(32);
+    gap: vw(20);
+  }
+}
+
+.policies__card-inner {
+  flex: 1;
+  max-width: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: vw(8);
+}
+
+.policies__card-title {
+  color: #08a03f;
+  font-family: Inter, sans-serif;
+  font-size: vw(20);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 137%;
+  margin: 0;
+  transition: color 0.3s ease;
+
+  @include media-custom($min: 769px, $max: 1024px) {
+    font-size: vw(16, 1024);
+  }
+
+  @include media("tablet") {
+    font-size: vw(18, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    font-size: vw(16, 425);
+  }
+
+  @include media-custom($min: 1440px) {
+    font-size: vw(22);
+  }
+
+  @include media-custom($min: 1920px) {
+    font-size: vw(22);
+  }
+
+  @include media-custom($min: 2560px) {
+    font-size: vw(26);
+  }
+}
+
+.policies__download-btn {
+  flex-shrink: 0;
+  display: block;
+  width: vw(72.92);
+  height: vw(72.92);
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.06);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @include media-custom($min: 769px, $max: 1024px) {
+    width: vw(52, 1024);
+    height: vw(52, 1024);
+  }
+
+  @include media("tablet") {
+    width: vw(48, 768);
+    height: vw(48, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    width: vw(44, 425);
+    height: vw(44, 425);
+  }
+
+  @include media-custom($min: 1440px) {
+    width: vw(82);
+    height: vw(82);
+  }
+
+  @include media-custom($min: 1920px) {
+    width: vw(88);
+    height: vw(88);
+  }
+
+  @include media-custom($min: 2560px) {
+    width: vw(100);
+    height: vw(100);
+  }
+}

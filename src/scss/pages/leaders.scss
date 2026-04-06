@@ -1,0 +1,89 @@
+// Leaders Page Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.board-of-directors {
+  position: relative;
+  width: 100%;
+  padding: vw(100) vw(100);
+  background: 
+    url('/assets/leaders/Petal5.svg') no-repeat left top,
+    url('/assets/leaders/Petal5.svg') no-repeat right top,
+    #F8F8F8;
+  background-size: auto, auto, cover;
+  
+  @include media('tablet') {
+    padding: vw(80, 768) vw(60, 768);
+    background-size: auto, auto, cover;
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(60, 414) vw-mobile(20, 414);
+    background-size: auto, auto, cover;
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1725);
+    margin: 0 auto;
+    z-index: 1;
+  }
+  
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(80);
+    color: #08A03F;
+    text-align: center;
+    margin: 0 0 vw(60) 0;
+    
+    @include media('tablet') {
+      font-size: vw(50, 768);
+      line-height: vw(60, 768);
+      margin-bottom: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(40, 414);
+      margin-bottom: vw-mobile(30, 414);
+    }
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: vw(40) 0;
+    
+    @include media('tablet') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: vw(30, 768) 0;
+    }
+    
+    @include media('mobile') {
+      grid-template-columns: 1fr;
+      gap: vw-mobile(30, 414) 0;
+    }
+  }
+}
+
+.management-team {
+  background-color: #e6fff2;
+  .board-of-directors__grid{
+    padding-top: vw(60);
+    @include media('tablet') {
+      padding-top: vw(60, 768);
+    }
+    @include media('mobile') {
+      padding-top: vw-mobile(30, 414);
+    }
+  }
+
+
+}
+

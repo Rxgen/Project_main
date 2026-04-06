@@ -1,0 +1,183 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+// Our Story Did You Know Section
+.our-story-did-you-know {
+  position: relative;
+  width: 100%;
+  background-color: #e6fff2;
+  padding: vw(100) 0 vw(150);
+  overflow: hidden;
+  
+  @include media('tablet') {
+    padding: vw(80, 768) 0 vw(120, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(60, 414) 0 vw-mobile(80, 414);
+  }
+
+  // Decorative Petal
+  &__petal {
+    position: absolute;
+    right: vw(-200);
+    top: vw(200);
+    width: vw(801);
+    height: vw(382);
+    z-index: 1;
+    opacity: 0.3;
+    
+    @include media('tablet') {
+      right: vw(-150, 768);
+      top: vw(150, 768);
+      width: vw(500, 768);
+      height: vw(240, 768);
+    }
+    
+    @include media('mobile') {
+      display: none;
+    }
+  }
+
+  &__petal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  // Container
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 vw(100);
+    z-index: 2;
+    
+    @include media('tablet') {
+      padding: 0 vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      padding: 0 vw-mobile(20, 414);
+    }
+  }
+
+  // Title
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(56);
+    line-height: vw(56);
+    color: #08A03F;
+    margin: 0 0 vw(60) 0;
+    
+    @include media('tablet') {
+      font-size: vw(42, 768);
+      line-height: vw(42, 768);
+      margin-bottom: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(32, 414);
+      margin-bottom: vw-mobile(40, 414);
+    }
+  }
+
+  // Facts Container
+  &__facts {
+    display: flex;
+    flex-direction: column;
+    gap: vw(35);
+    
+    @include media('tablet') {
+      gap: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(25, 414);
+    }
+  }
+
+  // Card
+  &__card {
+    background: #ffffff;
+    border: vw(1) solid #08A03F;
+    border-radius: vw(52.54);
+    padding: vw(47) vw(46);
+    transition: transform $transition-base, box-shadow $transition-base, background-color $transition-base, border-color $transition-base;
+    
+    @include media('tablet') {
+      border-radius: vw(40, 768);
+      padding: vw(40, 768) vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(30, 414);
+      padding: vw-mobile(30, 414) vw-mobile(25, 414);
+    }
+
+    &:hover {
+      background: #08A03F;
+      border-color: #08A03F;
+      transform: translateY(vw(-5));
+      box-shadow: 0 vw(10) vw(30) rgba(0, 0, 0, 0.1);
+      
+      @include media('mobile') {
+        transform: translateY(vw-mobile(-3, 414));
+      }
+    }
+  }
+
+  &__card-title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(40);
+    line-height: vw(56);
+    margin: 0 0 vw(20) 0;
+    color: rgba(30, 30, 30, 0.8);
+    transition: color $transition-base;
+    
+    .our-story-did-you-know__card:hover & {
+      color: #ffffff;
+    }
+    
+    @include media('tablet') {
+      font-size: vw(32, 768);
+      line-height: vw(44, 768);
+      margin-bottom: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(24, 414);
+      line-height: vw-mobile(32, 414);
+      margin-bottom: vw-mobile(15, 414);
+    }
+  }
+
+  &__card-content {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(22);
+    line-height: vw(36);
+    margin: 0;
+    color: #120D03;
+    transition: color $transition-base;
+    
+    .our-story-did-you-know__card:hover & {
+      color: #ffffff;
+    }
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      line-height: vw-mobile(28, 414);
+    }
+  }
+}
+

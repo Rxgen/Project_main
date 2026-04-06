@@ -1,0 +1,42 @@
+// Our Manufacturing Sites Page Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.manufacturing-regions-wrapper {
+  position: relative;
+  width: 100%;
+  
+  &__map {
+    position: absolute;
+    top: vw(40);
+    right: vw(175);
+    z-index: 1;
+    width: vw(881);
+    height: vw(1296);
+    pointer-events: none;
+    
+    @include media('tablet') {
+      width: vw(600, 768);
+      height: auto;
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(300, 414);
+      height: auto;
+    }
+    
+    img,
+    Image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}
+
+// Placeholder for future styles based on Figma design
+// Additional sections will be added here
+

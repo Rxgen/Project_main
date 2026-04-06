@@ -1,0 +1,41 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+// Awards and Recognition Section
+.awards-and-recognition-section {
+  position: relative;
+  width: 100%;
+  background-color: #08a03f;
+  background-image: url('/assets/images/our-story/bottom-petals.svg');
+  background-repeat: no-repeat;
+  background-position: right vw(100) bottom 0;
+  background-size: 11% auto;
+  
+  @include media('tablet') {
+    background-position: right vw(100, 768) bottom 0;
+  }
+  
+  @include media('mobile') {
+    background-position: right vw-mobile(100, 414) bottom 0;
+  }
+  
+      &__year-selector-wrapper {
+        position: relative;
+        width: 100%;
+        background-color: #08A03F;
+        padding: vw(60) 0;
+        padding-bottom: vw(108);
+        
+        @include media('tablet') {
+          padding: vw(50, 768) 0;
+          padding-bottom: vw(300, 768);
+        }
+        
+        @include media('mobile') {
+          padding: vw-mobile(40, 414) 0;
+          padding-bottom: 0;
+        }
+      }
+}
+

@@ -1,0 +1,196 @@
+// Science Highlights Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=3089-473
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.science-highlights {
+  position: relative;
+  width: 100%;
+  min-height: vw(800);
+  overflow: hidden;
+  
+  @include media('tablet') {
+    min-height: vw(700, 768);
+  }
+  
+  @include media('mobile') {
+    min-height: vw-mobile(600, 414);
+  }
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3); // Optional overlay for better text contrast
+      z-index: 1;
+    }
+  }
+
+  &__bg-image {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 0 auto;
+    padding: vw(100) vw(100);
+    
+    @include media('tablet') {
+      padding: vw(80, 768) vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(60, 414) vw-mobile(20, 414);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: vw(136) vw(40);
+    width: 100%;
+    max-width: vw(1518); // Max width for desktop
+    margin: 0 auto; // Center align
+    position: relative;
+    align-items: start; // Align all items to start of their grid row
+    
+    @include media('tablet') {
+      grid-template-columns: repeat(3, 1fr);
+      gap: vw(50, 768) vw(30, 768);
+      max-width: 100%; // Remove max-width on tablet
+    }
+    
+    @include media('mobile') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: vw-mobile(40, 414) vw-mobile(20, 414);
+      max-width: 100%; // Remove max-width on mobile
+    }
+  }
+
+  &__border {
+    position: absolute;
+    top: 0;
+    left: vw(112.5);
+    right: vw(112.5);
+    bottom: vw(112.5); // Half of icon size (225/2) - aligns with bottom row icon centers
+    pointer-events: none;
+    z-index: 1;
+    
+    @include media('tablet') {
+      top: 0;
+      bottom: vw(90, 768);
+    }
+    
+    @include media('mobile') {
+      display: none;
+    }
+  }
+
+  &__border-image {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__item {
+    @include flex(column, center, center);
+    text-align: center;
+    gap: vw(10);
+    position: relative;
+    z-index: 2; // Ensure items are above border
+    align-self: start; // Align items to start of grid row
+    
+    @include media('tablet') {
+      gap: vw(9, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(8, 414);
+    }
+  }
+
+  &__icon {
+    width: vw(225);
+    height: vw(225);
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: vw(180, 768);
+      height: vw(180, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(120, 414);
+      height: vw-mobile(120, 414);
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+
+  &__value {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(40);
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(36, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(28, 414);
+    }
+  }
+
+  &__value-currency {
+    font-size: vw(20);
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+    }
+  }
+
+  &__label {
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(20);
+    line-height: vw(32);
+    color: #ffffff;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(28, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+    }
+  }
+}
+

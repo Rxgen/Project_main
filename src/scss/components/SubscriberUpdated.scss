@@ -1,0 +1,382 @@
+// Subscriber Updated Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.subscriber-updated {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  
+  &__container {
+    width: 100%;
+    @include flex(row, flex-start, stretch);
+    min-height: vw(838);
+    
+    @include media('mobile') {
+      @include flex(column, flex-start, stretch);
+      min-height: auto;
+    }
+  }
+  
+  // Left Panel - Contact Information
+  &__left {
+    flex: 0 0 40%;
+    background: #ffffff;
+    padding: vw(80) vw(100);
+    @include flex(column, flex-start, flex-start);
+    gap: vw(50);
+    
+    @include media('mobile') {
+      flex: 1;
+      padding: vw-mobile(40, 414) vw-mobile(20, 414);
+      gap: vw-mobile(30, 414);
+    }
+  }
+  
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(48);
+    line-height: 1.2;
+    color: #08a03f;
+    margin: 0;
+    @include flex(column, flex-start, flex-start);
+    gap: 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(28, 414);
+    }
+  }
+  
+  &__title-line {
+    display: block;
+  }
+  
+  &__section {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(15);
+    width: 100%;
+    
+    @include media('mobile') {
+      gap: vw-mobile(10, 414);
+    }
+  }
+  
+  &__section-title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(24);
+    line-height: 1.37;
+    color: #1E1E1E;
+    margin: 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+    }
+  }
+  
+  &__emails {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(10);
+    
+    @include media('mobile') {
+      gap: vw-mobile(8, 414);
+    }
+  }
+  
+  &__email {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(20);
+    line-height: 1.5;
+    color: #1E1E1E;
+    text-decoration: none;
+    transition: color $transition-base;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+    }
+    
+    &:hover {
+      color: #08a03f;
+      text-decoration: underline;
+    }
+  }
+  
+  // Right Panel - Subscription Form
+  &__right {
+    flex: 0 0 60%;
+    position: relative;
+    min-height: vw(600);
+    overflow: hidden;
+    
+    @include media('mobile') {
+      flex: 1;
+      min-height: vw-mobile(500, 414);
+      padding-top: 20vw;
+    }
+  }
+  
+  &__bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  &__bg-img {
+    object-fit: cover;
+  }
+  
+  &__overlay {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @include flex(column, center, center);
+    padding: vw(60);
+    z-index: 1;
+    
+    @include media('mobile') {
+      padding: vw-mobile(40, 414) vw-mobile(20, 414);
+    }
+    
+    // Green circular overlay
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: vw(783.58);
+      height: vw(783.58);
+      background: #08a03f;
+      border-radius: 50%;
+      z-index: -1;
+      
+      @include media('mobile') {
+        width: vw-mobile(350, 414);
+        height: vw-mobile(350, 414);
+      }
+    }
+  }
+  
+  &__form {
+    position: relative;
+    width: 100%;
+    max-width: vw(580);
+    @include flex(column, flex-start, left);
+    gap: vw(30);
+    z-index: 2;
+    
+    @include media('mobile') {
+      max-width: 60%;
+      gap: vw-mobile(10, 414);
+    }
+  }
+  
+  &__form-title {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(52);
+    line-height: 1.2;
+    color: #ffffff;
+    text-align: left;
+    margin: 0;
+    @include flex(column, flex-start, flex-start);
+    gap: 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(26, 414);
+    }
+  }
+  
+  &__form-title-line {
+    display: block;
+  }
+  
+  &__input-wrapper {
+    width: 100%;
+  }
+  
+  &__input {
+    width: 100%;
+    padding: vw(18) vw(25);
+    border: none;
+    border-radius: vw(50);
+    background: #ffffff;
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(18);
+    line-height: 1.5;
+    color: #1E1E1E;
+    
+    @include media('mobile') {
+      padding: vw-mobile(12, 414) vw-mobile(15, 414);
+      border-radius: vw-mobile(25, 414);
+      font-size: vw-mobile(14, 414);
+    }
+    
+    &::placeholder {
+      color: #999999;
+    }
+    
+    &:focus {
+      outline: 2px solid #ffffff;
+      outline-offset: 2px;
+    }
+    
+    &--error {
+      border: vw(2) solid #ff4444;
+      
+      @include media('mobile') {
+        border-width: vw-mobile(2, 414);
+      }
+    }
+  }
+  
+  &__error-message {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(12);
+    line-height: 1.4;
+    color: #ffffff;
+    margin-top: vw(5);
+    margin-bottom: 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(10, 414);
+      margin-top: vw-mobile(5, 414);
+    }
+  }
+  
+  &__checking-message {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(12);
+    line-height: 1.4;
+    color: #ffffff;
+    margin-top: vw(5);
+    margin-bottom: 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(10, 414);
+      margin-top: vw-mobile(5, 414);
+    }
+  }
+  
+  &__checkbox-wrapper {
+    width: 100%;
+    @include flex(row, flex-start, flex-start);
+    gap: vw(12);
+    
+    @include media('mobile') {
+      gap: vw-mobile(8, 414);
+    }
+  }
+  
+  &__checkbox {
+    width: vw(20);
+    height: vw(20);
+    margin-top: vw(2);
+    cursor: pointer;
+    accent-color: #08a03f;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #ffffff;
+    appearance: none;
+    -webkit-appearance: none;
+    border: vw(2) solid #ffffff;
+    position: relative;
+    
+    @include media('mobile') {
+      width: vw-mobile(16, 414);
+      height: vw-mobile(16, 414);
+      margin-top: vw-mobile(2, 414);
+      border-width: vw-mobile(2, 414);
+    }
+    
+    &:checked {
+      background: #08a03f;
+      border-color: #08a03f;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%) rotate(45deg);
+        width: vw(6);
+        height: vw(10);
+        border: solid #ffffff;
+        border-width: 0 vw(2) vw(2) 0;
+        border-radius: 0;
+        
+        @include media('mobile') {
+          width: vw-mobile(4, 414);
+          height: vw-mobile(7, 414);
+          border-width: 0 vw-mobile(1.5, 414) vw-mobile(1.5, 414) 0;
+        }
+      }
+    }
+  }
+  
+  &__checkbox-label {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(16);
+    line-height: 1.5;
+    color: #ffffff;
+    cursor: pointer;
+    flex: 1;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(12, 414);
+    }
+  }
+  
+  &__link {
+    color: #daffcf;
+    text-decoration: underline;
+    transition: color $transition-base;
+    
+    &:hover {
+      color: #ffffff;
+    }
+  }
+  
+  &__submit {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(52);
+    line-height: 1.37;
+    color: #ffffff;
+    background: transparent;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: vw(10) 0;
+    text-align: left;
+    align-self: flex-start;
+    transition: opacity $transition-base;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(28, 414);
+      padding: vw-mobile(8, 414) 0;
+    }
+    
+    &:hover:not(:disabled) {
+      opacity: 0.8;
+    }
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+

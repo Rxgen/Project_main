@@ -1,0 +1,58 @@
+// Main SCSS entry point - Import order matters!
+
+// 1. Utils (variables, functions, mixins)
+@import 'utils/variables';
+@import 'utils/functions';
+@import 'utils/mixins';
+
+// 2. Base styles
+@import 'base/reset';
+@import 'base/typography';
+
+// Global styles
+html,
+body {
+ 
+}
+
+body {
+  color: color('text');
+}
+
+.header__search-wrapper {
+  //display: none !important;
+}
+
+// Container utilities
+.container {
+  width: 100%;
+  max-width: vw(1440);
+  margin: 0 auto;
+  padding: 0 vw(40);
+  
+  @include media('mobile') {
+    padding: 0 vw-mobile(20, 414);
+  }
+}
+.pd0 {
+  padding: 0 !important;
+}
+.policies__decorative {
+  display: none;
+}
+.container-fluid {
+  width: 100%;
+  padding: 0 vw(40);
+  
+  @include media('mobile') {
+    padding: 0 vw-mobile(20, 414);
+  }
+}
+
+// Component styles
+@import 'components/GoldenLine';
+@import 'components/CookieConsent';
+
+// Page styles (loaded globally so they apply)
+@import 'pages/lupin-for-suppliers';
+@import 'pages/user-manual-videos';

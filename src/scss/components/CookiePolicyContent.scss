@@ -1,0 +1,379 @@
+// Cookie Policy Content Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.cookie-policy-content {
+  position: relative;
+  width: 100%;
+  padding: vw(100) vw(100);
+  background: #ffffff;
+  
+  @include media('tablet') {
+    padding: vw(60, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  &__wrapper {
+    width: 100%;
+  }
+  
+  &__intro {
+    margin-bottom: vw(50);
+    
+    @include media('tablet') {
+      margin-bottom: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(30, 414);
+    }
+  }
+  
+  &__intro-title {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(28);
+    line-height: vw(36);
+    color: #08a03f;
+    margin: 0 0 vw(20) 0;
+    
+    @include media('tablet') {
+      font-size: vw(24, 768);
+      line-height: vw(32, 768);
+      margin-bottom: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(20, 414);
+      line-height: vw-mobile(28, 414);
+      margin-bottom: vw-mobile(15, 414);
+    }
+  }
+  
+  &__section {
+    margin-bottom: vw(50);
+    
+    @include media('tablet') {
+      margin-bottom: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(30, 414);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__section-title {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(28);
+    line-height: vw(36);
+    color: #08a03f;
+    margin: 0 0 vw(25) 0;
+    
+    @include media('tablet') {
+      font-size: vw(24, 768);
+      line-height: vw(32, 768);
+      margin-bottom: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(20, 414);
+      line-height: vw-mobile(28, 414);
+      margin-bottom: vw-mobile(15, 414);
+    }
+  }
+  
+  p {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(18);
+    line-height: vw(28);
+    color: #1e1e1e;
+    margin: 0 0 vw(20) 0;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(26, 768);
+      margin-bottom: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      line-height: vw-mobile(22, 414);
+      margin-bottom: vw-mobile(15, 414);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  ul {
+    margin: vw(20) 0;
+    padding-left: vw(30);
+    
+    @include media('tablet') {
+      margin: vw(18, 768) 0;
+      padding-left: vw(25, 768);
+    }
+    
+    @include media('mobile') {
+      margin: vw-mobile(15, 414) 0;
+      padding-left: vw-mobile(20, 414);
+    }
+    
+    li {
+      font-family: $font-family-base;
+      font-weight: 400;
+      font-size: vw(18);
+      line-height: vw(28);
+      color: #1e1e1e;
+      margin-bottom: vw(10);
+      
+      @include media('tablet') {
+        font-size: vw(16, 768);
+        line-height: vw(26, 768);
+        margin-bottom: vw(8, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(14, 414);
+        line-height: vw-mobile(22, 414);
+        margin-bottom: vw-mobile(8, 414);
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  &__category {
+    margin-bottom: vw(40);
+    
+    @include media('tablet') {
+      margin-bottom: vw(35, 768);
+    }
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(30, 414);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__category-title {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(24);
+    line-height: vw(32);
+    color: #08a03f;
+    margin: 0 0 vw(15) 0;
+    @include media('tablet') {
+      font-size: vw(22, 768);
+      line-height: vw(30, 768);
+      margin-bottom: vw(12, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      line-height: vw-mobile(26, 414);
+      margin-bottom: vw-mobile(10, 414);
+    }
+  }
+  
+  &__category-description {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(18);
+    line-height: vw(28);
+    color: #1e1e1e;
+    margin: 0 0 vw(20) 0;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(26, 768);
+      margin-bottom: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      line-height: vw-mobile(22, 414);
+      margin-bottom: vw-mobile(15, 414);
+    }
+  }
+  
+  &__table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin: vw(20) 0;
+    
+    @include media('tablet') {
+      margin: vw(18, 768) 0;
+    }
+    
+    @include media('mobile') {
+      margin: vw-mobile(15, 414) 0;
+    }
+  }
+  
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    border: vw(1) solid #e0e0e0;
+    background: #ffffff;
+    
+    @include media('tablet') {
+      border-width: vw(1, 768);
+    }
+    
+    @include media('mobile') {
+      border-width: vw-mobile(1, 414);
+      font-size: vw-mobile(12, 414);
+    }
+    
+    thead {
+      background: #08a03f;
+      
+      tr {
+        th {
+          font-family: $font-family-base;
+          font-weight: 700; // Bold
+          font-size: vw(18);
+          line-height: vw(26);
+          color: #ffffff;
+          padding: vw(15) vw(20);
+          text-align: left;
+          border-right: vw(1) solid rgba(255, 255, 255, 0.2);
+          
+          @include media('tablet') {
+            font-size: vw(16, 768);
+            line-height: vw(24, 768);
+            padding: vw(12, 768) vw(15, 768);
+            border-right-width: vw(1, 768);
+          }
+          
+          @include media('mobile') {
+            font-size: vw-mobile(12, 414);
+            line-height: vw-mobile(18, 414);
+            padding: vw-mobile(10, 414) vw-mobile(8, 414);
+            border-right-width: vw-mobile(1, 414);
+          }
+          
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+    }
+    
+    tbody {
+      tr {
+        border-bottom: vw(1) solid #e0e0e0;
+        
+        @include media('tablet') {
+          border-bottom-width: vw(1, 768);
+        }
+        
+        @include media('mobile') {
+          border-bottom-width: vw-mobile(1, 414);
+        }
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        &:nth-child(even) {
+          background: #f9f9f9;
+        }
+      }
+    }
+  }
+  
+  &__table-cell {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(16);
+    line-height: vw(24);
+    color: #1e1e1e;
+    padding: vw(15) vw(20);
+    border-right: vw(1) solid #e0e0e0;
+    vertical-align: top;
+    
+    @include media('tablet') {
+      font-size: vw(14, 768);
+      line-height: vw(22, 768);
+      padding: vw(12, 768) vw(15, 768);
+      border-right-width: vw(1, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(11, 414);
+      line-height: vw-mobile(16, 414);
+      padding: vw-mobile(8, 414) vw-mobile(6, 414);
+      border-right-width: vw-mobile(1, 414);
+    }
+    
+    &:last-child {
+      border-right: none;
+    }
+    
+    &--cookie {
+      font-weight: 600;
+      color: #08a03f;
+      min-width: vw(200);
+      
+      @include media('tablet') {
+        min-width: vw(150, 768);
+      }
+      
+      @include media('mobile') {
+        min-width: vw-mobile(100, 414);
+      }
+    }
+    
+    &--duration {
+      min-width: vw(120);
+      white-space: nowrap;
+      
+      @include media('tablet') {
+        min-width: vw(100, 768);
+      }
+      
+      @include media('mobile') {
+        min-width: vw-mobile(80, 414);
+      }
+    }
+    
+    &--description {
+      min-width: vw(400);
+      
+      @include media('tablet') {
+        min-width: vw(300, 768);
+      }
+      
+      @include media('mobile') {
+        min-width: vw-mobile(200, 414);
+      }
+    }
+  }
+}
+

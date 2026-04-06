@@ -1,0 +1,178 @@
+@import "../../utils/variables";
+@import "../../utils/functions";
+@import "../../utils/mixins";
+
+.strategic-outlook {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+
+  @include media("mobile") {
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    flex: 0 0 60%;
+    background: #08a03f;
+    padding: vw(48) vw(64);
+    overflow: visible;
+
+    @include media("mobile") {
+      flex: 0 0 auto;
+      order: 2;
+      padding: vw-mobile(32, 414) vw-mobile(24, 414);
+      overflow: hidden;
+    }
+  }
+
+  &__petal {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translate(50%, -50%);
+    pointer-events: none;
+    line-height: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      @include media-custom(769px, 1440px) {
+        max-width: vw(320, 1440);
+      }
+
+      @include media("tablet") {
+        max-width: vw(220, 768);
+      }
+
+      @include media("mobile") {
+        max-width: vw-mobile(120, 414);
+      }
+    }
+
+    @include media("mobile") {
+      top: -12%;
+      bottom: auto;
+      left: 50%;
+      right: auto;
+      transform: translate(-50%, 0) rotate(-90deg);
+    }
+  }
+
+  &__heading {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 vw(20) 0;
+    color: #fff;
+    font-family: Inter;
+    font-size: vw(65);
+    font-style: normal;
+    font-weight: 700;
+    line-height: vw(80);
+
+    @include media-custom(769px, 1440px) {
+      font-size: vw(48, 1440);
+      line-height: 1.2;
+    }
+
+    @include media("tablet") {
+      font-size: vw(38, 768);
+      line-height: 1.2;
+      margin-bottom: vw(14, 768);
+    }
+
+    @include media("mobile") {
+      font-size: vw-mobile(28, 414);
+      line-height: 1.2;
+      margin-bottom: vw-mobile(16, 414);
+    }
+  }
+
+  &__text {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-family: Inter;
+    font-size: vw(22);
+    font-style: normal;
+    font-weight: 600;
+    line-height: vw(36);
+
+    p {
+      margin: 0 0 vw(16) 0;
+      color: inherit;
+      font: inherit;
+      line-height: inherit;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include media-custom(769px, 1440px) {
+      font-size: vw(18, 1440);
+      line-height: 1.55;
+    }
+
+    @include media("tablet") {
+      font-size: vw(13, 768);
+      line-height: 1.5;
+    }
+
+    @include media("mobile") {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(26, 414);
+    }
+  }
+
+  &__media {
+    flex: 0 0 40%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    background: #e8f5e9;
+
+    @include media("mobile") {
+      flex: 0 0 auto;
+      order: 1;
+      display: block;
+      background: transparent;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      display: block;
+    }
+
+    @include media("mobile") {
+      height: auto;
+      display: block;
+
+      img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: unset;
+      }
+    }
+  }
+}

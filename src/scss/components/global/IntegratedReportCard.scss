@@ -1,0 +1,214 @@
+// Integrated Report Card Component Styles
+// Based on middleCard from ReportsAndFilings component
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.integrated-report-card {
+  position: relative;
+  width: 100%;
+  width: vw(693);
+  height: vw(853);
+  background: #08a03f;
+  padding: vw(133) vw(60) vw(133) vw(60);
+  border-radius: vw(65);
+  @include flex(column, flex-start, flex-start);
+  overflow: hidden;
+  margin: auto 0 0 0;
+  
+  @include media('tablet') {
+    max-width: 100%;
+    height: vw(700, 768);
+    padding: vw(100, 768) vw(50, 768) vw(100, 768) vw(50, 768);
+    border-radius: vw(50, 768);
+  }
+  
+  @include media('mobile') {
+    width: 100%;
+    height: vw-mobile(600, 414);
+    padding: vw-mobile(80, 414) vw-mobile(30, 414) vw-mobile(60, 414) vw-mobile(30, 414);
+    border-radius: vw-mobile(40, 414);
+  }
+
+  // Image Wrapper
+  &__image-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    overflow: visible;
+    pointer-events: none;
+    
+    @include media('tablet') {
+      opacity: 0.8;
+    }
+    
+    @include media('mobile') {
+      opacity: 0.6;
+    }
+  }
+
+  &__image {
+    width: auto;
+    height: auto;
+    max-width: vw(600);
+    max-height: vw(600);
+    object-fit: contain;
+    
+    @include media('tablet') {
+      max-width: vw(450, 768);
+      max-height: vw(450, 768);
+    }
+    
+    @include media('mobile') {
+      max-width: vw-mobile(300, 414);
+      max-height: vw-mobile(300, 414);
+    }
+  }
+
+  // Content
+  &__content {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(31);
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    
+    @include media('tablet') {
+      gap: vw(25, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(25, 414);
+    }
+  }
+
+  // Title
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(58.048);
+    line-height: 1.37;
+    color: white;
+    margin: 0;
+    @include flex(column, flex-start, flex-start);
+    gap: 0;
+    
+    @include media('tablet') {
+      font-size: vw(45, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(36, 414);
+    }
+  }
+
+  &__title-line {
+    display: block;
+    line-height: 1.37;
+    
+    &:last-child {
+      line-height: 1.25;
+    }
+  }
+
+  // Buttons
+  &__buttons {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(21);
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(15, 414);
+    }
+  }
+
+  &__button {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(18.949);
+    line-height: 1.37;
+    padding: vw(13) vw(19) vw(13) vw(19);
+    border-radius: vw(50);
+    text-decoration: none;
+    text-align: center;
+    transition: all $transition-base;
+    @include flex(row, center, center);
+    gap: vw(7);
+    white-space: nowrap;
+    min-height: vw(46.951);
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      padding: vw(12, 768) vw(16, 768) vw(12, 768) vw(16, 768);
+      border-radius: vw(18, 768);
+      min-height: vw(42, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(15, 414);
+      padding: vw-mobile(10, 414) vw-mobile(16, 414) vw-mobile(10, 414) vw-mobile(16, 414);
+      border-radius: vw-mobile(15, 414);
+      min-height: vw-mobile(38, 414);
+    }
+
+    // Outline White Button
+    &--outline-white {
+      border: vw(1.184) solid #f6f6f6;
+      background: transparent;
+      color: white;
+      
+      @include media('tablet') {
+        border-width: vw(1, 768);
+      }
+      
+      @include media('mobile') {
+        border-width: vw-mobile(1, 414);
+      }
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        opacity: 1;
+      }
+    }
+
+    // Filled White Button
+    &--filled-white {
+      background: #fff;
+      color: #126430;
+      border: none;
+      font-weight: 600;
+      
+      &:hover {
+        background: rgba(246, 246, 246, 0.9);
+        opacity: 1;
+      }
+    }
+  }
+
+  &__button-arrow {
+    width: vw(11.274);
+    height: vw(11.17);
+    flex-shrink: 0;
+    color: currentColor;
+    
+    @include media('tablet') {
+      width: vw(10, 768);
+      height: vw(10, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(9, 414);
+      height: vw-mobile(9, 414);
+    }
+  }
+}
+

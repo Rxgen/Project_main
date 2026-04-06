@@ -1,0 +1,68 @@
+// AGM and Postal Ballot Cards Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// This component uses BigCard for individual cards, matching the policies page grid pattern
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.agm-postal-ballot-cards {
+  display: grid;
+  // AGM section: 3 columns with fixed width (matching policies page pattern)
+  grid-template-columns: repeat(3, vw(415));
+  gap: vw(46) vw(19);
+  width: 100%;
+  justify-content: flex-start;
+  
+  @include media('tablet') {
+    grid-template-columns: repeat(3, 1fr);
+    gap: vw(30, 768) vw(15, 768);
+    width: 100%;
+  }
+  
+  @include media('mobile') {
+    grid-template-columns: repeat(2, 1fr);
+    gap: vw-mobile(15, 414);
+    width: 100%;
+  }
+
+  // BigCard wrapper styling
+  &__big-card {
+    width: 100%;
+    
+    @include media('mobile') {
+      .big-card__content {
+        min-height: vw-mobile(180, 414);
+      }
+      
+      .big-card__link {
+        font-size: vw-mobile(12, 414);
+      }
+      
+      .big-card__download-link {
+        font-size: vw-mobile(12, 414);
+      }
+    }
+  }
+}
+
+// Special styling for Postal Ballot section (2 columns instead of 3)
+.agm-postal-ballot--postal-ballot {
+  .agm-postal-ballot-cards {
+    // Postal Ballot: 3 columns with specific width
+    grid-template-columns: repeat(3, 21.6146vw);
+    width: 100%;
+    justify-content: flex-start;
+    
+    @include media('tablet') {
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%;
+    }
+  }
+}
+

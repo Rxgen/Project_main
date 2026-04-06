@@ -1,0 +1,125 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.error-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0d4a4a 0%, #08a240 50%, #00a859 100%);
+  padding: vw(40);
+  position: relative;
+  overflow: hidden;
+
+  // Subtle pattern overlay
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: vw(800);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__content {
+    text-align: center;
+    padding: vw(80) vw(60);
+  }
+
+  &__title {
+    font-size: vw(48);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 vw(24) 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  &__message {
+    font-size: vw(24);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 vw(48) 0;
+    line-height: 1.5;
+  }
+
+  &__home-link {
+    margin-top: vw(32);
+    padding-top: vw(32);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+
+    a {
+      font-size: vw(20);
+      font-weight: 600;
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: vw(-4);
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #ffffff;
+        transition: width 0.3s ease;
+      }
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.8);
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @include media('mobile') {
+    padding: vw-mobile(20, 414);
+
+    &__content {
+      padding: vw-mobile(50, 414) vw-mobile(30, 414);
+    }
+
+    &__title {
+      font-size: vw-mobile(32, 414);
+      margin: 0 0 vw-mobile(20, 414) 0;
+    }
+
+    &__message {
+      font-size: vw-mobile(18, 414);
+      margin: 0 0 vw-mobile(40, 414) 0;
+    }
+
+    &__home-link {
+      margin-top: vw-mobile(24, 414);
+      padding-top: vw-mobile(24, 414);
+
+      a {
+        font-size: vw-mobile(16, 414);
+
+        &::after {
+          bottom: vw-mobile(-4, 414);
+        }
+      }
+    }
+  }
+}
+

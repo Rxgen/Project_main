@@ -1,0 +1,346 @@
+// Leader In Circle Component Styles
+// Reusable leader profile component with circular image
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.leader-in-circle {
+  @include flex(column, flex-start, center);
+  position: relative;
+  transition: transform $transition-base;
+  will-change: transform;
+  
+  &--large {
+    width: vw(500);
+    
+    @include media('tablet') {
+      width: vw(400, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  &:not(&--large) {
+    width: vw(400);
+    
+    @include media('tablet') {
+      width: vw(350, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  // Hover state - apply special styling
+  &:hover {
+    transform: scale(1.1);
+    z-index: 10;
+    
+    .leader-in-circle__circle:not(.leader-in-circle__circle--special) {
+      background: #08a03f;
+    }
+    
+    .leader-in-circle__info:not(.leader-in-circle__info--special) {
+      color: #08a03f;
+      transform: translateY(0);
+      
+      @include media('tablet') {
+        transform: translateY(0);
+      }
+      
+      @include media('mobile') {
+        transform: translateY(0);
+      }
+      
+      .leader-in-circle__name {
+        color: #08a03f;
+        font-weight: 700;
+        font-size: vw(37.062);
+        
+        @include media('tablet') {
+          font-size: vw(32, 768);
+        }
+        
+        @include media('mobile') {
+          font-size: vw-mobile(24, 414);
+        }
+      }
+      
+      .leader-in-circle__title {
+        color: #08a03f;
+        opacity: 0.8;
+        font-size: vw(24.708);
+        letter-spacing: vw(0.7412);
+        
+        @include media('tablet') {
+          font-size: vw(22, 768);
+        }
+        
+        @include media('mobile') {
+          font-size: vw-mobile(16, 414);
+        }
+      }
+    }
+  }
+  
+  // Image Wrapper
+  &__image-wrapper {
+    position: relative;
+    @include flex(column, center, center);
+    margin-bottom: vw(-20);
+    padding-bottom: vw(20);
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(-15, 414);
+      padding-bottom: vw-mobile(15, 414);
+    }
+  }
+  
+  // Circle
+  &__circle {
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #d9f0e1;
+    transition: background $transition-base;
+    
+    .leader-in-circle--large & {
+      width: vw(500);
+      height: vw(500);
+      
+      @include media('tablet') {
+        width: vw(400, 768);
+        height: vw(400, 768);
+      }
+      
+      @include media('mobile') {
+        width: 100%;
+        max-width: vw-mobile(180, 414);
+        height: auto;
+        aspect-ratio: 1;
+      }
+    }
+    
+    &:not(.leader-in-circle__circle--special) {
+      width: vw(400);
+      height: vw(400);
+      
+      @include media('tablet') {
+        width: vw(350, 768);
+        height: vw(350, 768);
+      }
+      
+      @include media('mobile') {
+        width: 100%;
+        max-width: vw-mobile(150, 414);
+        height: auto;
+        aspect-ratio: 1;
+      }
+    }
+    
+    &--special {
+      background: #08a03f;
+      width: vw(500);
+      height: vw(500);
+      
+      @include media('tablet') {
+        width: vw(400, 768);
+        height: vw(400, 768);
+      }
+      
+      @include media('mobile') {
+        width: 100%;
+        max-width: vw-mobile(180, 414);
+        height: auto;
+        aspect-ratio: 1;
+      }
+    }
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  // Special Indicator (Arrow Icon)
+  &__indicator {
+    position: absolute;
+    bottom: vw(-20);
+    left: 50%;
+    transform: translateX(-50%);
+    width: vw(84.652);
+    height: vw(84.652);
+    background: #08a03f;
+    border: vw(5.977) solid white;
+    border-radius: vw(42.326);
+    @include flex(row, center, center);
+    z-index: 2;
+    text-decoration: none;
+    transition: transform $transition-base, opacity $transition-base, visibility $transition-base;
+    
+    @include media('tablet') {
+      width: vw(70, 768);
+      height: vw(70, 768);
+      border-width: vw(4, 768);
+      border-radius: vw(35, 768);
+      bottom: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(60, 414);
+      height: vw-mobile(60, 414);
+      border-width: vw-mobile(4, 414);
+      border-radius: vw-mobile(30, 414);
+      bottom: vw-mobile(25, 414);
+    }
+    
+    &:hover {
+      transform: translateX(-50%) scale(1.05);
+    }
+    
+    svg {
+      width: vw(13.355);
+      height: vw(13.538);
+      
+      @include media('tablet') {
+        width: vw(12, 768);
+        height: vw(12, 768);
+      }
+      
+      @include media('mobile') {
+        width: vw-mobile(10, 414);
+        height: vw-mobile(10, 414);
+      }
+    }
+  }
+  
+  // Hide indicator for non-special members by default (shown on hover)
+  &:not(.leader-in-circle--special) &__indicator {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  &:not(.leader-in-circle--special):hover &__indicator {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  // Info
+  &__info {
+    @include flex(column, center, center);
+    text-align: center;
+    padding-top: vw(45);
+    width: vw(347.261);
+    transform: translateY(vw(-25));
+    transition: transform $transition-base, color $transition-base;
+    
+    @include media('tablet') {
+      width: vw(300, 768);
+      padding-top: vw(35, 768);
+      transform: translateY(vw(-20, 768));
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      padding-top: vw-mobile(30, 414);
+      transform: translateY(vw-mobile(-15, 414));
+    }
+    
+    &--special {
+      color: #08a03f;
+      width: vw(347.261);
+      
+      @include media('tablet') {
+        width: vw(300, 768);
+      }
+      
+      @include media('mobile') {
+        width: 100%;
+      }
+    }
+  }
+  
+  &__name {
+    font-family: $font-family-base;
+    margin: 0 0 vw(0) 0;
+    transition: color $transition-base, font-weight $transition-base, font-size $transition-base;
+    
+    .leader-in-circle__info--special & {
+      font-weight: 700;
+      font-size: vw(37.062);
+      color: #08a03f;
+      
+      @include media('tablet') {
+        font-size: vw(32, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(24, 414);
+      }
+    }
+    
+    .leader-in-circle__info:not(.leader-in-circle__info--special) & {
+      font-weight: 600;
+      font-size: vw(28.949);
+      color: #1e1e1e;
+      opacity: 0.8;
+      
+      @include media('tablet') {
+        font-size: vw(26, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(14, 414);
+      }
+    }
+  }
+  
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 500;
+    margin: 0;
+    transition: color $transition-base, opacity $transition-base, font-size $transition-base, letter-spacing $transition-base;
+    
+    .leader-in-circle__info--special & {
+      font-size: vw(24.708);
+      line-height: 1.75;
+      color: #08a03f;
+      opacity: 0.8;
+      letter-spacing: vw(0.7412);
+      
+      @include media('tablet') {
+        font-size: vw(22, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(16, 414);
+      }
+    }
+    
+    .leader-in-circle__info:not(.leader-in-circle__info--special) & {
+      font-size: vw(19.299);
+      line-height: 1.75;
+      color: #1e1e1e;
+      opacity: 0.7;
+      letter-spacing: vw(0.579);
+      
+      @include media('tablet') {
+        font-size: vw(18, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(14, 414);
+      }
+    }
+  }
+}
+

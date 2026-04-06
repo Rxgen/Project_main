@@ -1,0 +1,87 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.branded-emerging-markets-intro {
+  position: relative;
+  width: 100%;
+  background: #f0f7f2; // Light green background
+  
+  @include media('tablet') {
+    // Tablet styles
+  }
+  
+  @include media('mobile') {
+    // Mobile styles
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: vw(60) vw(100);
+    
+    @include media('tablet') {
+      padding: vw(50, 768) vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(40, 414) vw-mobile(20, 414);
+    }
+  }
+
+  &__content {
+    width: 100%;
+    position: relative;
+  }
+
+  &__paragraph {
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(20);
+    line-height: vw(36);
+    color: #1e1e1e;
+    margin: 0;
+    text-align: left;
+
+    strong {
+      font-weight: 700;
+    }
+
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(28, 414);
+    }
+  }
+
+  &__link {
+    font-family: $font-family-base;
+    font-weight: 600; // Semi-Bold
+    text-decoration: underline;
+    text-decoration-thickness: vw(1.2);
+    text-underline-offset: vw(2);
+    color: #1e1e1e;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #08A03F;
+    }
+
+    @include media('tablet') {
+      text-decoration-thickness: vw(1, 768);
+      text-underline-offset: vw(2, 768);
+    }
+
+    @include media('mobile') {
+      text-decoration-thickness: vw-mobile(1, 414);
+      text-underline-offset: vw-mobile(2, 414);
+    }
+  }
+}
+

@@ -1,0 +1,149 @@
+// Biosimilars Intro Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=2875-510
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.biosimilars-intro {
+  position: relative;
+  width: 100%;
+  background-color: #e6fff2;
+  padding: vw(48) vw(150);
+  
+  @include media('tablet') {
+    padding: vw(40, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1646);
+    margin: 0 auto;
+    @include flex(column, center, center);
+  }
+  
+  // White box with green border
+  &__box {
+    background: #ffffff;
+    border: vw(1) solid #08a03f;
+    border-radius: vw(60);
+    padding: vw(48) vw(150);
+    width: 100%;
+    @include flex(column, center, center);
+    
+    @include media('tablet') {
+      border-radius: vw(40, 768);
+      padding: vw(40, 768) vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(30, 414);
+      padding: vw-mobile(30, 414) vw-mobile(20, 414);
+      border-width: vw-mobile(1, 414);
+    }
+  }
+  
+  // Content container
+  &__content {
+    width: 100%;
+    max-width: vw(1646);
+    @include flex(column, center, center);
+    gap: vw(20);
+    
+    @include media('tablet') {
+      gap: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(15, 414);
+    }
+  }
+  
+  // Heading
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(65);
+    line-height: vw(80);
+    color: #08a03f;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(50, 768);
+      line-height: vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(40, 414);
+    }
+  }
+  
+  // Heading line
+  &__heading-line {
+    margin: 0;
+    display: block;
+  }
+  
+  // Text container
+  &__text {
+    width: 100%;
+    max-width: vw(1589);
+    @include flex(column, center, center);
+    
+    @include media('tablet') {
+      max-width: 100%;
+    }
+  }
+  
+  // Paragraph
+  &__paragraph {
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(22);
+    line-height: vw(36);
+    color: #126430;
+    text-align: center;
+    opacity: 0.8;
+    margin: 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+      text-align: left;
+    }
+    
+    // Space between paragraphs
+    &:not(:last-child) {
+      margin-bottom: vw(20);
+      
+      @include media('tablet') {
+        margin-bottom: vw(18, 768);
+      }
+      
+      @include media('mobile') {
+        margin-bottom: vw-mobile(15, 414);
+      }
+    }
+    
+    // Empty paragraph (spacer)
+    &:empty {
+      display: none;
+    }
+  }
+}
+

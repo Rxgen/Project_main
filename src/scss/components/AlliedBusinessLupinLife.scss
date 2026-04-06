@@ -1,0 +1,307 @@
+// Allied Business LupinLife Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=3067-713
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.allied-business-lupinlife {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  
+  @include media('tablet') {
+    padding: 0;
+  }
+  
+  @include media('mobile') {
+    padding: 0;
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    min-height: vw(901);
+    
+    @include media('tablet') {
+      flex-direction: column;
+      min-height: auto;
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      min-height: auto;
+    }
+  }
+  
+  // Image Section (Left)
+  &__image-wrapper {
+    position: relative;
+    width: vw(948);
+    height: vw(901);
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 0 0 0 vw(190.9);
+    
+    @include media('tablet') {
+      width: 100%;
+      height: vw(500, 768);
+      border-radius: 0;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      height: vw-mobile(300, 414);
+      border-radius: 0;
+    }
+  }
+  
+  &__image-mask {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  &__image {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  // Content Section (Right)
+  &__content {
+    position: relative;
+    width: vw(973);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    
+    @include media('tablet') {
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+    }
+  }
+  
+  // Heading (Dark Green)
+  &__heading {
+    background: #126430;
+    padding: vw(20) vw(101);
+    min-height: vw(127);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: vw(24);
+    
+    @include media('tablet') {
+      padding: vw(20, 768) vw(60, 768);
+      min-height: auto;
+      gap: vw(16, 768);
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      align-items: stretch;
+      padding: vw-mobile(20, 414) vw-mobile(20, 414);
+      min-height: auto;
+      gap: vw-mobile(12, 414);
+    }
+  }
+  
+  &__heading-text {
+    flex: 1;
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(30);
+    line-height: vw(84.5);
+    color: #ffffff;
+    margin: 0;
+
+    @include media('tablet') {
+      font-size: vw(32, 768);
+      line-height: vw(50, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(24, 414);
+      line-height: vw-mobile(36, 414);
+    }
+  }
+  
+  &__heading-logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    @include media('mobile') {
+      width: 100%;
+      min-width: 0;
+      justify-content: flex-start;
+    }
+  }
+  
+  &__heading-logo-img {
+    object-fit: contain;
+    width: vw(269);
+    height: auto;
+
+    @include media('mobile') {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  
+  // Content Box (Light Green)
+  &__content-box {
+    background: #08a03f;
+    padding: vw(37) vw(79);
+    flex: 1;
+    border-radius: 0 0 vw(190.9) 0;
+    box-shadow: vw(20.5) vw(15) vw(27.6) 0 rgba(23, 23, 23, 0.27);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: vw(21);
+    
+    @include media('tablet') {
+      padding: vw(30, 768) vw(50, 768);
+      border-radius: 0;
+      box-shadow: vw(15, 768) vw(10, 768) vw(20, 768) 0 rgba(23, 23, 23, 0.27);
+      gap: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(25, 414) vw-mobile(20, 414);
+      border-radius: 0;
+      box-shadow: vw-mobile(10, 414) vw-mobile(8, 414) vw-mobile(15, 414) 0 rgba(23, 23, 23, 0.27);
+      gap: vw-mobile(15, 414);
+    }
+  }
+  
+  &__text {
+    width: vw(789);
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(20);
+    line-height: vw(36);
+    color: #ffffff;
+    
+    @include media('tablet') {
+      width: 100%;
+      font-size: vw(18, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+    }
+  }
+  
+  &__paragraph {
+    margin: 0;
+    
+    &:not(:last-child) {
+      margin-bottom: vw(20);
+      
+      @include media('tablet') {
+        margin-bottom: vw(18, 768);
+      }
+      
+      @include media('mobile') {
+        margin-bottom: vw-mobile(15, 414);
+      }
+    }
+  }
+  
+  // Visit Website Link
+  &__link-wrapper {
+    display: flex;
+    align-items: center;
+    gap: vw(16);
+    
+    @include media('tablet') {
+      gap: vw(12, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(10, 414);
+      flex-wrap: wrap;
+    }
+  }
+  
+  &__link-label {
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(20);
+    line-height: vw(36);
+    color: #ffffff;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+    }
+  }
+  
+  &__link {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(22);
+    line-height: vw(36);
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-thickness: vw(2);
+    text-underline-offset: vw(2);
+    transition: opacity 0.3s ease;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: vw(32, 768);
+      text-decoration-thickness: vw(1.5, 768);
+      text-underline-offset: vw(1.5, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      line-height: vw-mobile(24, 414);
+      text-decoration-thickness: vw-mobile(1.5, 414);
+      text-underline-offset: vw-mobile(1.5, 414);
+    }
+  }
+  
+  &__link-icon {
+    flex-shrink: 0;
+    width: vw(13);
+    height: vw(13);
+    
+    @include media('tablet') {
+      width: vw(12, 768);
+      height: vw(12, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(12, 414);
+      height: vw-mobile(12, 414);
+    }
+  }
+}
+

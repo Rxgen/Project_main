@@ -1,0 +1,280 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.financial-bar-section {
+  background-color: #f6f6f6;
+  padding: 0 vw(100) vw(50);
+  width: 100%;
+
+  @include media('tablet') {
+    padding: 0 vw(50, 768) vw(40, 768);
+  }
+
+  @include media('mobile') {
+    padding: 0 vw-mobile(20, 414) vw-mobile(30, 414);
+  }
+
+  &__container {
+    max-width: vw(1820);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    @include media('tablet') {
+      gap: vw(80, 768);
+    }
+
+    @include media('mobile') {
+      gap: 0;
+    }
+  }
+
+  &__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(80);
+    color: #08a03f;
+    margin: 0;
+    padding: vw(50) 0;
+    width: 100%;
+
+    @include media('tablet') {
+      font-size: vw(48, 768);
+      line-height: vw(60, 768);
+      padding: vw(40, 768) 0;
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(40, 414);
+      padding: vw-mobile(30, 414) 0;
+    }
+  }
+
+  &__charts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: vw(100) vw(69);
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @include media('tablet') {
+      gap: vw(40, 768);
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @include media('mobile') {
+      gap: vw-mobile(30, 414);
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .financial-bar-chart {
+      flex: 0 0 calc(50% - vw(34.5));
+      max-width: vw(703);
+
+      @include media('tablet') {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+
+      @include media('mobile') {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__downloads {
+    display: flex;
+    gap: vw(70);
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    @include media('tablet') {
+      gap: vw(40, 768);
+      justify-content: center;
+    }
+
+    @include media('mobile') {
+      gap: vw-mobile(30, 414);
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__download-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: vw(60);
+    position: relative;
+    width: vw(288);
+
+    @include media('tablet') {
+      width: vw(250, 768);
+      padding-bottom: vw(50, 768);
+    }
+
+    @include media('mobile') {
+      width: 100%;
+      max-width: vw-mobile(300, 414);
+      padding-bottom: vw-mobile(40, 414);
+    }
+  }
+
+  &__download-box {
+    width: 100%;
+    height: vw(273);
+    border-radius: vw(36);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: vw(104) vw(13);
+    margin-bottom: vw(-60);
+    background-color: #d9f0e1;
+
+    &--active {
+      background-color: #08a03f;
+    }
+
+    @include media('tablet') {
+      height: vw(220, 768);
+      border-radius: vw(30, 768);
+      padding: vw(80, 768) vw(13, 768);
+      margin-bottom: vw(-50, 768);
+    }
+
+    @include media('mobile') {
+      height: vw-mobile(200, 414);
+      border-radius: vw-mobile(25, 414);
+      padding: vw-mobile(60, 414) vw-mobile(13, 414);
+      margin-bottom: vw-mobile(-40, 414);
+    }
+  }
+
+  &__download-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: vw(20);
+    line-height: 1.37;
+    text-align: center;
+    margin: 0;
+    color: #08a03f;
+
+    .financial-bar-section__download-box--active & {
+      color: white;
+    }
+
+    @include media('tablet') {
+      font-size: vw(18, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+    }
+  }
+
+  &__download-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: vw(15);
+    align-items: center;
+    margin-top: vw(-60);
+    width: vw(133);
+
+    @include media('tablet') {
+      gap: vw(12, 768);
+      margin-top: vw(-50, 768);
+      width: vw(120, 768);
+    }
+
+    @include media('mobile') {
+      gap: vw-mobile(12, 414);
+      margin-top: vw-mobile(-40, 414);
+      width: vw-mobile(120, 414);
+    }
+  }
+
+  &__download-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: vw(11);
+    line-height: 1.37;
+    text-align: center;
+    margin: 0;
+    color: #08a03f;
+    white-space: nowrap;
+
+    .financial-bar-section__download-box--active ~ & {
+      color: white;
+    }
+
+    @include media('tablet') {
+      font-size: vw(10, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(10, 414);
+    }
+  }
+
+  &__download-button {
+    width: vw(66);
+    height: vw(66);
+    border-radius: 50%;
+    border: vw(5) solid white;
+    background-color: #08a03f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    padding: 0;
+
+    &:hover {
+      transform: scale(1.05);
+      background-color: #126430;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    svg {
+      width: vw(23);
+      height: vw(23);
+    }
+
+    @include media('tablet') {
+      width: vw(55, 768);
+      height: vw(55, 768);
+      border-width: vw(4, 768);
+
+      svg {
+        width: vw(20, 768);
+        height: vw(20, 768);
+      }
+    }
+
+    @include media('mobile') {
+      width: vw-mobile(55, 414);
+      height: vw-mobile(55, 414);
+      border-width: vw-mobile(4, 414);
+
+      svg {
+        width: vw-mobile(18, 414);
+        height: vw-mobile(18, 414);
+      }
+    }
+  }
+}
+

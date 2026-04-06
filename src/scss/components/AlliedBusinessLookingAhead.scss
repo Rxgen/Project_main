@@ -1,0 +1,240 @@
+// Allied Business Looking Ahead Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=3067-1457
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.allied-business-looking-ahead {
+  position: relative;
+  width: 100%;
+  padding: vw(60) vw(120);
+  background: #e9fff1;
+  
+  @include media('tablet') {
+    padding: vw(40, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(30, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: vw(84);
+    
+    @include media('tablet') {
+      flex-direction: column;
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      gap: vw-mobile(30, 414);
+    }
+  }
+  
+  // Image Section (Left)
+  &__image-wrapper {
+    position: relative;
+    width: vw(713);
+    height: vw(475);
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 0 vw(190.9) 0 0;
+    
+    @include media('tablet') {
+      width: 100%;
+      max-width: vw(600, 768);
+      height: vw(400, 768);
+      border-radius: 0;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      height: vw-mobile(250, 414);
+      border-radius: 0;
+    }
+  }
+  
+  &__image-mask {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  &__image {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  // Vertical Line with Pointer (Middle)
+  &__pointer-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: vw(230);
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      height: auto;
+      width: 100%;
+      flex-direction: row;
+      gap: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      height: auto;
+      width: 100%;
+      flex-direction: row;
+      gap: vw-mobile(15, 414);
+    }
+  }
+  
+  &__vertical-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: vw(2);
+    height: 100%;
+    background: #08a03f;
+    
+    @include media('tablet') {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      width: 100%;
+      height: vw(2, 768);
+    }
+    
+    @include media('mobile') {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      width: 100%;
+      height: vw-mobile(2, 414);
+    }
+  }
+  
+  &__pointer-icon {
+    position: relative;
+    z-index: 2;
+    padding: vw(10);
+    background: #e9fff1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    @include media('tablet') {
+      padding: vw(8, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(6, 414);
+    }
+  }
+  
+  &__pointer-svg {
+    width: vw(31);
+    height: vw(31);
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: vw(28, 768);
+      height: vw(28, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(24, 414);
+      height: vw-mobile(24, 414);
+    }
+  }
+  
+  // Text Section (Right)
+  &__content {
+    position: relative;
+    width: vw(680);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: vw(49);
+    
+    @include media('tablet') {
+      width: 100%;
+      gap: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(20, 414);
+    }
+  }
+  
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700; // Bold
+    font-size: vw(65);
+    line-height: vw(84.5);
+    color: #08a03f;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(45, 768);
+      line-height: vw(55, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(40, 414);
+    }
+  }
+  
+  &__text {
+    width: 100%;
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(20);
+    line-height: vw(36);
+    color: #1e1e1e;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+    }
+  }
+  
+  &__paragraph {
+    margin: 0;
+    
+    &:not(:last-child) {
+      margin-bottom: vw(20);
+      
+      @include media('tablet') {
+        margin-bottom: vw(18, 768);
+      }
+      
+      @include media('mobile') {
+        margin-bottom: vw-mobile(15, 414);
+      }
+    }
+  }
+}
+

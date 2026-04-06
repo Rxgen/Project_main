@@ -1,0 +1,327 @@
+// Life Section Component (from Figma design)
+// https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=22-3347
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.life {
+  position: relative;
+  width: 100%;
+  height: vw(1071);
+  overflow: hidden;
+  padding: vw(172) vw(120);
+  
+  @include media('tablet') {
+    height: auto;
+    min-height: 100vh;
+    padding: vw(80, 768) vw(40, 768);
+  }
+  
+  @include media('mobile') {
+    height: 75vh;
+    min-height: auto;
+    padding: vw-mobile(20, 414) vw-mobile(20, 414);
+    padding-bottom: vw-mobile(60, 414);
+  }
+  
+  // Background
+  &__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  // Gradient Background
+  &__bg-gradient {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: vw(1920);
+    height: vw(1080);
+    background: linear-gradient(90deg, rgba(32, 80, 148, 1) 0%, rgba(26, 116, 150, 1) 20.673%, rgba(7, 111, 103, 1) 59.135%, rgba(12, 165, 139, 1) 89.334%);
+    z-index: 1;
+    
+    @include media('tablet') {
+      width: 100%;
+      height: 100%;
+      left: 0;
+      transform: none;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      height: 100%;
+      left: 0;
+      transform: none;
+      background: linear-gradient(90deg, rgba(32, 80, 148, 1) 0%, rgba(26, 116, 150, 1) 25%, rgba(7, 111, 103, 1) 60%, rgba(12, 165, 139, 1) 100%);
+    }
+  }
+  
+  // Background Image
+  &__bg-image {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+
+    overflow: hidden;
+    z-index: 2;
+    
+    @include media('mobile') {
+      display: block;
+      opacity: 1;
+      top: auto;
+      bottom: 0;
+    }
+  }
+  
+  &__bg-image-mask {
+    width: 100%;
+    height: 100%;
+
+    @include media('mobile') {
+      width: 140%;
+    }
+  }
+  
+  &__bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center right;
+  }
+  
+  // Content Container
+  &__container {
+    position: relative;
+    z-index: 10;
+    @include flex(column, flex-start, flex-start);
+    gap: vw(30);
+    width: vw(423.75);
+    
+    @include media('tablet') {
+      width: 100%;
+      max-width: vw(600, 768);
+      gap: vw(26, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(20, 414);
+      align-items: left;
+    }
+  }
+  
+  // Content Section
+  &__content {
+    @include flex(column, flex-start, center);
+    gap: vw(30);
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(24, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(0, 414);
+      align-items: center;
+      text-align: center;
+    }
+  }
+  
+  // Heading Wrapper
+  &__heading-wrapper {
+    @include flex(column, flex-start, center);
+    gap: vw(28);
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(22, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(12, 414);
+      align-items: center;
+    }
+  }
+  
+  // Heading
+  &__heading {
+    @include flex(column, flex-start, flex-start);
+  
+    width: 100%;
+    font-family: $font-family-base;
+    font-weight: 700;
+    color: #FFFFFF;
+    
+    @include media('mobile') {
+      gap: vw-mobile(0, 414);
+      align-items: left;
+      width: 100%;
+    }
+  }
+  
+  // Large Heading "LIFE"
+  &__heading-large {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(230);
+    line-height: vw(86);
+    text-transform: uppercase;
+    margin: 0;
+    height: vw(152.634);
+    
+    @include media('tablet') {
+      font-size: vw(150, 768);
+      line-height: vw(60, 768);
+      height: auto;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(80, 414);
+      line-height: vw-mobile(70, 414);
+      height: auto;
+      text-align: center;
+    }
+  }
+  
+  // Small Heading "at Lupin World"
+  &__heading-small {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(46);
+    line-height: vw(41);
+    margin: 0;
+    height: vw(30.719);
+    
+    @include media('tablet') {
+      font-size: vw(32, 768);
+      line-height: vw(30, 768);
+      height: auto;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(24, 414);
+      line-height: vw-mobile(28, 414);
+      text-align: center;
+    }
+  }
+  
+  // Underline
+  &__underline {
+    width: 100%;
+    height: vw(1);
+    background: linear-gradient(90deg, #FFF 48.08%, rgba(255, 255, 255, 0.00) 100%);
+    
+    @include media('tablet') {
+      height: vw(0.8, 768);
+    }
+    
+    @include media('mobile') {
+      height: vw-mobile(0.6, 414);
+    }
+  }
+  
+  // Description
+  &__description {
+    font-family: $font-family-base;
+    font-weight: 300;
+    font-size: vw(20);
+    line-height: vw(30);
+    color: #FFFFFF;
+    margin: 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(26, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      line-height: vw-mobile(20, 414);
+      text-align: left;
+      width: 100%;
+    }
+  }
+  
+  // CTA Button
+  &__cta {
+    background: #FFFFFF;
+    border-radius: vw(64.947);
+    padding: vw(16) vw(35);
+    text-decoration: none;
+    transition: transform $transition-base, box-shadow $transition-base;
+    
+    @include media('tablet') {
+      border-radius: vw(50, 768);
+      padding: vw(16, 768) vw(35, 768);
+    }
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(30, 414);
+      padding: vw-mobile(16, 414) vw-mobile(35, 414);
+      margin-top: vw-mobile(10, 414);
+    }
+    
+    &:hover {
+      transform: translateY(vw(-2));
+      box-shadow: 0 vw(8) vw(20) rgba(0, 0, 0, 0.15);
+      
+      @include media('mobile') {
+        transform: translateY(vw-mobile(-1.5, 414));
+        box-shadow: 0 vw-mobile(6, 414) vw-mobile(15, 414) rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+  
+  &__cta-inner {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(1);
+    width: 100%;
+    height: 100%;
+  }
+  
+  &__cta-content {
+    @include flex(row, flex-start, center);
+    gap: vw(11);
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(9, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(8, 414);
+    }
+  }
+  
+  &__cta-text {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: vw(32.261);
+    color: #363732;
+    margin: 0;
+    height: vw(33);
+    
+    @include media('tablet') {
+      font-size: vw(22, 768);
+      line-height: vw(26, 768);
+      height: auto;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(20, 414);
+      height: auto;
+    }
+  }
+  
+}
+

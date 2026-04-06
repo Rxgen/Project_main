@@ -1,0 +1,195 @@
+@import "../utils/variables";
+@import "../utils/functions";
+@import "../utils/mixins";
+
+.investor__container {
+  width: 100%;
+}
+
+// Bottom Hero Section - card anchored to bottom, full width, using vw() function
+.investor__bottom-banner {
+  width: 100%;
+  box-sizing: border-box;
+  background-image: url("/assets/images/investors/investors-bottom-hero-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: vw(32) vw(32) 0;
+  min-height: vw(560);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  @include media("tablet") {
+    padding: vw(24, 768) vw(20, 768) 0;
+    min-height: vw(500, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    padding: vw(20, 425) vw(17, 425) 0;
+    min-height: vw(420, 425);
+  }
+}
+
+.investor__bottom-banner-card {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  max-width: vw(1727);
+  margin: 0 auto;
+  background: #e9fff1;
+  border-top-left-radius: vw(262.5);
+  border-top-right-radius: vw(262.601);
+  overflow: hidden;
+  filter: drop-shadow(11.615px 14.197px 23.575px rgba(0, 0, 0, 0.2));
+
+  @include media("tablet") {
+    flex-direction: column-reverse;
+    border-radius: vw(16, 768) vw(16, 768) 0 0;
+    max-width: vw(720, 768);
+    filter: drop-shadow(10.615px 14.197px 23.575px rgba(0, 0, 0, 0.2));
+  }
+
+  @include media-custom($max: 425px) {
+    border-radius: vw(12, 425) vw(12, 425) 0 0;
+    max-width: vw(400, 425);
+    filter: drop-shadow(9.615px 14.197px 23.575px rgba(0, 0, 0, 0.2));
+  }
+}
+
+.investor__bottom-banner-text {
+  $inner-stroke-inset: 16;
+  flex: 1;
+  position: relative;
+  box-sizing: border-box;
+  padding: vw(100) vw(90) vw(100) vw(90);
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  background: #e9fff1;
+  border-top-left-radius: vw(262.5);
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: vw($inner-stroke-inset);
+    border-top-left-radius: vw(262.5 - $inner-stroke-inset);
+    box-shadow: inset 0 0 0 0.86px rgba(8, 160, 63, 0.2);
+    pointer-events: none;
+  }
+
+  p {
+    position: relative;
+    z-index: 1;
+    color: #1e1e1e;
+    font-family: Inter, sans-serif;
+    font-size: vw(23.231);
+    font-style: normal;
+    font-weight: 600;
+    line-height: vw(42.59);
+    margin: 0;
+  }
+
+  @include media("tablet") {
+    padding: vw(56, 768) vw(48, 768) vw(56, 768) vw(48, 768);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    &::before {
+      inset: vw(12, 768);
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    p {
+      font-size: vw(18, 768);
+      line-height: vw(28, 768);
+    }
+  }
+
+  @include media-custom($max: 425px) {
+    padding: vw(40, 425) vw(32, 425) vw(40, 425) vw(32, 425);
+
+    &::before {
+      inset: vw(10, 425);
+    }
+
+    p {
+      font-size: vw(14, 425);
+      line-height: vw(20, 425);
+    }
+  }
+}
+
+.investor__bottom-banner-image-wrap {
+  position: relative;
+  box-sizing: border-box;
+  width: 50%;
+  min-height: vw(380);
+  flex-shrink: 0;
+  border-top-right-radius: vw(262.601);
+  background: #e0e8e4;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: vw(16);
+    border-top-right-radius: vw(262.601 - 16);
+    box-shadow: inset 0 0 0 0.86px rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+  }
+
+  @include media("tablet") {
+    width: 100%;
+    min-height: vw(280, 768);
+    border-top-left-radius: vw(16, 768);
+    border-top-right-radius: vw(16, 768);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    &::after {
+      inset: vw(12, 768);
+      border-top-left-radius: vw(16 - 12, 768);
+      border-top-right-radius: vw(16 - 12, 768);
+    }
+  }
+
+  @include media-custom($max: 425px) {
+    min-height: vw(220, 425);
+    border-top-left-radius: vw(12, 425);
+    border-top-right-radius: vw(12, 425);
+
+    &::after {
+      inset: vw(10, 425);
+      border-top-left-radius: vw(12 - 10, 425);
+      border-top-right-radius: vw(12 - 10, 425);
+    }
+  }
+}
+
+.investor__bottom-banner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+// Content listing - cards fill horizontal space (reduced side padding)
+.investor__content-listing {
+  padding: vw(48) vw(40);
+
+  @include media("tablet") {
+    padding: vw(32, 768) vw(24, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    padding: vw(24, 425) vw(16, 425);
+  }
+}

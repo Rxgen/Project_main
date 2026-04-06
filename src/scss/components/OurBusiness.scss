@@ -1,0 +1,365 @@
+// Our Business Section Component (from Figma design)
+// https://www.figma.com/design/ptVpg6J4z7DGly00881RVX/Final-Home-page-auto-layout?node-id=22-3236
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.our-business {
+  position: relative;
+  width: 100%;
+  height: vw(1080);
+  overflow: hidden;
+  
+  @include media('tablet') {
+    height: 100vh;
+    min-height: vw(600, 768);
+  }
+  
+  @include media('mobile') {
+    height: auto;
+    min-height: auto;
+    padding-bottom: vw-mobile(40, 414);
+  }
+  
+  // Background Layers
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  
+  &__bg-base {
+    position: absolute;
+    inset: 0;
+    background: #08a240;
+    z-index: 0;
+  }
+  
+  &__bg-texture-1 {
+    position: absolute;
+    inset: 0;
+    mix-blend-mode: hard-light;
+    opacity: 0.29;
+    z-index: 1;
+    
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+  
+  &__bg-texture-2 {
+    position: absolute;
+    left: -8.84%;
+    top: -25.59%;
+    width: 75.32%;
+    height: 270.06%;
+    mix-blend-mode: multiply;
+    opacity: 0.34;
+    z-index: 2;
+
+    @include media('mobile') {
+      left:0;
+    
+    width: 100%;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  &__bg-texture-3 {
+    position: absolute;
+    left: 55.08%;
+    top: 23.2%;
+    width: 45.2%;
+    height: 126.88%;
+    opacity: 0.42;
+    z-index: 3;
+    @include media('mobile') {
+      left:0;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  &__bg-texture-4 {
+    position: absolute;
+    left: 13.87%;
+    top: -31.03%;
+    width: 100%;
+    height: 161.97%;
+    mix-blend-mode: screen;
+    opacity: 0.46;
+    z-index: 4;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  &__bg-texture-5 {
+    position: absolute;
+    left: 13.65%;
+    top: -1.8%;
+    width: 100%;
+    height: 97.58%;
+    mix-blend-mode: overlay;
+    opacity: 0.66; // 0.79 * 0.84
+    z-index: 5;
+    @include media('mobile') {
+      left:0;
+
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  // Container
+  &__container {
+    position: relative;
+    width: vw(1920);
+    height: vw(1080);
+    margin: 0 auto;
+    @include flex(row, flex-start, center);
+    z-index: 10;
+    
+    @include media('tablet') {
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: vw(60, 768) vw(40, 768);
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(20, 414) vw-mobile(20, 414) 0;
+      gap: vw-mobile(40, 414);
+    }
+  }
+  
+  // Left Content
+  &__content {
+    position: absolute;
+    left: vw(404);
+    top: vw(288.52);
+    width: vw(701);
+    @include flex(column, flex-start, flex-start);
+    gap: vw(25);
+    
+    @include media('tablet') {
+      position: relative;
+      left: vw(0, 768);
+      top: vw(0, 768);
+      width: 100%;
+      max-width: vw(600, 768);
+      gap: vw(20, 768);
+      align-items: left;
+      text-align: left;
+    }
+    
+    @include media('mobile') {
+      max-width: 100%;
+      gap: vw-mobile(10, 414);
+    }
+  }
+  
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(72);
+    line-height: vw(72);
+   
+    color: #FFFFFF;
+    margin: 0;
+    width: vw(470);
+    
+    @include media('tablet') {
+      font-size: vw(48, 768);
+      line-height: vw(52, 768);
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(30, 414);
+      line-height: vw-mobile(30, 414);
+    }
+  }
+  
+  &__description {
+    font-family: $font-family-base;
+    font-weight: 300;
+    font-size: vw(24);
+    line-height: vw(30);
+    color: #FFFFFF;
+    margin: 0;
+    width: vw(480);
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(26, 768);
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(12, 414);
+      line-height: vw-mobile(18, 414);
+    }
+  }
+  
+  &__description-line {
+    display: inline;
+    &:last-child{
+      margin-top: vw(30);
+      display: block;
+    }
+  }
+  
+  // CTA Button (matching OurStory style)
+  &__cta {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(1);
+    padding: vw(16) vw(35);
+    background: #ffffff;
+    border-radius: vw(30);
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: transform $transition-base, box-shadow $transition-base;
+    
+    @include media('tablet') {
+      padding: vw(16, 768) vw(35, 768);
+      border-radius: vw(28, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(16, 414) vw-mobile(35, 414);
+      border-radius: vw-mobile(20, 414);
+    }
+    
+    &:hover {
+      transform: translateY(vw(-4));
+      box-shadow: 0 vw(4) vw(12) rgba(0, 0, 0, 0.15);
+      
+      @include media('tablet') {
+        transform: translateY(vw(-3, 768));
+      }
+      
+      @include media('mobile') {
+        transform: translateY(vw-mobile(-2, 414));
+      }
+    }
+  }
+  
+  &__cta-inner {
+    @include flex(row, flex-start, center);
+    gap: vw(7);
+    
+    @include media('tablet') {
+      gap: vw(6, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(5, 414);
+    }
+  }
+  
+  &__cta-text {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(19.052);
+    line-height: vw(22.319);
+    color: #08a240;
+    white-space: nowrap;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      line-height: vw-mobile(16, 414);
+    }
+  }
+  
+  
+  // Right Image Circle
+  &__image-wrapper {
+    position: absolute;
+    right: vw(195);
+    top: vw(123);
+    width: vw(832);
+    height: vw(834);
+    
+    @include media('tablet') {
+      position: relative;
+      right: vw(0, 768);
+      top: vw(0, 768);
+      width: vw(400, 768);
+      height: vw(400, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(350, 414);
+      height: vw-mobile(350, 414);
+    }
+  }
+  
+  &__image-circle-border {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: vw(831.984);
+    height: vw(831.984);
+    z-index: 1;
+    @include media('mobile') {
+      width: 100%;
+      height:100%;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  
+  &__image-circle {
+    position: absolute;
+    left: 0;
+    top: vw(1.98);
+    width: vw(831.984);
+    height: vw(831.984);
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 2;
+    @include media('mobile') {
+      width: 100%;
+      height:100%;
+    }
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+

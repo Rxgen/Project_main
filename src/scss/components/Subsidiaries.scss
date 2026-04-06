@@ -1,0 +1,203 @@
+// Subsidiaries Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.subsidiaries {
+  position: relative;
+  width: 100%;
+  padding: vw(100) 0;
+  background: conic-gradient(from 125deg at -35.1% 57.67%, rgba(19, 84, 81, 0.08) 248.27784061431885deg, rgba(45, 114, 82, 0.40) 360deg), linear-gradient(197deg, #135451 -0.58%, #2D7252 49.78%, #08A03F 78.41%);
+  
+  @include media('mobile') {
+    padding: vw-mobile(50, 414) 0;
+  }
+  
+  &__container {
+    position: relative;
+    width: vw(1920);
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 vw(100);
+    @include flex(column, flex-start, stretch);
+    align-items: flex-start;
+    
+    @include media('tablet') {
+      padding: 0 vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      padding: 0 vw-mobile(20, 414);
+    }
+  }
+
+  // Navigation links at top with spacing below
+  .navigation-links {
+    width: 100%;
+    margin-bottom: vw(48);
+    flex-shrink: 0;
+
+    @include media('mobile') {
+      margin-bottom: vw-mobile(30, 414);
+    }
+  }
+  
+  // Grid - 3 columns
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: vw(40);
+    width: 100%;
+    
+    @include media('tablet') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      grid-template-columns: repeat(1, 1fr);
+      gap: vw-mobile(30, 414);
+    }
+  }
+}
+
+// Subsidiary Card
+.subsidiary-card {
+  position: relative;
+  width: 100%;
+  max-width: vw(554.838);
+  background: #ffffff;
+  border-radius: vw(53.233);
+  padding: vw(34.51);
+  min-height: vw(272.037);
+  transition: transform $transition-base, box-shadow $transition-base;
+  
+  @include media('tablet') {
+    max-width: 100%;
+    border-radius: vw(40, 768);
+    padding: vw(30, 768);
+    min-height: auto;
+  }
+  
+  @include media('mobile') {
+    max-width: 100%;
+    border-radius: vw-mobile(30, 414);
+    padding: vw-mobile(25, 414);
+    min-height: auto;
+  }
+  
+  &:hover {
+    transform: translateY(vw(-5));
+    box-shadow: 0 vw(10) vw(30) rgba(0, 0, 0, 0.1);
+  }
+  
+  &__content {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(71);
+    width: 100%;
+    height: 100%;
+    
+    @include media('tablet') {
+      gap: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(40, 414);
+    }
+  }
+  
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(23.964);
+    line-height: 1.37;
+    color: #08a03f;
+    margin: 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+    }
+  }
+  
+  &__years {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(21);
+    width: 100%;
+    
+    @include media('mobile') {
+      gap: vw-mobile(15, 414);
+    }
+  }
+  
+  &__years-row {
+    @include flex(row, flex-start, center);
+    gap: vw(56);
+    width: 100%;
+    flex-wrap: wrap;
+    
+    @include media('tablet') {
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(30, 414);
+    }
+  }
+  
+  &__year {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(17);
+    line-height: 1.37;
+    color: #1e1e1e;
+    opacity: 0.5;
+    text-decoration: none;
+    transition: color $transition-base, opacity $transition-base, text-decoration $transition-base;
+    white-space: nowrap;
+    
+    @include media('tablet') {
+      font-size: vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+    }
+    
+    &:hover {
+      opacity: 1;
+      color: #08a03f;
+    }
+    
+    &--active {
+      font-weight: 700;
+      font-size: vw(17.254);
+      color: #08a03f;
+      opacity: 1;
+      text-decoration: underline;
+      text-underline-offset: vw(2);
+      text-decoration-skip-ink: none;
+      text-underline-position: from-font;
+      
+      @include media('tablet') {
+        font-size: vw(15.5, 768);
+      }
+      
+      @include media('mobile') {
+        font-size: vw-mobile(14.5, 414);
+      }
+      
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+

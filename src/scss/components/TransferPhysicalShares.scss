@@ -1,0 +1,282 @@
+// Transfer of Physical Shares Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+// Page-only: inner-banner__title (Transfer Physical Shares page)
+.transfer-physical-shares-page .inner-banner__title {
+  max-width: vw(920);
+  white-space: normal;
+
+  @include media('tablet') {
+    max-width: vw(700, 768);
+  }
+
+  @include media('mobile') {
+    max-width: 100%;
+  }
+}
+
+.transfer-physical-shares {
+  position: relative;
+  width: 100%;
+  padding: vw(90) 0;
+  background: #ffffff;
+  overflow: hidden;
+  
+  @include media('mobile') {
+    padding: vw-mobile(50, 414) 0;
+  }
+  
+  // Background Petals
+  &__bg-petals {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateY(-50%);
+    width: vw(1099);
+    height: vw(1210);
+    z-index: 0;
+    pointer-events: none;
+    
+    @include media('mobile') {
+      width: vw-mobile(400, 414);
+      height: vw-mobile(440, 414);
+    }
+  }
+  
+  &__bg-petals-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  // Container
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 vw(100);
+    z-index: 1;
+    
+    @include media('mobile') {
+      padding: 0 vw-mobile(20, 414);
+    }
+  }
+  
+  // Content
+  &__content {
+    width: 100%;
+    max-width: vw(1720);
+    margin: 0 auto;
+    
+    @include media('mobile') {
+      max-width: 100%;
+    }
+  }
+  
+  // Paragraph
+  &__paragraph {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(20);
+    line-height: vw(30);
+    color: #000000;
+    margin: 0 0 vw(25) 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      line-height: vw-mobile(22, 414);
+      margin-bottom: vw-mobile(18, 414);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Description (Rich text from API)
+  &__description {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(20);
+    line-height: vw(30);
+    color: #000000;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      line-height: vw-mobile(22, 414);
+    }
+
+    // Style paragraphs within rich text
+    p {
+      margin: 0 0 vw(25) 0;
+      
+      @include media('mobile') {
+        margin-bottom: vw-mobile(18, 414);
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    // Style other common rich text elements
+    h1, h2, h3, h4, h5, h6 {
+      font-family: $font-family-base;
+      color: #000000;
+      margin: 0 0 vw(25) 0;
+      
+      @include media('mobile') {
+        margin-bottom: vw-mobile(18, 414);
+      }
+    }
+
+    ul, ol {
+      margin: 0 0 vw(25) 0;
+      padding-left: vw(30);
+      
+      @include media('mobile') {
+        margin-bottom: vw-mobile(18, 414);
+        padding-left: vw-mobile(20, 414);
+      }
+    }
+
+    li {
+      margin-bottom: vw(10);
+      
+      @include media('mobile') {
+        margin-bottom: vw-mobile(8, 414);
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    // CMS / pasted HTML table (table.tg, .tg-0pky) – matches Cookie Policy page table
+    .tg,
+    table.tg {
+      width: 100%;
+      border-collapse: collapse;
+      border: vw(1) solid #e0e0e0;
+      margin: vw(20) 0;
+      font-family: $font-family-base;
+      background: #ffffff;
+
+      @include media('tablet') {
+        border-width: vw(1, 768);
+        margin: vw(18, 768) 0;
+      }
+
+      @include media('mobile') {
+        border-width: vw-mobile(1, 414);
+        margin: vw-mobile(15, 414) 0;
+      }
+
+      thead {
+        background: #08a03f;
+
+        tr th.tg-0pky {
+          font-family: $font-family-base;
+          font-weight: 700;
+          font-size: vw(18);
+          line-height: vw(26);
+          color: #ffffff;
+          padding: vw(15) vw(20);
+          text-align: center;
+          border-right: vw(1) solid rgba(255, 255, 255, 0.2);
+          vertical-align: top;
+
+          @include media('tablet') {
+            font-size: vw(16, 768);
+            line-height: vw(24, 768);
+            padding: vw(12, 768) vw(15, 768);
+            border-right-width: vw(1, 768);
+          }
+
+          @include media('mobile') {
+            font-size: vw-mobile(12, 414);
+            line-height: vw-mobile(18, 414);
+            padding: vw-mobile(10, 414) vw-mobile(8, 414);
+            border-right-width: vw-mobile(1, 414);
+          }
+
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          border-bottom: vw(1) solid #e0e0e0;
+
+          @include media('tablet') {
+            border-bottom-width: vw(1, 768);
+          }
+
+          @include media('mobile') {
+            border-bottom-width: vw-mobile(1, 414);
+          }
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          &:nth-child(even) {
+            background: #f9f9f9;
+          }
+        }
+      }
+
+      td.tg-0pky {
+        font-family: $font-family-base;
+        font-weight: 400;
+        font-size: vw(16);
+        line-height: vw(24);
+        color: #1e1e1e;
+        padding: vw(15) vw(20);
+        border-right: vw(1) solid #e0e0e0;
+        vertical-align: top;
+        text-align: center;
+
+        @include media('tablet') {
+          font-size: vw(14, 768);
+          line-height: vw(22, 768);
+          padding: vw(12, 768) vw(15, 768);
+          border-right-width: vw(1, 768);
+        }
+
+        @include media('mobile') {
+          font-size: vw-mobile(11, 414);
+          line-height: vw-mobile(16, 414);
+          padding: vw-mobile(8, 414) vw-mobile(6, 414);
+          border-right-width: vw-mobile(1, 414);
+        }
+
+        &:last-child {
+          border-right: none;
+        }
+
+        br {
+          display: block;
+          content: '';
+          margin-top: 0.25em;
+        }
+      }
+    }
+
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+

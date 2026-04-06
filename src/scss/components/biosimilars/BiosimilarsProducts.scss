@@ -1,0 +1,263 @@
+// Biosimilars Products Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on BiosimilarsCapabilities pattern: Same structure but 3 items in one row
+// Light green background (#cbffde) with dark green text (#034a1d)
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.biosimilars-products {
+  position: relative;
+  width: 100%;
+  background-color: #f5f5f5;
+  
+  &__container {
+    max-width: vw(1920);
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+
+    @include media('tablet') {
+      padding: 0;
+    }
+
+    @include media('mobile') {
+      padding: 0;
+    }
+  }
+
+  &__heading {
+    color: #464646; // Dark gray
+    font-family: $font-family-base;
+    font-size: vw(35);
+    font-weight: 700;
+    line-height: vw(50);
+    margin: 0;
+    padding: vw(50) vw(100) vw(50) vw(100);
+    background: #f5f5f5;
+    text-align: left;
+
+    @include media('tablet') {
+      font-size: vw(30, 768);
+      line-height: vw(42, 768);
+      padding: vw(50, 768) vw(60, 768) vw(50, 768) vw(60, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(24, 414);
+      line-height: vw-mobile(34, 414);
+      padding: vw-mobile(50, 414) vw-mobile(20, 414) vw-mobile(50, 414) vw-mobile(20, 414);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    position: relative;
+    padding-top: vw(50);
+    padding-bottom: vw(50);
+    background-color: #cbffde;
+
+    @include media('tablet') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      padding-top: vw(50, 768);
+      padding-bottom: vw(50, 768);
+    }
+
+    @include media('mobile') {
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding-top: vw-mobile(50, 414);
+      padding-bottom: vw-mobile(50, 414);
+    }
+  }
+
+  &__box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: vw(10);
+    min-height: vw(359);
+
+    @include media('tablet') {
+      padding: vw(10, 768);
+      min-height: vw(300, 768);
+    }
+
+    @include media('mobile') {
+      min-height: auto;
+      padding: vw-mobile(40, 414) 0;
+    }
+  }
+
+  &__title {
+    color: #034a1d; // Dark green
+    font-family: $font-family-base;
+    font-size: vw(20);
+    font-weight: 700;
+    line-height: vw(36);
+    margin: 0 0 vw(20) 0;
+    text-align: center;
+
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(32, 768);
+      margin-bottom: vw(15, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      line-height: vw-mobile(28, 414);
+      margin-bottom: vw-mobile(15, 414);
+    }
+  }
+
+  &__description {
+    color: #034a1d; // Dark green
+    font-family: $font-family-base;
+    font-size: vw(18);
+    font-weight: 400;
+    line-height: vw(30);
+    margin: 0 0 vw(87) 0;
+    text-align: center;
+    flex: 1;
+    width: 91%;
+
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(28, 768);
+      margin-bottom: vw(25, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(26, 414);
+      margin-bottom: vw-mobile(20, 414);
+    }
+  }
+
+  &__icon {
+    width: vw(114);
+    height: vw(114);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    @include media('tablet') {
+      width: vw(100, 768);
+      height: vw(100, 768);
+    }
+
+    @include media('mobile') {
+      width: vw-mobile(100, 414);
+      height: vw-mobile(100, 414);
+    }
+  }
+
+  &__box--middle {
+    .biosimilars-products__icon {
+      margin-top: 0;
+      margin-bottom: vw(87);
+
+      @include media('tablet') {
+        margin-bottom: vw(25, 768);
+      }
+
+      @include media('mobile') {
+        margin-bottom: 0;
+        margin-top: vw-mobile(20, 414);
+        order: 3;
+      }
+    }
+
+    .biosimilars-products__title {
+      margin-top: 0;
+
+      @include media('mobile') {
+        order: 1;
+      }
+    }
+
+    .biosimilars-products__description {
+      margin-bottom: 0;
+      flex: 1;
+
+      @include media('mobile') {
+        order: 2;
+      }
+    }
+  }
+
+  &__line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1px;
+    background-color: #08a03f; // Green line
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+
+    @include media('mobile') {
+      top: auto;
+      bottom: 0;
+      transform: none;
+    }
+  }
+
+  &__box--last {
+    @include media('mobile') {
+      .biosimilars-products__line {
+        display: none;
+      }
+    }
+  }
+
+  &__line-pointer {
+    background-color: transparent;
+    padding: vw(8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: vw(25);
+      height: vw(25);
+      object-fit: contain;
+    }
+
+    @include media('tablet') {
+      padding: vw(6, 768);
+      
+      img {
+        width: vw(20, 768);
+        height: vw(20, 768);
+      }
+    }
+
+    @include media('mobile') {
+      padding: vw-mobile(6, 414);
+      
+      img {
+        width: vw-mobile(20, 414);
+        height: vw-mobile(20, 414);
+      }
+    }
+  }
+}
+

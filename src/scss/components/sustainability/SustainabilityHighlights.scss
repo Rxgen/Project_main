@@ -1,0 +1,212 @@
+// Sustainability Highlights Section - similar to science-highlights
+// Layout: 3 items on top row, 2 items centered on bottom row
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.sustainability-highlights {
+  position: relative;
+  width: 100%;
+  min-height: vw(1251);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: vw(50);
+
+  @include media('tablet') {
+    min-height: vw(700, 768);
+    padding-bottom: vw(50, 768);
+  }
+
+  @include media('mobile') {
+    min-height: vw-mobile(600, 414);
+    padding-bottom: vw-mobile(50, 414);
+  }
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+  }
+
+  &__bg-image {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 0 auto;
+    padding: vw(100) vw(100);
+
+    @include media('tablet') {
+      padding: vw(80, 768) vw(40, 768);
+    }
+
+    @include media('mobile') {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: vw-mobile(60, 414) vw-mobile(20, 414);
+      padding-bottom: vw-mobile(200, 414);
+    }
+  }
+
+  &__border {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    width: vw(1320);
+    height: vw(451);
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 1;
+
+    @include media('tablet') {
+      width: vw(1320, 768);
+      height: vw(451, 768);
+    }
+
+    @include media('mobile') {
+      display: none;
+    }
+  }
+
+  &__border-image {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: vw(90) vw(40);
+    width: 100%;
+    max-width: vw(1000);
+    margin: 0 auto;
+    position: relative;
+    align-items: start;
+
+    @include media('tablet') {
+      gap: vw(50, 768) vw(30, 768);
+      max-width: 100%;
+    }
+
+    @include media('mobile') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: vw-mobile(40, 414) vw-mobile(20, 414);
+      max-width: 100%;
+    }
+  }
+
+  // Bottom row: 4-column grid (0.5fr 1fr 1fr 0.5fr) so 2 items are truly centered with equal side space
+  &__row-bottom {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+    gap: 0 vw(40);
+    align-items: start;
+
+    @include media('tablet') {
+      gap: 0 vw(30, 768);
+    }
+
+    @include media('mobile') {
+      display: contents;
+    }
+  }
+
+  // Bottom row: items in middle two columns = centered
+  &__row-bottom .sustainability-highlights__item:nth-child(1) {
+    grid-column: 2;
+    justify-self: center;
+
+    @include media('mobile') {
+      grid-column: auto;
+      justify-self: stretch;
+    }
+  }
+
+  &__row-bottom .sustainability-highlights__item:nth-child(2) {
+    grid-column: 3;
+    justify-self: center;
+
+    @include media('mobile') {
+      grid-column: auto;
+      justify-self: stretch;
+    }
+  }
+
+  &__item {
+    @include flex(column, center, center);
+    text-align: center;
+    gap: vw(16);
+    position: relative;
+    z-index: 2;
+    align-self: start;
+
+    @include media('tablet') {
+      gap: vw(12, 768);
+    }
+
+    @include media('mobile') {
+      gap: vw-mobile(10, 414);
+    }
+  }
+
+  &__icon {
+    width: vw(225);
+    height: vw(225);
+    flex-shrink: 0;
+
+    @include media('tablet') {
+      width: vw(180, 768);
+      height: vw(180, 768);
+    }
+
+    @include media('mobile') {
+      width: vw-mobile(120, 414);
+      height: vw-mobile(120, 414);
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+
+  &__label {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: vw(32);
+    color: #ffffff;
+    margin: 0;
+
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(28, 768);
+    }
+
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+    }
+  }
+}

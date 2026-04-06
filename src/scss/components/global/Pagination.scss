@@ -1,0 +1,219 @@
+// Pagination Component Styles
+// Based on Figma design: node-id 2443:329
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.pagination {
+  @include flex(row, center, center);
+  gap: vw(15);
+  width: auto;
+  margin: 0 auto;
+  
+  @include media('tablet') {
+    gap: vw(12, 768);
+  }
+  
+  @include media('mobile') {
+    gap: vw-mobile(10, 414);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.pagination__number {
+  @include flex(row, center, center);
+  width: vw(54);
+  height: vw(54);
+  padding: vw(5) vw(19);
+  border: none;
+  border-radius: vw(27);
+  background: #08a03f;
+  color: #ffffff;
+  font-family: $font-family-base;
+  font-weight: 600;
+  font-size: vw(25);
+  line-height: 1.37;
+  cursor: pointer;
+  transition: all $transition-base;
+  white-space: nowrap;
+  
+  @include media('tablet') {
+    width: vw(48, 768);
+    height: vw(48, 768);
+    padding: vw(4, 768) vw(16, 768);
+    border-radius: vw(24, 768);
+    font-size: vw(22, 768);
+  }
+  
+  @include media('mobile') {
+    width: vw-mobile(44, 414);
+    height: vw-mobile(44, 414);
+    padding: vw-mobile(4, 414) vw-mobile(14, 414);
+    border-radius: vw-mobile(22, 414);
+    font-size: vw-mobile(20, 414);
+  }
+  
+  &:hover:not(&--active) {
+    background: #1ea04a;
+    transform: translateY(vw(-2));
+    
+    @include media('mobile') {
+      transform: translateY(vw-mobile(-1, 414));
+    }
+  }
+  
+  &:active:not(&--active) {
+    transform: translateY(0);
+  }
+  
+  &--active {
+    background: #126430;
+    cursor: default;
+    
+    &:hover {
+      background: #126430;
+      transform: none;
+    }
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 vw(2) rgba(8, 160, 63, 0.3);
+    
+    @include media('tablet') {
+      box-shadow: 0 0 0 vw(2, 768) rgba(8, 160, 63, 0.3);
+    }
+    
+    @include media('mobile') {
+      box-shadow: 0 0 0 vw-mobile(2, 414) rgba(8, 160, 63, 0.3);
+    }
+  }
+}
+
+.pagination__prev,
+.pagination__next {
+  @include flex(row, center, center);
+  height: vw(54);
+  padding: vw(10) vw(25);
+  border: none;
+  border-radius: vw(9);
+  background: #1ea04a;
+  color: #ffffff;
+  font-family: $font-family-base;
+  font-weight: 600;
+  font-size: vw(25);
+  line-height: 1.37;
+  cursor: pointer;
+  transition: all $transition-base;
+  white-space: nowrap;
+  position: relative;
+  box-sizing: border-box;
+  
+  @include media('tablet') {
+    height: vw(48, 768);
+    padding: vw(8, 768) vw(22, 768);
+    border-radius: vw(8, 768);
+    font-size: vw(22, 768);
+  }
+  
+  @include media('mobile') {
+    height: vw-mobile(44, 414);
+    padding: vw-mobile(8, 414) vw-mobile(20, 414);
+    border-radius: vw-mobile(8, 414);
+    font-size: vw-mobile(20, 414);
+  }
+}
+
+.pagination__prev {
+  width: auto;
+  min-width: vw(106);
+  padding-left: vw(20);
+  padding-right: vw(20);
+  
+  @include media('tablet') {
+    min-width: vw(95, 768);
+    padding-left: vw(18, 768);
+    padding-right: vw(18, 768);
+  }
+  
+  @include media('mobile') {
+    min-width: vw-mobile(90, 414);
+    padding-left: vw-mobile(16, 414);
+    padding-right: vw-mobile(16, 414);
+  }
+}
+
+.pagination__next {
+  width: vw(106);
+  
+  @include media('tablet') {
+    width: vw(95, 768);
+  }
+  
+  @include media('mobile') {
+    width: vw-mobile(90, 414);
+  }
+  
+  &:hover {
+    background: #08a03f;
+    transform: translateY(vw(-2));
+    
+    @include media('mobile') {
+      transform: translateY(vw-mobile(-1, 414));
+    }
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 vw(2) rgba(30, 160, 74, 0.3);
+    
+    @include media('tablet') {
+      box-shadow: 0 0 0 vw(2, 768) rgba(30, 160, 74, 0.3);
+    }
+    
+    @include media('mobile') {
+      box-shadow: 0 0 0 vw-mobile(2, 414) rgba(30, 160, 74, 0.3);
+    }
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    &:hover {
+      background: #1ea04a;
+      transform: none;
+    }
+  }
+}
+
+.pagination__ellipsis {
+  @include flex(row, center, center);
+  width: vw(54);
+  height: vw(54);
+  color: #08a03f;
+  font-family: $font-family-base;
+  font-weight: 600;
+  font-size: vw(25);
+  line-height: 1.37;
+  user-select: none;
+  
+  @include media('tablet') {
+    width: vw(48, 768);
+    height: vw(48, 768);
+    font-size: vw(22, 768);
+  }
+  
+  @include media('mobile') {
+    width: vw-mobile(44, 414);
+    height: vw-mobile(44, 414);
+    font-size: vw-mobile(20, 414);
+  }
+}
+

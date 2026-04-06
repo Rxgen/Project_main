@@ -1,0 +1,444 @@
+// Map Page Styles – country positioning from banner design
+// Using vw() for desktop (base: 1920px) and vw(..., 414) for mobile
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.contact_banner {
+  position: relative;
+  background: #f7f6f6;
+  overflow: hidden;
+
+  @include media('mobile') {
+    padding-top: vw(66, 414);
+    padding-bottom: vw(120, 414);
+  }
+
+  &__title {
+    position: absolute;
+    bottom: vw(137);
+    left: vw(98);
+    margin: 0;
+    padding: 0;
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(72);
+    line-height: 1.2;
+    color: #ffffff;
+    text-align: left;
+    z-index: 2;
+    pointer-events: none;
+
+    @include media('tablet') {
+      bottom: vw(60, 768);
+      left: vw(60, 768);
+      font-size: vw(56, 768);
+    }
+
+    @include media('mobile') {
+      bottom: vw-mobile(40, 414);
+      left: vw-mobile(20, 414);
+      font-size: vw-mobile(40, 414);
+    }
+  }
+
+  .subtitle_66 {
+    bottom: 17%;
+    width: vw(500);
+    left: vw(45);
+    color: #079e3f;
+    @include media('mobile') {
+      bottom: vw(30, 414);
+      width: vw(300, 414);
+    }
+  }
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: vw(74);
+    background: rgba($color: #07a241, $alpha: 0.85);
+    z-index: 99;
+    transition: all 0.3s ease-in;
+    @include media('mobile') {
+      height: vw(66, 414);
+    }
+  }
+
+  .map_container {
+    width: 100%;
+    height: vw(959);
+    position: relative;
+    @include media('mobile') {
+      height: auto;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      @include media('mobile') {
+        scale: 1.3;
+      }
+
+      .st0 { fill: #f4f4f4; stroke: #474747; stroke-width: 0.58; stroke-miterlimit: 10; }
+      .st1 { fill: #f4f4f4; stroke: #969696; stroke-width: 0.58; stroke-miterlimit: 10; }
+      .st2 { fill: #f4f4f4; stroke: #969696; stroke-width: 0.58; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10; }
+      .st3 { fill: #f4f4f4; stroke: #969696; stroke-width: 0.4399; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 10; }
+
+      .country_map {
+        transition: all 1s ease-in;
+        &.active {
+          fill: #056428;
+          transition: all 1s ease-in;
+        }
+      }
+    }
+
+    .country {
+      position: absolute;
+      display: flex;
+      align-items: center;
+
+      &.canada {
+        gap: vw(10);
+        top: 34.5%;
+        left: 26.5%;
+        align-items: flex-start;
+        flex-direction: row-reverse;
+        @include media('mobile') {
+          gap: vw(5, 414);
+          top: 20%;
+          left: 10.8%;
+        }
+        .country_company img {
+          width: vw(91);
+          @include media('mobile') {
+            width: vw(50, 414);
+          }
+        }
+      }
+
+      &.pharma {
+        gap: vw(10);
+        top: 43%;
+        left: 26.5%;
+        align-items: flex-start;
+        flex-direction: row-reverse;
+        @include media('mobile') {
+          gap: vw(5, 414);
+          top: 34.5%;
+          left: 10%;
+        }
+        .country_company img {
+          width: vw(95);
+          @include media('mobile') {
+            width: vw(45, 414);
+          }
+        }
+      }
+
+      &.grin {
+        gap: vw(20);
+        top: 50.2%;
+        left: 13%;
+        align-items: flex-end;
+        flex-direction: column-reverse;
+        @include media('mobile') {
+          gap: vw(25);
+          top: 48.2%;
+          left: 2%;
+          align-items: flex-end;
+        }
+        .country_company img {
+          width: vw(184);
+        }
+      }
+
+      &.med {
+        gap: vw(20);
+        bottom: 29%;
+        left: 35.4%;
+        align-items: flex-start;
+        flex-direction: row-reverse;
+        @include media('mobile') {
+          gap: vw(5, 414);
+          bottom: 15%;
+          left: 7.4%;
+          flex-direction: column-reverse;
+          align-items: flex-end;
+        }
+        .country_company img {
+          width: vw(162);
+          @include media('mobile') {
+            width: vw(75, 414);
+          }
+        }
+      }
+
+      &.healthCare {
+        gap: vw(5);
+        top: 32.5%;
+        left: 39.8%;
+        align-items: flex-start;
+        @include media('mobile') {
+          top: 14%;
+          left: 36%;
+          align-items: flex-end;
+          flex-direction: column;
+        }
+        .country_company img {
+          width: vw(81);
+          @include media('mobile') {
+            width: vw(20, 414);
+          }
+        }
+      }
+
+      &.nanomi {
+        gap: vw(5);
+        top: 32.3%;
+        left: 48.2%;
+        align-items: flex-start;
+        flex-direction: row-reverse;
+        @include media('mobile') {
+          top: 21.3%;
+          left: 47.2%;
+        }
+        .country_company {
+          margin-top: vw(-25);
+          @include media('mobile') {
+            margin-top: vw(-12, 414);
+          }
+          img {
+            width: vw(77);
+            @include media('mobile') {
+              width: vw(30, 414);
+            }
+          }
+        }
+      }
+
+      &.hormosan {
+        gap: vw(5);
+        top: 34.1%;
+        left: 49.4%;
+        align-items: flex-start;
+        flex-direction: row-reverse;
+        @include media('mobile') {
+          top: 27.1%;
+          left: 48%;
+          gap: 0;
+          align-items: center;
+          .country_logo {
+            scale: 0.7;
+          }
+        }
+        .country_company {
+          margin-top: vw(10);
+          img {
+            width: vw(115);
+            @include media('mobile') {
+              width: vw(45, 414);
+            }
+          }
+        }
+      }
+
+      &.lahsal {
+        gap: vw(5);
+        top: 37.3%;
+        left: 48.5%;
+        align-items: flex-start;
+        flex-direction: column-reverse;
+        @include media('mobile') {
+          top: 30.8%;
+          left: 47.1%;
+          gap: 0;
+        }
+        .country_logo {
+          @include media('mobile') {
+            scale: 0.65;
+          }
+        }
+        .country_company {
+          padding: vw(8) vw(20);
+          @include media('mobile') {
+            padding: vw(3, 414) vw(8, 414);
+          }
+          img {
+            width: vw(30);
+            @include media('mobile') {
+              width: vw(12, 414);
+            }
+          }
+        }
+      }
+
+      &.france {
+        gap: vw(5);
+        top: 38%;
+        left: 41.5%;
+        align-items: flex-start;
+        .country_logo {
+          @include media('mobile') {
+            scale: 0.65;
+          }
+        }
+        @include media('mobile') {
+          top: 32%;
+          left: 35.5%;
+          align-items: flex-end;
+          gap: 0;
+        }
+        .country_company {
+          // padding: vw(8) vw(10);
+          margin-top: vw(25);
+          @include media('mobile') {
+            margin-top: vw(10);
+            // padding: vw(3, 414) vw(5, 414);
+          }
+          img {
+            width: vw(75);
+            scale: 0.8;
+            @include media('mobile') {
+              width: vw(25, 414);
+              scale: 1;
+            }
+          }
+        }
+      }
+
+      &.dynamic {
+        gap: vw(5);
+        bottom: 20.6%;
+        right: 35.8%;
+        align-items: flex-start;
+        flex-direction: row-reverse;
+        @include media('mobile') {
+          gap: vw(10, 414);
+          bottom: -1%;
+          right: 35.8%;
+          flex-direction: column-reverse;
+          align-items: center;
+        }
+        .country_company img {
+          width: vw(179);
+          @include media('mobile') {
+            width: vw(75, 414);
+          }
+        }
+      }
+
+      &.lupinIn {
+        gap: vw(15);
+        top: 49.1%;
+        right: 30%;
+        align-items: flex-start;
+        flex-direction: row-reverse;
+        @include media('mobile') {
+          right: 26.8%;
+          flex-direction: row;
+        }
+        .country_company {
+          // padding: vw(25) vw(10);
+          @include media('mobile') {
+            // padding: vw(10, 414) vw(5, 414);
+          }
+          img {
+            width: vw(45);
+            @include media('mobile') {
+              width: vw(15, 414);
+            }
+          }
+        }
+      }
+
+      &.multiCare {
+        gap: vw(10);
+        top: 53%;
+        right: 16.5%;
+        align-items: flex-start;
+        flex-direction: row-reverse;
+        @include media('mobile') {
+          gap: vw(5, 414);
+          top: 40%;
+          right: 4.5%;
+          flex-direction: column;
+          align-items: center;
+        }
+        .country_company img {
+          width: vw(151);
+          @include media('mobile') {
+            width: vw(55, 414);
+          }
+        }
+      }
+
+      &.genericHealth {
+        gap: vw(10);
+        bottom: 20%;
+        right: 9.5%;
+        align-items: flex-start;
+        flex-direction: row-reverse;
+        @include media('mobile') {
+          gap: vw(5, 414);
+          bottom: 16%;
+          flex-direction: row;
+        }
+        .country_company img {
+          width: vw(144);
+          @include media('mobile') {
+            width: vw(55, 414);
+          }
+        }
+      }
+
+      .country_company {
+        // padding: vw(8) vw(15);
+        background: #fff;
+        border-radius: vw(50);
+        border: 1px solid #a7a7a7;
+        @include media('mobile') {
+          // padding: vw(3, 414) vw(10, 414);
+          border-radius: vw(25, 414);
+        }
+      }
+
+      .country_logo {
+        position: relative;
+        width: vw(18);
+        @include media('mobile') {
+          width: vw(12, 414);
+        }
+        .pin_logo {
+          width: 100%;
+        }
+        .flag_logo {
+          position: absolute;
+          top: vw(1);
+          left: 50%;
+          transform: translateX(-50%);
+          width: vw(16);
+          height: vw(16);
+          border-radius: 50%;
+          object-fit: cover;
+          @include media('mobile') {
+            width: vw(10, 414);
+            height: vw(10, 414);
+            top: vw(1, 414);
+          }
+        }
+      }
+    }
+  }
+}
+
+.header_bg ~ .wrapper .contact_banner::before {
+  opacity: 0;
+}

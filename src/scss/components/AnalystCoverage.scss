@@ -1,0 +1,241 @@
+// Analyst Coverage Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.analyst-coverage {
+  position: relative;
+  width: 100%;
+  min-height: vw(1781);
+  padding: vw(100) 0 vw(100) 0;
+  background: #f6f6f6;
+  
+  @include media('mobile') {
+    min-height: auto;
+    padding: vw-mobile(50, 414) 0;
+  }
+  
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: vw(-7);
+    width: vw(1934);
+    height: 100%;
+    background: #f6f6f6;
+    z-index: 0;
+    
+    @include media('mobile') {
+      left: 0;
+      width: 100%;
+    }
+  }
+  
+  &__petal {
+    position: absolute;
+    z-index: 1;
+    
+    &--left {
+      left: vw(-133);
+      top: vw(921);
+      
+      @include media('mobile') {
+        display: none;
+      }
+    }
+    
+    &--right {
+      left: vw(1802);
+      top: vw(2358);
+      
+      @include media('mobile') {
+        display: none;
+      }
+    }
+  }
+  
+  &__petal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  &__container {
+    position: relative;
+    width: vw(1920);
+    max-width: 100%;
+    margin: 0 auto;
+    @include flex(column, flex-start, center);
+    gap: vw(70);
+    padding: 0;
+    z-index: 2;
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(40, 414);
+      padding: 0 vw-mobile(20, 414);
+    }
+  }
+  
+  // Navigation Tabs - using NavigationLinks component (no need to duplicate)
+  
+  // Analyst Cards Grid
+  &__grid {
+    width: vw(1724);
+    display: grid;
+    grid-template-columns: repeat(4, vw(401));
+    gap: vw(40);
+    justify-content: flex-start;
+    
+    @include media('tablet') {
+      grid-template-columns: repeat(3, 1fr);
+      gap: vw(30, 768);
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      grid-template-columns: repeat(1, 1fr);
+      gap: vw-mobile(20, 414);
+      width: 100%;
+      justify-content: center;
+    }
+  }
+  
+  &__placeholder {
+    width: 100%;
+    text-align: center;
+    padding: vw(100) 0;
+    font-family: $font-family-base;
+    font-size: vw(24);
+    color: #666;
+    
+    @include media('mobile') {
+      padding: vw-mobile(50, 414) 0;
+      font-size: vw-mobile(16, 414);
+    }
+  }
+}
+
+// Analyst Card
+.analyst-card {
+  position: relative;
+  width: vw(401);
+  height: vw(401);
+  border-radius: 50%;
+  @include flex(column, center, center);
+  padding: vw(132) vw(71);
+  background: #d9f0e1;
+  transition: all $transition-base;
+  
+  @include media('mobile') {
+    width: vw-mobile(280, 414);
+    height: vw-mobile(280, 414);
+    padding: vw-mobile(40, 414) vw-mobile(30, 414);
+    margin: 0 auto;
+  }
+  
+  &--active {
+    background: #08a03f;
+  }
+  
+  &:hover {
+    background: #08a03f;
+    
+    .analyst-card__institution {
+      color: #ffffff;
+    }
+    
+    .analyst-card__name {
+      color: #daffcf;
+    }
+    
+    .analyst-card__email {
+      color: #daffcf;
+    }
+  }
+  
+  &__content {
+    @include flex(column, center, center);
+    gap: vw(20);
+    text-align: center;
+    
+    @include media('mobile') {
+      gap: vw-mobile(15, 414);
+    }
+  }
+  
+  &__institution {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(35);
+    line-height: 1.37;
+    color: #126430;
+    margin: 0;
+    white-space: pre-wrap;
+    text-align: left;
+    width: 100%;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(20, 414);
+    }
+    
+    .analyst-card--active & {
+      color: #ffffff;
+    }
+  }
+  
+  &__info {
+    @include flex(column, flex-start, flex-start);
+    gap: 0;
+    width: 100%;
+    height: vw(68);
+    
+    @include media('mobile') {
+      height: auto;
+      gap: vw-mobile(5, 414);
+    }
+  }
+  
+  &__name {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(23);
+    line-height: 1.37;
+    color: #08a03f;
+    margin: 0;
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+    }
+    
+    .analyst-card--active & {
+      color: #daffcf;
+    }
+  }
+  
+  &__email {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(16);
+    line-height: 1.37;
+    color: #08a03f;
+    text-decoration: none;
+    margin-top: vw(5);
+    
+    @include media('mobile') {
+      font-size: vw-mobile(12, 414);
+      margin-top: 0;
+    }
+    
+    .analyst-card--active & {
+      color: #daffcf;
+    }
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+

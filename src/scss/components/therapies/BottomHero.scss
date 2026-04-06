@@ -1,0 +1,170 @@
+@import "../../utils/variables";
+@import "../../utils/functions";
+@import "../../utils/mixins";
+
+.bottom-banner__container {
+  width: 100%;
+  background: #048332;
+  display: flex;
+  padding: vw(100);
+  position: relative;
+  gap: vw(53.14);
+
+  @include media('tablet') {
+    flex-direction: column-reverse;
+    padding: vw(40, 768) vw(40, 768);
+    gap: vw(40, 768);
+    align-items: center;
+  }
+
+  ol{
+    margin-left: vw(35);
+    margin-bottom: vw(10);
+  }
+
+  // Mobile: <=425px (per requirement; vw-mobile base 414 for scale)
+  @include media-custom($max: 425px) {
+    flex-direction: column-reverse;
+    padding: vw-mobile(24, 414) vw-mobile(20, 414);
+    gap: vw-mobile(24, 414);
+    align-items: center;
+  }
+
+  .bottom-banner___petal-image {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    pointer-events: none;
+
+    img {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+      object-position: right bottom;
+    }
+  }
+
+  .bottom-banner__text {
+    color: #fff;
+    font-family: Inter;
+    font-size: vw(22);
+    font-style: normal;
+    font-weight: 700;
+    line-height: vw(36);
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    max-width: vw(1012);
+    z-index: 2;
+
+    p {
+      margin: 0 0 vw(20) 0;
+      text-align: left;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .bottom-banner__markdown-block p {
+      margin: 0 0 vw(20) 0 !important;
+      text-align: left;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    @include media('tablet') {
+      max-width: 100%;
+      width: 100%;
+      align-items: flex-start;
+      justify-content: flex-start;
+      font-size: vw(18, 768);
+      line-height: vw(28, 768);
+
+      p {
+        margin-bottom: vw(16, 768) !important;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .bottom-banner__markdown-block p {
+        margin-bottom: vw(16, 768) !important;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    @include media-custom($max: 425px) {
+      max-width: 100%;
+      width: 100%;
+      align-items: flex-start;
+      justify-content: flex-start;
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+
+      p {
+        margin-bottom: vw-mobile(14, 414);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .bottom-banner__markdown-block p {
+        margin-bottom: vw-mobile(14, 414);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .bottom-banner__image {
+    width: vw(522);
+    height: vw(522);
+    aspect-ratio: 203/135;
+    z-index: 2;
+    flex-shrink: 0;
+
+    @include media('tablet') {
+      width: vw(320, 768);
+      height: vw(320, 768);
+      max-width: 100%;
+    }
+
+    @include media-custom($max: 425px) {
+      width: vw-mobile(280, 414);
+      height: vw-mobile(280, 414);
+      max-width: 100%;
+    }
+  }
+
+  .bottom-banner__image img {
+    width: 100%;
+    border: none;
+    border-radius: 50%;
+    outline: vw(20) solid rgb(8, 160, 63);
+
+    @include media('tablet') {
+      outline-width: vw(12, 768);
+    }
+
+    @include media-custom($max: 425px) {
+      outline-width: vw-mobile(10, 414);
+    }
+  }
+}

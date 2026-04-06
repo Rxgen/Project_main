@@ -1,0 +1,24 @@
+// VW Functions for responsive design
+// Desktop VW calculation (base on 1920px)
+@function vw($pixels, $base: 1920) {
+  @return calc($pixels / $base * 100vw);
+}
+
+// Mobile VW calculation (base on 414px by default, customizable)
+@function vw-mobile($pixels, $base: 414) {
+  @return calc($pixels / $base * 100vw);
+}
+
+// Fluid sizing function
+@function fluid($min, $max, $minViewport: 375, $maxViewport: 1920) {
+  $slope: ($max - $min) / ($maxViewport - $minViewport);
+  $yAxisIntersection: $min - $slope * $minViewport;
+  
+  @return clamp(#{$min}px, calc(#{$yAxisIntersection}px + #{$slope * 100}vw), #{$max}px);
+}
+
+// Convert px to rem
+@function rem($pixels, $base: 16) {
+  @return calc($pixels / $base * 1rem);
+}
+

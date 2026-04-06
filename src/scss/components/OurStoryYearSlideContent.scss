@@ -1,0 +1,177 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+// Our Story Year Slide Content
+.our-story-year-slide-content {
+  position: relative;
+  width: 100%;
+  background-color: #056026;
+  border-radius: vw(73);
+  padding: vw(63) 0;
+  
+  @include media('tablet') {
+    border-radius: vw(60, 768);
+    padding: vw(50, 768) 0;
+  }
+  
+  @include media('mobile') {
+    border-radius: vw-mobile(40, 414);
+    padding: vw-mobile(40, 414) 0;
+  }
+
+  // Content Inner
+  &__inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: vw(100);
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 vw(83);
+    
+    @include media('tablet') {
+      padding: 0 vw(60, 768);
+      flex-direction: column;
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      padding: 0 vw-mobile(30, 414);
+      flex-direction: column;
+      gap: vw-mobile(30, 414);
+    }
+  }
+
+  // Year Prefix "20"
+  &__year-prefix {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(280);
+    line-height: vw(243);
+    color: #e1e1e1;
+    letter-spacing: vw(19.6);
+    margin: 0;
+    flex-shrink: 0;
+    opacity: 0.3; // Based on Figma design
+    
+    @include media('tablet') {
+      font-size: vw(200, 768);
+      line-height: vw(180, 768);
+      letter-spacing: vw(14, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(120, 414);
+      line-height: vw-mobile(100, 414);
+      letter-spacing: vw-mobile(8, 414);
+    }
+  }
+
+  // Milestones List
+  &__milestones-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: vw(23);
+    width: vw(777.77);
+    min-height: vw(654.11);
+    position: relative;
+    
+    @include media('tablet') {
+      width: 100%;
+      gap: vw(20, 768);
+      min-height: auto;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(18, 414);
+      min-height: auto;
+    }
+  }
+
+  // Milestone Item
+  &__milestone-item {
+    display: flex;
+    align-items: flex-start;
+    gap: vw(23);
+    width: 100%;
+    position: relative;
+    
+    @include media('tablet') {
+      gap: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(15, 414);
+    }
+  }
+
+  // Milestone Icon
+  &__milestone-icon {
+    flex-shrink: 0;
+    width: vw(19.18);
+    height: vw(18.83);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: vw(7);
+    
+    @include media('tablet') {
+      width: vw(16, 768);
+      height: vw(16, 768);
+      margin-top: vw(6, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(14, 414);
+      height: vw-mobile(14, 414);
+      margin-top: vw-mobile(5, 414);
+    }
+  }
+
+  // Milestone Text
+  &__milestone-text {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(17.82);
+    line-height: vw(32.08);
+    color: #e1e1e1;
+    margin: 0;
+    flex: 1;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(28, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(15, 414);
+      line-height: vw-mobile(26, 414);
+    }
+  }
+
+  // No Milestones Message
+  &__no-milestones {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(17.82);
+    line-height: vw(32.08);
+    color: #e1e1e1;
+    margin: 0;
+    opacity: 0.7;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(28, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(15, 414);
+      line-height: vw-mobile(26, 414);
+    }
+  }
+}
+

@@ -1,0 +1,144 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.tds-dividend-section {
+  position: relative;
+  width: 100%;
+  padding: vw(100) 0 0 0;
+  
+  @include media('tablet') {
+    padding: vw(50, 768) 0 0 0;
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) 0 0 0;
+  }
+  
+  &__container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  &__content {
+    @include flex(row, flex-start, center);
+    gap: vw(136);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    
+    @include media('tablet') {
+      gap: vw(60, 768);
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(40, 414);
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  &__left {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(18);
+    width: vw(714);
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: 100%;
+      gap: vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(12, 414);
+    }
+  }
+  
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(80);
+    color: #08a03f;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(48, 768);
+      line-height: vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(40, 414);
+    }
+    
+    span {
+      display: block;
+    }
+  }
+  
+  &__subtitle {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(25.77);
+    line-height: 1.37;
+    color: #08a03f;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+    }
+    
+    span {
+      display: block;
+    }
+  }
+  
+  &__right {
+    @include flex(column, flex-start, center);
+    width: vw(414.894);
+    flex-shrink: 0;
+    position: relative;
+    
+    @include media('tablet') {
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+    }
+  }
+  
+  &__decorative {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: vw(1169);
+    height: vw(394);
+    z-index: 0;
+    pointer-events: none;
+    
+    @include media('tablet') {
+      width: vw(600, 768);
+      height: vw(200, 768);
+    }
+    
+    @include media('mobile') {
+      display: none;
+    }
+  }
+  
+  &__decorative-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+

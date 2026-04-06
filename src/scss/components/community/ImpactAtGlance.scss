@@ -1,0 +1,296 @@
+// Impact at a Glance Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.impact-at-glance {
+  position: relative;
+  width: 100%;
+  padding: vw(100) vw(130);
+  background-color: #e6fff2;
+  
+  @include media('tablet') {
+    padding: vw(80, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(60, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1725);
+    margin: 0 auto;
+  }
+  
+  &__header {
+    margin-bottom: vw(60);
+    
+    @include media('tablet') {
+      margin-bottom: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      margin-bottom: vw-mobile(30, 414);
+    }
+  }
+  
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(80);
+    color: #00AD4D;
+    margin: 0 0 vw(20) 0;
+    
+    @include media('tablet') {
+      font-size: vw(50, 768);
+      line-height: vw(60, 768);
+      margin-bottom: vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(40, 414);
+      margin-bottom: vw-mobile(10, 414);
+    }
+  }
+  
+  &__subtitle {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(20);
+    line-height: vw(32);
+    color: #333333;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(28, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+    }
+  }
+  
+  &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: vw(60);
+    
+    @include media('tablet') {
+      flex-direction: column;
+      gap: vw(40, 768);
+      align-items: center;
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      gap: vw-mobile(30, 414);
+      align-items: center;
+    }
+  }
+  
+  &__map-wrapper {
+    flex-shrink: 0;
+    width: vw(660);
+    height: vw(660);
+    
+    @include media('tablet') {
+      width: vw(500, 768);
+      height: vw(500, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(300, 414);
+      height: vw-mobile(300, 414);
+    }
+  }
+  
+  &__map {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  &__metrics {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    min-width: 0;
+  }
+  
+  &__metric {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: vw(30);
+    padding-bottom: vw(20);
+    margin-bottom: vw(20);
+    
+    @include media('tablet') {
+      gap: vw(25, 768);
+      padding-bottom: vw(15, 768);
+      margin-bottom: vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(20, 414);
+      padding-bottom: vw-mobile(15, 414);
+      margin-bottom: vw-mobile(15, 414);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    // Different left positions for each metric based on Figma design
+    &--pos1 {
+      margin-left: vw(16);
+      
+      @include media('tablet') {
+        margin-left: vw(12, 768);
+      }
+      
+      @include media('mobile') {
+        margin-left: vw-mobile(8, 414);
+      }
+    }
+    
+    &--pos2 {
+      margin-left: vw(71);
+      
+      @include media('tablet') {
+        margin-left: vw(50, 768);
+      }
+      
+      @include media('mobile') {
+        margin-left: vw-mobile(30, 414);
+      }
+    }
+    
+    &--pos3 {
+      margin-left: vw(67);
+      
+      @include media('tablet') {
+        margin-left: vw(47, 768);
+      }
+      
+      @include media('mobile') {
+        margin-left: vw-mobile(28, 414);
+      }
+    }
+    
+    &--pos4 {
+      margin-left: vw(0);
+      
+      @include media('tablet') {
+        margin-left: 0;
+      }
+      
+      @include media('mobile') {
+        margin-left: 0;
+      }
+    }
+  }
+  
+  &__icon-wrapper {
+    flex-shrink: 0;
+    width: vw(100);
+    height: vw(100);
+    
+    @include media('tablet') {
+      width: vw(80, 768);
+      height: vw(80, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(70, 414);
+      height: vw-mobile(70, 414);
+    }
+  }
+  
+  &__icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  &__text-wrapper {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+  }
+  
+  &__number {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(50);
+    line-height: vw(70);
+    color: #00AD4D;
+    margin: 0 0 vw(10) 0;
+    
+    @include media('tablet') {
+      font-size: vw(40, 768);
+      line-height: vw(55, 768);
+      margin-bottom: vw(8, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(28, 414);
+      line-height: vw-mobile(38, 414);
+      margin-bottom: vw-mobile(6, 414);
+    }
+  }
+  
+  &__description {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(18);
+    line-height: vw(28);
+    color: #333333;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(26, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      line-height: vw-mobile(22, 414);
+    }
+  }
+  
+  &__divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: vw(1);
+    background: transparent;
+    border-bottom: vw(1) solid #08A03F;
+    border-radius: 0 0 vw(50) vw(50);
+    
+    @include media('tablet') {
+      height: vw(1, 768);
+      border-bottom-width: vw(1, 768);
+      border-radius: 0 0 vw(40, 768) vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      height: vw-mobile(1, 414);
+      border-bottom-width: vw-mobile(1, 414);
+      border-radius: 0 0 vw-mobile(30, 414) vw-mobile(30, 414);
+    }
+  }
+}
+

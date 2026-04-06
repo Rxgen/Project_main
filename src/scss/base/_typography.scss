@@ -1,0 +1,88 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+// Typography styles
+body {
+  font-family: $font-family-primary;
+  font-size: map-get($font-sizes, 'base');
+  color: color('text');
+  line-height: 1.6;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: spacing('md');
+}
+
+h1 {
+  font-size: vw(60);
+  
+  @include media('mobile') {
+    font-size: vw-mobile(32, 414);
+  }
+}
+
+h2 {
+  font-size: vw(48);
+  
+  @include media('mobile') {
+    font-size: vw-mobile(28, 414);
+  }
+}
+
+h3 {
+  font-size: vw(36);
+  
+  @include media('mobile') {
+    font-size: vw-mobile(24, 414);
+  }
+}
+
+h4 {
+  font-size: vw(28);
+  
+  @include media('mobile') {
+    font-size: vw-mobile(20, 414);
+  }
+}
+
+h5 {
+  font-size: vw(24);
+  
+  @include media('mobile') {
+    font-size: vw-mobile(18, 414);
+  }
+}
+
+h6 {
+  font-size: vw(20);
+  
+  @include media('mobile') {
+    font-size: vw-mobile(16, 414);
+  }
+}
+
+p {
+  margin-bottom: spacing('md');
+}
+
+// Text utilities
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-mono {
+  font-family: $font-family-mono;
+}
+

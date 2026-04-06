@@ -1,0 +1,1427 @@
+// Global Technical Operations Page Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.global-technical-operations-content {
+  position: relative;
+  width: 100%;
+  background-color: #e6fff2;
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: vw(100) vw(100);
+    
+    @include media('tablet') {
+      padding: vw(80, 768) vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(60, 414) vw-mobile(20, 414);
+    }
+  }
+  
+  &__wrapper {
+    width: 100%;
+    @include flex(column, flex-start, center);
+  }
+  
+  // Main Section
+  &__section {
+    position: relative;
+    width: 100%;
+    padding-bottom: 0;
+    
+    @include media('mobile') {
+      padding-bottom: vw-mobile(138, 414);
+    }
+  }
+  
+  // Background Petals SVG
+  &__bg-petals {
+    position: absolute;
+    left: vw(1012.29);
+    top: vw(384.79);
+    width: vw(720.544);
+    height: vw(330.085);
+    z-index: 0;
+    pointer-events: none;
+    
+    @include media('tablet') {
+      left: auto;
+      right: vw(-100, 768);
+      top: vw(300, 768);
+      width: vw(500, 768);
+      height: vw(230, 768);
+    }
+    
+    @include media('mobile') {
+      left: auto;
+      right: vw-mobile(-50, 414);
+      top: auto;
+      bottom: 0;
+      width: vw-mobile(300, 414);
+      height: vw-mobile(138, 414);
+    }
+  }
+  
+  &__bg-petals-img {
+    display: block;
+    max-width: none;
+    width: 100%;
+    height: 100%;
+  }
+  
+  // Text Content
+  &__text {
+    position: relative;
+    width: 100%;
+    max-width: vw(1453.109);
+    @include flex(column, flex-start, flex-start);
+    gap: vw(33);
+    z-index: 1;
+    font-style: normal;
+    
+    @include media('tablet') {
+      max-width: 100%;
+      gap: vw(25, 768);
+    }
+    
+    @include media('mobile') {
+      max-width: 100%;
+      gap: vw-mobile(20, 414);
+    }
+  }
+  
+  // Main Text Block
+  &__text-main {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(40);
+    width: 100%;
+    position: relative;
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      gap: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(25, 414);
+    }
+  }
+  
+  // Heading
+  &__heading {
+    font-family: 'Inter', 'Noto Sans', sans-serif;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(84);
+    color: #08a03f;
+    margin: 0;
+    min-width: 100%;
+    width: min-content;
+    position: relative;
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      font-size: vw(50, 768);
+      line-height: vw(64, 768);
+      min-width: auto;
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(42, 414);
+      min-width: auto;
+      width: 100%;
+    }
+  }
+  
+  &__heading-line {
+    margin: 0;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  // Paragraph Main
+  &__paragraph-main {
+    width: vw(975.172);
+    @include flex(column, flex-start, flex-start);
+    position: relative;
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+    }
+  }
+  
+  // Paragraph Secondary
+  &__paragraph-secondary {
+    width: vw(811);
+    @include flex(column, flex-start, flex-start);
+    position: relative;
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+    }
+  }
+  
+  // Paragraph
+  &__paragraph {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: vw(22);
+    line-height: vw(36);
+    color: #000000;
+    opacity: 0.8;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(26, 414);
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+}
+
+// Quote Section - Full Width
+.global-technical-operations-quote {
+  background: #bbe7ca;
+  width: 100%;
+  padding: vw(64) vw(97);
+  position: relative;
+  
+  @include media('tablet') {
+    padding: vw(50, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+  
+  &__wrapper {
+    position: relative;
+    width: 100%;
+    max-width: vw(1723);
+    height: vw(131);
+    margin: 0 auto;
+    
+    @include media('tablet') {
+      max-width: 100%;
+      height: auto;
+      min-height: vw(100, 768);
+    }
+    
+    @include media('mobile') {
+      max-width: 100%;
+      height: auto;
+      min-height: vw-mobile(80, 414);
+    }
+  }
+  
+  // Top Quote SVG (flipped vertically)
+  &__top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: vw(135);
+    height: vw(100);
+    @include flex(row, center, center);
+    transform: scaleY(-1);
+    z-index: 1;
+    
+    @include media('tablet') {
+      width: vw(100, 768);
+      height: vw(75, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(80, 414);
+      height: vw-mobile(60, 414);
+    }
+  }
+  
+  &__top-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  // Quote Text
+  &__text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: vw(1222);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: vw(35);
+    line-height: vw(54.5);
+    color: #1e1e1e;
+    text-align: center;
+    margin: 0;
+    z-index: 2;
+    
+    @include media('tablet') {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      width: 100%;
+      font-size: vw(28, 768);
+      line-height: vw(42, 768);
+      padding: vw(20, 768) vw(100, 768) vw(20, 768) vw(100, 768);
+    }
+    
+    @include media('mobile') {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      width: 100%;
+      font-size: vw-mobile(20, 414);
+      line-height: vw-mobile(30, 414);
+      padding: vw-mobile(15, 414) vw-mobile(60, 414) vw-mobile(15, 414) vw-mobile(60, 414);
+    }
+  }
+  
+  // Bottom Quote SVG
+  &__bottom {
+    position: absolute;
+    bottom: vw(4);
+    right: 0;
+    width: vw(135);
+    height: vw(100);
+    z-index: 1;
+    
+    @include media('tablet') {
+      bottom: vw(3, 768);
+      width: vw(100, 768);
+      height: vw(75, 768);
+    }
+    
+    @include media('mobile') {
+      bottom: vw-mobile(2, 414);
+      width: vw-mobile(80, 414);
+      height: vw-mobile(60, 414);
+    }
+  }
+  
+  &__bottom-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+// Certification Section
+.global-technical-operations-certification {
+  position: relative;
+  width: 100%;
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1920);
+    margin: 0 auto;
+    padding: vw(100) vw(100);
+    
+    @include media('tablet') {
+      padding: vw(80, 768) vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(60, 414) vw-mobile(20, 414);
+    }
+  }
+  
+  &__text {
+    position: relative;
+    width: vw(1481);
+    max-width: 100%;
+    margin: 0 0 auto;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: vw(22);
+    line-height: vw(36);
+    color: #000000;
+    opacity: 0.8;
+    text-align: left;
+    
+    @include media('tablet') {
+      width: 100%;
+      font-size: vw(20, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(26, 414);
+    }
+  }
+}
+
+// Strategic Performance Areas Section
+.global-technical-operations-spa {
+  position: relative;
+  width: 100%;
+  min-height: vw(1251);
+  
+  &__bg {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: vw(1920);
+    height: vw(1251);
+    background: #f7f6f6;
+    z-index: 0;
+    
+    @include media('tablet') {
+      width: 100%;
+      height: 100%;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1716);
+    margin: 0 auto;
+    padding: vw(59.31) vw(100);
+    @include flex(column, flex-start, flex-start);
+    gap: vw(30);
+    z-index: 1;
+    
+    @include media('tablet') {
+      max-width: 100%;
+      padding: vw(50, 768) vw(60, 768);
+      gap: vw(25, 768);
+    }
+    
+    @include media('mobile') {
+      max-width: 100%;
+      padding: vw-mobile(40, 414) vw-mobile(20, 414);
+      gap: vw-mobile(20, 414);
+    }
+  }
+  
+  // Header
+  &__header {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(30);
+    width: vw(1590.566);
+    max-width: 100%;
+    
+    @include media('tablet') {
+      width: 100%;
+      gap: vw(25, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(20, 414);
+    }
+  }
+  
+  &__heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(84);
+    color: #08a03f;
+    margin: 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(50, 768);
+      line-height: vw(64, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(42, 414);
+    }
+  }
+  
+  &__subheading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: vw(30);
+    line-height: vw(36);
+    color: #000000;
+    opacity: 0.8;
+    margin: 0;
+    width: 100%;
+    height: vw(76.777);
+    
+    @include media('tablet') {
+      font-size: vw(26, 768);
+      line-height: vw(32, 768);
+      height: auto;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(20, 414);
+      line-height: vw-mobile(26, 414);
+      height: auto;
+    }
+  }
+  
+  // Content: Text and Image
+  &__content {
+    @include flex(row, center, center);
+    gap: vw(126);
+    width: 100%;
+    
+    @include media('tablet') {
+      @include flex(column, flex-start, flex-start);
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      @include flex(column, flex-start, flex-start);
+      gap: vw-mobile(30, 414);
+    }
+  }
+  
+  // List
+  &__list {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(22);
+    width: vw(919);
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: 100%;
+      gap: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(18, 414);
+    }
+  }
+  
+  // Item
+  &__item {
+    @include flex(row, center, flex-start);
+    gap: vw(29);
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(25, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(20, 414);
+      @include flex(column, flex-start, flex-start);
+    }
+  }
+  
+  // Icon
+  &__item-icon {
+    width: vw(100);
+    height: vw(100);
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: vw(80, 768);
+      height: vw(80, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(70, 414);
+      height: vw-mobile(70, 414);
+    }
+  }
+  
+  &__item-icon-bg {
+    background: #f8fbf7;
+    @include flex(row, center, center);
+    padding: vw(9);
+    border-radius: vw(50);
+    width: 100%;
+    height: 100%;
+  }
+  
+  &__item-icon-inner {
+    background: #00ad4d;
+    @include flex(column, flex-start, center);
+    padding: vw(15) vw(10);
+    border-radius: vw(41.358);
+    width: vw(82.716);
+    height: vw(82.716);
+    
+    @include media('tablet') {
+      width: vw(66, 768);
+      height: vw(66, 768);
+      padding: vw(12, 768) vw(8, 768);
+      border-radius: vw(33, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(58, 414);
+      height: vw-mobile(58, 414);
+      padding: vw-mobile(10, 414) vw-mobile(7, 414);
+      border-radius: vw-mobile(29, 414);
+    }
+  }
+  
+  &__item-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  // Text
+  &__item-text {
+    @include flex(column, flex-start, flex-start);
+    width: vw(790);
+    flex: 1;
+    
+    @include media('tablet') {
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+    }
+  }
+  
+  &__item-content {
+    @include flex(column, flex-start, flex-start);
+    padding-bottom: vw(5);
+    width: 100%;
+    
+    @include media('tablet') {
+      padding-bottom: vw(5, 768);
+    }
+    
+    @include media('mobile') {
+      padding-bottom: vw-mobile(5, 414);
+    }
+  }
+  
+  &__item-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: vw(30);
+    line-height: 1.8;
+    color: #08a03f;
+    margin: 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(26, 768);
+      line-height: 1.8;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(22, 414);
+      line-height: 1.8;
+    }
+  }
+  
+  &__item-description {
+    font-family: 'Inter', 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: 1.8;
+    color: #1e1e1e;
+    opacity: 0.8;
+    margin: 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: 1.8;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: 1.8;
+    }
+  }
+  
+  &__item-divider {
+    width: 100%;
+    height: 1px;
+    background: #000000;
+    opacity: 0.1;
+    margin-top: 0;
+  }
+  
+  // Image
+  &__image {
+    width: vw(671);
+    height: vw(671);
+    flex-shrink: 0;
+    position: relative;
+    
+    @include media('tablet') {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      max-width: vw(500, 768);
+      margin: 0 auto;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      max-width: 100%;
+    }
+  }
+  
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  &__image-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    clip-path: circle(50% at 50% 50%);
+    
+    @include media('tablet') {
+      position: relative;
+      clip-path: circle(50% at 50% 50%);
+    }
+    
+    @include media('mobile') {
+      position: relative;
+      clip-path: circle(50% at 50% 50%);
+    }
+  }
+  
+  &__image-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+// Our Integrated GTO Structure Section
+.global-technical-operations-structure {
+  position: relative;
+  width: 100%;
+  background-color: #e6fff2;
+  
+  // Background Petals SVG
+  &__bg-petals {
+    position: absolute;
+    top: 0;
+    right: vw(200);
+    width: vw(705);
+    height: vw(358);
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    
+    @include media('tablet') {
+      right: vw(50, 768);
+      width: vw(500, 768);
+      height: vw(254, 768);
+    }
+    
+    @include media('mobile') {
+      right: vw-mobile(20, 414);
+      width: vw-mobile(300, 414);
+      height: vw-mobile(152, 414);
+    }
+  }
+  
+  &__bg-petals-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1920);
+    margin: 0 auto;
+    padding: vw(100) vw(100);
+    z-index: 1;
+    
+    @include media('tablet') {
+      padding: vw(80, 768) vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(60, 414) vw-mobile(20, 414);
+    }
+  }
+  
+  &__text {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 0;
+    @include flex(column, flex-start, flex-start);
+    gap: vw(39);
+    z-index: 1;
+    
+    @include media('tablet') {
+      gap: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(25, 414);
+    }
+  }
+  
+  &__header {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(16);
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(14, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(12, 414);
+    }
+  }
+  
+  &__heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(84);
+    color: #08a03f;
+    margin: 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(50, 768);
+      line-height: vw(64, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(32, 414);
+      line-height: vw-mobile(42, 414);
+    }
+  }
+  
+  &__subheading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: vw(30);
+    line-height: vw(36);
+    color: #000000;
+    opacity: 0.8;
+    margin: 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(26, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(20, 414);
+      line-height: vw-mobile(26, 414);
+    }
+  }
+  
+  &__paragraph {
+    width: vw(975.172);
+    max-width: 100%;
+    
+    @include media('tablet') {
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+    }
+  }
+  
+  &__paragraph-line {
+    font-family: 'Inter', 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-size: vw(22);
+    line-height: vw(36);
+    color: #000000;
+    opacity: 0.8;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(26, 414);
+    }
+  }
+}
+
+// Tabs Section
+.global-technical-operations-tabs-section {
+  position: relative;
+  width: 100%;
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1920);
+    margin: 0 auto;
+    padding: 0;
+    
+    @include media('tablet') {
+      padding: 0;
+    }
+    
+    @include media('mobile') {
+      padding: 0;
+    }
+  }
+}
+
+// Tabs Wrapper
+.global-technical-operations-tabs-wrapper {
+  width: 100%;
+  @include flex(column, flex-start, flex-start);
+}
+
+// Tabs Component
+.global-technical-operations-tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: vw(15);
+  width: 100%;
+  position: relative;
+  line-height: 0;
+  
+  @include media('tablet') {
+    gap: vw(12, 768);
+    flex-wrap: wrap;
+  }
+  
+  @include media('mobile') {
+    gap: vw-mobile(10, 414);
+    flex-wrap: wrap;
+  }
+  
+  &__tab {
+    position: relative;
+    display: inline-grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+    align-items: start;
+    justify-items: start;
+    cursor: pointer;
+    flex: 0 0 calc((100% - #{vw(30)}) / 3);
+    width: calc((100% - #{vw(30)}) / 3);
+    
+    @include media('tablet') {
+      flex: 0 0 calc((100% - #{vw(24, 768)}) / 3);
+      width: calc((100% - #{vw(24, 768)}) / 3);
+    }
+    
+    @include media('mobile') {
+      flex: 0 0 calc(50% - #{vw-mobile(5, 414)});
+      width: calc(50% - #{vw-mobile(5, 414)});
+    }
+  }
+  
+  &__tab-bg {
+    grid-column: 1;
+    grid-row: 1;
+    margin-left: 0;
+    margin-top: 0;
+    width: 100%;
+    height: vw(188);
+    background: white;
+    border: vw(0.925) solid #08a03f;
+    box-sizing: border-box;
+    
+    @include media('tablet') {
+      height: vw(150, 768);
+      border-width: vw(0.8, 768);
+    }
+    
+    @include media('mobile') {
+      height: vw-mobile(100, 414);
+      border-width: vw-mobile(0.7, 414);
+    }
+  }
+  
+  // Tab 1 (Manufacturing)
+  &__tab--1 &__tab-text {
+    margin-left: vw(182);
+    margin-top: vw(73);
+    
+    @include media('tablet') {
+      margin-left: vw(30, 768);
+      margin-top: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      margin-left: vw-mobile(20, 414);
+      margin-top: vw-mobile(35, 414);
+    }
+  }
+  
+  // Tab 2 (Procurement)
+  &__tab--2 &__tab-text {
+    margin-left: vw(152);
+    margin-top: vw(72.91);
+    
+    @include media('tablet') {
+      margin-left: vw(30, 768);
+      margin-top: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      margin-left: vw-mobile(20, 414);
+      margin-top: vw-mobile(35, 414);
+    }
+  }
+  
+  // Tab 3 (Supply Chain)
+  &__tab--3 &__tab-text {
+    margin-left: vw(154);
+    margin-top: vw(72.91);
+    width: vw(305);
+    
+    @include media('tablet') {
+      margin-left: vw(30, 768);
+      margin-top: vw(50, 768);
+      width: auto;
+    }
+    
+    @include media('mobile') {
+      margin-left: vw-mobile(20, 414);
+      margin-top: vw-mobile(35, 414);
+      width: auto;
+    }
+  }
+  
+  &__tab--active &__tab-bg {
+    background: #00ad4d;
+    border-color: #00ad4d;
+    box-shadow: 0 vw(4) vw(8) rgba(0, 0, 0, 0.35);
+    
+    @include media('tablet') {
+      box-shadow: 0 vw(3, 768) vw(6, 768) rgba(0, 0, 0, 0.35);
+    }
+    
+    @include media('mobile') {
+      box-shadow: 0 vw-mobile(2, 414) vw-mobile(4, 414) rgba(0, 0, 0, 0.35);
+    }
+  }
+  
+  &__tab-text {
+    grid-column: 1;
+    grid-row: 1;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: vw(40);
+    line-height: vw(41.634);
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    font-style: normal;
+    
+    @include media('tablet') {
+      font-size: vw(32, 768);
+      line-height: vw(35, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(24, 414);
+      line-height: vw-mobile(28, 414);
+    }
+  }
+  
+  // Active tab text color
+  &__tab--active &__tab-text {
+    color: white;
+  }
+  
+  // Inactive tab text color
+  &__tab:not(&__tab--active) &__tab-text {
+    color: #00ad4d;
+  }
+  
+  // Tab Content
+  &__content {
+    width: 100%;
+    margin-top: 0;
+    
+    @include media('tablet') {
+      margin-top: 0;
+    }
+    
+    @include media('mobile') {
+      margin-top: 0;
+    }
+  }
+  
+  &__content-placeholder {
+    @include flex(column, center, center);
+    min-height: vw(300);
+    padding: vw(40);
+    text-align: center;
+    color: #666;
+    font-size: vw(18);
+    
+    @include media('tablet') {
+      min-height: vw(200, 768);
+      padding: vw(30, 768);
+      font-size: vw(16, 768);
+    }
+    
+    @include media('mobile') {
+      min-height: vw-mobile(150, 414);
+      padding: vw-mobile(20, 414);
+      font-size: vw-mobile(14, 414);
+    }
+  }
+  
+  // Manufacturing Tab Content
+  &__content-manufacturing {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background: #ccefdb;
+    padding: vw(70) 0 vw(78) 0;
+    @include flex(column, flex-start, center);
+    gap: vw(71);
+    
+    @include media('tablet') {
+      padding: vw(60, 768) 0 vw(60, 768) 0;
+      gap: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(40, 414) 0 vw-mobile(40, 414) 0;
+      gap: vw-mobile(40, 414);
+    }
+  }
+  
+  // Manufacturing Section 1
+  &__manufacturing-section-1 {
+    @include flex(row, flex-start, flex-start);
+    gap: vw(287);
+    width: 100%;
+    max-width: vw(1920);
+    margin: 0 auto;
+    padding: 0 vw(106);
+    
+    @include media('tablet') {
+      gap: vw(100, 768);
+      padding: 0 vw(40, 768);
+      flex-direction: column;
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(30, 414);
+      padding: 0 vw-mobile(20, 414);
+      flex-direction: column;
+    }
+  }
+  
+  // Manufacturing Section 2
+  &__manufacturing-section-2 {
+    @include flex(row, space-between, flex-start);
+    gap: vw(80);
+    width: 100%;
+    max-width: vw(1920);
+    margin: 0 auto;
+    padding: 0 vw(106);
+    
+    @include media('tablet') {
+      gap: vw(60, 768);
+      padding: 0 vw(40, 768);
+      flex-direction: column;
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(30, 414);
+      padding: 0 vw-mobile(20, 414);
+      flex-direction: column;
+    }
+  }
+  
+  &__manufacturing-footprint {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(57);
+    width: vw(686);
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: 100%;
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(30, 414);
+    }
+  }
+  
+  // Section 2 specific width for text content
+  &__manufacturing-section-2 &__manufacturing-footprint {
+    width: vw(905);
+    
+    @include media('tablet') {
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+    }
+  }
+  
+  // Manufacturing Section 3
+  &__manufacturing-section-3 {
+    @include flex(row, flex-start, flex-start);
+    gap: vw(287);
+    width: 100%;
+    max-width: vw(1920);
+    margin: 0 auto;
+    padding: 0 vw(106);
+    
+    @include media('tablet') {
+      gap: vw(100, 768);
+      padding: 0 vw(40, 768);
+      flex-direction: column;
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(30, 414);
+      padding: 0 vw-mobile(20, 414);
+      flex-direction: column;
+    }
+  }
+  
+  // Manufacturing Section 4
+  &__manufacturing-section-4 {
+    @include flex(row, space-between, flex-start);
+    gap: vw(80);
+    width: 100%;
+    max-width: vw(1920);
+    margin: 0 auto;
+    padding: 0 vw(106);
+    
+    @include media('tablet') {
+      gap: vw(60, 768);
+      padding: 0 vw(40, 768);
+      flex-direction: column;
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(30, 414);
+      padding: 0 vw-mobile(20, 414);
+      flex-direction: column;
+    }
+  }
+  
+  // Section 4 specific width for text content
+  &__manufacturing-section-4 &__manufacturing-footprint {
+    width: vw(905);
+    
+    @include media('tablet') {
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+    }
+  }
+  
+  &__manufacturing-heading-text {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(27);
+    width: 100%;
+  }
+  
+  &__manufacturing-heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: vw(35);
+    line-height: vw(36);
+    color: #00ad4d;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(28, 768);
+      line-height: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(24, 414);
+      line-height: vw-mobile(26, 414);
+    }
+  }
+  
+  &__manufacturing-text {
+    font-family: 'Inter', 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-size: vw(22);
+    line-height: vw(36);
+    color: #000000;
+    opacity: 0.8;
+    margin: 0;
+    
+    p {
+      // margin: 0;
+    }
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(28, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+    }
+  }
+  
+  &__manufacturing-link {
+    @include flex(row, flex-start, center);
+    gap: vw(18);
+    
+    @include media('tablet') {
+      gap: vw(12, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(10, 414);
+    }
+  }
+  
+  &__manufacturing-link-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: vw(23.27);
+    line-height: 1;
+    color: #08a03f;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: 7%;
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+    }
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  &__manufacturing-link-icon {
+    width: vw(17.452);
+    height: vw(17.693);
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: vw(15, 768);
+      height: vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(14, 414);
+      height: vw-mobile(14, 414);
+    }
+  }
+  
+  &__manufacturing-image-wrapper {
+    position: relative;
+    width: vw(735);
+    height: vw(479);
+    overflow: hidden;
+    border-radius: vw(40);
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 735 / 479;
+      border-radius: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 735 / 479;
+      border-radius: vw-mobile(20, 414);
+    }
+  }
+  
+  &__manufacturing-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  // Procurement Tab Content
+  &__content-procurement {
+    width: 100%;
+  }
+  
+  // Supply Chain Tab Content
+  &__content-supply-chain {
+    width: 100%;
+  }
+}
+

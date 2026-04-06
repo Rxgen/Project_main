@@ -1,0 +1,165 @@
+// Manufacturing Country Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.manufacturing-country-section {
+  position: relative;
+  width: 100%;
+  background: #f0f7f2;
+  background-image: url('/assets/images/Map.svg');
+  background-repeat: no-repeat;
+  background-position: 0 -10vw;
+  background-size: 100% auto;
+  padding: vw(60) 0;
+  padding-bottom: vw(192) !important;
+  
+  @include media('tablet') {
+    padding: vw(50, 768) 0;
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) 0;
+  }
+  
+  // No background variant
+  &--no-background {
+    background-image: none;
+  }
+  
+  // India section variant
+  &--india {
+    padding-bottom: vw(127);
+    
+    @include media('tablet') {
+      padding-bottom: vw(100, 768);
+    }
+    
+    @include media('mobile') {
+      padding-bottom: vw-mobile(80, 414);
+    }
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 vw(100);
+    z-index: 1;
+    
+    @include media('tablet') {
+      padding: 0 vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      padding: 0 vw-mobile(20, 414);
+    }
+  }
+  
+  &__heading {
+    position: relative;
+    z-index: 2;
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(40);
+    line-height: 1.2;
+    color: #08A03F;
+    text-align: left;
+    margin: 0 0 vw(40) 0;
+    text-transform: uppercase;
+    
+    @include media('tablet') {
+      font-size: vw(35, 768);
+      margin-bottom: vw(35, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(28, 414);
+      margin-bottom: vw-mobile(30, 414);
+    }
+  }
+  
+  &__grid {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: vw(20) 0;
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(30, 768) 0;
+    }
+    
+    @include media('mobile') {
+      flex-direction: column;
+      gap: vw-mobile(20, 414);
+    }
+    
+    // Single card layout (full width)
+    &--single {
+      justify-content: flex-start;
+      
+      .manufacturing-site-card {
+        max-width: 100%;
+        width: 100%;
+        
+        .manufacturing-site-card__background {
+          opacity: 0.1;
+        }
+        
+        // Override text colors for single card
+        .manufacturing-site-card__title {
+          color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .manufacturing-site-card__description {
+          color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .manufacturing-site-card__address-label {
+          color: rgba(8, 160, 63, 0.8);
+        }
+        
+        .manufacturing-site-card__address-text {
+          color: rgba(0, 0, 0, 0.8);
+        }
+      }
+    }
+    
+    // Full-width layout (for multiple cards that should be full width)
+    &--full-width {
+      flex-direction: column;
+      
+      .manufacturing-site-card {
+        max-width: 100%;
+        width: 100%;
+        
+        .manufacturing-site-card__background {
+          opacity: 0.1;
+        }
+        
+        // Override text colors for full-width cards
+        .manufacturing-site-card__title {
+          color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .manufacturing-site-card__description {
+          color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .manufacturing-site-card__address-label {
+          color: rgba(8, 160, 63, 0.8);
+        }
+        
+        .manufacturing-site-card__address-text {
+          color: rgba(0, 0, 0, 0.8);
+        }
+      }
+    }
+  }
+}
+

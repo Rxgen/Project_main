@@ -1,0 +1,395 @@
+@import "../../utils/variables";
+@import "../../utils/functions";
+@import "../../utils/mixins";
+
+.stock-exchange-intimations {
+  &__container {
+    width: 100%;
+    background: #e9fff1;
+  }
+
+  &__banner {
+    margin-bottom: vw(75);
+
+    @include media("tablet") {
+      margin-bottom: vw(12, 768);
+    }
+  }
+
+  &__content {
+    padding: 0 vw(100);
+
+    @include media("tablet") {
+      padding: vw(28, 768) vw(40, 768);
+    }
+
+    @include media("mobile-sm") {
+      padding: vw(16, 414) vw(20, 414);
+    }
+  }
+
+  &__panel {
+    width: 100%;
+    overflow: hidden;
+    margin-top: vw(100);
+  }
+
+  &__panel-header-strip {
+    position: relative;
+    padding: vw(42) vw(50) vw(22);
+    background: linear-gradient(113deg, #00571f 14.99%, #033a17 85.01%);
+
+    ::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      left: 0;
+      background: url("/assets/images/investors/bg-gradient.svg");
+    }
+
+    @include media("tablet") {
+      padding: vw(28, 768) vw(28, 768) vw(18, 768);
+    }
+
+    @include media("mobile-sm") {
+      padding: vw(20, 414) vw(16, 414) vw(14, 414);
+    }
+  }
+
+  &__petal {
+    position: absolute;
+    left: vw(-30);
+    top: vw(-22);
+    width: vw(220);
+    height: auto;
+    opacity: 0.35;
+    pointer-events: none;
+    user-select: none;
+
+    @include media("tablet") {
+      left: vw(-22, 768);
+      top: vw(-18, 768);
+      width: vw(170, 768);
+    }
+  }
+
+  &__panel-body {
+    background: rgba(233, 255, 241, 0.92);
+    padding: 0;
+  }
+
+  &__panel-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: vw(18);
+    padding: 0 vw(60);
+
+    @include media("tablet") {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: vw(26, 768);
+      padding: 0 vw(28, 768);
+    }
+
+    @include media("mobile-sm") {
+      padding: 0 vw(16, 414);
+      gap: vw(30, 414);
+    }
+  }
+
+  &__title {
+    color: #fff;
+    font-family: Inter;
+    font-size: vw(65);
+    font-style: normal;
+    font-weight: 700;
+    line-height: vw(80); /* 123.077% */
+    margin: 0;
+
+    @include media("tablet") {
+      font-size: vw(46, 768);
+      line-height: vw(56, 768);
+    }
+
+    @include media("mobile-sm") {
+      font-size: vw(34, 414);
+      line-height: vw(42, 414);
+    }
+  }
+
+  &__search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: vw(6);
+    border-radius: vw(37.5);
+    background: #fff;
+    width: vw(482);
+    height: vw(75);
+    padding: 0 vw(22);
+
+    @include media("tablet") {
+      width: vw(360, 768);
+      height: vw(56, 768);
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: vw(20, 768);
+      padding: 0 vw(18, 768);
+    }
+
+    @include media("mobile-sm") {
+      width: vw(320, 414);
+      height: vw(52, 414);
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: vw(25, 414);
+      padding: 0 vw(16, 414);
+    }
+
+    // Next/Image may wrap the icon in a span; keep it a flex item with real width
+    > span {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+  }
+
+  &__search-icon {
+    width: vw(30);
+    height: vw(30);
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    filter: brightness(1);
+
+    @include media("tablet") {
+      width: vw(22, 768);
+      height: vw(22, 768);
+    }
+
+    @include media("mobile-sm") {
+      width: vw(18, 414);
+      height: vw(18, 414);
+    }
+  }
+
+  &__search-input {
+    border: 0;
+    outline: none;
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    margin-left: vw(10);
+    background: transparent;
+    font-family: Inter;
+    font-size: vw(18);
+    line-height: 1.2;
+    color: #0b7f39;
+    border-bottom: vw(0.3) solid #08a0405a;
+    
+    padding-bottom: vw(6);
+
+    @include media("tablet") {
+      font-size: vw(16, 768);
+      padding-bottom: vw(4, 768);
+      margin-left: vw(6, 768);
+    }
+
+    @include media("mobile-sm") {
+      font-size: vw(15, 414);
+      padding-bottom: vw(4, 414);
+      margin-left: vw(6, 414);
+    }
+
+    &::placeholder {
+      color: rgba(8, 160, 63, 0.55);
+    }
+  }
+
+  &__years {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: vw(20);
+    padding: vw(50) vw(60) vw(30);
+    margin-bottom: 0;
+
+    @include media("tablet") {
+      gap: vw(12, 768);
+      padding: vw(18, 768) vw(28, 768) vw(20, 768);
+    }
+
+    @include media("mobile-sm") {
+      gap: vw(10, 414);
+      padding: vw(14, 414) vw(16, 414) vw(16, 414);
+    }
+  }
+
+  &__year {
+    border-radius: vw(10);
+    border: 1px solid #fff;
+    background: transparent;
+    padding: vw(10) vw(16);
+    cursor: pointer;
+    color: #fff;
+    font-family: Inter;
+    font-size: vw(25);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 105%; /* 26.25px */
+    transition:
+      background 160ms ease,
+      color 160ms ease,
+      border-color 160ms ease;
+
+    @include media("tablet") {
+      font-size: vw(20, 768);
+      border-radius: vw(8, 768);
+      padding: vw(10, 768) vw(14, 768);
+    }
+
+    @include media("mobile-sm") {
+      font-size: vw(14, 414);
+      border-radius: vw(6, 414);
+      padding: vw(9, 414) vw(12, 414);
+    }
+
+    &--active {
+      border-radius: vw(10);
+      background: #fff;
+      border-color: #fff;
+      color: #08a03f;
+    }
+  }
+
+  &__grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 0.5px solid #08a03f;
+    border-radius: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+
+    @include media("tablet") {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__grid-item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    // Padding belongs on the cells (not the grid wrapper),
+    // so the divider lines still span the full card.
+    padding: vw(50) vw(100);
+    border-bottom: 0.5px solid #08a03f;
+    color: inherit;
+
+    @include media("tablet") {
+      padding: vw(36, 768) vw(44, 768);
+    }
+
+    &:nth-child(odd) {
+      border-right: 0.5px solid #08a03f;
+
+      @include media("tablet") {
+        border-right: 0;
+      }
+    }
+
+    &:nth-last-child(-n + 2) {
+      border-bottom: 0;
+
+      @include media("tablet") {
+        border-bottom: 0.5px solid #08a03f;
+      }
+    }
+
+    @include media("tablet") {
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @include media("mobile-sm") {
+      padding: vw(26, 414) vw(22, 414);
+    }
+  }
+
+  // Fixed icon column keeps every petal on one vertical axis; center row as a block.
+  &__grid-item-inner {
+    display: grid;
+    grid-template-columns: vw(22) minmax(0, 1fr);
+    column-gap: vw(16);
+    align-items: center;
+    width: 100%;
+
+    @include media("tablet") {
+      grid-template-columns: vw(28, 768) minmax(0, 1fr);
+      column-gap: vw(14, 768);
+    }
+  }
+
+  &__grid-bullet {
+    width: vw(18);
+    height: vw(18);
+    display: block;
+    justify-self: start;
+    align-self: center;
+    flex-shrink: 0;
+    object-fit: contain;
+
+    @include media("tablet") {
+      width: vw(22, 768);
+      height: vw(22, 768);
+    }
+  }
+
+  // Text + arrow share one inline flow so the arrow sits after the text,
+  // not at the far right of the column (avoids stretched middle flex item).
+  &__grid-label {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__grid-text {
+    display: inline;
+    color: #08a03f;
+    font-family: Inter;
+    font-size: vw(20);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 137%; /* 27.4px */
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: 1%; /* 0.2px */
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+
+    @include media("tablet") {
+      font-size: vw(24, 768);
+      line-height: 140%;
+    }
+
+    @include media("mobile-sm") {
+      font-size: vw(17, 414);
+    }
+  }
+
+  &__grid-arrow {
+    display: inline-block;
+    vertical-align: middle;
+    width: vw(14);
+    height: vw(14);
+    margin-left: vw(8);
+
+    @include media("tablet") {
+      width: vw(16, 768);
+      height: vw(16, 768);
+    }
+  }
+}

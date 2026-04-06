@@ -1,0 +1,390 @@
+// Meeting Video Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.meeting-video {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  padding: vw(80) vw(100);
+  
+  @include media('tablet') {
+    padding: vw(60, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(50, 414) vw-mobile(20, 414) 0 vw-mobile(20, 414);
+  }
+
+  &__container {
+    position: relative;
+    width: vw(1920);
+    max-width: 100%;
+    margin: 0 auto;
+    @include flex(column, flex-start, flex-start);
+    gap: vw(85); // Title to cards spacing from Figma (165px - 80px title height)
+    
+    @include media('tablet') {
+      gap: vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      gap: vw-mobile(40, 414);
+    }
+  }
+
+  // Title
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(48);
+    line-height: 1.2;
+    color: #08A03F;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(36, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(28, 414);
+    }
+  }
+
+  // Video Grid
+  &__grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: vw(223); // Gap between cards from Figma (994px - 771px)
+    row-gap: 5vw;
+    
+    @include media('tablet') {
+      grid-template-columns: repeat(2, 1fr);
+      gap: vw(30, 768);
+      row-gap: 4vw;
+    }
+    
+    @include media('mobile') {
+      grid-template-columns: 1fr;
+      gap: vw-mobile(20, 414);
+      row-gap: 4vw;
+    }
+  }
+
+  // Video Card
+  &__card {
+    position: relative;
+    background: #ffffff;
+    overflow: visible;
+    cursor: pointer;
+    transition: transform $transition-base;
+    
+    &:hover {
+      transform: translateY(vw(-5));
+      
+      @include media('tablet') {
+        transform: translateY(vw(-3, 768));
+      }
+      
+      @include media('mobile') {
+        transform: translateY(vw-mobile(-3, 414));
+      }
+
+      .meeting-video__play-button {
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+  }
+
+  // Thumbnail Wrapper (must have defined size for Next/Image fill)
+  &__thumbnail-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #000000;
+    border-radius: vw(40);
+    
+    @include media('tablet') {
+      border-radius: vw(30, 768);
+    }
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(25, 414);
+    }
+  }
+
+  &__thumbnail {
+    position: absolute !important;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+  }
+
+  &__thumbnail-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include flex(row, center, center);
+    background: #1a1a1a;
+  }
+
+  // Play Button
+  &__play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform $transition-base;
+    z-index: 2;
+    pointer-events: none;
+    
+    svg {
+      width: vw(88);
+      height: vw(88);
+      
+      @include media('tablet') {
+        width: vw(70, 768);
+        height: vw(70, 768);
+      }
+      
+      @include media('mobile') {
+        width: vw-mobile(70, 414);
+        height: vw-mobile(70, 414);
+      }
+    }
+  }
+
+  // Card Content
+  &__card-content {
+    padding: vw(46) vw(0) vw(0) vw(0); // Text starts at y="532" from thumbnail top (486px), so padding = 532 - 486 = 46px
+    
+    @include media('tablet') {
+      padding: vw(35, 768) vw(0, 768) vw(0, 768) vw(0, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(30, 414) vw-mobile(0, 414) vw-mobile(0, 414) vw-mobile(0, 414);
+    }
+  }
+
+  // Card Title
+  &__card-title {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(20);
+    line-height: 1.4;
+    color: #1a1a1a;
+    margin: 0 0 vw(8) 0; // Gap between title and transcript link from Figma (53px - 45px title height = 8px)
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      margin-bottom: vw(8, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      margin-bottom: vw-mobile(8, 414);
+    }
+  }
+
+  // Transcript Link
+  &__transcript-link {
+    display: inline-flex;
+    align-items: center;
+    gap: vw(8);
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(16);
+    line-height: 1.5;
+    color: #08a03f;
+    text-decoration: none;
+    transition: color $transition-base;
+    
+    @include media('tablet') {
+      font-size: vw(14, 768);
+      gap: vw(6, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      gap: vw-mobile(6, 414);
+    }
+
+    &:hover {
+      color: #126430;
+    }
+  }
+
+  &__transcript-arrow {
+    width: vw(12);
+    height: vw(12);
+    flex-shrink: 0;
+    
+    @include media('tablet') {
+      width: vw(10, 768);
+      height: vw(10, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(10, 414);
+      height: vw-mobile(10, 414);
+    }
+  }
+
+  // Popup Overlay
+  &__popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    @include flex(row, center, center);
+    padding: vw(40);
+    animation: fadeIn 0.3s ease-in-out;
+    
+    @include media('mobile') {
+      padding: vw-mobile(20, 414);
+    }
+  }
+
+  // Popup Container
+  &__popup {
+    position: relative;
+    width: 100%;
+    max-width: vw(1200);
+    background: #000000;
+    border-radius: vw(20);
+    overflow: hidden;
+    animation: slideUp 0.3s ease-out;
+    
+    @include media('tablet') {
+      max-width: 90%;
+      border-radius: vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      max-width: 100%;
+      border-radius: vw-mobile(15, 414);
+    }
+  }
+
+  // Close Button
+  &__close-button {
+    position: absolute;
+    top: vw(20);
+    right: vw(20);
+    width: vw(40);
+    height: vw(40);
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10001;
+    @include flex(row, center, center);
+    transition: background $transition-base;
+    
+    @include media('tablet') {
+      top: vw(15, 768);
+      right: vw(15, 768);
+      width: vw(35, 768);
+      height: vw(35, 768);
+    }
+    
+    @include media('mobile') {
+      top: vw-mobile(10, 414);
+      right: vw-mobile(10, 414);
+      width: vw-mobile(35, 414);
+      height: vw-mobile(35, 414);
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    svg {
+      width: vw(24);
+      height: vw(24);
+      
+      @include media('tablet') {
+        width: vw(20, 768);
+        height: vw(20, 768);
+      }
+      
+      @include media('mobile') {
+        width: vw-mobile(20, 414);
+        height: vw-mobile(20, 414);
+      }
+    }
+  }
+
+  // Video Wrapper
+  &__video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; // 16:9 aspect ratio
+    background: #000000;
+  }
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  // Popup Title
+  &__popup-title {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(24);
+    line-height: 1.4;
+    color: #ffffff;
+    margin: 0;
+    padding: vw(25) vw(30);
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      padding: vw(20, 768) vw(25, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      padding: vw-mobile(15, 414) vw-mobile(20, 414);
+    }
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(vw(30));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

@@ -1,0 +1,15 @@
+// Specialty Page Styles
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.specialty-content {
+  position: relative;
+  width: 100%;
+  
+  &__container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+

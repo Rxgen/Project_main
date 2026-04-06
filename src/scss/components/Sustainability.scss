@@ -1,0 +1,268 @@
+// Test comment
+// Sustainability Section Component (from Figma design)
+// https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=22-3301
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.sustainability {
+  position: relative;
+  width: 100%;
+  height: vw(1065);
+  @include flex(column, center, flex-end);
+  padding: vw(193) vw(52);
+  overflow: hidden;
+  
+  @include media('tablet') {
+    height: 100vh;
+    min-height: vw(600, 768);
+    padding: vw(80, 768) vw(40, 768);
+    justify-content: center;
+  }
+  
+  @include media('mobile') {
+    min-height: auto;
+    padding: vw-mobile(100, 414) vw-mobile(20, 414);
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 75vh;
+    padding-top: vw-mobile(20, 414);
+  }
+  
+  // Background Image
+  &__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: vw(1920);
+    height: vw(1065);
+    z-index: 0;
+    
+    @include media('tablet') {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  &__bg-image {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: vw(1920);
+    height: vw(1065);
+    
+    @include media('tablet') {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  &__bg-img {
+    width: 100%;
+    height: 101.76%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  &__overlay {
+    display: none;
+    
+    @include media('mobile') {
+      display: block;
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 5;
+    }
+  }
+  
+  // Content
+  &__content {
+    position: relative;
+    @include flex(column, flex-start, flex-start);
+    gap: vw(30);
+    width: vw(517.301);
+    z-index: 10;
+    
+    @include media('tablet') {
+      width: 100%;
+      max-width: vw(600, 768);
+      gap: vw(24, 768);
+    }
+    
+    @include media('mobile') {
+      width: 100%;
+      max-width: vw-mobile(350, 414);
+      gap: vw-mobile(24, 414);
+    }
+  }
+  
+  &__text {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(30);
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(24, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(24, 414);
+    }
+  }
+  
+  &__header {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(20);
+    width: vw(495);
+    
+    @include media('tablet') {
+      gap: vw(18, 768);
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(10, 414);
+    }
+  }
+  
+  &__eyebrow {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(30);
+    line-height: vw(26);
+    letter-spacing: vw(0.9);
+    color: #FFFFFF;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(24, 768);
+      line-height: vw(22, 768);
+      letter-spacing: vw(0.7, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(18, 414);
+      letter-spacing: vw-mobile(0.7, 414);
+    }
+  }
+  
+  &__heading {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(90);
+    line-height: vw(79);
+   
+    color: #FFFFFF;
+    width: 100%;
+    
+    p {
+      margin: 0;
+    }
+    
+    @include media('tablet') {
+      font-size: vw(60, 768);
+      line-height: vw(56, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(30, 414);
+      line-height: vw-mobile(30, 414);
+    }
+  }
+  
+  &__description {
+    font-family: $font-family-base;
+    font-weight: 300;
+    font-size: vw(20);
+    line-height: vw(30);
+    color: #FFFFFF;
+    width: 69%;
+    
+    p {
+      margin: 0;
+    }
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(26, 768);
+      width: 100%;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(12, 414);
+      line-height: vw-mobile(18, 414);
+    }
+  }
+  
+  // CTA Button
+  &__cta {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(1);
+    padding: vw(16) vw(35);
+    background: #FFFFFF;
+    border-radius: vw(47.168);
+    text-decoration: none;
+    transition: transform $transition-base, box-shadow $transition-base;
+    
+    @include media('tablet') {
+      padding: vw(16, 768) vw(35, 768);
+      border-radius: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(16, 414) vw-mobile(35, 414);
+      border-radius: vw-mobile(34, 414);
+    }
+    
+    &:hover {
+      transform: translateY(vw(-4));
+      box-shadow: 0 vw(4) vw(12) rgba(0, 0, 0, 0.15);
+      
+      @include media('tablet') {
+        transform: translateY(vw(-3, 768));
+      }
+      
+      @include media('mobile') {
+        transform: translateY(vw-mobile(-2, 414));
+      }
+    }
+  }
+  
+  &__cta-inner {
+    @include flex(row, flex-start, center);
+    gap: vw(7);
+    
+    @include media('tablet') {
+      gap: vw(6, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(5, 414);
+    }
+  }
+  
+  &__cta-text {
+    font-family: $font-family-base;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: vw(23.43);
+    color: #363732;
+    white-space: nowrap;
+    
+    @include media('tablet') {
+      font-size: vw(17, 768);
+      line-height: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(15, 414);
+      line-height: vw-mobile(18, 414);
+    }
+  }
+  
+}
+

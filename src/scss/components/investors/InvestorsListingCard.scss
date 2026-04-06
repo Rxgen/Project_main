@@ -1,0 +1,408 @@
+@import "../../utils/variables";
+@import "../../utils/functions";
+@import "../../utils/mixins";
+
+$investor-listing-card-inner-stroke-inset: 16;
+
+.investor-listing-card {
+  width: 100%;
+  max-width: vw(1840);
+  margin: 0 auto vw(48);
+  background: rgba(8, 160, 63, 0.1);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:not(:first-child) {
+    background: rgb(8, 160, 63, 0.2);
+  }
+
+  &:first-child .investor-listing-card__content::before {
+    box-shadow: inset 0 0 0 0.86px rgba(255, 255, 255, 0.2);
+  }
+
+  @include media("tablet") {
+    margin-bottom: vw(36, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    margin-bottom: vw(28, 425);
+  }
+}
+
+.investor-listing-card__heading {
+  display: flex;
+  align-items: center;
+  padding: vw(12) 0 0 vw(48);
+  gap: vw(16);
+  margin: 0 0 vw(28);
+  color: #08a03f;
+  font-family: Inter, sans-serif;
+  font-size: vw(40.8);
+  font-style: normal;
+  font-weight: 700;
+  line-height: vw(97.065);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1%;
+  text-underline-offset: 25%;
+  text-underline-position: from-font;
+  text-transform: capitalize;
+
+  /* Align with text block: when text is on right, start heading where content block starts */
+  .investor-listing-card--image-left & {
+    justify-content: flex-start;
+    padding-left: 45%;
+    padding-right: vw(48);
+  }
+
+  span:not(:first-child) {
+    color: #1e1e1e;
+    text-decoration-line: underline;
+    text-decoration-thickness: 1%;
+    text-underline-position: from-font;
+    text-underline-offset: 25%;
+  }
+
+  @include media("tablet") {
+    font-size: vw(32, 768);
+    line-height: vw(72, 768);
+    margin-bottom: vw(22, 768);
+    gap: vw(12, 768);
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: vw(30, 768);
+
+    .investor-listing-card--image-left & {
+      padding-left: vw(30, 768);
+      padding-right: 0;
+    }
+  }
+
+  @include media-custom($max: 425px) {
+    font-size: vw(26, 425);
+    line-height: vw(56, 425);
+    margin-bottom: vw(18, 425);
+    gap: vw(10, 425);
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: vw(20, 425);
+
+    .investor-listing-card--image-left & {
+      padding-left: vw(20, 425);
+      padding-right: 0;
+    }
+  }
+}
+
+.investor-listing-card__petal {
+  width: vw(80);
+  height: vw(80);
+  flex-shrink: 0;
+
+  .investor-listing-card:not(:first-child) & {
+    opacity: 0.35;
+    filter: brightness(0.9);
+  }
+
+  @include media("tablet") {
+    width: vw(32, 768);
+    height: vw(32, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    width: vw(28, 425);
+    height: vw(28, 425);
+  }
+}
+
+.investor-listing-card__body {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  min-height: vw(620);
+
+  @include media("tablet") {
+    flex-direction: column;
+    min-height: 0;
+    width: 100%;
+    .investor-listing-card__image-wrap {
+      order: -1;
+      width: 100%;
+    }
+    .investor-listing-card__content {
+      order: 0;
+      width: 100%;
+    }
+  }
+
+  @include media-custom($max: 425px) {
+    width: 100%;
+    .investor-listing-card__image-wrap {
+      order: -1;
+      width: 100%;
+    }
+    .investor-listing-card__content {
+      order: 0;
+      width: 100%;
+    }
+  }
+}
+
+.investor-listing-card__body--image-right {
+  .investor-listing-card__content::before {
+    border-radius: 0 0 0 vw(262 - $investor-listing-card-inner-stroke-inset);
+  }
+
+  .investor-listing-card__content {
+    border-radius: 0 0 0 vw(262);
+    margin-right: vw(-2);
+  }
+
+  .investor-listing-card__btn {
+    align-self: flex-end;
+  }
+
+  .investor-listing-card__image-wrap {
+    border-radius: 0 vw(262) 0 0;
+  }
+
+  @include media("tablet") {
+    .investor-listing-card__content {
+      border-radius: 0 0 vw(100, 768) 0;
+    }
+    .investor-listing-card__image-wrap {
+      border-radius: vw(100, 768) 0 0 0;
+    }
+    .investor-listing-card__content {
+      margin-right: 0;
+    }
+    .investor-listing-card__btn {
+      align-self: flex-start;
+      border-radius: vw(55, 768);
+    }
+  }
+
+  @include media-custom($max: 425px) {
+    .investor-listing-card__content {
+      margin-right: 0;
+    }
+    .investor-listing-card__btn {
+      align-self: flex-start;
+    }
+  }
+}
+
+.investor-listing-card__body--image-left {
+  .investor-listing-card__content::before {
+    border-radius: 0 vw(262 - $investor-listing-card-inner-stroke-inset) 0 0;
+  }
+
+  .investor-listing-card__content {
+    border-radius: 0 vw(262) 0 0;
+    margin-left: vw(-2);
+  }
+
+  .investor-listing-card__btn {
+    align-self: flex-start;
+  }
+
+  .investor-listing-card__image-wrap {
+    border-radius: 0 0 0 vw(262);
+  }
+
+  @include media("tablet") {
+    flex-direction: column;
+
+    .investor-listing-card__content {
+      border-radius: 0 0 vw(100, 768) 0;
+    }
+    .investor-listing-card__image-wrap {
+      border-radius: vw(100, 768) 0 0 0;
+    }
+    .investor-listing-card__content {
+      margin-left: 0;
+    }
+    .investor-listing-card__btn {
+      align-self: flex-start;
+      border-radius: vw(55, 768);
+    }
+  }
+
+  @include media-custom($max: 425px) {
+    .investor-listing-card__content {
+      margin-left: 0;
+    }
+  }
+}
+
+.investor-listing-card__content {
+  flex: 1;
+  position: relative;
+  min-width: 0;
+  padding: vw(48) vw(112);
+  background: #08a03f;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: vw(112);
+  overflow: visible;
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: vw($investor-listing-card-inner-stroke-inset);
+    pointer-events: none;
+    box-shadow: inset 0 0 0 0.86px rgba(8, 160, 63, 0.2);
+  }
+
+  .investor-listing-card:not(:first-child) & {
+    background: #e9fff1;
+  }
+
+  @include media("tablet") {
+    padding: vw(36, 768) vw(40, 768);
+    gap: vw(22, 768);
+
+    &::before {
+      inset: vw(12, 768);
+      border-radius: 0 0 vw(100 - 12, 768) 0;
+    }
+  }
+
+  @include media-custom($max: 425px) {
+    padding: vw(28, 425) vw(32, 425);
+    gap: vw(18, 425);
+
+    &::before {
+      inset: vw(10, 425);
+      border-radius: 0 0 vw(100 - 10, 425) 0;
+    }
+  }
+}
+
+.investor-listing-card__text {
+  margin-top: vw(60);
+  color: #fff;
+  font-family: Inter, sans-serif;
+  font-size: vw(22);
+  font-style: normal;
+  font-weight: 600;
+  line-height: vw(42.59);
+
+  .investor-listing-card:not(:first-child) & {
+    color: #1e1e1e;
+  }
+
+  @include media("tablet") {
+    font-size: vw(18, 768);
+    line-height: vw(34, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    font-size: vw(16, 425);
+    line-height: vw(28, 425);
+  }
+}
+
+.investor-listing-card__btn {
+  display: inline-block;
+  width: vw(220);
+  min-width: fit-content;
+  padding: vw(14) vw(32);
+  background: #08a03f;
+  color: #fff;
+  font-family: Inter, sans-serif;
+  font-size: vw(24.959);
+  font-style: normal;
+  font-weight: 600;
+  line-height: vw(56.647);
+  text-decoration: none;
+  border-radius: vw(55.355);
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: opacity 0.2s;
+  text-align: center;
+  box-sizing: border-box;
+  overflow: visible;
+  white-space: nowrap;
+
+  .investor-listing-card:first-child & {
+    background: #fff;
+    color: #08a03f;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  @include media("tablet") {
+    width: auto;
+    min-width: vw(180, 768);
+    padding: vw(12, 768) vw(32, 768);
+    font-size: vw(20, 768);
+    line-height: vw(44, 768);
+    align-self: flex-start;
+  }
+
+  @include media-custom($max: 425px) {
+    width: auto;
+    min-width: vw(140, 425);
+    padding: vw(10, 425) vw(28, 425);
+    font-size: vw(18, 425);
+    line-height: vw(38, 425);
+    align-self: flex-start;
+  }
+}
+
+.investor-listing-card__image-wrap {
+  position: relative;
+  width: 45%;
+  min-height: vw(320);
+  flex-shrink: 0;
+  overflow: hidden;
+  align-self: stretch;
+
+  @include media("tablet") {
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  @include media-custom($max: 425px) {
+    aspect-ratio: 16 / 10;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.investor-listing-card__image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+
+  @include media("tablet") {
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  @include media-custom($max: 425px) {
+    object-fit: cover;
+    object-position: center center;
+  }
+}

@@ -1,0 +1,140 @@
+// Leader Profile Component Styles
+// Reusable leader profile component with circular image
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.leader-profile {
+  @include flex(column, flex-start, center);
+  position: relative;
+  width: vw(438.53);
+  height: vw(548.77);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
+  padding: vw(20);
+  border-radius: vw(10);
+  transition: background-color 0.3s ease, border 0.3s ease;
+  
+  @include media('tablet') {
+    width: vw(400, 768);
+    height: vw(500, 768);
+    padding: vw(15, 768);
+    border-radius: vw(8, 768);
+  }
+  
+  @include media('mobile') {
+    width: 100%;
+    max-width: vw-mobile(350, 414);
+    height: auto;
+    padding: vw-mobile(15, 414);
+    border-radius: vw-mobile(8, 414);
+  }
+  
+  &:hover {
+    background-color: #EEFFF4;
+    border-radius: vw(12);
+    border: vw(1) solid #08A03F;
+    
+    @include media('tablet') {
+      border-radius: vw(10, 768);
+      border-width: vw(1, 768);
+    }
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(10, 414);
+      border-width: vw-mobile(1, 414);
+    }
+  }
+  
+  &__image-wrapper {
+    position: relative;
+    margin: vw(35) auto vw(20) auto;
+    display: flex;
+    justify-content: center;
+    
+    @include media('tablet') {
+      margin: vw(30, 768) auto vw(15, 768) auto;
+    }
+    
+    @include media('mobile') {
+      margin: vw-mobile(25, 414) auto vw-mobile(15, 414) auto;
+    }
+  }
+  
+  &__circle {
+    position: relative;
+    width: vw(353.73);
+    height: vw(353.73);
+    border-radius: 50%;
+    overflow: hidden;
+    background: url('/assets/leaders/circle-bg.svg') no-repeat center;
+    background-size: 100% 100%;
+    
+    @include media('tablet') {
+      width: vw(300, 768);
+      height: vw(300, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(280, 414);
+      height: vw-mobile(280, 414);
+    }
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  &__info {
+    text-align: center;
+    width: 100%;
+  }
+  
+  &__name {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(28);
+    line-height: vw(32);
+    color: #08A03F;
+    margin: 0 0 vw(10) 0;
+    
+    @include media('tablet') {
+      font-size: vw(24, 768);
+      line-height: vw(30, 768);
+      margin-bottom: vw(10, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(22, 414);
+      line-height: vw-mobile(28, 414);
+      margin-bottom: vw-mobile(10, 414);
+    }
+  }
+  
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 400;
+    font-size: vw(19);
+    line-height: vw(28);
+    color: #08A03F;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(17, 768);
+      line-height: vw(26, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(15, 414);
+      line-height: vw-mobile(24, 414);
+    }
+  }
+}
+

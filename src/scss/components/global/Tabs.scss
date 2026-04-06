@@ -1,0 +1,147 @@
+// Tabs Component Styles
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=2300-583
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.tabs {
+  position: relative;
+  width: 100%;
+  @include flex(column, flex-start, center);
+  gap: vw(49);
+  
+  @include media('tablet') {
+    gap: vw(40, 768);
+  }
+  
+  @include media('mobile') {
+    gap: vw-mobile(30, 414);
+  }
+
+  // Title
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(80);
+    color: #08a03f;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(50, 768);
+      line-height: vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(36, 414);
+      line-height: vw-mobile(44, 414);
+    }
+  }
+
+  // Tabs Container
+  &__container {
+    @include flex(row, center, center);
+    gap: vw(22.334);
+    width: 100%;
+    flex-wrap: wrap;
+    
+    @include media('tablet') {
+      gap: vw(18, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(12, 414);
+    }
+  }
+
+  // Tab Button
+  &__tab {
+    @include flex(row, center, center);
+    border: vw(0.656) solid #08a03f;
+    background: #ffffff;
+    color: #08a03f;
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(19.67);
+    line-height: vw(37.456);
+    padding: vw(16.75) vw(27.917);
+    border-radius: vw(16.392);
+    cursor: pointer;
+    transition: all $transition-base;
+    white-space: nowrap;
+    min-width: vw(231);
+    position: relative;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(28, 768);
+      padding: vw(14, 768) vw(24, 768);
+      border-radius: vw(14, 768);
+      border-width: vw(1, 768);
+      min-width: auto;
+      flex: 1 1 auto;
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+      padding: vw-mobile(12, 414) vw-mobile(20, 414);
+      border-radius: vw-mobile(12, 414);
+      border-width: vw-mobile(1, 414);
+      white-space: normal;
+      width: 100%;
+      min-width: auto;
+    }
+
+    &:hover:not(&--active) {
+      background: rgba(8, 160, 63, 0.1);
+      border-color: #08a03f;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 vw(2) rgba(8, 160, 63, 0.3);
+      
+      @include media('tablet') {
+        box-shadow: 0 0 0 vw(2, 768) rgba(8, 160, 63, 0.3);
+      }
+      
+      @include media('mobile') {
+        box-shadow: 0 0 0 vw-mobile(2, 414) rgba(8, 160, 63, 0.3);
+      }
+    }
+
+    // Active Tab
+    &--active {
+      background: #08a03f;
+      color: #ffffff;
+      border-color: #08a03f;
+      border-width: vw(1.117);
+      
+      @include media('tablet') {
+        border-width: vw(1, 768);
+      }
+      
+      @include media('mobile') {
+        border-width: vw-mobile(1, 414);
+      }
+      
+      &:hover {
+        background: #08a03f;
+        opacity: 0.9;
+      }
+    }
+
+    // Tab Text
+    &-text {
+      display: block;
+      line-height: inherit;
+    }
+  }
+}
+

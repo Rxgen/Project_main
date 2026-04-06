@@ -1,0 +1,205 @@
+// Manufacturing Site Card Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=3030-5834
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.manufacturing-site-card {
+  position: relative;
+  width: 100%;
+  max-width: vw(801);
+  height: auto;
+  border-radius: vw(32.2);
+  overflow: hidden;
+  
+  @include media('tablet') {
+    height: auto;
+    border-radius: vw(28, 768);
+    max-width: 100%;
+  }
+  
+  @include media('mobile') {
+    height: auto;
+    min-height: vw-mobile(200, 414);
+    border-radius: vw-mobile(24, 414);
+    max-width: 100%;
+  }
+  
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #08a03f;
+    opacity: 0.8;
+    border-radius: vw(32.2);
+    z-index: 1;
+    
+    @include media('tablet') {
+      border-radius: vw(28, 768);
+    }
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(24, 414);
+    }
+  }
+  
+  &__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: vw(30) vw(60);
+    @include flex(column, flex-start, flex-start);
+    color: #ffffff;
+    
+    @include media('tablet') {
+      padding: vw(40, 768) vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(30, 414) vw-mobile(20, 414);
+    }
+  }
+  
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(45);
+    line-height: vw(68);
+    color: #ffffff;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(38, 768);
+      line-height: vw(55, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(28, 414);
+      line-height: vw-mobile(38, 414);
+    }
+  }
+  
+  &__description {
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(22);
+    line-height: vw(36);
+    color: #ffffff;
+    margin: 0 0 vw(25) 0;
+    opacity: 1;
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: vw(32, 768);
+      margin-bottom: vw(20, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+      margin-bottom: vw-mobile(18, 414);
+    }
+  }
+  
+  &__address {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(10);
+    margin-top: vw(10);
+    
+    @include media('tablet') {
+      gap: vw(8, 768);
+      margin-top: vw(8, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(6, 414);
+      margin-top: vw-mobile(6, 414);
+    }
+  }
+  
+  &__address-label {
+    font-family: $font-family-base;
+    font-weight: 600; // Semi-Bold
+    font-size: vw(18);
+    line-height: vw(28.5);
+    color: #ffffff;
+    margin: 0;
+    opacity: 0.8;
+    
+    @include media('tablet') {
+      font-size: vw(16, 768);
+      line-height: vw(24, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(14, 414);
+      line-height: vw-mobile(20, 414);
+    }
+  }
+  
+  &__address-text {
+    // ReactMarkdown styles
+    p {
+      margin: 0;
+      
+      &:not(:last-child) {
+        margin-bottom: vw(8);
+        
+        @include media('tablet') {
+          margin-bottom: vw(6, 768);
+        }
+        
+        @include media('mobile') {
+          margin-bottom: vw-mobile(5, 414);
+        }
+      }
+    }
+    
+    a {
+      color: inherit;
+      text-decoration: underline;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    
+    strong, b {
+      font-weight: 700;
+    }
+    
+    em, i {
+      font-style: italic;
+    }
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(16);
+    line-height: vw(24);
+    color: #ffffff;
+    opacity: 0.8;
+    
+    @include media('tablet') {
+      font-size: vw(14, 768);
+      line-height: vw(22, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(12, 414);
+      line-height: vw-mobile(18, 414);
+    }
+  }
+  
+  &__address-line {
+    margin: 0;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+

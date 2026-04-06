@@ -1,0 +1,302 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+// Our Story Year Slider
+.our-story-year-slider {
+  position: relative;
+  width: 100%;
+  background-color: #08A03F;
+  padding: vw(50) 0 vw(100);
+  overflow: visible; // Allow all years to be visible
+  // Height needs to show 3 full years: vw(1319)
+  min-height: vw(1319);
+  
+  @include media('tablet') {
+    padding: vw(40, 768) 0 vw(80, 768);
+    min-height: vw(800, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(30, 414) 0 vw-mobile(60, 414);
+    min-height: auto;
+  }
+
+  // Container Inner - Wraps vertical slider and slide content
+  &__container-inner {
+    position: relative;
+    width: 100%;
+    // Height needs to accommodate 3 full years: vw(243) + vw(295) + vw(243) + vw(295) + vw(243) = vw(1319)
+    min-height: vw(1319);
+    
+    @include media('tablet') {
+      // Tablet: vw(180) + vw(200) + vw(180) + vw(200) + vw(180) = vw(940)
+      min-height: vw(940, 768);
+    }
+    
+    @include media('mobile') {
+      min-height: auto;
+    }
+  }
+
+  // Vertical Slider Wrapper - Left Side (Absolute Position)
+  &__vertical-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: vw(900); // Increased width to accommodate "20" prefix + year digits
+    height: 100%;
+    z-index: 10; // Higher z-index to overlap slide container
+    overflow: visible; // Allow partial visibility of adjacent years
+    
+    @include media('tablet') {
+      width: vw(650, 768);
+    }
+    
+    @include media('mobile') {
+      position: relative;
+      width: 100%;
+      height: auto;
+      margin-bottom: vw-mobile(30, 414);
+    }
+  }
+
+  // Slide Content Wrapper - Full Width
+  &__slide-content-wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    
+    @include media('mobile') {
+      width: 100%;
+    }
+  }
+
+  // Container
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 vw(100);
+    display: flex;
+    align-items: center;
+    gap: vw(53);
+    justify-content: center;
+    
+    @include media('tablet') {
+      padding: 0 vw(60, 768);
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      padding: 0 vw-mobile(20, 414);
+      gap: vw-mobile(20, 414);
+      flex-wrap: wrap;
+    }
+  }
+
+  // Years Wrapper - Scrollable Container
+  &__years-wrapper {
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none; // IE and Edge
+    
+    &::-webkit-scrollbar {
+      display: none; // Chrome, Safari, Opera
+    }
+  }
+
+  // Arrow Button
+  &__arrow {
+    position: relative;
+    width: vw(104.14);
+    height: vw(104.14);
+    flex-shrink: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity $transition-base;
+    
+    @include media('tablet') {
+      width: vw(80, 768);
+      height: vw(80, 768);
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(60, 414);
+      height: vw-mobile(60, 414);
+    }
+
+    &--disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    // Left Arrow - Dark green ellipse with light grey chevron
+    &--left {
+      .our-story-year-slider__arrow-wrapper {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        mix-blend-mode: multiply;
+      }
+
+      .our-story-year-slider__arrow-ellipse {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        transform: rotate(180deg) scaleY(-1);
+        
+        &-inner {
+          width: 100%;
+          height: 100%;
+          
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+
+      .our-story-year-slider__arrow-chevron {
+        position: absolute;
+        inset: 37.26% 35.12% 37.26% 39.4%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: vw(19.26);
+        height: vw(18.27);
+        transform: rotate(135deg) scaleY(-1);
+        opacity: 0.3;
+        z-index: 1;
+        
+        @include media('tablet') {
+          width: vw(15, 768);
+          height: vw(14, 768);
+        }
+        
+        @include media('mobile') {
+          width: vw-mobile(12, 414);
+          height: vw-mobile(11, 414);
+        }
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    // Right Arrow - Light grey circle with dark grey chevron
+    &--right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+      .our-story-year-slider__arrow-circle {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .our-story-year-slider__arrow-chevron-right {
+        position: relative;
+        width: vw(19.26);
+        height: vw(18.27);
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        @include media('tablet') {
+          width: vw(15, 768);
+          height: vw(14, 768);
+        }
+        
+        @include media('mobile') {
+          width: vw-mobile(12, 414);
+          height: vw-mobile(11, 414);
+        }
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  // Years Container
+  &__years {
+    display: flex;
+    align-items: center;
+    gap: vw(47);
+    justify-content: flex-start;
+    min-width: max-content;
+    
+    @include media('tablet') {
+      gap: vw(35, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(20, 414);
+    }
+  }
+
+  // Year Text
+  &__year {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(40);
+    line-height: vw(56);
+    color: #e1e1e1;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color $transition-base;
+    
+    @include media('tablet') {
+      font-size: vw(32, 768);
+      line-height: vw(44, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(24, 414);
+      line-height: vw-mobile(32, 414);
+    }
+
+    &--active {
+      color: #ffffff;
+    }
+
+    &:hover {
+      color: rgba(225, 225, 225, 0.8);
+    }
+  }
+}
+

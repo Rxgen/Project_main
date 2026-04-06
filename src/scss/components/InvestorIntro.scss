@@ -1,0 +1,96 @@
+// Investor Intro Section Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+// Based on Figma design: https://www.figma.com/design/QNIbuokNouJSBEY7GUGsEI/Jash---Final-Home-page-auto-layout--Copy-?node-id=2216-740
+
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.investor-intro {
+  position: relative;
+  width: 100%;
+  background: #f6f6f6;
+  padding: vw(63) vw(97);
+  
+  @include media('tablet') {
+    padding: vw(50, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1723.488);
+    margin: 0 auto;
+    @include flex(column, center, center);
+  }
+  
+  // White box with green border
+  &__box {
+    background: #ffffff;
+    border: vw(1) solid #08a03f;
+    border-radius: vw(60);
+    padding: vw(52) vw(94);
+    width: 100%;
+    min-height: vw(296);
+    @include flex(column, center, center);
+    
+    @include media('tablet') {
+      border-radius: vw(40, 768);
+      padding: vw(40, 768) vw(60, 768);
+      min-height: auto;
+    }
+    
+    @include media('mobile') {
+      border-radius: vw-mobile(30, 414);
+      padding: vw-mobile(30, 414) vw-mobile(20, 414);
+      border-width: vw-mobile(1, 414);
+      min-height: auto;
+    }
+  }
+  
+  // Text container
+  &__text {
+    font-family: $font-family-base;
+    font-weight: 500; // Medium
+    font-size: vw(20);
+    line-height: vw(36);
+    color: #126430;
+    text-align: center;
+    opacity: 0.8;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(24, 414);
+      text-align: left;
+    }
+  }
+  
+  // Paragraph
+  &__paragraph {
+    margin: 0;
+    margin-bottom: 0; // No margin between paragraphs as per design
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    @include media('mobile') {
+      margin-bottom: 0;
+    }
+  }
+  
+  // First letter styling (for capitalization)
+  &__first-letter {
+  }
+}
+

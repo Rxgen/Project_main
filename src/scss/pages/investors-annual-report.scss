@@ -1,0 +1,350 @@
+@import "../utils/variables";
+@import "../utils/functions";
+@import "../utils/mixins";
+
+// Year buttons (2025, 2024, ...)
+.annual-report__years {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: vw(30);
+  margin-bottom: vw(40);
+  padding-left: vw(90);
+
+  @include media("tablet") {
+    gap: vw(16, 768);
+    margin-bottom: vw(32, 768);
+    padding-left: vw(48, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    gap: vw(12, 425);
+    margin-bottom: vw(24, 425);
+    padding-left: vw(24, 425);
+  }
+}
+
+.annual-report__year-btn {
+  display: flex;
+  padding: vw(10) vw(25);
+  justify-content: center;
+  align-items: center;
+  gap: vw(6);
+  border-radius: vw(10);
+  border: 0.5px solid #fff;
+  color: #fff;
+  font-family: Inter, sans-serif;
+  font-size: vw(25);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 105%;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+
+  &--active {
+    border-radius: vw(10);
+    background: #fff;
+    color: #08a03f;
+    border-color: #fff;
+  }
+
+  @include media("tablet") {
+    padding: vw(10, 768) vw(25, 768);
+    font-size: vw(20, 768);
+    border-radius: vw(10, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    padding: vw(8, 425) vw(18, 425);
+    font-size: vw(18, 425);
+    border-radius: vw(10, 425);
+  }
+}
+
+// Content: list section (two columns + divider) + card — list and card aligned (same top, same height)
+.annual-report__content {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: vw(32);
+  align-items: start;
+  padding: 0 vw(100);
+  margin: vw(50) 0 0 0;
+
+  @include media("tablet") {
+    grid-template-columns: 1fr;
+    gap: vw(24, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    gap: vw(20, 425);
+    padding: 0 vw(24, 425);
+  }
+}
+
+.annual-report__list-section {
+  display: flex;
+  align-items: stretch;
+  gap: vw(24);
+  min-width: 0;
+  min-height: vw(436);
+
+  @include media("tablet") {
+    min-height: vw(436, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    min-height: vw(320, 425);
+  }
+}
+
+// Two columns of report links with divider in the middle (left list | line | right list)
+// Tablet: keep grid (two columns); only collapse to single column on small mobile
+.annual-report__list-wrap {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: vw(24) vw(32);
+  align-items: start;
+  min-width: 0;
+  flex: 1;
+
+  @include media("tablet") {
+    gap: vw(20, 768) vw(24, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  // One column of links only: no middle divider column (see AnnualReportClient)
+  &--single {
+    grid-template-columns: 1fr;
+  }
+}
+
+.annual-report__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: vw(22);
+
+  @include media("tablet") {
+    gap: vw(18, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    gap: vw(14, 425);
+  }
+}
+
+.annual-report__item {
+  margin: 0;
+  padding: 0;
+}
+
+.annual-report__link {
+  display: flex;
+  align-items: flex-start;
+  gap: vw(6);
+  padding: vw(10) 0;
+  text-decoration: none;
+  color: #fff;
+  font-family: Inter, sans-serif;
+  font-size: vw(18);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  @include media("tablet") {
+    gap: vw(6, 768);
+    font-size: vw(22, 768);
+    padding: vw(10, 768) 0;
+  }
+
+  @include media-custom($max: 425px) {
+    gap: vw(10, 425);
+    font-size: vw(20, 425);
+    padding: vw(8, 425) 0;
+  }
+}
+
+// Text + arrow flow inline so the arrow sits after the last word, not at column edge
+.annual-report__link-body {
+  flex: 1;
+  min-width: 0;
+  display: block;
+}
+
+// Inverted petal (green → white/light on dark green bg)
+.annual-report__petal {
+  width: vw(20);
+  height: auto;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+
+  @include media("tablet") {
+    width: vw(22, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    width: vw(20, 425);
+  }
+}
+
+.annual-report__link-text {
+  display: inline;
+  color: #fff;
+  font-family: Inter;
+  font-size: vw(20);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1%; /* 0.2px */
+  text-underline-offset: 10%;
+  text-underline-position: from-font;
+
+  @include media("tablet") {
+    font-size: vw(18, 768);
+    line-height: 1.35;
+  }
+
+  @include media-custom($max: 425px) {
+    font-size: vw(18, 425);
+    line-height: 1.35;
+  }
+}
+
+.annual-report__arrow {
+  display: inline-block;
+  height: 1em;
+  width: auto;
+  margin-left: vw(6);
+  vertical-align: middle;
+  filter: brightness(0) invert(1);
+
+  @include media("tablet") {
+    margin-left: vw(6, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    margin-left: vw(10, 425);
+  }
+}
+
+// Vertical divider in the middle between left and right list (stroke #A5FFC5, 0.5px)
+// Height matches list content. Hidden only on small mobile (single-column layout).
+.annual-report__divider {
+  width: 0;
+  border-left: vw(0.5) solid #a5ffc5;
+  align-self: stretch;
+  justify-self: center;
+
+  @include media-custom($max: 425px) {
+    display: none;
+  }
+}
+
+// Right card: 716×436, border-radius 32px, background #E9FFF1, bg image
+.annual-report__card {
+  position: relative;
+  width: vw(716);
+  height: vw(436);
+  border-radius: vw(32);
+  background: #fff;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  @include media("tablet") {
+    width: 100%;
+    max-width: vw(716, 768);
+    height: vw(436, 768);
+    border-radius: vw(24, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    height: vw(320, 425);
+    border-radius: vw(20, 425);
+  }
+}
+
+.annual-report__card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+// Visit ESG Microsite — centered over the card image (not in the link lists)
+.annual-report__card-esg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: vw(24);
+
+  @include media("tablet") {
+    padding: vw(20, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    padding: vw(16, 425);
+  }
+}
+
+.annual-report__card-esg-link {
+  display: inline-block;
+  max-width: 92%;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 0.45);
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.92;
+  }
+
+  @include media("tablet") {
+    max-width: 94%;
+  }
+
+  @include media-custom($max: 425px) {
+    max-width: 95%;
+  }
+}
+
+.annual-report__card-esg-text {
+  font-family: Inter, sans-serif;
+  font-size: vw(34);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #fff;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1%;
+  text-underline-offset: 12%;
+  text-underline-position: from-font;
+
+  @include media("tablet") {
+    font-size: vw(28, 768);
+  }
+
+  @include media-custom($max: 425px) {
+    font-size: vw(22, 425);
+  }
+}

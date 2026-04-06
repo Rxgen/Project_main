@@ -1,0 +1,107 @@
+// Dividend Page Styles
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.dividend-page {
+  padding: vw(100);
+  background-color: #F6F6F6;
+  
+  @include media('tablet') {
+    padding: vw(50, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414);
+  }
+}
+
+// Dividend page specific voting table column widths
+.dividend-page-wrapper {
+  .policies__voting-table-wrapper {
+    background-color: #F6F6F6 !important;
+    padding-bottom: vw(50) !important;
+    
+    @include media('tablet') {
+      padding-bottom: vw(30, 768) !important;
+    }
+    
+    @include media('mobile') {
+      padding-bottom: vw-mobile(25, 414) !important;
+    }
+  }
+  
+  .policies__voting-table-header-cell {
+    text-align: left !important;
+    
+    &:nth-child(1) {
+      width: vw(226) !important;
+    }
+    
+    &:nth-child(2) {
+      width: vw(237) !important;
+    }
+    
+    &:nth-child(3) {
+      width: vw(250) !important;
+    }
+    
+    &:nth-child(4) {
+      width: vw(478) !important;
+    }
+    
+    &:nth-child(5) {
+      width: vw(262) !important;
+    }
+    
+    &:nth-child(6) {
+      width: vw(273) !important;
+    }
+  }
+  
+  .policies__voting-table-row {
+    background-color: #F6F6F6 !important;
+    
+    p {
+      &:nth-child(1) {
+        width: vw(226) !important;
+      }
+      
+      &:nth-child(2) {
+        width: vw(237) !important;
+      }
+      
+      &:nth-child(3) {
+        width: vw(250) !important;
+      }
+      
+      &:nth-child(4) {
+        width: vw(478) !important;
+        text-align: center;
+      }
+      
+      &:nth-child(5) {
+        width: vw(262) !important;
+        text-align: center;
+      }
+      
+      &:nth-child(6) {
+        width: vw(273) !important;
+        text-align: center;
+      }
+    }
+  }
+  
+  .policies__voting-table-cell {
+    padding-left: vw(35) !important;
+    
+    @include media('tablet') {
+      padding-left: vw(20, 768) !important;
+    }
+    
+    @include media('mobile') {
+      padding-left: vw-mobile(15, 414) !important;
+    }
+  }
+}
+

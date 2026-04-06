@@ -1,0 +1,154 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+// Our Story Section with Green Background
+.our-story-section {
+  position: relative;
+  width: 100%;
+  background-color: #08A03F;
+  background-image: url('/assets/images/our-story/toppetals.svg');
+  background-repeat: no-repeat;
+  background-position: right 0 top vw(70);
+  background-size: auto;
+  padding: vw(100) 0;
+  overflow: hidden;
+  
+  @include media('tablet') {
+    padding: vw(80, 768) 0;
+    background-position: right 0 top vw(70, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(60, 414) 0;
+    background-position: right 0 top vw-mobile(70, 414);
+  }
+
+  // Container
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 vw(100);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: vw(17);
+    
+    @include media('tablet') {
+      padding: 0 vw(60, 768);
+      gap: vw(15, 768);
+    }
+    
+    @include media('mobile') {
+      padding: 0 vw-mobile(20, 414);
+      gap: vw-mobile(12, 414);
+    }
+  }
+
+  // Header Section
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: vw(40);
+    max-width: vw(790.88);
+    width: 100%;
+    
+    @include media('tablet') {
+      gap: vw(30, 768);
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(20, 414);
+    }
+  }
+
+  // Title
+  &__title {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(65);
+    line-height: vw(56);
+    color: #e1e1e1;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(50, 768);
+      line-height: vw(45, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(36, 414);
+      line-height: vw-mobile(38, 414);
+    }
+  }
+
+  // Subtitle
+  &__subtitle {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(30);
+    line-height: vw(56);
+    color: #e1e1e1;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    
+    @include media('tablet') {
+      font-size: vw(26, 768);
+      line-height: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(22, 414);
+      line-height: vw-mobile(32, 414);
+    }
+  }
+
+  // Content Section
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    max-width: vw(1096);
+    width: 100%;
+    min-width: min-content;
+    
+    @include media('tablet') {
+      max-width: 100%;
+    }
+    
+    @include media('mobile') {
+      max-width: 100%;
+    }
+  }
+
+  // Paragraph
+  &__paragraph {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(22);
+    line-height: vw(36);
+    color: #e1e1e1;
+    margin: 0;
+    text-align: center;
+    
+    @include media('tablet') {
+      font-size: vw(20, 768);
+      line-height: vw(32, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(18, 414);
+      line-height: vw-mobile(28, 414);
+    }
+  }
+}

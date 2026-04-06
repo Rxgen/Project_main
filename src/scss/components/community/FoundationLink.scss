@@ -1,0 +1,68 @@
+// Foundation Link Component Styles
+// Using vw() for desktop (base: 1920px) and vw-mobile() for mobile (base: 414px)
+
+@import '../../utils/variables';
+@import '../../utils/functions';
+@import '../../utils/mixins';
+
+.foundation-link {
+  position: relative;
+  width: 100%;
+  background: #126430;
+  padding: vw(62) vw(237);
+  
+  @include media('tablet') {
+    padding: vw(50, 768) vw(60, 768);
+  }
+  
+  @include media('mobile') {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  &__text {
+    font-family: $font-family-base;
+    font-weight: 600;
+    font-size: vw(20);
+    line-height: vw(40);
+    color: #f8fbf7;
+    margin: 0;
+    text-align: center;
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: vw(34, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: vw-mobile(28, 414);
+    }
+  }
+  
+  &__link {
+    color: #f8fbf7;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+    
+    &:visited {
+      color: #f8fbf7;
+    }
+  }
+}
+

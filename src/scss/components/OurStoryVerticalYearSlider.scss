@@ -1,0 +1,135 @@
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+// Our Story Vertical Year Slider
+.our-story-vertical-year-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  overflow: visible; // Allow partial visibility of adjacent years
+  
+  @include media('mobile') {
+    height: auto;
+    overflow: visible;
+  }
+
+  // Fixed "20" prefix in the middle
+  &__prefix {
+    position: absolute;
+    left: vw(83);
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(280);
+    line-height: vw(243);
+    color: #e1e1e1;
+    letter-spacing: vw(19.6);
+    z-index: 3;
+    pointer-events: none; // Don't interfere with scrolling
+    opacity: 1;
+    white-space: nowrap;
+    
+    @include media('tablet') {
+      left: vw(50, 768);
+      font-size: vw(200, 768);
+      line-height: vw(180, 768);
+      letter-spacing: vw(14, 768);
+    }
+    
+    @include media('mobile') {
+      display: none; // Hide on mobile
+    }
+  }
+
+  // Container - Scrollable
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: vw(295);
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none; // IE and Edge
+    // Padding calculation to show all 3 years (previous, active, next) fully visible
+    // Year height: vw(243), Gap: vw(295)
+    // To show 3 years: need space = vw(243) + vw(295) + vw(243) + vw(295) + vw(243) = vw(1319)
+    // Container height: vw(1000)
+    // When active year is centered at vw(500), we need:
+    // - Top padding: enough to show full year above = vw(243) + vw(295) = vw(538)
+    // - Bottom padding: enough to show full year below = vw(243) + vw(295) = vw(538)
+    padding: vw(538) vw(83) vw(538) vw(500);
+    
+    &::-webkit-scrollbar {
+      display: none; // Chrome, Safari, Opera
+    }
+    
+    @include media('tablet') {
+      gap: vw(200, 768);
+      // Year height on tablet: vw(180), Gap: vw(200)
+      // Top/Bottom padding: vw(180) + vw(200) = vw(380)
+      padding: vw(380, 768) vw(50, 768) vw(380, 768) 0;
+    }
+    
+    @include media('mobile') {
+      flex-direction: row;
+      overflow-x: auto;
+      overflow-y: hidden;
+      gap: vw-mobile(30, 414);
+      padding: vw-mobile(20, 414);
+      height: auto;
+    }
+  }
+
+  // Year Number
+  &__year {
+    font-family: $font-family-base;
+    font-weight: 700;
+    font-size: vw(280);
+    line-height: vw(243);
+    color: #e1e1e1;
+    letter-spacing: vw(19.6);
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: opacity $transition-base;
+    position: relative;
+    flex-shrink: 0;
+    min-width: max-content;
+    
+    @include media('tablet') {
+      font-size: vw(200, 768);
+      line-height: vw(180, 768);
+      letter-spacing: vw(14, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(60, 414);
+      line-height: vw-mobile(50, 414);
+      letter-spacing: vw-mobile(5, 414);
+    }
+
+    // Active state - full opacity
+    &--active {
+      opacity: 1;
+    }
+
+    // Non-active years - 30% opacity by default
+    &:not(&--active) {
+      opacity: 0.3;
+    }
+
+    // Hover state
+    &:hover:not(&--active) {
+      opacity: 0.5;
+    }
+  }
+}
+

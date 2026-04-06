@@ -1,0 +1,307 @@
+// Awards and Recognition Page Styles
+@import '../utils/variables';
+@import '../utils/functions';
+@import '../utils/mixins';
+
+.awards-and-recognition-page {
+  position: relative;
+  width: 100%;
+  background-color: #e6fff2;
+  z-index: 1;
+}
+
+.awards-and-recognition-content {
+  position: relative;
+  width: 100%;
+  background-color: #e6fff2;
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1920);
+    margin: 0 auto;
+    padding: vw(100);
+    
+    @include media('tablet') {
+      padding: vw(80, 768) vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(60, 414) vw-mobile(20, 414);
+    }
+  }
+  
+  &__text {
+    @include flex(column, flex-start, flex-start);
+    gap: vw(30);
+    width: 100%;
+    color: #1e1e1e;
+    
+    @include media('tablet') {
+      gap: vw(25, 768);
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(20, 414);
+    }
+  }
+  
+  &__heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: vw(24);
+    line-height: 1.37;
+    color: #1e1e1e;
+    opacity: 0.9;
+    margin: 0;
+    
+    @include media('tablet') {
+      font-size: vw(22, 768);
+      line-height: 1.4;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(20, 414);
+      line-height: 1.4;
+    }
+  }
+  
+  &__paragraph {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: vw(20);
+    line-height: 1.7;
+    color: #1e1e1e;
+    opacity: 0.8;
+    margin: 0;
+    
+    p {
+      margin: 0;
+    }
+    
+    @include media('tablet') {
+      font-size: vw(18, 768);
+      line-height: 1.6;
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(16, 414);
+      line-height: 1.6;
+    }
+  }
+}
+
+// Year Selector Section
+.awards-and-recognition-years-section {
+  position: relative;
+  width: 100%;
+  background-color: #e6fff2;
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1920);
+    margin: 0 auto;
+    padding: 0 vw(100);
+    
+    @include media('tablet') {
+      padding: 0 vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      padding: 0 vw-mobile(20, 414);
+    }
+  }
+}
+
+// Year Selector Component
+.awards-and-recognition-years {
+  @include flex(row, center, center);
+  gap: vw(63);
+  width: 100%;
+  
+  @include media('tablet') {
+    gap: vw(40, 768);
+  }
+  
+  @include media('mobile') {
+    gap: vw-mobile(20, 414);
+  }
+  
+  &__arrow {
+    width: vw(104.141);
+    height: vw(104.141);
+    border-radius: 50%;
+    background: #f5f5f5;
+    border: none;
+    cursor: pointer;
+    @include flex(row, center, center);
+    flex-shrink: 0;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    
+    &:hover:not(&--disabled) {
+      background: #e8e8e8;
+    }
+    
+    &--disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    svg {
+      width: vw(16);
+      height: vw(30);
+    }
+    
+    @include media('tablet') {
+      width: vw(80, 768);
+      height: vw(80, 768);
+      
+      svg {
+        width: vw(14, 768);
+        height: vw(26, 768);
+      }
+    }
+    
+    @include media('mobile') {
+      width: vw-mobile(60, 414);
+      height: vw-mobile(60, 414);
+      
+      svg {
+        width: vw-mobile(12, 414);
+        height: vw-mobile(24, 414);
+      }
+    }
+  }
+  
+  &__container {
+    @include flex(row, flex-start, center);
+    gap: vw(47);
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none; // IE and Edge
+    width: 100%;
+    max-width: calc(7 * vw(106) + 6 * vw(47)); // Show 7 years initially (year width + gaps)
+    flex: 1;
+    
+    &::-webkit-scrollbar {
+      display: none; // Chrome, Safari, Opera
+    }
+    
+    @include media('tablet') {
+      gap: vw(35, 768);
+      max-width: calc(7 * vw(99, 768) + 6 * vw(35, 768));
+    }
+    
+    @include media('mobile') {
+      gap: vw-mobile(25, 414);
+      max-width: calc(7 * vw-mobile(99, 414) + 6 * vw-mobile(25, 414));
+    }
+  }
+  
+  &__year {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: vw(40);
+    line-height: vw(56);
+    color: #e1e1e1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+    
+    &:hover {
+      color: #08a03f;
+    }
+    
+    &--active {
+      color: #08a03f;
+    }
+    
+    @include media('tablet') {
+      font-size: vw(32, 768);
+      line-height: vw(44, 768);
+    }
+    
+    @include media('mobile') {
+      font-size: vw-mobile(28, 414);
+      line-height: vw-mobile(36, 414);
+    }
+  }
+}
+
+// Year Content Section
+.awards-and-recognition-year-content {
+  position: relative;
+  width: 100%;
+  // background-color: #e6fff2;
+  
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: vw(1920);
+    margin: 0 auto;
+    padding: vw(100);
+    
+    @include media('tablet') {
+      padding: vw(80, 768) vw(60, 768);
+    }
+    
+    @include media('mobile') {
+      padding: vw-mobile(60, 414) vw-mobile(20, 414);
+    }
+  }
+  
+  .profile-cards-container {
+    width: 100%;
+  }
+  
+  .profile-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(vw(400), 1fr));
+    gap: vw(50);
+    width: 100%;
+    
+    @include media('tablet') {
+      grid-template-columns: repeat(auto-fill, minmax(vw(300, 768), 1fr));
+      gap: vw(40, 768);
+    }
+    
+    @include media('mobile') {
+      grid-template-columns: 1fr;
+      gap: vw-mobile(30, 414);
+    }
+  }
+  
+  // Hide name if empty
+  .profile-card__name:empty {
+    display: none;
+  }
+  
+  // Ensure title is displayed properly
+  .profile-card__title {
+    margin-top: 0;
+    max-width: 100%;
+  }
+  
+  // Pagination container with top margin
+  .pagination-container {
+    width: 100%;
+    @include flex(row, center, center);
+    margin-top: vw(60);
+    
+    @include media('tablet') {
+      margin-top: vw(50, 768);
+    }
+    
+    @include media('mobile') {
+      margin-top: vw-mobile(40, 414);
+    }
+  }
+}
+

@@ -1,0 +1,1004 @@
+@import "../utils/variables";
+@import "../utils/functions";
+@import "../utils/mixins";
+
+// ---------------------------------------------------------------------------
+// Local mixins (this page only; do not depend on research-and-development.scss)
+// ---------------------------------------------------------------------------
+@mixin dt-body-text($color: #1e1e1e, $fontWeight: 600) {
+  color: $color;
+  font-family: Inter, $font-family-base;
+  font-size: vw(24);
+  font-style: normal;
+  font-weight: $fontWeight;
+  line-height: vw(40);
+
+  p {
+    margin-bottom: vw(40);
+  }
+
+  @include media-custom($max: 1440px) {
+    font-size: vw-mobile(18, 1440);
+    line-height: vw-mobile(24, 1440);
+  }
+
+  @include media("tablet") {
+    font-size: vw(20, 768);
+    line-height: vw(28, 768);
+  }
+
+  @include media("mobile") {
+    font-size: vw-mobile(16, 414);
+    line-height: vw-mobile(24, 414);
+  }
+}
+
+@mixin dt-heading-typography {
+  font-family: Inter, $font-family-base;
+  font-size: vw(65);
+  font-style: normal;
+  font-weight: 700;
+  line-height: vw(80);
+
+  @include media-custom($max: 1440px) {
+    font-size: vw(65, 1440);
+    line-height: vw(80, 1440);
+  }
+
+  @include media-custom($min: 1024px, $max: 1440px) {
+    font-size: vw(65);
+    line-height: vw(80);
+  }
+
+  @include media("tablet") {
+    font-size: vw(40, 768);
+    line-height: vw(48, 768);
+  }
+
+  @include media("mobile") {
+    font-size: vw-mobile(28, 414);
+    line-height: vw-mobile(36, 414);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Page root
+// ---------------------------------------------------------------------------
+.digital-transformation-page {
+  width: 100%;
+}
+
+// ---------------------------------------------------------------------------
+// 1. Intro hero (mint band + circular image)
+// ---------------------------------------------------------------------------
+.digital-transformation__intro {
+  width: 100%;
+  background: #e9fff1;
+  position: relative;
+  overflow: hidden;
+}
+
+.digital-transformation__intro-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: vw(60);
+  margin: 0 auto;
+  padding: vw(80) vw(100);
+  position: relative;
+
+  @include media("tablet") {
+    flex-direction: column-reverse;
+    padding: vw(60, 768) vw(40, 768);
+    gap: vw(40, 768);
+  }
+
+  @include media("mobile") {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+    gap: vw-mobile(32, 414);
+  }
+}
+
+.digital-transformation__intro-content {
+  flex: 1;
+  max-width: 60%;
+  position: relative;
+  z-index: 2;
+
+  @include media("tablet") {
+    max-width: 100%;
+  }
+}
+
+.digital-transformation__intro-text {
+  @include dt-body-text(#1e1e1e);
+}
+
+.digital-transformation__intro-ellipse {
+  position: absolute;
+  width: vw(196);
+  height: vw(196);
+  background: #00ad4d;
+  opacity: 0.1;
+  border-radius: 50%;
+  top: 50%;
+  transform: translate(60%, -50%);
+  pointer-events: none;
+
+  @include media("tablet") {
+    width: vw(120, 768);
+    height: vw(120, 768);
+    right: vw(-30, 768);
+  }
+
+  @include media("mobile") {
+    width: vw-mobile(80, 414);
+    height: vw-mobile(80, 414);
+    right: vw-mobile(-20, 414);
+  }
+
+  &--small {
+    width: vw(196);
+    height: vw(196);
+    top: 90%;
+    right: 0;
+
+    @include media("tablet") {
+      width: vw(70, 768);
+      height: vw(70, 768);
+      right: vw(20, 768);
+    }
+
+    @include media("mobile") {
+      width: vw-mobile(50, 414);
+      height: vw-mobile(50, 414);
+      right: vw-mobile(15, 414);
+    }
+  }
+}
+
+.digital-transformation__intro-media {
+  flex-shrink: 0;
+  width: vw(522);
+  height: vw(522);
+  z-index: 2;
+
+  @include media("tablet") {
+    width: vw(320, 768);
+    height: vw(320, 768);
+  }
+
+  @include media("mobile") {
+    width: vw-mobile(280, 414);
+    height: vw-mobile(280, 414);
+  }
+}
+
+.digital-transformation__intro-petal {
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+  transform: translateY(50%);
+  left: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  pointer-events: none;
+  z-index: 1;
+
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    object-fit: contain;
+    object-position: right bottom;
+  }
+}
+
+.digital-transformation__intro-image-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 2. AI & data-driven (green + background art)
+// ---------------------------------------------------------------------------
+.digital-transformation__ai {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  overflow: visible;
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("/assets/images/our-sci/digital-transformation/AI-driven-section-bg.png");
+
+  @include media-custom($min: 1900px, $max: 2560px) {
+    background-size: cover;
+  }
+}
+
+.digital-transformation__ai-inner {
+  display: flex;
+  flex-direction: column;
+  gap: vw(24);
+  position: relative;
+  overflow: visible;
+  padding: vw(80) vw(100);
+  z-index: 2;
+  width: 100%;
+  box-sizing: border-box;
+
+  @include media("tablet") {
+    gap: vw(28, 768);
+    padding: vw(60, 768) vw(40, 768);
+  }
+
+  @include media("mobile") {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+    gap: vw-mobile(24, 414);
+  }
+}
+
+.digital-transformation__ai-top {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.digital-transformation__ai-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  min-width: 0;
+
+  @include media("tablet") {
+    max-width: 100%;
+    padding-right: vw(8, 768);
+  }
+
+  @include media("mobile") {
+    max-width: 100%;
+    padding-right: vw-mobile(4, 414);
+  }
+}
+
+.digital-transformation__ai-heading,
+.digital-transformation__ai-intro {
+  max-width: 80%;
+
+  @include media("tablet") {
+    max-width: 100%;
+  }
+
+  @include media("mobile") {
+    max-width: 100%;
+  }
+}
+
+.digital-transformation__ai-divider,
+.digital-transformation__ai-lead,
+.digital-transformation__ai-list {
+  max-width: 58%;
+  box-sizing: border-box;
+
+  @include media("tablet") {
+    max-width: 100%;
+  }
+
+  @include media("mobile") {
+    max-width: 100%;
+  }
+}
+
+.digital-transformation__ai-heading {
+  color: #fff;
+  @include dt-heading-typography;
+  margin-bottom: vw(50);
+}
+
+.digital-transformation__ai-intro,
+.digital-transformation__ai-lead {
+  @include dt-body-text(#fff);
+}
+
+.digital-transformation__ai-divider {
+  height: vw(1);
+  opacity: 0.5;
+  background: #fff;
+  margin: 0 0 vw(24);
+}
+
+.digital-transformation__ai-list {
+  @include dt-body-text(#fff);
+  list-style: none;
+  margin: 0 0 vw(24);
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: vw(12);
+    margin-bottom: vw(20);
+  }
+}
+
+.digital-transformation__ai-list-body {
+  font-weight: 400;
+}
+
+.digital-transformation__ai-petal {
+  flex-shrink: 0;
+  width: vw(26);
+  height: vw(26);
+  margin-top: vw(6);
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+
+  @include media("tablet") {
+    width: vw(22, 768);
+    height: vw(22, 768);
+    margin-top: vw(4, 768);
+  }
+
+  @include media("mobile") {
+    width: vw-mobile(20, 414);
+    height: vw-mobile(20, 414);
+    margin-top: vw-mobile(3, 414);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 3–5. Mint “patents” shell: Manufacturing, Cybersecurity, Pharma
+// ---------------------------------------------------------------------------
+.digital-transformation__manufacturing,
+.digital-transformation__cybersecurity,
+.digital-transformation__pharma {
+  width: 100%;
+  background: rgb(7, 169, 66, 0.2);
+  position: relative;
+}
+
+.digital-transformation__manufacturing-inner,
+.digital-transformation__cybersecurity-inner,
+.digital-transformation__pharma-inner {
+  margin: 0 auto;
+  padding: vw(80) vw(100);
+
+  @include media("tablet") {
+    padding: vw(60, 768) vw(40, 768);
+  }
+
+  @include media("mobile") {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414);
+  }
+}
+
+.digital-transformation__manufacturing-heading,
+.digital-transformation__cybersecurity-heading,
+.digital-transformation__pharma-heading {
+  color: #08a03f;
+  @include dt-heading-typography;
+  margin-bottom: vw(50);
+
+  @include media("tablet") {
+    margin-bottom: vw(32, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(24, 414);
+  }
+}
+
+.digital-transformation__manufacturing-row,
+.digital-transformation__cybersecurity-row,
+.digital-transformation__pharma-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: vw(40);
+
+  @include media-custom($min: 1024px, $max: 1440px) {
+    gap: vw(32, 1440);
+  }
+
+  @include media("tablet") {
+    flex-direction: column;
+    align-items: stretch;
+    gap: vw(40, 768);
+  }
+
+  @include media("mobile") {
+    gap: vw-mobile(32, 414);
+  }
+}
+
+.digital-transformation__manufacturing-media,
+.digital-transformation__cybersecurity-media,
+.digital-transformation__pharma-media {
+  flex-shrink: 0;
+  width: vw(700);
+  position: relative;
+  z-index: 1;
+
+  @include media-custom($max: 1023px) {
+    width: vw(400, 1440);
+  }
+
+  // 1024–1440: scale on 1440 base so the photo isn’t ~325px wide (vw(520) on 1920 base)
+  @include media-custom($min: 1024px, $max: 1440px) {
+    width: vw(680, 1440);
+    max-width: 48%;
+  }
+
+  @include media("tablet") {
+    width: 100%;
+    max-width: vw(400, 768);
+    margin: 0 auto;
+  }
+
+  @include media("mobile") {
+    max-width: 100%;
+  }
+}
+
+.digital-transformation__pharma-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 vw(12) vw(32) rgba(0, 0, 0, 0.12));
+}
+
+.digital-transformation__manufacturing-image,
+.digital-transformation__cybersecurity-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: vw(48);
+
+  @include media("tablet") {
+    border-radius: vw(36, 768);
+  }
+
+  @include media("mobile") {
+    border-radius: vw-mobile(28, 414);
+  }
+}
+
+.digital-transformation__manufacturing-content,
+.digital-transformation__cybersecurity-content,
+.digital-transformation__pharma-content {
+  flex: 1;
+  min-width: 0;
+  max-width: 58%;
+  // padding: vw(120);
+
+  @include media-custom($min: 1024px, $max: 1440px) {
+    max-width: 50%;
+  }
+
+  @include media("tablet") {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  @include media("mobile") {
+    padding: 0;
+  }
+}
+
+// Manufacturing + Cybersecurity: body / list typography
+.digital-transformation__manufacturing-text,
+.digital-transformation__manufacturing-closing,
+.digital-transformation__cybersecurity-text,
+.digital-transformation__cybersecurity-lead {
+  @include dt-body-text(#1e1e1e, 400);
+
+  @include media-custom($max: 1440px) {
+    font-size: vw(24, 1440);
+    line-height: vw(40, 1440);
+  }
+
+  @include media("tablet") {
+    font-size: vw(20, 768);
+    line-height: vw(32, 768);
+  }
+
+  @include media("mobile") {
+    font-size: vw-mobile(17, 414);
+    line-height: vw-mobile(28, 414);
+  }
+}
+
+.digital-transformation__manufacturing-list,
+.digital-transformation__cybersecurity-list {
+  color: #1e1e1e;
+  font-family: Inter, $font-family-base;
+  list-style: none;
+  margin: vw(35) 0 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: vw(20);
+    margin-bottom: vw(30);
+
+    @include media("tablet") {
+      margin-bottom: vw(22, 768);
+    }
+
+    @include media("mobile") {
+      margin-bottom: vw-mobile(18, 414);
+    }
+
+    span {
+      font-style: normal;
+      font-weight: 600;
+      font-size: vw(24);
+      line-height: vw(40);
+
+      @include media-custom($max: 1440px) {
+        font-size: vw(24, 1440);
+        line-height: vw(40, 1440);
+      }
+
+      @include media("tablet") {
+        font-size: vw(20, 768);
+        line-height: vw(32, 768);
+      }
+
+      @include media("mobile") {
+        font-size: vw-mobile(18, 414);
+        line-height: vw-mobile(30, 414);
+      }
+    }
+  }
+}
+
+.digital-transformation__manufacturing-divider,
+.digital-transformation__cybersecurity-divider {
+  display: block;
+  width: 100%;
+  height: 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  margin: vw(24) 0;
+
+  @include media("tablet") {
+    margin: vw(20, 768) 0;
+  }
+
+  @include media("mobile") {
+    margin: vw-mobile(16, 414) 0;
+  }
+}
+
+.digital-transformation__manufacturing-petal,
+.digital-transformation__cybersecurity-petal {
+  flex-shrink: 0;
+  width: vw(26);
+  height: vw(26);
+  margin-top: vw(6);
+  object-fit: contain;
+
+  @include media("tablet") {
+    width: vw(22, 768);
+    height: vw(22, 768);
+    margin-top: vw(4, 768);
+  }
+
+  @include media("mobile") {
+    width: vw-mobile(20, 414);
+    height: vw-mobile(20, 414);
+    margin-top: vw-mobile(3, 414);
+  }
+}
+
+.digital-transformation__manufacturing-text,
+.digital-transformation__cybersecurity-text {
+  margin-bottom: vw(24);
+
+  @include media("tablet") {
+    margin-bottom: vw(20, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(16, 414);
+  }
+}
+
+.digital-transformation__cybersecurity-list
+  + .digital-transformation__cybersecurity-text {
+  margin-top: vw(32);
+
+  @include media("tablet") {
+    margin-top: vw(28, 768);
+  }
+
+  @include media("mobile") {
+    margin-top: vw-mobile(24, 414);
+  }
+}
+
+.digital-transformation__cybersecurity-lead {
+  margin: 0 0 vw(8);
+
+  @include media("tablet") {
+    margin-bottom: vw(8, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(6, 414);
+  }
+}
+
+.digital-transformation__manufacturing-closing {
+  margin-bottom: vw(24);
+
+  @include media("tablet") {
+    margin-bottom: vw(20, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(16, 414);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+    margin-top: vw(32);
+
+    @include media("tablet") {
+      margin-top: vw(28, 768);
+    }
+
+    @include media("mobile") {
+      margin-top: vw-mobile(24, 414);
+    }
+  }
+}
+
+.digital-transformation__manufacturing-row,
+.digital-transformation__cybersecurity-row {
+  align-items: center;
+}
+
+// Pharma: paragraph stack
+.digital-transformation__pharma-text {
+  @include dt-body-text(#1e1e1e);
+  margin-bottom: vw(40);
+
+  @include media("tablet") {
+    margin-bottom: vw(20, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(16, 414);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 6–7. Green gradient: Enterprise + Business impact
+// ---------------------------------------------------------------------------
+.digital-transformation__enterprise,
+.digital-transformation__impact {
+  width: 100%;
+  background: linear-gradient(270deg, #08ae44 0%, #048131 100%);
+  position: relative;
+  overflow: visible;
+}
+
+.digital-transformation__enterprise-inner,
+.digital-transformation__impact-inner {
+  margin: 0 auto;
+  padding: vw(80) vw(100) vw(70);
+  position: relative;
+
+  @include media("tablet") {
+    padding: vw(60, 768) vw(40, 768) vw(120, 768);
+  }
+
+  @include media("mobile") {
+    padding: vw-mobile(40, 414) vw-mobile(20, 414) vw-mobile(100, 414);
+  }
+}
+
+.digital-transformation__impact-inner {
+  padding-bottom: vw(100);
+
+  @include media("tablet") {
+    padding-bottom: vw(100, 768);
+  }
+
+  @include media("mobile") {
+    padding-bottom: vw-mobile(88, 414);
+  }
+}
+
+.digital-transformation__enterprise-row,
+.digital-transformation__impact-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+
+  @include media-custom($min: 1024px, $max: 1440px) {
+    gap: vw(32, 1440);
+  }
+
+  @include media("tablet") {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: vw(36, 768);
+  }
+
+  @include media("mobile") {
+    gap: vw-mobile(28, 414);
+  }
+}
+
+.digital-transformation__enterprise-copy,
+.digital-transformation__impact-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.digital-transformation__enterprise-heading,
+.digital-transformation__impact-heading {
+  color: #fff;
+  @include dt-heading-typography;
+  margin: 0 0 vw(60);
+
+  @include media("tablet") {
+    margin-bottom: vw(24, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(20, 414);
+  }
+}
+
+.digital-transformation__enterprise-intro,
+.digital-transformation__impact-intro,
+.digital-transformation__impact-sublead {
+  @include dt-body-text(#fff, 500);
+}
+
+.digital-transformation__enterprise-footnote {
+  @include dt-body-text(#fff, 400);
+}
+
+.digital-transformation__enterprise-intro {
+  margin-bottom: vw(40);
+
+  @include media("tablet") {
+    margin-bottom: vw(20, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(16, 414);
+  }
+}
+
+.digital-transformation__impact-intro {
+  margin-bottom: vw(24);
+
+  @include media("tablet") {
+    margin-bottom: vw(20, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(16, 414);
+  }
+}
+
+.digital-transformation__impact-sublead {
+  margin-bottom: vw(24);
+  font-weight: 600;
+
+  @include media("tablet") {
+    margin-bottom: vw(20, 768);
+  }
+
+  @include media("mobile") {
+    margin-bottom: vw-mobile(16, 414);
+  }
+}
+
+.digital-transformation__enterprise-divider,
+.digital-transformation__impact-divider {
+  display: block;
+  width: 100%;
+  height: 0;
+  margin: vw(24) 0;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+
+  @include media("tablet") {
+    margin: vw(20, 768) 0;
+  }
+
+  @include media("mobile") {
+    margin: vw-mobile(16, 414) 0;
+  }
+}
+
+.digital-transformation__enterprise-list,
+.digital-transformation__impact-list {
+  color: #fff;
+  font-family: Inter, $font-family-base;
+  font-size: vw(22);
+  font-style: normal;
+  font-weight: 600;
+  line-height: vw(36);
+  list-style: none;
+  padding: 0;
+
+  @include media-custom($max: 1440px) {
+    font-size: vw-mobile(18, 1440);
+    line-height: vw-mobile(24, 1440);
+  }
+
+  @include media("tablet") {
+    font-size: vw(18, 768);
+    line-height: vw(28, 768);
+  }
+
+  @include media("mobile") {
+    font-size: vw-mobile(16, 414);
+    line-height: vw-mobile(24, 414);
+    margin-bottom: vw-mobile(16, 414);
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: vw(20);
+    margin-bottom: vw(30);
+
+    img{
+      filter: brightness(0) invert(1);
+    } 
+
+    @include media("tablet") {
+      margin-bottom: vw(22, 768);
+    }
+
+    @include media("mobile") {
+      margin-bottom: vw-mobile(18, 414);
+    }
+  }
+}
+
+.digital-transformation__impact-list--operations li span span {
+  font-weight: 400;
+}
+
+.digital-transformation__enterprise-footnote {
+  margin-top: vw(55);
+}
+
+.digital-transformation__enterprise-petal,
+.digital-transformation__impact-petal {
+  flex-shrink: 0;
+  width: vw(32);
+  height: vw(32);
+  margin-top: vw(4);
+  object-fit: contain;
+
+  @include media("tablet") {
+    width: vw(22, 768);
+    height: vw(22, 768);
+    margin-top: vw(4, 768);
+  }
+
+  @include media("mobile") {
+    width: vw-mobile(20, 414);
+    height: vw-mobile(20, 414);
+    margin-top: vw-mobile(3, 414);
+  }
+}
+
+.digital-transformation__enterprise-media,
+.digital-transformation__impact-media {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  width: vw(700);
+
+  @include media-custom($max: 1023px) {
+    width: vw(400, 1440);
+  }
+
+  @include media-custom($min: 1024px, $max: 1440px) {
+    width: vw(680, 1440);
+    max-width: 48%;
+  }
+
+  @include media("tablet") {
+    width: 100%;
+    max-width: vw(400, 768);
+    margin: 0 auto;
+  }
+
+  @include media("mobile") {
+    max-width: 100%;
+  }
+}
+
+.digital-transformation__enterprise-image,
+.digital-transformation__impact-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+// Enterprise: narrower body column under full-width title
+.digital-transformation__enterprise--compact-copy {
+  .digital-transformation__enterprise-intro,
+  .digital-transformation__enterprise-divider,
+  .digital-transformation__enterprise-list,
+  .digital-transformation__enterprise-footnote {
+    max-width: 80%;
+    box-sizing: border-box;
+
+    @include media("tablet") {
+      max-width: 100%;
+    }
+
+    @include media("mobile") {
+      max-width: 100%;
+    }
+  }
+}
+
+// Bottom SVG decoration (enterprise + impact)
+.digital-transformation__enterprise-decoration,
+.digital-transformation__impact-decoration {
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  left: auto;
+  bottom: 0;
+  width: auto;
+  pointer-events: none;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: right bottom;
+  }
+
+  @include media-custom($min: 1024px, $max: 1440px) {
+    width: vw(920);
+  }
+
+  @include media("tablet") {
+    left: vw(40, 768);
+  }
+
+  @include media("mobile") {
+    left: vw-mobile(20, 414);
+  }
+}
